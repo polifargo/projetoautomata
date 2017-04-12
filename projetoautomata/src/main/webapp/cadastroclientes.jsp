@@ -6,7 +6,7 @@
         <title>Entrada</title>
     </head>
     <body>
-        <div class="contato">
+        <div class="cliente">
             <h1>Cadastrar Cliente</h1>
             <div class="formulario">
                 <form action="cadastroclientes" method="post">
