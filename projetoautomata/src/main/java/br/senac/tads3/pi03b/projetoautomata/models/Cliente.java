@@ -5,16 +5,17 @@ package br.senac.tads3.pi03b.projetoautomata.models;
  * @author matheus_santo
  */
 public class Cliente {
-    private int id;
+
+    private long id;
     private String nome;
     private String tipo;
     private String cadastroNacional;
     private String endereco;
     private String email;
     private String telefone;
-    
-    public Cliente(int id, String nome, String tipo, String cadastroNacional,
-            String endereco, String email, String telefone){
+
+    public Cliente(long id, String nome, String tipo, String cadastroNacional,
+            String endereco, String email, String telefone) {
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
@@ -24,11 +25,21 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public int getId() {
+    public Cliente(String nome, String tipo, String cadastroNacional,
+            String endereco, String email, String telefone) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.cadastroNacional = cadastroNacional;
+        this.endereco = endereco;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

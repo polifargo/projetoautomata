@@ -6,7 +6,7 @@ package br.senac.tads3.pi03b.projetoautomata.models;
  */
 public class Produto {
 
-    private int id;
+    private long id;
     private String modelo;
     private int qtminima;
     private int qtmaxima;
@@ -14,7 +14,7 @@ public class Produto {
     private String tipo;
     private float valor;
 
-    public Produto(int id, String modelo, int qtminima, int qtmaxima, String unidade, String tipo, float valor) {
+    public Produto(long id, String modelo, int qtminima, int qtmaxima, String unidade, String tipo, float valor) {
         this.id = id;
         this.modelo = modelo;
         this.qtminima = qtminima;
@@ -24,11 +24,20 @@ public class Produto {
         this.valor = valor;
     }
 
-    public int getId() {
+    public Produto(String modelo, int qtminima, int qtmaxima, String unidade, String tipo, float valor) {
+        this.modelo = modelo;
+        this.qtminima = qtminima;
+        this.qtmaxima = qtmaxima;
+        this.unidade = unidade;
+        this.tipo = tipo;
+        this.valor = valor;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class Servico {
 
-    private int id;
+    private long id;
     private String descricao;
     private String tipo;
     private String tecnico;
@@ -16,7 +16,7 @@ public class Servico {
     private Date mediaHoras;
     private float valor;
 
-    public Servico(int id, String descricao, String tipo, String tecnico, Date mediaConclusao, Date mediaHoras, float valor) {
+    public Servico(long id, String descricao, String tipo, String tecnico, Date mediaConclusao, Date mediaHoras, float valor) {
         this.id = id;
         this.descricao = descricao;
         this.tipo = tipo;
@@ -26,11 +26,20 @@ public class Servico {
         this.valor = valor;
     }
 
-    public int getId() {
+    public Servico(String descricao, String tipo, String tecnico, Date mediaConclusao, Date mediaHoras, float valor) {
+        this.descricao = descricao;
+        this.tipo = tipo;
+        this.tecnico = tecnico;
+        this.mediaConclusao = mediaConclusao;
+        this.mediaHoras = mediaHoras;
+        this.valor = valor;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
