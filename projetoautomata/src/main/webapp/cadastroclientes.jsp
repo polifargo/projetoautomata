@@ -16,7 +16,7 @@
                     </div>
                     <div>
                         <label for="txtemail">Tipo</label>
-                        <input type="text" name="email" id="txttipo" />
+                        <input type="text" name="tipo" id="txttipo" />
                     </div>
                     <div>
                         <label for="txtcadastroNacional">CadastroNacional</label>
