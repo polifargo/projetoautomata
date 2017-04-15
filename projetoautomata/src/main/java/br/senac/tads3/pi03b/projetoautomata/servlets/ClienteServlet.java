@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathe
  */
-@WebServlet("/cliente")
+@WebServlet("/listaclientes")
 public class ClienteServlet extends HttpServlet {
 
     @Override
@@ -37,7 +37,7 @@ public class ClienteServlet extends HttpServlet {
 
         request.setAttribute("listaClientes", clientes);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("cliente.jsp");
+                = request.getRequestDispatcher("listaclientes.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (IOException ex) {

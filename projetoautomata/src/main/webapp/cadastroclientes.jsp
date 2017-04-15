@@ -19,8 +19,8 @@
                         <input type="text" name="email" id="txttipo" />
                     </div>
                     <div>
-                        <label for="txtcn">CadastroNacional</label>
-                        <input type="text" name="cn" id="txtcn" />
+                        <label for="txtcadastroNacional">CadastroNacional</label>
+                        <input type="text" name="cadastroNacional" id="txtcn" />
                     </div>
                     <div>
                         <label for="txtendereco">Endereço</label>

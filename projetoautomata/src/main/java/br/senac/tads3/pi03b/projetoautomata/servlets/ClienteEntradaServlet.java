@@ -35,7 +35,7 @@ public class ClienteEntradaServlet extends HttpServlet {
             throws ServletException, IOException {
         String nome = request.getParameter("nome");
         String tipo = request.getParameter("tipo");
-        String cn = request.getParameter("cn");
+        String cn = request.getParameter("cadastroNacional");
         String endereco = request.getParameter("endereco");
         String email = request.getParameter("email");
         String telefone = request.getParameter("telefone");
