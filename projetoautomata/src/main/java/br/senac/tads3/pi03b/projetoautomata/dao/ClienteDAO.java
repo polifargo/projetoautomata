@@ -23,7 +23,7 @@ public class ClienteDAO {
     public void inserir(Cliente cliente)
             throws SQLException, Exception {
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "INSERT INTO clientes (nome, tipo, cadastronacional, endereco, email, telefone) VALUES ('?', '?', '?', '?', '?', '?')";
+        String sql = "INSERT INTO clientes (nome, tipo, cadastronacional, endereco, email, telefone) VALUES (?, ?, ?, ?, ?, ?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de comandos SQL e fechamentos
