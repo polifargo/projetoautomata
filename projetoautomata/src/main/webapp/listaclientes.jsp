@@ -18,7 +18,7 @@
                     <th>Endereco</th>
                     <th>Email</th>
                     <th>Telefone</th>
-                    <th colspan="2">Action</th>
+                    <th colspan="2">Ação</th>
                 </tr>
             </thead>
             <tbody>
