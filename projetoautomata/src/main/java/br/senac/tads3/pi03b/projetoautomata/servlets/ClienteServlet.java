@@ -25,7 +25,6 @@ import javax.servlet.http.HttpServletResponse;
 public class ClienteServlet extends HttpServlet {
 
     private final ClienteDAO dao;
-    private static final long serialVersionUID = 1L;
     public static final String LISTA_CLIENTE = "/listaclientes.jsp";
     public static final String INSERT_OR_EDIT = "/cadastroclientes.jsp";
 

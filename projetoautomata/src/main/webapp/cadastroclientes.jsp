@@ -47,7 +47,7 @@
                                                                  placeholder="Telefone" />
                 </div>                                       
                 <div>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Salvar" />
                 </div>
             </fieldset>
         </form>

@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -119,8 +120,8 @@ public class ClienteDAO {
         }
     }
 
-    public ArrayList<Cliente> getListaClientes() {
-        ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+    public List<Cliente> getListaClientes() {
+        List<Cliente> listaClientes = new ArrayList<Cliente>();
         Connection connection = null;
         connection = ConnectionUtils.getConnection();
 

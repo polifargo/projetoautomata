@@ -16,5 +16,5 @@ public class MainConstant {
     //Usuário de conexão com o banco de dados
     public static final String DB_USER = "root";
     //Senha de conexão com o banco de dados
-    public static final String DB_PASS = "";
+    public static final String DB_PASS = "root";
 }
