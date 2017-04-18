@@ -29,6 +29,7 @@ public class ClienteServlet extends HttpServlet {
     public static final String INSERT_OR_EDIT = "/cadastroclientes.jsp";
 
     public ClienteServlet() {
+        super();
         dao = new ClienteDAO();
     }
 

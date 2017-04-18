@@ -6,7 +6,7 @@
 package br.senac.tads3.pi03b.projetoautomata.dao;
 
 import br.senac.tads3.pi03b.projetoautomata.models.Cliente;
-import br.senac.tads3.pi03b.projetoautomata.utils.ConnectionUtils;
+import br.senac.tads3.pi03b.projetoautomata.utils.DbUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,19 +21,19 @@ import java.util.List;
  */
 public class ClienteDAO {
 
+    private Connection connection;
+
+    public ClienteDAO() {
+        connection = DbUtil.getConnection();
+    }
+
     public void inserir(Cliente cliente)
             throws SQLException, Exception {
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
         String sql = "INSERT INTO clientes (nome, tipo, cadastronacional, endereco, email, telefone) VALUES (?, ?, ?, ?, ?, ?)";
-        //Conexão para abertura e fechamento
-        Connection connection = null;
-        //Statement para obtenção através da conexão, execução de comandos SQL e fechamentos
-        PreparedStatement preparedStatement = null;
+        //Cria um statement para execução de instruções SQL
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
-            //Abre uma conexão com o banco de dados
-            connection = ConnectionUtils.getConnection();
-            //Cria um statement para execução de instruções SQL
-            preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
             preparedStatement.setString(1, cliente.getNome());
             preparedStatement.setString(2, cliente.getTipo());
@@ -60,15 +60,9 @@ public class ClienteDAO {
             throws SQLException, Exception {
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
         String sql = "UPDATE clientes SET (nome, tipo, cadastronacional, endereco, email, telefone) VALUES (?, ?, ?, ?, ?, ?) WHERE id=?";
-        //Conexão para abertura e fechamento
-        Connection connection = null;
-        //Statement para obtenção através da conexão, execução de comandos SQL e fechamentos
-        PreparedStatement preparedStatement = null;
+        //Cria um statement para execução de instruções SQL
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
-            //Abre uma conexão com o banco de dados
-            connection = ConnectionUtils.getConnection();
-            //Cria um statement para execução de instruções SQL
-            preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
             preparedStatement.setString(1, cliente.getNome());
             preparedStatement.setString(2, cliente.getTipo());
@@ -95,15 +89,9 @@ public class ClienteDAO {
             throws SQLException, Exception {
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
         String sql = "DELETE FROM clientes WHERE id=?";
-        //Conexão para abertura e fechamento
-        Connection connection = null;
-        //Statement para obtenção através da conexão, execução de comandos SQL e fechamentos
-        PreparedStatement preparedStatement = null;
+        //Cria um statement para execução de instruções SQL
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
-            //Abre uma conexão com o banco de dados
-            connection = ConnectionUtils.getConnection();
-            //Cria um statement para execução de instruções SQL
-            preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
             preparedStatement.setInt(1, id);
             //Executa o comando no banco de dados
@@ -121,20 +109,15 @@ public class ClienteDAO {
     }
 
     public List<Cliente> getListaClientes() {
-        List<Cliente> listaClientes = new ArrayList<Cliente>();
-        Connection connection = null;
-        connection = ConnectionUtils.getConnection();
+        List<Cliente> listaClientes = new ArrayList<>();
 
         String query = "SELECT * FROM clientes ORDER BY nome";
-        Statement st;
-        ResultSet resultSet;
 
         try {
-            st = connection.createStatement();
-            resultSet = st.executeQuery(query);
-            Cliente cliente;
+            Statement st = connection.createStatement();
+            ResultSet resultSet = st.executeQuery(query);
             while (resultSet.next()) {
-                cliente = new Cliente();
+                Cliente cliente = new Cliente();
                 cliente.setId(resultSet.getInt("id"));
                 cliente.setNome(resultSet.getString("nome"));
                 cliente.setTipo(resultSet.getString("tipo"));
@@ -152,8 +135,6 @@ public class ClienteDAO {
 
     public Cliente getClienteById(int id) {
         Cliente cliente = new Cliente();
-        Connection connection = null;
-        connection = ConnectionUtils.getConnection();
         try {
             String query = "SELECT * FROM clientes WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
