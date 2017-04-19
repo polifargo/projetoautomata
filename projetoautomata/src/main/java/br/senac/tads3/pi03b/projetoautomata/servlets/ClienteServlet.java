@@ -26,8 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 public class ClienteServlet extends HttpServlet {
 
     private ClienteDAO dao;
-    public static final String LISTA_CLIENTE = "/listaclientes.jsp";
-    public static final String INSERT_OR_EDIT = "/cadastroclientes.jsp";
+    public static final String LISTA_CLIENTE = "/lista_clientes.jsp";
+    public static final String INSERT_OR_EDIT = "/cliente_cadastrar.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

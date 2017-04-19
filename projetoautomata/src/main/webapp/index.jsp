@@ -7,6 +7,8 @@
         <title>Welcome</title>
     </head>
     <body>
-        <jsp:forward page="ClienteServlet?action=listaClientes"></jsp:forward>
+        <a href="lista_clientes.jsp">Clientes</a>
+        <br/>
+        <a href="lista_produtos.jsp">Produtos</a>
     </body>
 </html>
