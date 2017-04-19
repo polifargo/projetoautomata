@@ -10,5 +10,11 @@
         <a href="lista_clientes.jsp">Clientes</a>
         <br/>
         <a href="lista_produtos.jsp">Produtos</a>
+        <br/>
+        <a href="lista_servicos.jsp">Servicos</a>
+        <br/>
+        <a href="lista_unidades.jsp">Unidades</a>
+        <br/>
+        <a href="lista_usuarios.jsp">Usuarios</a>   
     </body>
 </html>

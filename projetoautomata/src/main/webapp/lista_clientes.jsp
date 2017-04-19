@@ -43,6 +43,8 @@
         </table>
         <p>
             <a href="ClienteServlet?action=insert">Adicionar Cliente</a>
+            <br/>
+            <a href="index.jsp">Voltar</a>
         </p>
     </body>
 </html>

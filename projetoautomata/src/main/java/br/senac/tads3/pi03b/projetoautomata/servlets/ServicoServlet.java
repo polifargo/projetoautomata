@@ -5,10 +5,12 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.servlets;
 
-import br.senac.tads3.pi03b.projetoautomata.dao.ClienteDAO;
-import br.senac.tads3.pi03b.projetoautomata.models.Cliente;
+import br.senac.tads3.pi03b.projetoautomata.dao.ServicoDAO;
+import br.senac.tads3.pi03b.projetoautomata.models.Servico;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -20,20 +22,20 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author matheus_santo
+ * @author mathe
  */
-@WebServlet("/ClienteServlet")
-public class ClienteServlet extends HttpServlet {
+@WebServlet("/ServicoServlet")
+public class ServicoServlet extends HttpServlet {
 
-    private ClienteDAO dao;
-    public static final String LIST = "/lista_clientes.jsp";
-    public static final String INSERT_OR_EDIT = "/cliente_cadastrar.jsp";
+    private ServicoDAO dao;
+    public static final String LIST = "/lista_servicos.jsp";
+    public static final String INSERT_OR_EDIT = "/servico_cadastrar.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
         String action = request.getParameter("action");
-        dao = new ClienteDAO();
+        dao = new ServicoDAO();
         if (action.equalsIgnoreCase("delete")) {
             forward = LIST;
             int id = Integer.parseInt(request.getParameter("id"));
@@ -43,7 +45,7 @@ public class ClienteServlet extends HttpServlet {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                request.setAttribute("clientes", dao.getListaClientes());
+                request.setAttribute("servicos", dao.getListaServicos());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -52,21 +54,21 @@ public class ClienteServlet extends HttpServlet {
         } else if (action.equalsIgnoreCase("edit")) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
-            Cliente cliente = null;
+            Servico servico = null;
             try {
-                cliente = dao.getClienteById(id);
+                servico = dao.getServicoById(id);
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            request.setAttribute("cliente", cliente);
+            request.setAttribute("servico", servico);
         } else if (action.equalsIgnoreCase("insert")) {
             forward = INSERT_OR_EDIT;
         } else {
             forward = LIST;
             try {
-                request.setAttribute("clientes", dao.getListaClientes());
+                request.setAttribute("servicos", dao.getListaServicos());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -79,32 +81,34 @@ public class ClienteServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Cliente cliente = new Cliente();
-        cliente.setNome(request.getParameter("nome"));
-        cliente.setTipo(request.getParameter("tipo"));
-        cliente.setCadastroNacional(request.getParameter("cadastroNacional"));
-        cliente.setEndereco(request.getParameter("endereco"));
-        cliente.setEmail(request.getParameter("email"));
-        cliente.setTelefone(request.getParameter("telefone"));
+        DateFormat mediaConclusao = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat mediaHoras = new SimpleDateFormat("HH:mm");
+        Servico servico = new Servico();
+        servico.setDescricao(request.getParameter("descricao"));
+        servico.setTipo(request.getParameter("tipo"));
+        servico.setTecnico(request.getParameter("tecnico"));
+        servico.setMediaConclusao(request.getParameter("mediaConclusao"));
+        servico.setMediaHoras(request.getParameter("mediaHoras"));
+        servico.setValor(Float.parseFloat(request.getParameter("valor")));
         String id = request.getParameter("id");
-        dao = new ClienteDAO();
+        dao = new ServicoDAO();
         if (id == null || id.isEmpty()) {
             try {
-                dao.inserir(cliente);
+                dao.inserir(servico);
             } catch (Exception ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            cliente.setId(Integer.parseInt(id));
+            servico.setId(Integer.parseInt(id));
             try {
-                dao.alterar(cliente);
+                dao.alterar(servico);
             } catch (Exception ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
-            request.setAttribute("clientes", dao.getListaClientes());
+            request.setAttribute("servicos", dao.getListaServicos());
         } catch (SQLException ex) {
             Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

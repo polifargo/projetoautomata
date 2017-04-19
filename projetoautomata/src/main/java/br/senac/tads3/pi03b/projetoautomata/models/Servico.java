@@ -8,38 +8,19 @@ import java.util.Date;
  */
 public class Servico {
 
-    private long id;
+    private int id;
     private String descricao;
     private String tipo;
     private String tecnico;
-    private Date mediaConclusao;
-    private Date mediaHoras;
+    private String mediaConclusao;
+    private String mediaHoras;
     private float valor;
 
-    public Servico(long id, String descricao, String tipo, String tecnico, Date mediaConclusao, Date mediaHoras, float valor) {
-        this.id = id;
-        this.descricao = descricao;
-        this.tipo = tipo;
-        this.tecnico = tecnico;
-        this.mediaConclusao = mediaConclusao;
-        this.mediaHoras = mediaHoras;
-        this.valor = valor;
-    }
-
-    public Servico(String descricao, String tipo, String tecnico, Date mediaConclusao, Date mediaHoras, float valor) {
-        this.descricao = descricao;
-        this.tipo = tipo;
-        this.tecnico = tecnico;
-        this.mediaConclusao = mediaConclusao;
-        this.mediaHoras = mediaHoras;
-        this.valor = valor;
-    }
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -67,19 +48,19 @@ public class Servico {
         this.tipo = tipo;
     }
 
-    public Date getMediaConclusao() {
+    public String getMediaConclusao() {
         return mediaConclusao;
     }
 
-    public void setMediaConclusao(Date mediaConclusao) {
+    public void setMediaConclusao(String mediaConclusao) {
         this.mediaConclusao = mediaConclusao;
     }
 
-    public Date getMediaHoras() {
+    public String getMediaHoras() {
         return mediaHoras;
     }
 
-    public void setMediaHoras(Date mediaHoras) {
+    public void setMediaHoras(String mediaHoras) {
         this.mediaHoras = mediaHoras;
     }
 

@@ -5,7 +5,7 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.dao;
 
-import br.senac.tads3.pi03b.projetoautomata.models.Produto;
+import br.senac.tads3.pi03b.projetoautomata.models.Servico;
 import br.senac.tads3.pi03b.projetoautomata.utils.DbUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,27 +17,25 @@ import java.util.List;
 
 /**
  *
- * @author matheus.esanto1
+ * @author mathe
  */
-public class ProdutoDAO {
+public class ServicoDAO {
 
     private Connection connection;
 
-    public void inserir(Produto produto)
+    public void inserir(Servico servico)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
-
-        String sql = "INSERT INTO produtos (modelo, qtminima, qtmaxima, unidade, tipo, valor)"
+        String sql = "INSERT INTO servicos(descricao, tipo, tecnico, mediaConclusao, mediaHoras, valor)"
                 + "VALUES (?, ?, ?, ?, ?, ?)";
-
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
-            preparedStatement.setString(1, produto.getModelo());
-            preparedStatement.setInt(2, produto.getQtminima());
-            preparedStatement.setInt(3, produto.getQtmaxima());
-            preparedStatement.setString(4, produto.getUnidade());
-            preparedStatement.setString(5, produto.getTipo());
-            preparedStatement.setFloat(6, produto.getValor());
+            preparedStatement.setString(1, servico.getDescricao());
+            preparedStatement.setString(2, servico.getTipo());
+            preparedStatement.setString(3, servico.getTecnico());
+            preparedStatement.setString(4, servico.getMediaConclusao());
+            preparedStatement.setString(5, servico.getMediaHoras());
+            preparedStatement.setFloat(6, servico.getValor());
 
             preparedStatement.executeUpdate();
         } finally {
@@ -50,28 +48,25 @@ public class ProdutoDAO {
         }
     }
 
-    public void alterar(Produto produto)
+    public void alterar(Servico servico)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
-
-        String sql = "UPDATE produtos SET modelo=?, qtminima=?, qtmaxima=?, unidade=?, tipo=?, valor=?"
+        String sql = "UPDATE servicos SET descricao=?, tipo=?, tecnico=?, mediaConclusao=?, mediaHoras=?, valor=?"
                 + "WHERE id=?";
-
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
-            preparedStatement.setString(1, produto.getModelo());
-            preparedStatement.setInt(2, produto.getQtminima());
-            preparedStatement.setInt(3, produto.getQtmaxima());
-            preparedStatement.setString(4, produto.getUnidade());
-            preparedStatement.setString(5, produto.getTipo());
-            preparedStatement.setFloat(6, produto.getValor());
-            preparedStatement.setInt(7, produto.getId());
-
+            preparedStatement.setString(1, servico.getDescricao());
+            preparedStatement.setString(2, servico.getTipo());
+            preparedStatement.setString(3, servico.getTecnico());
+            preparedStatement.setString(4, servico.getMediaConclusao());
+            preparedStatement.setString(5, servico.getMediaHoras());
+            preparedStatement.setFloat(6, servico.getValor());
             preparedStatement.executeUpdate();
         } finally {
             if (preparedStatement != null && !preparedStatement.isClosed()) {
                 preparedStatement.close();
             }
+            //Se a conexão ainda estiver aberta, realiza seu fechamento
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
@@ -81,9 +76,8 @@ public class ProdutoDAO {
     public void excluir(int id)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
-        String sql = "DELETE FROM produtos WHERE id=?";
+        String sql = "DELETE FROM servicos WHERE id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
         try {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
@@ -97,48 +91,48 @@ public class ProdutoDAO {
         }
     }
 
-    public List<Produto> getListaProdutos() throws SQLException, ClassNotFoundException {
-        List<Produto> listaProdutos = new ArrayList<>();
+    public List<Servico> getListaServicos() throws SQLException, ClassNotFoundException {
+        List<Servico> listaServicos = new ArrayList<>();
         connection = DbUtil.getConnection();
-        String query = "SELECT * FROM produtos ORDER BY modelo";
+        String query = "SELECT * FROM servicos ORDER BY descricao";
 
         try {
             Statement st = connection.createStatement();
             ResultSet resultSet = st.executeQuery(query);
             while (resultSet.next()) {
-                Produto produto = new Produto();
-                produto.setId(resultSet.getInt("id"));
-                produto.setModelo(resultSet.getString("modelo"));
-                produto.setQtminima(resultSet.getInt("qtminima"));
-                produto.setQtmaxima(resultSet.getInt("qtmaxima"));
-                produto.setUnidade(resultSet.getString("unidade"));
-                produto.setTipo(resultSet.getString("tipo"));
-                produto.setValor(resultSet.getFloat("valor"));
-                listaProdutos.add(produto);
+                Servico servico = new Servico();
+                servico.setId(resultSet.getInt("id"));
+                servico.setDescricao(resultSet.getString("descricao"));
+                servico.setTipo(resultSet.getString("tipo"));
+                servico.setTecnico(resultSet.getString("tecnico"));
+                servico.setMediaConclusao(resultSet.getString("mediaConclusao"));
+                servico.setMediaHoras(resultSet.getString("mediaHoras"));
+                servico.setValor(resultSet.getFloat("valor"));
+                listaServicos.add(servico);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         connection.close();
-        return listaProdutos;
+        return listaServicos;
     }
 
-    public Produto getProdutoById(int id) throws SQLException, ClassNotFoundException {
-        Produto produto = new Produto();
+    public Servico getServicoById(int id) throws SQLException, ClassNotFoundException {
+        Servico servico = new Servico();
         connection = DbUtil.getConnection();
         try {
-            String query = "SELECT * FROM produtos WHERE id=?";
+            String query = "SELECT * FROM servicos WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                produto.setId(resultSet.getInt("id"));
-                produto.setModelo(resultSet.getString("modelo"));
-                produto.setQtminima(resultSet.getInt("qtminima"));
-                produto.setQtmaxima(resultSet.getInt("qtmaxima"));
-                produto.setUnidade(resultSet.getString("unidade"));
-                produto.setTipo(resultSet.getString("tipo"));
-                produto.setValor(resultSet.getFloat("valor"));
+                servico.setId(resultSet.getInt("id"));
+                servico.setDescricao(resultSet.getString("descricao"));
+                servico.setTipo(resultSet.getString("tipo"));
+                servico.setTecnico(resultSet.getString("tecnico"));
+                servico.setMediaConclusao(resultSet.getString("mediaConclusao"));
+                servico.setMediaHoras(resultSet.getString("mediaHoras"));
+                servico.setValor(resultSet.getFloat("valor"));
             }
             resultSet.close();
             preparedStatement.close();
@@ -146,6 +140,6 @@ public class ProdutoDAO {
             e.printStackTrace();
         }
         connection.close();
-        return produto;
+        return servico;
     }
 }
