@@ -8,6 +8,7 @@ package br.senac.tads3.pi03b.projetoautomata.servlets;
 import br.senac.tads3.pi03b.projetoautomata.dao.ClienteDAO;
 import br.senac.tads3.pi03b.projetoautomata.models.Cliente;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -24,20 +25,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ClienteServlet")
 public class ClienteServlet extends HttpServlet {
 
-    private final ClienteDAO dao;
+    private ClienteDAO dao;
     public static final String LISTA_CLIENTE = "/listaclientes.jsp";
     public static final String INSERT_OR_EDIT = "/cadastroclientes.jsp";
-
-    public ClienteServlet() {
-        super();
-        dao = new ClienteDAO();
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
         String action = request.getParameter("action");
-
+        dao = new ClienteDAO();
         if (action.equalsIgnoreCase("delete")) {
             forward = LISTA_CLIENTE;
             int id = Integer.parseInt(request.getParameter("id"));
@@ -46,17 +42,36 @@ public class ClienteServlet extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            request.setAttribute("clientes", dao.getListaClientes());
+            try {
+                request.setAttribute("clientes", dao.getListaClientes());
+            } catch (SQLException ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (action.equalsIgnoreCase("edit")) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
-            Cliente cliente = dao.getClienteById(id);
+            Cliente cliente = null;
+            try {
+                cliente = dao.getClienteById(id);
+            } catch (SQLException ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
             request.setAttribute("cliente", cliente);
         } else if (action.equalsIgnoreCase("insert")) {
             forward = INSERT_OR_EDIT;
         } else {
             forward = LISTA_CLIENTE;
-            request.setAttribute("clientes", dao.getListaClientes());
+            try {
+                request.setAttribute("clientes", dao.getListaClientes());
+            } catch (SQLException ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
@@ -67,12 +82,12 @@ public class ClienteServlet extends HttpServlet {
         Cliente cliente = new Cliente();
         cliente.setNome(request.getParameter("nome"));
         cliente.setTipo(request.getParameter("tipo"));
-        cliente.setCadastroNacional(request.getParameter("cadastronacional"));
+        cliente.setCadastroNacional(request.getParameter("cadastroNacional"));
         cliente.setEndereco(request.getParameter("endereco"));
         cliente.setEmail(request.getParameter("email"));
         cliente.setTelefone(request.getParameter("telefone"));
         String id = request.getParameter("id");
-
+        dao = new ClienteDAO();
         if (id == null || id.isEmpty()) {
             try {
                 dao.inserir(cliente);
@@ -88,7 +103,13 @@ public class ClienteServlet extends HttpServlet {
             }
         }
         RequestDispatcher view = request.getRequestDispatcher(LISTA_CLIENTE);
-        request.setAttribute("clientes", dao.getListaClientes());
+        try {
+            request.setAttribute("clientes", dao.getListaClientes());
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         view.forward(request, response);
     }
 

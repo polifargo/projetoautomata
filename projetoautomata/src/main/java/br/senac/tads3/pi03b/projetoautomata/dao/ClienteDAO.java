@@ -23,14 +23,12 @@ public class ClienteDAO {
 
     private Connection connection;
 
-    public ClienteDAO() {
-        connection = DbUtil.getConnection();
-    }
-
     public void inserir(Cliente cliente)
             throws SQLException, Exception {
+        connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "INSERT INTO clientes (nome, tipo, cadastronacional, endereco, email, telefone) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO clientes (nome, tipo, cadastronacional, endereco, email, telefone)"
+                + "VALUES (?, ?, ?, ?, ?, ?)";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
@@ -58,8 +56,10 @@ public class ClienteDAO {
 
     public void alterar(Cliente cliente)
             throws SQLException, Exception {
+        connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "UPDATE clientes SET (nome, tipo, cadastronacional, endereco, email, telefone) VALUES (?, ?, ?, ?, ?, ?) WHERE id=?";
+        String sql = "UPDATE clientes SET nome=?, tipo=?, cadastronacional=?, endereco=?, email=?, telefone=?"
+                + "WHERE id=?";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
@@ -87,6 +87,7 @@ public class ClienteDAO {
 
     public void excluir(int id)
             throws SQLException, Exception {
+        connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
         String sql = "DELETE FROM clientes WHERE id=?";
         //Cria um statement para execução de instruções SQL
@@ -108,9 +109,9 @@ public class ClienteDAO {
         }
     }
 
-    public List<Cliente> getListaClientes() {
+    public List<Cliente> getListaClientes() throws SQLException, ClassNotFoundException {
         List<Cliente> listaClientes = new ArrayList<>();
-
+        connection = DbUtil.getConnection();
         String query = "SELECT * FROM clientes ORDER BY nome";
 
         try {
@@ -130,11 +131,13 @@ public class ClienteDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return listaClientes;
     }
 
-    public Cliente getClienteById(int id) {
+    public Cliente getClienteById(int id) throws SQLException, ClassNotFoundException {
         Cliente cliente = new Cliente();
+        connection = DbUtil.getConnection();
         try {
             String query = "SELECT * FROM clientes WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -154,6 +157,7 @@ public class ClienteDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        connection.close();
         return cliente;
     }
 }

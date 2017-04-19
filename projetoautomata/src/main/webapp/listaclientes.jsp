@@ -28,7 +28,7 @@
                         <td><c:out value="${cliente.id}" /></td>
                         <td><c:out value="${cliente.nome}" /></td>
                         <td><c:out value="${cliente.tipo}" /></td>
-                        <td><c:out value="${cliente.cadastronacional}" /></td>
+                        <td><c:out value="${cliente.cadastroNacional}" /></td>
                         <td><c:out value="${cliente.endereco}" /></td>
                         <td><c:out value="${cliente.email}" /></td>
                         <td><c:out value="${cliente.telefone}" /></td>

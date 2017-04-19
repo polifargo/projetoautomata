@@ -5,13 +5,9 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.utils;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 /**
  *
@@ -19,27 +15,17 @@ import java.util.Properties;
  */
 public class DbUtil {
 
-    private static Connection connection = null;
+    public static Connection getConnection() throws SQLException, ClassNotFoundException {
+        Connection conn = null;
 
-    public static Connection getConnection() {
-        if (connection != null) {
-            return connection;
-        } else {
-            try {
-                Properties prop = new Properties();
-                InputStream inputStream = DbUtil.class.getClassLoader().getResourceAsStream("/db.properties");
-                prop.load(inputStream);
-                String driver = prop.getProperty("com.mysql.jdbc.Driver");
-                String url = prop.getProperty("jdbc:mysql://localhost:3306/automata?zeroDateTimeBehavior=convertToNull");
-                String user = prop.getProperty("root");
-                String password = prop.getProperty("root");
-                Class.forName(driver);
-                connection = DriverManager.getConnection(url, user, password);
-            } catch (ClassNotFoundException | SQLException | IOException e) {
-                e.printStackTrace();
-            }
-            return connection;
-        }
+        // Passo 1: Registrar o driver JDBC
+        Class.forName("com.mysql.jdbc.Driver");
 
+        // Passo 2: Abrir a conexão
+        conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/automata?zeroDateTimeBehavior=convertToNull",
+                "root", // usuário BD
+                "root"); // senha BD
+        return conn;
     }
 }
