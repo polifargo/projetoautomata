@@ -13,7 +13,7 @@ public class Servico {
     private String tipo;
     private String tecnico;
     private String mediaConclusao;
-    private String mediaHoras;
+    private int mediaHoras;
     private float valor;
 
     public int getId() {
@@ -56,11 +56,11 @@ public class Servico {
         this.mediaConclusao = mediaConclusao;
     }
 
-    public String getMediaHoras() {
+    public int getMediaHoras() {
         return mediaHoras;
     }
 
-    public void setMediaHoras(String mediaHoras) {
+    public void setMediaHoras(int mediaHoras) {
         this.mediaHoras = mediaHoras;
     }
 

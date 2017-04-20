@@ -5,12 +5,10 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.servlets;
 
-import br.senac.tads3.pi03b.projetoautomata.dao.ServicoDAO;
-import br.senac.tads3.pi03b.projetoautomata.models.Servico;
+import br.senac.tads3.pi03b.projetoautomata.dao.UnidadeDAO;
+import br.senac.tads3.pi03b.projetoautomata.models.Unidade;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -24,18 +22,18 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathe
  */
-@WebServlet("/ServicoServlet")
-public class ServicoServlet extends HttpServlet {
+@WebServlet("/UnidadeServlet")
+public class UnidadeServlet extends HttpServlet {
 
-    private ServicoDAO dao;
-    public static final String LIST = "/lista_servicos.jsp";
-    public static final String INSERT_OR_EDIT = "/servico_cadastrar.jsp";
+    private UnidadeDAO dao;
+    public static final String LIST = "/lista_unidades.jsp";
+    public static final String INSERT_OR_EDIT = "/unidade_cadastrar.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
         String action = request.getParameter("action");
-        dao = new ServicoDAO();
+        dao = new UnidadeDAO();
         if (action.equalsIgnoreCase("delete")) {
             forward = LIST;
             int id = Integer.parseInt(request.getParameter("id"));
@@ -45,7 +43,7 @@ public class ServicoServlet extends HttpServlet {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                request.setAttribute("servicos", dao.getListaServicos());
+                request.setAttribute("unidades", dao.getListaUnidades());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -54,21 +52,21 @@ public class ServicoServlet extends HttpServlet {
         } else if (action.equalsIgnoreCase("edit")) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
-            Servico servico = null;
+            Unidade unidade = null;
             try {
-                servico = dao.getServicoById(id);
+                unidade = dao.getUnidadeById(id);
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            request.setAttribute("servico", servico);
+            request.setAttribute("unidade", unidade);
         } else if (action.equalsIgnoreCase("insert")) {
             forward = INSERT_OR_EDIT;
         } else {
             forward = LIST;
             try {
-                request.setAttribute("servicos", dao.getListaServicos());
+                request.setAttribute("unidades", dao.getListaUnidades());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -81,34 +79,30 @@ public class ServicoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DateFormat mediaConclusao = new SimpleDateFormat("dd/MM/yyyy");
-        DateFormat mediaHoras = new SimpleDateFormat("HH:mm");
-        Servico servico = new Servico();
-        servico.setDescricao(request.getParameter("descricao"));
-        servico.setTipo(request.getParameter("tipo"));
-        servico.setTecnico(request.getParameter("tecnico"));
-        servico.setMediaConclusao(request.getParameter("mediaConclusao"));
-        servico.setMediaHoras(Integer.parseInt(request.getParameter("mediaHoras")));
-        servico.setValor(Float.parseFloat(request.getParameter("valor")));
+        Unidade unidade = new Unidade();
+        unidade.setEndereco(request.getParameter("endereco"));
+        unidade.setNome(request.getParameter("nome"));
+        unidade.setRazao(request.getParameter("razao"));
+        unidade.setCadastroNacional(request.getParameter("cadastroNacional"));
         String id = request.getParameter("id");
-        dao = new ServicoDAO();
+        dao = new UnidadeDAO();
         if (id == null || id.isEmpty()) {
             try {
-                dao.inserir(servico);
+                dao.inserir(unidade);
             } catch (Exception ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            servico.setId(Integer.parseInt(id));
+            unidade.setId(Integer.parseInt(id));
             try {
-                dao.alterar(servico);
+                dao.alterar(unidade);
             } catch (Exception ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
-            request.setAttribute("servicos", dao.getListaServicos());
+            request.setAttribute("unidades", dao.getListaUnidades());
         } catch (SQLException ex) {
             Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

@@ -34,7 +34,7 @@ public class ServicoDAO {
             preparedStatement.setString(2, servico.getTipo());
             preparedStatement.setString(3, servico.getTecnico());
             preparedStatement.setString(4, servico.getMediaConclusao());
-            preparedStatement.setString(5, servico.getMediaHoras());
+            preparedStatement.setInt(5, servico.getMediaHoras());
             preparedStatement.setFloat(6, servico.getValor());
 
             preparedStatement.executeUpdate();
@@ -59,7 +59,7 @@ public class ServicoDAO {
             preparedStatement.setString(2, servico.getTipo());
             preparedStatement.setString(3, servico.getTecnico());
             preparedStatement.setString(4, servico.getMediaConclusao());
-            preparedStatement.setString(5, servico.getMediaHoras());
+            preparedStatement.setInt(5, servico.getMediaHoras());
             preparedStatement.setFloat(6, servico.getValor());
             preparedStatement.executeUpdate();
         } finally {
@@ -106,7 +106,7 @@ public class ServicoDAO {
                 servico.setTipo(resultSet.getString("tipo"));
                 servico.setTecnico(resultSet.getString("tecnico"));
                 servico.setMediaConclusao(resultSet.getString("mediaConclusao"));
-                servico.setMediaHoras(resultSet.getString("mediaHoras"));
+                servico.setMediaHoras(resultSet.getInt("mediaHoras"));
                 servico.setValor(resultSet.getFloat("valor"));
                 listaServicos.add(servico);
             }
@@ -131,7 +131,7 @@ public class ServicoDAO {
                 servico.setTipo(resultSet.getString("tipo"));
                 servico.setTecnico(resultSet.getString("tecnico"));
                 servico.setMediaConclusao(resultSet.getString("mediaConclusao"));
-                servico.setMediaHoras(resultSet.getString("mediaHoras"));
+                servico.setMediaHoras(resultSet.getInt("mediaHoras"));
                 servico.setValor(resultSet.getFloat("valor"));
             }
             resultSet.close();

@@ -15,7 +15,7 @@ CREATE TABLE servicos (
     tipo VARCHAR(255),
     tecnico VARCHAR(255),
     mediaConclusao VARCHAR(14),
-    mediaHoras VARCHAR(14),
+    mediaHoras INT,
     valor FLOAT,
     PRIMARY KEY (ID)
 );
@@ -24,10 +24,19 @@ CREATE TABLE servicos (
 CREATE TABLE produtos (
     ID INT NOT NULL AUTO_INCREMENT,
     modelo VARCHAR(255) NOT NULL,
-    qtminima INTEGER,
-    qtmaxima INTEGER,
+    qtminima INT,
+    qtmaxima INT,
     unidade VARCHAR(255),
     tipo VARCHAR(255),
     valor FLOAT,
+    PRIMARY KEY (ID)
+);
+
+CREATE TABLE unidades (
+    ID INT NOT NULL AUTO_INCREMENT,
+    endereco VARCHAR(255) NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    razao VARCHAR(255),
+    cadastronacional VARCHAR(255),
     PRIMARY KEY (ID)
 );

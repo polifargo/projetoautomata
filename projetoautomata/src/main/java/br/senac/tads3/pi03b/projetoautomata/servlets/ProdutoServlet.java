@@ -28,7 +28,7 @@ public class ProdutoServlet extends HttpServlet {
     private ProdutoDAO dao;
     public static final String LIST = "/lista_produtos.jsp";
     public static final String INSERT_OR_EDIT = "/produto_cadastrar.jsp";
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";

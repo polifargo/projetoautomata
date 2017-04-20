@@ -6,32 +6,17 @@ package br.senac.tads3.pi03b.projetoautomata.models;
  */
 public class Unidade {
 
-    private long id;
+    private int id;
     private String endereco;
     private String nome;
     private String razao;
     private String cadastroNacional;
 
-    public Unidade(long id, String endereco, String nome, String razao, String cadastroNacional) {
-        this.id = id;
-        this.endereco = endereco;
-        this.nome = nome;
-        this.razao = razao;
-        this.cadastroNacional = cadastroNacional;
-    }
-
-    public Unidade(String endereco, String nome, String razao, String cadastroNacional) {
-        this.endereco = endereco;
-        this.nome = nome;
-        this.razao = razao;
-        this.cadastroNacional = cadastroNacional;
-    }
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
