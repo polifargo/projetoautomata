@@ -6,32 +6,17 @@ package br.senac.tads3.pi03b.projetoautomata.models;
  */
 public class Usuario {
 
-    private long id;
+    private int id;
     private String nome;
     private String login;
     private String senha;
     private String email;
 
-    public Usuario(long id, String nome, String login, String senha, String email) {
-        this.id = id;
-        this.nome = nome;
-        this.login = login;
-        this.senha = senha;
-        this.email = email;
-    }
-
-    public Usuario(String nome, String login, String senha, String email) {
-        this.nome = nome;
-        this.login = login;
-        this.senha = senha;
-        this.email = email;
-    }
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

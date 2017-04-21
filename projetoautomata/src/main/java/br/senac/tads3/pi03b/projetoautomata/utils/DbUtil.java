@@ -23,7 +23,7 @@ public class DbUtil {
 
         // Passo 2: Abrir a conexão
         conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/automata?zeroDateTimeBehavior=convertToNull",
+                "jdbc:mysql://localhost:3306/automata?zeroDateTimeBehavior=convertToNull&useSSL=false",
                 "root", // usuário BD
                 "root"); // senha BD
         return conn;

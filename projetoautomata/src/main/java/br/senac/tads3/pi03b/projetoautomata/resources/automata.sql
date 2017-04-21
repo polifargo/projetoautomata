@@ -40,3 +40,14 @@ CREATE TABLE unidades (
     cadastronacional VARCHAR(255),
     PRIMARY KEY (ID)
 );
+
+CREATE TABLE usuarios (
+    ID INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    login VARCHAR(20) NOT NULL,
+    senha VARCHAR(20) NOT NULL,
+    email VARCHAR(255),
+    PRIMARY KEY (ID)
+);
+
+insert into usuarios values (1, 'Administrador', 'admin', 'admin', 'admin@automata.com');
