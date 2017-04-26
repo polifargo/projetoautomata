@@ -10,39 +10,39 @@
     </head>
     <body>
         <form action="usuarios" method="post">
-            <fieldset>
-                <div>
-                    <label for="usuarioid">Usuario ID</label> <input type="text"
-                                                                     name="id" value="<c:out value="${usuario.id}" />"
-                                                                     readonly="readonly" placeholder="Usuario ID" />
+            <fieldset class="form-group">
+                <div class="form-group row">
+                    <label for="usuarioid">Usuario ID</label>
+                    <input class="form-control" type="text"
+                           name="id" value="<c:out value="${usuario.id}" />"
+                           readonly="readonly" placeholder="Usuario ID" />
                 </div>
-                
-                <div>
-                    <label for="usuarionome">Nome</label> <input type="text"
-                                                                     name="nome" value="<c:out value="${usuario.nome}" />"
-                                                                     placeholder="Nome" />
+                <div class="form-group row">
+                    <label for="usuarionome">Nome</label>
+                    <input class="form-control" type="text"
+                           name="nome" value="<c:out value="${usuario.nome}" />"
+                           placeholder="Nome" />
                 </div>
-                
-                <div>
-                    <label for="usuariologin">Login</label> <input type="text"
-                                                                     name="login" value="<c:out value="${usuario.login}" />"
-                                                                     placeholder="Login" />
+                <div class="form-group row">
+                    <label for="usuariologin">Login</label>
+                    <input class="form-control" type="text"
+                           name="login" value="<c:out value="${usuario.login}" />"
+                           placeholder="Login" />
                 </div>
-                
-                <div>
-                    <label for="usuariosenha">Senha</label> <input type="text"
-                                                                     name="senha" value="<c:out value="${usuario.senha}" />"
-                                                                     placeholder="Senha" />
+                <div class="form-group row">
+                    <label for="usuariosenha">Senha</label> 
+                    <input class="form-control" type="text"
+                           name="senha" value="<c:out value="${usuario.senha}" />"
+                           placeholder="Senha" />
                 </div>
-                
-                <div>
-                    <label for="usuarioemail">Email</label> <input type="text"
-                                                                     name="email" value="<c:out value="${usuario.email}" />"
-                                                                     placeholder="Email" />
+                <div class="form-group row">
+                    <label for="usuarioemail">Email</label>
+                    <input class="form-control" type="text"
+                           name="email" value="<c:out value="${usuario.email}" />"
+                           placeholder="Email" />
                 </div>
-                
-                <div>
-                    <input type="submit" value="Salvar" />
+                <div class="form-group row">
+                    <input class="form-control" type="submit" value="Salvar" />
                 </div>
             </fieldset>
         </form>

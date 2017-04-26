@@ -6,56 +6,64 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <link rel="stylesheet" type="text/css" href="listaform.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="description" content="">
         <title>Adicionar Produto</title>
+        <link href="css/listaform.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="css/estilos.css" rel="stylesheet" />
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <form action="produtos" method="post">
-            <fieldset>
-                <div>
-                    <label for="produtoid">Produto ID</label> <input type="text"
-                                                                     name="id" value="<c:out value="${produto.id}" />"
-                                                                     readonly="readonly" placeholder="Produto ID" />
+            <fieldset class="form-group">
+                <div class="form-group row" >
+                    <label for="produtoid">Produto ID</label> 
+                    <input  class="form-control" type="text"
+                            name="id" value="<c:out value="${produto.id}" />"
+                            readonly="readonly" placeholder="Produto ID" />
                 </div>
-
-                <div>
-                    <label for="produtomodelo">Modelo</label> <input type="text"
-                                                                     name="modelo" value="<c:out value="${produto.modelo}" />"
-                                                                     placeholder="Modelo" />
+                <div class="form-group row" >
+                    <label for="produtomodelo">Modelo</label>
+                    <input class="form-control" type="text"
+                           name="modelo" value="<c:out value="${produto.modelo}" />"
+                           placeholder="Modelo" />
                 </div>
-
-                <div>
-                    <label for="produtoqtminima">Qt. Mínima</label> <input type="text"
-                                                                           name="qtminima" value="<c:out value="${produto.qtminima}" />"
-                                                                           placeholder="Qt. Mínima" />
+                <div  class="form-group row">
+                    <label for="produtoqtminima">Qt. Mínima</label> 
+                    <input class="form-control" type="text"
+                           name="qtminima" value="<c:out value="${produto.qtminima}" />"
+                           placeholder="Qt. Mínima" />
                 </div>
-
-                <div>
-                    <label for="produtoqtmaxima">Qt. Máxima</label> <input type="text"
-                                                                           name="qtmaxima" value="<c:out value="${produto.qtmaxima}" />"
-                                                                           placeholder="Qt. Máxima" />
+                <div class="form-group row">
+                    <label for="produtoqtmaxima">Qt. Máxima</label> 
+                    <input class="form-control" type="text"
+                           name="qtmaxima" value="<c:out value="${produto.qtmaxima}" />"
+                           placeholder="Qt. Máxima" />
                 </div>
-
-                <div>
-                    <label for="produtounidade">Unidade</label> <input type="text"
-                                                                       name="unidade" value="<c:out value="${produto.unidade}" />"
-                                                                       placeholder="Unidade" />
+                <div class="form-group row">
+                    <label for="produtounidade">Unidade</label> 
+                    <input class="form-control" type="text"
+                           name="unidade" value="<c:out value="${produto.unidade}" />"
+                           placeholder="Unidade" />
                 </div>
-
-                <div>
-                    <label for="produtotipo">Tipo</label> <input type="text"
-                                                                 name="tipo" value="<c:out value="${produto.tipo}" />"
-                                                                 placeholder="Tipo" />
+                <div class="form-group row">
+                    <label for="produtotipo">Tipo</label> 
+                    <input class="form-control" type="text"
+                           name="tipo" value="<c:out value="${produto.tipo}" />"
+                           placeholder="Tipo" />
+                </div >
+                <div class="form-group row">
+                    <label for="produtovalor">Valor</label> 
+                    <input class="form-control" type="text"
+                           name="valor" value="<c:out value="${produto.valor}" />"
+                           placeholder="Valor" />
                 </div>
-
-                <div>
-                    <label for="produtovalor">Valor</label> <input type="text"
-                                                                   name="valor" value="<c:out value="${produto.valor}" />"
-                                                                   placeholder="Valor" />
-                </div>
-
-                <div>
-                    <input type="submit" value="Salvar" />
+                <div class="form-group row">
+                    <input class="form-control" type="submit" value="Salvar" />
                 </div>
             </fieldset>
         </form>

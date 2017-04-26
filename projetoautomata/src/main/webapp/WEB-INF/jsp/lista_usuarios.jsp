@@ -7,40 +7,47 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/listaform.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="description" content="">
         <title>Usuarios</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="css/estilos.css" rel="stylesheet" />
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        <table>
-            <thead>
-                <tr>
-                    <th>Usuario ID</th>
-                    <th>Nome</th>
-                    <th>Login</th>
-                    <th>Senha</th>
-                    <th>Email</th>
-                    <th colspan="2">Ação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${usuarios}" var="usuario">
-                    <tr>
-                        <td><c:out value="${usuario.id}" /></td>
-                        <td><c:out value="${usuario.nome}" /></td>
-                        <td><c:out value="${usuario.login}" /></td>
-                        <td><c:out value="${usuario.senha}" /></td>
-                        <td><c:out value="${usuario.email}" /></td>
-                        <td><a
-                                href="usuarios?action=edit&id=<c:out value="${usuario.id}"/>">Atualizar</a></td>
-                        <td><a
-                                href="usuarios?action=delete&id=<c:out value="${usuario.id}"/>">Excluir</a></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-        <p>
-            <a href="usuarios?action=insert">Adicionar Usuario</a>
-            <br/>
-            <a href="index.jsp">Voltar</a>
-        </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Usuarios cadastrados</h2>
+                    <table class="table">
+                        <tr>
+                            <th>Usuario ID</th>
+                            <th>Nome</th>
+                            <th>Login</th>
+                            <th>Senha</th>
+                            <th>Email</th>
+                            <th colspan="2">Ação</th>
+                        </tr>
+                        <c:forEach items="${usuarios}" var="usuario">
+                            <tr>
+                                <td><c:out value="${usuario.id}" /></td>
+                                <td><c:out value="${usuario.nome}" /></td>
+                                <td><c:out value="${usuario.login}" /></td>
+                                <td><c:out value="${usuario.senha}" /></td>
+                                <td><c:out value="${usuario.email}" /></td>
+                                <td><a
+                                        href="usuarios?action=edit&id=<c:out value="${usuario.id}"/>">Atualizar</a></td>
+                                <td><a
+                                        href="usuarios?action=delete&id=<c:out value="${usuario.id}"/>">Excluir</a></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                    <a href="usuarios?action=insert">Adicionar Usuario</a>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

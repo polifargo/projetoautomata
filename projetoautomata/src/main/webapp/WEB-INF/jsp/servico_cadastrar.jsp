@@ -7,55 +7,64 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <link rel="stylesheet" type="text/css" href="css/listaform.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="description" content="">
         <title>Adicionar Servico</title>
+        <link href="css/listaform.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="css/estilos.css" rel="stylesheet" />
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <form action="servicos" method="post">
-            <fieldset>
-                <div>
-                    <label for="servicoid">Servico ID</label> <input type="text"
-                                                                     name="id" value="<c:out value="${servico.id}" />"
-                                                                     readonly="readonly" placeholder="Servico ID" />
+            <fieldset class="form-group">
+                <div class="form-group row">
+                    <label for="servicoid">Servico ID</label> 
+                    <input class="form-control" type="text"
+                           name="id" value="<c:out value="${servico.id}" />"
+                           readonly="readonly" placeholder="Servico ID" />
                 </div>
-
-                <div>
-                    <label for="servicodescricao">Descrição</label> <input type="text"
-                                                                           name="descricao" value="<c:out value="${servico.descricao}" />"
-                                                                           placeholder="Descrição" />
+                <div class="form-group row">
+                    <label for="servicodescricao">Descrição</label> 
+                    <input class="form-control" type="text"
+                           name="descricao" value="<c:out value="${servico.descricao}" />"
+                           placeholder="Descrição" />
                 </div>
-
-                <div>
-                    <label for="servicotipo">Tipo</label> <input type="text"
-                                                                 name="tipo" value="<c:out value="${servico.tipo}" />"
-                                                                 placeholder="Tipo" />
+                <div class="form-group row">
+                    <label for="servicotipo">Tipo</label>
+                    <input class="form-control" type="text"
+                           name="tipo" value="<c:out value="${servico.tipo}" />"
+                           placeholder="Tipo" />
                 </div>
-
-                <div>
-                    <label for="servicotecnico">Tecnico</label> <input type="text"
-                                                                       name="tecnico" value="<c:out value="${servico.tecnico}" />"
-                                                                       placeholder="Tecnico" />
+                <div class="form-group row">
+                    <label for="servicotecnico">Tecnico</label> 
+                    <input class="form-control" type="text"
+                           name="tecnico" value="<c:out value="${servico.tecnico}" />"
+                           placeholder="Tecnico" />
                 </div>
-
-                <div>
-                    <label for="servicomediaconclusao">Media Conclusao</label> <input type="date"
-                                                                                      name="mediaConclusao" value="<c:out value="${servico.mediaConclusao}" />"
-                                                                                      placeholder="Media Conclusao" />
+                <div class="form-group row">
+                    <label for="servicomediaconclusao">Media Conclusao</label> 
+                    <input class="form-control" type="date"
+                           name="mediaConclusao" value="<c:out value="${servico.mediaConclusao}" />"
+                           placeholder="Media Conclusao" />
                 </div>
-
-                <div>
-                    <label for="servicomediahoras">Media Horas</label> <input type="text"
-                                                                              name="mediaHoras" value="<c:out value="${servico.mediaHoras}" />"
-                                                                              placeholder="Media Horas" />
+                <div class="form-group row">
+                    <label for="servicomediahoras">Media Horas</label>
+                    <input class="form-control" type="text"
+                           name="mediaHoras" value="<c:out value="${servico.mediaHoras}" />"
+                           placeholder="Media Horas" />
                 </div>
-
-                <div>
-                    <label for="servicovalor">Valor</label> <input type="text"
-                                                                   name="valor" value="<c:out value="${servico.valor}" />"
-                                                                   placeholder="Valor" />
+                <div class="form-group row">
+                    <label for="servicovalor">Valor</label> 
+                    <input class="form-control" type="text"
+                           name="valor" value="<c:out value="${servico.valor}" />"
+                           placeholder="Valor" />
                 </div>
-
-                <div>
-                    <input type="submit" value="Salvar" />
+                <div class="form-group row">
+                    <input class="form-control" type="submit" value="Salvar" />
                 </div>
             </fieldset>
         </form>

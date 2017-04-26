@@ -5,7 +5,6 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.dao;
 
-import br.senac.tads3.pi03b.projetoautomata.models.Unidade;
 import br.senac.tads3.pi03b.projetoautomata.models.Usuario;
 import br.senac.tads3.pi03b.projetoautomata.utils.DbUtil;
 import java.sql.Connection;
@@ -14,7 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -23,7 +24,7 @@ import java.util.List;
 public class UsuarioDAO {
 
     private Connection connection;
-
+    
     public void inserir(Usuario usuario)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
@@ -110,7 +111,6 @@ public class UsuarioDAO {
         List<Usuario> listaUsuarios = new ArrayList<>();
         connection = DbUtil.getConnection();
         String query = "SELECT * FROM usuarios ORDER BY nome";
-
         try {
             Statement st = connection.createStatement();
             ResultSet resultSet = st.executeQuery(query);

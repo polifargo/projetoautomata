@@ -5,44 +5,53 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/listaform.css" />
+        <link rel="stylesheet" type="text/css" href="css/listaform.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="description" content="">
         <title>Adicionar Venda</title>
+        <link href="css/listaform.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="css/estilos.css" rel="stylesheet" />
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <form action="venda" method="post">
-            <fieldset>
-                <div>
-                    <label for="vendaid">Venda ID</label> <input type="text"
-                                                                     name="id" value="<c:out value="${venda.id}" />"
-                                                                     readonly="readonly" placeholder="Venda ID" />
+            <fieldset class="form-group">
+                <div class="form-group row">
+                    <label for="vendaid">Venda ID</label>
+                    <input class="form-control" type="text"
+                           name="id" value="<c:out value="${venda.id}" />"
+                           readonly="readonly" placeholder="Venda ID" />
                 </div>
-                
-                <div>
-                    <label for="vendacliente">Cliente</label> <input type="text"
-                                                                     name="cliente" value="<c:out value="${venda.cliente}" />"
-                                                                     placeholder="Cliente" />
+                <div class="form-group row">
+                    <label for="vendacliente">Cliente</label>
+                    <input class="form-control" type="text"
+                           name="cliente" value="<c:out value="${venda.cliente}" />"
+                           placeholder="Cliente" />
                 </div>
-                
-                <div>
-                    <label for="vendatecnico">Tecnico</label> <input type="text"
-                                                                     name="tecnico" value="<c:out value="${venda.tecnico}" />"
-                                                                     placeholder="Tecnico" />
+                <div class="form-group row">
+                    <label for="vendatecnico">Tecnico</label> 
+                    <input class="form-control" type="text"
+                           name="tecnico" value="<c:out value="${venda.tecnico}" />"
+                           placeholder="Tecnico" />
                 </div>
-                
-                <div>
-                    <label for="vendaunidade">Unidade</label> <input type="text"
-                                                                     name="unidade" value="<c:out value="${venda.unidade}" />"
-                                                                     placeholder="Unidade" />
+                <div class="form-group row">
+                    <label for="vendaunidade">Unidade</label>
+                    <input class="form-control" type="text"
+                           name="unidade" value="<c:out value="${venda.unidade}" />"
+                           placeholder="Unidade" />
                 </div>
-                
-                <div>
-                    <label for="vendavalor">Valor</label> <input type="text"
-                                                                     name="valor" value="<c:out value="${venda.valor}" />"
-                                                                     readonly="readonly" placeholder="Valor" />
+                <div class="form-group row">
+                    <label for="vendavalor">Valor</label> 
+                    <input class="form-control" type="text"
+                           name="valor" value="<c:out value="${venda.valor}" />"
+                           readonly="readonly" placeholder="Valor" />
                 </div>
-                
-                <div>
-                    <input type="submit" value="Salvar" />
+                <div class="form-group row">
+                    <input class="form-control" type="submit" value="Salvar" />
                 </div>
             </fieldset>
         </form>
