@@ -10,7 +10,7 @@
         <title>Adicionar Cliente</title>
     </head>
     <body>
-        <form action="ClienteServlet" method="post">
+        <form action="clientes" method="post">
             <fieldset>
                 <div>
                     <label for="clienteid">Cliente ID</label> <input type="text"

@@ -5,10 +5,10 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.servlets;
 
-import br.senac.tads3.pi03b.projetoautomata.dao.UsuarioDAO;
-import br.senac.tads3.pi03b.projetoautomata.models.Usuario;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,34 +20,40 @@ import javax.servlet.http.HttpSession;
  *
  * @author mathe
  */
-@WebServlet("/ValidarLogin")
+@WebServlet("/login")
 public class ValidarLogin extends HttpServlet {
+
+    private static final Map<String, String> USUARIOS_CADASTRADOS;
+
+    static {
+        USUARIOS_CADASTRADOS = new LinkedHashMap<>();
+        USUARIOS_CADASTRADOS.put("madruga", "pagueoaluguel");
+        USUARIOS_CADASTRADOS.put("bozo", "abcd1234");
+    }
+
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+        dispatcher.forward(request, response);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String usuario = request.getParameter("login");
+        String senhaDigitada = request.getParameter("senha");
 
-        HttpSession session = request.getSession(); //obtem a sessao do usuario, caso exista
-
-        Usuario usuario = null;
-        String login_form = request.getParameter("login"); // Pega o Login vindo do formulario
-        String senha_form = request.getParameter("senha"); //Pega a senha vinda do formulario
-
-        try {
-            UsuarioDAO dao = new UsuarioDAO(); //cria uma instancia do DAO usuario
-            usuario = dao.getUsuario(login_form, senha_form);
-        } catch (ClassNotFoundException | SQLException e) {
-
-        }
-
-        //se nao encontrou usuario no banco, redireciona para a pagina de erro!
-        if (usuario == null) {
-            session.invalidate();
-            request.getRequestDispatcher("erroLogin.jsp").forward(request, response);
+        String senhaCadastrada = USUARIOS_CADASTRADOS.get(usuario);
+        if (senhaCadastrada != null && senhaCadastrada.equals(senhaDigitada)) {
+            HttpSession sessao = request.getSession(false);
+            if (sessao != null) {
+                sessao.invalidate();
+            }
+            sessao = request.getSession(true);
+            sessao.setAttribute("usuario", usuario);
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
         } else {
-            //se o dao retornar um usuario, coloca o mesmo na sessao
-            session.setAttribute("usuario", usuario);
-            request.getRequestDispatcher("logado.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/erroLogin.jsp");
         }
 
     }

@@ -9,7 +9,7 @@
         <title>Adicionar Usuario</title>
     </head>
     <body>
-        <form action="UsuarioServlet.do" method="post">
+        <form action="usuarios" method="post">
             <fieldset>
                 <div>
                     <label for="usuarioid">Usuario ID</label> <input type="text"

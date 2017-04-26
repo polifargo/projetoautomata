@@ -5,8 +5,8 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.servlets;
 
-import br.senac.tads3.pi03b.projetoautomata.dao.ProdutoDAO;
-import br.senac.tads3.pi03b.projetoautomata.models.Produto;
+import br.senac.tads3.pi03b.projetoautomata.dao.UsuarioDAO;
+import br.senac.tads3.pi03b.projetoautomata.models.Usuario;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -20,20 +20,20 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author matheus_santo
+ * @author matheus.esanto1
  */
-@WebServlet("/produtos")
-public class ProdutoServlet extends HttpServlet {
+@WebServlet("/usuarios")
+public class UsuarioServlet extends HttpServlet {
 
-    private ProdutoDAO dao;
-    public static final String LIST = "WEB-INF/jsp/lista_produtos.jsp";
-    public static final String INSERT_OR_EDIT = "WEB-INF/jsp/produto_cadastrar.jsp";
-    
+    private UsuarioDAO dao;
+    public static final String LIST = "WEB-INF/jsp/lista_usuarios.jsp";
+    public static final String INSERT_OR_EDIT = "WEB-INF/jsp/usuario_cadastrar.jsp";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
         String action = request.getParameter("action");
-        dao = new ProdutoDAO();
+        dao = new UsuarioDAO();
         if ("delete".equalsIgnoreCase(action)) {
             forward = LIST;
             int id = Integer.parseInt(request.getParameter("id"));
@@ -43,7 +43,7 @@ public class ProdutoServlet extends HttpServlet {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                request.setAttribute("produtos", dao.getListaProdutos());
+                request.setAttribute("usuarios", dao.getListaUsuarios());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -52,21 +52,21 @@ public class ProdutoServlet extends HttpServlet {
         } else if ("edit".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
-            Produto produto = null;
+            Usuario usuario = null;
             try {
-                produto = dao.getProdutoById(id);
+                usuario = dao.getUsuarioById(id);
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            request.setAttribute("produto", produto);
+            request.setAttribute("usuario", usuario);
         } else if ("insert".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
         } else {
             forward = LIST;
             try {
-                request.setAttribute("produtos", dao.getListaProdutos());
+                request.setAttribute("usuarios", dao.getListaUsuarios());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -79,32 +79,30 @@ public class ProdutoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Produto produto = new Produto();
-        produto.setModelo(request.getParameter("modelo"));
-        produto.setQtminima(Integer.parseInt(request.getParameter("qtminima")));
-        produto.setQtmaxima(Integer.parseInt(request.getParameter("qtmaxima")));
-        produto.setUnidade(request.getParameter("unidade"));
-        produto.setTipo(request.getParameter("tipo"));
-        produto.setValor(Float.parseFloat(request.getParameter("valor")));
+        Usuario usuario = new Usuario();
+        usuario.setNome(request.getParameter("nome"));
+        usuario.setLogin(request.getParameter("login"));
+        usuario.setSenha(request.getParameter("senha"));
+        usuario.setEmail(request.getParameter("email"));
         String id = request.getParameter("id");
-        dao = new ProdutoDAO();
+        dao = new UsuarioDAO();
         if (id == null || id.isEmpty()) {
             try {
-                dao.inserir(produto);
+                dao.inserir(usuario);
             } catch (Exception ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            produto.setId(Integer.parseInt(id));
+            usuario.setId(Integer.parseInt(id));
             try {
-                dao.alterar(produto);
+                dao.alterar(usuario);
             } catch (Exception ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
-            request.setAttribute("produtos", dao.getListaProdutos());
+            request.setAttribute("usuarios", dao.getListaUsuarios());
         } catch (SQLException ex) {
             Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -112,5 +110,4 @@ public class ProdutoServlet extends HttpServlet {
         }
         view.forward(request, response);
     }
-
 }

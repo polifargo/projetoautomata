@@ -9,7 +9,7 @@
         <title>Adicionar Unidade</title>
     </head>
     <body>
-        <form action="UnidadeServlet" method="post">
+        <form action="unidades" method="post">
             <fieldset>
                 <div>
                     <label for="unidadeid">Unidade ID</label> <input type="text"

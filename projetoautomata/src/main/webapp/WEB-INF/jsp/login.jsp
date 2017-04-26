@@ -7,8 +7,7 @@
         <title>Login</title>
     </head>
     <body>
-
-        <form method="post" action="ValidarLogin">
+        <form method="post" action="login">
             <table>
                 <tr>
                     <td>Usuário</td>
@@ -22,8 +21,6 @@
                     <td><input type="submit" value="Login" /></td>
                 </tr>
             </table>
-
         </form>
-
     </body>
 </html>

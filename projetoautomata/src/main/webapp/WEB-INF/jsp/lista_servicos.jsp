@@ -34,15 +34,15 @@
                         <td><c:out value="${servico.mediaHoras}" /></td>
                         <td><c:out value="${servico.valor}" /></td>
                         <td><a
-                                href="ServicoServlet?action=edit&id=<c:out value="${servico.id}"/>">Atualizar</a></td>
+                                href="servicos?action=edit&id=<c:out value="${servico.id}"/>">Atualizar</a></td>
                         <td><a
-                                href="ServicoServlet?action=delete&id=<c:out value="${servico.id}"/>">Excluir</a></td>
+                                href="servicos?action=delete&id=<c:out value="${servico.id}"/>">Excluir</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
         <p>
-            <a href="ServicoServlet?action=insert">Adicionar Servico</a>
+            <a href="servicos?action=insert">Adicionar Servico</a>
             <br/>
             <a href="index.jsp">Voltar</a>
         </p>

@@ -34,15 +34,15 @@
                         <td><c:out value="${cliente.email}" /></td>
                         <td><c:out value="${cliente.telefone}" /></td>
                         <td><a
-                                href="ClienteServlet?action=edit&id=<c:out value="${cliente.id}"/>">Atualizar</a></td>
+                                href="clientes?action=edit&id=<c:out value="${cliente.id}"/>">Atualizar</a></td>
                         <td><a
-                                href="ClienteServlet?action=delete&id=<c:out value="${cliente.id}"/>">Excluir</a></td>
+                                href="clientes?action=delete&id=<c:out value="${cliente.id}"/>">Excluir</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
         <p>
-            <a href="ClienteServlet?action=insert">Adicionar Cliente</a>
+            <a href="clientes?action=insert">Adicionar Cliente</a>
             <br/>
             <a href="index.jsp">Voltar</a>
         </p>

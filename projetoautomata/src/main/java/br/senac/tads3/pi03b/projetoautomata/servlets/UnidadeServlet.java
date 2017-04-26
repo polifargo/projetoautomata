@@ -22,19 +22,19 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathe
  */
-@WebServlet("/UnidadeServlet")
+@WebServlet("/unidades")
 public class UnidadeServlet extends HttpServlet {
 
     private UnidadeDAO dao;
-    public static final String LIST = "/lista_unidades.jsp";
-    public static final String INSERT_OR_EDIT = "/unidade_cadastrar.jsp";
+    public static final String LIST = "WEB-INF/jsp/lista_unidades.jsp";
+    public static final String INSERT_OR_EDIT = "WEB-INF/jsp/unidade_cadastrar.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
         String action = request.getParameter("action");
         dao = new UnidadeDAO();
-        if (action.equalsIgnoreCase("delete")) {
+        if ("delete".equalsIgnoreCase(action)) {
             forward = LIST;
             int id = Integer.parseInt(request.getParameter("id"));
             try {
@@ -49,7 +49,7 @@ public class UnidadeServlet extends HttpServlet {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (action.equalsIgnoreCase("edit")) {
+        } else if ("edit".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
             Unidade unidade = null;
@@ -61,7 +61,7 @@ public class UnidadeServlet extends HttpServlet {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             request.setAttribute("unidade", unidade);
-        } else if (action.equalsIgnoreCase("insert")) {
+        } else if ("insert".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
         } else {
             forward = LIST;

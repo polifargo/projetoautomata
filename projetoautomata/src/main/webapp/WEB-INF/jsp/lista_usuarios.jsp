@@ -7,38 +7,38 @@
     <head>
         <link rel="stylesheet" type="text/css" href="listaform.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Unidades</title>
+        <title>Usuarios</title>
     </head>
     <body>
         <table>
             <thead>
                 <tr>
-                    <th>Unidade ID</th>
-                    <th>Endereco</th>
+                    <th>Usuario ID</th>
                     <th>Nome</th>
-                    <th>Razao</th>
-                    <th>Cadastro Nacional</th>
+                    <th>Login</th>
+                    <th>Senha</th>
+                    <th>Email</th>
                     <th colspan="2">Ação</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${unidades}" var="unidade">
+                <c:forEach items="${usuarios}" var="usuario">
                     <tr>
-                        <td><c:out value="${unidade.id}" /></td>
-                        <td><c:out value="${unidade.endereco}" /></td>
-                        <td><c:out value="${unidade.nome}" /></td>
-                        <td><c:out value="${unidade.razao}" /></td>
-                        <td><c:out value="${unidade.cadastroNacional}" /></td>
+                        <td><c:out value="${usuario.id}" /></td>
+                        <td><c:out value="${usuario.nome}" /></td>
+                        <td><c:out value="${usuario.login}" /></td>
+                        <td><c:out value="${usuario.senha}" /></td>
+                        <td><c:out value="${usuario.email}" /></td>
                         <td><a
-                                href="UnidadeServlet?action=edit&id=<c:out value="${unidade.id}"/>">Atualizar</a></td>
+                                href="usuarios?action=edit&id=<c:out value="${usuario.id}"/>">Atualizar</a></td>
                         <td><a
-                                href="UnidadeServlet?action=delete&id=<c:out value="${unidade.id}"/>">Excluir</a></td>
+                                href="usuarios?action=delete&id=<c:out value="${usuario.id}"/>">Excluir</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
         <p>
-            <a href="UnidadeServlet?action=insert">Adicionar Unidade</a>
+            <a href="usuarios?action=insert">Adicionar Usuario</a>
             <br/>
             <a href="index.jsp">Voltar</a>
         </p>

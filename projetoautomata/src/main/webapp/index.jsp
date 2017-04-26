@@ -7,14 +7,14 @@
         <title>Welcome</title>
     </head>
     <body>
-        <a href="lista_clientes.jsp">Clientes</a>
+        <a href="clientes">Clientes</a>
         <br/>
-        <a href="lista_produtos.jsp">Produtos</a>
+        <a href="produtos">Produtos</a>
         <br/>
-        <a href="lista_servicos.jsp">Servicos</a>
+        <a href="servicos">Servicos</a>
         <br/>
-        <a href="lista_unidades.jsp">Unidades</a>
+        <a href="unidades">Unidades</a>
         <br/>
-        <a href="lista_usuarios.jsp">Usuarios</a>   
+        <a href="usuarios">Usuarios</a>  
     </body>
 </html>

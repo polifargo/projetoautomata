@@ -10,7 +10,7 @@
         <title>Adicionar Produto</title>
     </head>
     <body>
-        <form action="ProdutoServlet" method="post">
+        <form action="produtos" method="post">
             <fieldset>
                 <div>
                     <label for="produtoid">Produto ID</label> <input type="text"

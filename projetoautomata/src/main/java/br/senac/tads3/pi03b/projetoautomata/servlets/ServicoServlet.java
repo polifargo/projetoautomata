@@ -24,19 +24,19 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathe
  */
-@WebServlet("/ServicoServlet")
+@WebServlet("/servicos")
 public class ServicoServlet extends HttpServlet {
 
     private ServicoDAO dao;
-    public static final String LIST = "/lista_servicos.jsp";
-    public static final String INSERT_OR_EDIT = "/servico_cadastrar.jsp";
+    public static final String LIST = "WEB-INF/jsp/lista_servicos.jsp";
+    public static final String INSERT_OR_EDIT = "WEB-INF/jsp/servico_cadastrar.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
         String action = request.getParameter("action");
         dao = new ServicoDAO();
-        if (action.equalsIgnoreCase("delete")) {
+        if ("delete".equalsIgnoreCase(action)) {
             forward = LIST;
             int id = Integer.parseInt(request.getParameter("id"));
             try {
@@ -51,7 +51,7 @@ public class ServicoServlet extends HttpServlet {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (action.equalsIgnoreCase("edit")) {
+        } else if ("edit".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
             Servico servico = null;
@@ -63,7 +63,7 @@ public class ServicoServlet extends HttpServlet {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             request.setAttribute("servico", servico);
-        } else if (action.equalsIgnoreCase("insert")) {
+        } else if ("insert".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
         } else {
             forward = LIST;

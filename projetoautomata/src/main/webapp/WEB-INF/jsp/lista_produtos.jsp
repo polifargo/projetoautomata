@@ -34,15 +34,15 @@
                         <td><c:out value="${produto.tipo}" /></td>
                         <td><c:out value="${produto.valor}" /></td>
                         <td><a
-                                href="ProdutoServlet?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
+                                href="produtos?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
                         <td><a
-                                href="ProdutoServlet?action=delete&id=<c:out value="${produto.id}"/>">Excluir</a></td>
+                                href="produtos?action=delete&id=<c:out value="${produto.id}"/>">Excluir</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
         <p>
-            <a href="ProdutoServlet?action=insert">Adicionar Produto</a>
+            <a href="produtos?action=insert">Adicionar Produto</a>
             <br/>
             <a href="index.jsp">Voltar</a>
         </p>

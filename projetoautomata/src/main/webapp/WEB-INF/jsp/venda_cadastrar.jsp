@@ -9,7 +9,7 @@
         <title>Adicionar Venda</title>
     </head>
     <body>
-        <form action="VendaServlet.do" method="post">
+        <form action="venda" method="post">
             <fieldset>
                 <div>
                     <label for="vendaid">Venda ID</label> <input type="text"

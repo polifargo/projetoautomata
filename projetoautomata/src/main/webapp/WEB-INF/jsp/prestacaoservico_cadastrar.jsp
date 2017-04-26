@@ -9,7 +9,7 @@
         <title>Adicionar Prestação de Serviço</title>
     </head>
     <body>
-        <form action="PrestacaoServicoServlet.do" method="post">
+        <form action="prestacaoservico" method="post">
             <fieldset>
                 <div>
                     <label for="prestacaoservicoid">Prestacao Servico ID</label> <input type="text"

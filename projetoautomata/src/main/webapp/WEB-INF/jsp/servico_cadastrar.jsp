@@ -10,7 +10,7 @@
         <title>Adicionar Servico</title>
     </head>
     <body>
-        <form action="ServicoServlet" method="post">
+        <form action="servicos" method="post">
             <fieldset>
                 <div>
                     <label for="servicoid">Servico ID</label> <input type="text"
