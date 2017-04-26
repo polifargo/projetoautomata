@@ -1,0 +1,15 @@
+.principal{
+    background-color: hsl(360, 0%, 25%);
+    width: 280px;
+    height: 150px;
+    margin: 140px auto 0px;
+    border-radius: 5px;
+}
+
+.input div{
+    background-color: hsl(360, 0%, 20%);
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    padding-left: 10px;
+}

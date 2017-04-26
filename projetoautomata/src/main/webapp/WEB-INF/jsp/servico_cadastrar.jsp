@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <link rel="stylesheet" type="text/css" href="listaform.css" />
+        <link rel="stylesheet" type="text/css" href="css/listaform.css" />
         <title>Adicionar Servico</title>
     </head>
     <body>
