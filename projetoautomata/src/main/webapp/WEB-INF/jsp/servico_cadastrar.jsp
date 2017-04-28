@@ -35,9 +35,11 @@
                 </div>
                 <div class="form-group row">
                     <label for="servicotipo">Tipo</label>
-                    <input class="form-control" type="text"
-                           name="tipo" value="<c:out value="${servico.tipo}" />"
-                           placeholder="Tipo" />
+                    <select name="tipo" class="form-control">
+                        <option value="Montagem">Montagem</option>
+                        <option value="Conserto">Conserto</option>
+                        <option value="Formatação">Formatação</option>
+                    </select>
                 </div>
                 <div class="form-group row">
                     <label for="servicotecnico">Tecnico</label> 
@@ -53,18 +55,21 @@
                 </div>
                 <div class="form-group row">
                     <label for="servicomediahoras">Media Horas</label>
-                    <input class="form-control" type="text"
+                    <input class="form-control" type="number"
                            name="mediaHoras" value="<c:out value="${servico.mediaHoras}" />"
                            placeholder="Media Horas" />
                 </div>
                 <div class="form-group row">
                     <label for="servicovalor">Valor</label> 
-                    <input class="form-control" type="text"
+                    <input class="form-control" type="number"
                            name="valor" value="<c:out value="${servico.valor}" />"
                            placeholder="Valor" />
                 </div>
                 <div class="form-group row">
                     <input class="form-control" type="submit" value="Salvar" />
+                </div>
+                <div class="form-group row">
+                    <a class="btn btn-danger form-control" role="button" href="servicos">Cancelar</a>
                 </div>
             </fieldset>
         </form>

@@ -34,13 +34,13 @@
                 </div>
                 <div  class="form-group row">
                     <label for="produtoqtminima">Qt. Mínima</label> 
-                    <input class="form-control" type="text"
+                    <input class="form-control" type="number"
                            name="qtminima" value="<c:out value="${produto.qtminima}" />"
                            placeholder="Qt. Mínima" />
                 </div>
                 <div class="form-group row">
                     <label for="produtoqtmaxima">Qt. Máxima</label> 
-                    <input class="form-control" type="text"
+                    <input class="form-control" type="number"
                            name="qtmaxima" value="<c:out value="${produto.qtmaxima}" />"
                            placeholder="Qt. Máxima" />
                 </div>
@@ -52,18 +52,25 @@
                 </div>
                 <div class="form-group row">
                     <label for="produtotipo">Tipo</label> 
-                    <input class="form-control" type="text"
-                           name="tipo" value="<c:out value="${produto.tipo}" />"
-                           placeholder="Tipo" />
+                    <select name="tipo" class="form-control">
+                        <option value="Placa Mãe">Placa Mãe</option>
+                        <option value="Memória RAM">Memória RAM</option>
+                        <option value="Placa de Vídeo">Placa de Vídeo</option>
+                        <option value="SSD">SSD</option>
+                        <option value="Fonte">Fonte</option>
+                    </select>
                 </div >
                 <div class="form-group row">
                     <label for="produtovalor">Valor</label> 
-                    <input class="form-control" type="text"
+                    <input class="form-control" type="number"
                            name="valor" value="<c:out value="${produto.valor}" />"
                            placeholder="Valor" />
                 </div>
                 <div class="form-group row">
                     <input class="form-control" type="submit" value="Salvar" />
+                </div>
+                <div class="form-group row">
+                    <a class="btn btn-danger form-control" role="button" href="produtos">Cancelar</a>
                 </div>
             </fieldset>
         </form>

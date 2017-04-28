@@ -45,7 +45,8 @@
                             </tr>
                         </c:forEach>
                     </table>
-                    <a href="usuarios?action=insert">Adicionar Usuario</a>
+                    <a <a class="btn btn-primary" role="button" href="usuarios?action=insert">Adicionar Usuario</a>
+                   <a class="btn btn-danger" role="button" href="index.jsp">Voltar</a>
                 </div>
             </div>
         </div>

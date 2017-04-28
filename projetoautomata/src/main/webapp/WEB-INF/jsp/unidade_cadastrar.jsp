@@ -53,6 +53,9 @@
                 <div class="form-group row">
                     <input type="submit" value="Salvar" />
                 </div>
+                <div class="form-group row">
+                    <a class="btn btn-danger form-control" role="button" href="unidades">Cancelar</a>
+                </div>
             </fieldset>
         </form>
     </body>
