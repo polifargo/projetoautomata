@@ -5,7 +5,6 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.servlets;
 
-import br.senac.tads3.pi03b.projetoautomata.dao.UsuarioDAO;
 import br.senac.tads3.pi03b.projetoautomata.models.UsuarioSistema;
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -24,7 +23,7 @@ import javax.servlet.http.HttpSession;
  * @author matheus_santo1
  */
 @WebFilter(filterName = "AutorizacaoFilter",
-        servletNames = {"ClienteServlet", "ProdutoServlet"},
+        servletNames = {"ClienteServlet", "ProdutoServlet", "UnidadeServlet", "ServicoServlet", "VendaServlet"},
         urlPatterns = {"/protegido/*"}
 )
 public class AutorizacaoFilter implements Filter {
@@ -69,13 +68,12 @@ public class AutorizacaoFilter implements Filter {
         String paginaAcessada = request.getRequestURI();
         String pagina = paginaAcessada.replace(request.getContextPath(), "");
 
-        if (pagina.endsWith("produtos")
+        if (pagina.endsWith("produtos") || pagina.endsWith("unidades") || pagina.endsWith("servicos") || pagina.endsWith("clientes")
                 && usuario.temPapel("ADMIN")) {
             return true;
-        } else if (pagina.endsWith("clientes")
+        } else if (pagina.endsWith("clientes") || pagina.endsWith("realizarvenda")
                 && usuario.temPapel("BASICO")) {
             return true;
-
         }
         return false;
     }

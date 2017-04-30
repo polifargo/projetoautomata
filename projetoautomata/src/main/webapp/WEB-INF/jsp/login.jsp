@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default login">
                         <div class="panel-heading">
                             <h3 class="panel-title">Por favor se logue</h3>
                         </div>

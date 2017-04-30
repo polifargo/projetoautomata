@@ -22,7 +22,7 @@ public class UsuarioSistema {
     static {
         USUARIOS_CADASTRADOS = new LinkedHashMap<>();
         USUARIOS_CADASTRADOS.put("admin", new UsuarioSistema("admin",
-                "Administrador", "admin", new String[]{"BASICO", "ADMIN"}));
+                "Administrador", "admin", new String[]{"ADMIN"}));
         USUARIOS_CADASTRADOS.put("retaguarda", new UsuarioSistema("retaguarda",
                 "Retaguarda", "retaguarda", new String[]{"BASICO"}));
     }
