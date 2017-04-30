@@ -43,9 +43,9 @@
                                 <td><c:out value="${produto.unidade}" /></td>
                                 <td><c:out value="${produto.tipo}" /></td>
                                 <td><c:out value="${produto.valor}" /></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-primary"
                                         href="produtos?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-danger"
                                         href="produtos?action=delete&id=<c:out value="${produto.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>

@@ -43,9 +43,9 @@
                                 <td><c:out value="${servico.mediaConclusao}" /></td>
                                 <td><c:out value="${servico.mediaHoras}" /></td>
                                 <td><c:out value="${servico.valor}" /></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-primary"
                                         href="servicos?action=edit&id=<c:out value="${servico.id}"/>">Atualizar</a></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-danger"
                                         href="servicos?action=delete&id=<c:out value="${servico.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>

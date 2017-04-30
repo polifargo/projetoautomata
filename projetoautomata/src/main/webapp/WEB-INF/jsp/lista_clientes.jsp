@@ -43,9 +43,9 @@
                                 <td><c:out value="${cliente.endereco}" /></td>
                                 <td><c:out value="${cliente.email}" /></td>
                                 <td><c:out value="${cliente.telefone}" /></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-primary"
                                         href="clientes?action=edit&id=<c:out value="${cliente.id}"/>">Atualizar</a></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-danger"
                                         href="clientes?action=delete&id=<c:out value="${cliente.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>

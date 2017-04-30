@@ -39,9 +39,9 @@
                                 <td><c:out value="${usuario.login}" /></td>
                                 <td><c:out value="${usuario.senha}" /></td>
                                 <td><c:out value="${usuario.email}" /></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-primary"
                                         href="usuarios?action=edit&id=<c:out value="${usuario.id}"/>">Atualizar</a></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-danger"
                                         href="usuarios?action=delete&id=<c:out value="${usuario.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>

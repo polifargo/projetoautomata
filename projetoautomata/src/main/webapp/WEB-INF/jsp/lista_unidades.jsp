@@ -39,9 +39,9 @@
                                 <td><c:out value="${unidade.nome}" /></td>
                                 <td><c:out value="${unidade.razao}" /></td>
                                 <td><c:out value="${unidade.cadastroNacional}" /></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-primary"
                                         href="unidades?action=edit&id=<c:out value="${unidade.id}"/>">Atualizar</a></td>
-                                <td><a
+                                <td><a role="button" class="btn btn-danger"
                                         href="unidades?action=delete&id=<c:out value="${unidade.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
