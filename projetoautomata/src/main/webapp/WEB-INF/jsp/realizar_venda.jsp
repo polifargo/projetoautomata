@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="">
         <meta name="description" content="">
-        <title>Adicionar Venda</title>
+        <title>Realizar Venda</title>
         <link href="css/listaform.css" rel="stylesheet" />
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
@@ -18,6 +18,7 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
+        <c:import url="./cabecalho.jsp"/>
         <form action="venda" method="post">
             <fieldset class="form-group">
                 <div class="form-group row">
@@ -56,4 +57,5 @@
             </fieldset>
         </form>
     </body>
+    <c:import url="./rodape.jsp"/>
 </html>

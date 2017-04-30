@@ -15,6 +15,7 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
+        <c:import url="./cabecalho.jsp"/>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
@@ -23,7 +24,7 @@
                             <h3 class="panel-title">Por favor se logue</h3>
                         </div>
                         <div class="panel-body">
-                            <form accept-charset="UTF-8" role="form" method="post" action="login">
+                            <form class="" accept-charset="UTF-8" role="form" method="post" action="login">
                                 <fieldset>
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Usuário" maxlength="30" name="login"/>
@@ -39,5 +40,6 @@
                 </div>
             </div>
         </div>
+        <c:import url="./rodape.jsp"/>
     </body>
 </html>

@@ -9,6 +9,7 @@
         <title>Adicionar Usuario</title>
     </head>
     <body>
+        <c:import url="./cabecalho.jsp"/>
         <form action="usuarios" method="post">
             <fieldset class="form-group">
                 <div class="form-group row">
@@ -50,4 +51,5 @@
             </fieldset>
         </form>
     </body>
+    <c:import url="./rodape.jsp"/>
 </html>

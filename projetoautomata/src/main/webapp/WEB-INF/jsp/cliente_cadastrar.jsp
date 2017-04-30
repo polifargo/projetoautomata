@@ -19,7 +19,7 @@
         <script src="js/validacoes.js"></script>
     </head>
     <body>
-
+        <c:import url="./cabecalho.jsp"/>
         <form id="form" action="clientes" method="post">
             <fieldset class="form-group">
                 <div class="form-group row">
@@ -73,5 +73,6 @@
                 </div>
             </fieldset>
         </form>
+        <c:import url="./rodape.jsp"/>
     </body>
 </html>

@@ -18,6 +18,7 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
+        <c:import url="./cabecalho.jsp"/>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -46,9 +47,10 @@
                         </c:forEach>
                     </table>
                     <a <a class="btn btn-primary" role="button" href="usuarios?action=insert">Adicionar Usuario</a>
-                   <a class="btn btn-danger" role="button" href="index.jsp">Voltar</a>
+                        <a class="btn btn-danger" role="button" href="index.jsp">Voltar</a>
                 </div>
             </div>
         </div>
+        <c:import url="./rodape.jsp"/>
     </body>
 </html>

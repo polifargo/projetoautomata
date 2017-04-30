@@ -18,6 +18,7 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
+        <c:import url="./cabecalho.jsp"/>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -54,5 +55,6 @@
                 </div>
             </div>
         </div>
+        <c:import url="./rodape.jsp"/>
     </body>
 </html>
