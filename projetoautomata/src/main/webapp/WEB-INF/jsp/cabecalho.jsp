@@ -28,7 +28,7 @@
                 <a class="navbar-brand" href="produtos">Produtos</a>
                 <a class="navbar-brand" href="servicos">Servicos</a>
                 <a class="navbar-brand" href="unidades">Unidades</a>
-
+                <a class="navbar-brand" href="venda">Realizar Venda</a>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.jsp"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                     <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Sair</a></li>

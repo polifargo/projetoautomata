@@ -11,22 +11,6 @@ public class Venda {
     private Object[] produtos;
     private String unidade;
     
-    public Venda(String cliente, float valor, String tecnico, Object[] produtos, String unidade){
-        this.cliente = cliente;
-        this.valor = valor;
-        this.tecnico = tecnico;
-        this.produtos = produtos;
-        this.unidade = unidade;
-    }
-    
-    //Sem-serviço
-    public Venda(String cliente, float valor, Object[] produtos, String unidade){
-        this.cliente = cliente;
-        this.valor = valor;
-        this.produtos = produtos;
-        this.unidade = unidade;
-    }
-
     public String getCliente() {
         return cliente;
     }

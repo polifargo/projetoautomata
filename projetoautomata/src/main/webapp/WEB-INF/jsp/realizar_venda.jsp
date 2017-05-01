@@ -27,7 +27,6 @@
                            name="id" value="<c:out value="${venda.id}" />"
                            readonly="readonly" placeholder="Venda ID" />
                 </div>
-                <div class="form-group row">
                     <label for="vendacliente">Cliente</label>
                     <input class="form-control" type="text"
                            name="cliente" value="<c:out value="${venda.cliente}" />"
