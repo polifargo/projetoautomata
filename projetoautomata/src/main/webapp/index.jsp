@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -16,7 +17,7 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-    <c:if test="${not empty sessionScope.usuario}">
+        <c:if test="${not empty sessionScope.usuario}">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -26,7 +27,7 @@
                 <a class="navbar-brand" href="produtos">Produtos</a>
                 <a class="navbar-brand" href="servicos">Servicos</a>
                 <a class="navbar-brand" href="unidades">Unidades</a>
-
+                <a class="navbar-brand" href="venda">Realizar Venda</a>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.jsp"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                     <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Sair</a></li>
@@ -34,7 +35,7 @@
                 </ul>
             </div>
         </nav>
-        <c:import url="./rodape.jsp"/>
+        <c:import url="WEB-INF/jsp/rodape.jsp"/>
     </c:if>
 </body>
 </html>

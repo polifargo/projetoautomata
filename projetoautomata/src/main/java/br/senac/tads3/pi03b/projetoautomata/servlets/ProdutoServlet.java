@@ -22,13 +22,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author matheus_santo
  */
-@WebServlet("/produtos")
+@WebServlet(name = "ProdutoServlet", urlPatterns = {"/produtos"})
 public class ProdutoServlet extends HttpServlet {
 
     private ProdutoDAO dao;
     public static final String LIST = "WEB-INF/jsp/lista_produtos.jsp";
     public static final String INSERT_OR_EDIT = "WEB-INF/jsp/produto_cadastrar.jsp";
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";

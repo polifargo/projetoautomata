@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathe
  */
-@WebServlet("/venda")
+@WebServlet(name = "VendaServlet", urlPatterns = {"/venda"})
 public class VendaServlet extends HttpServlet {
 
     private ProdutoDAO daoProdutos;

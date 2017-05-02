@@ -19,60 +19,62 @@
         <script src="js/validacoes.js"></script>
     </head>
     <body>
-        <c:import url="./cabecalho.jsp"/>
-        <form id="form" action="clientes" method="post">
-            <fieldset class="form-group">
-                <div class="form-group row">
-                    <label for="clienteid">Cliente ID</label> 
-                    <input class="form-control" type="text"
-                           name="id" value="<c:out value="${cliente.id}" />"
-                           readonly="readonly" placeholder="Cliente ID" />
-                </div>
-                <div class="form-group row">
-                    <label for="clientenome">Nome</label> 
-                    <input class="form-control" type="text"
-                           name="nome" value="<c:out value="${cliente.nome}" />"
-                           placeholder="Nome..." id="nome" />
-                </div>
-                <div class="form-group row">
-                    <label for="clientetipo">Tipo</label> 
-                    <select name="tipo" class="form-control">
-                        <option value="Pessoa Física">Pessoa Física</option>
-                        <option value="Pessoa Jurídica">Pessoa Jurídica</option>
-                    </select>
-                </div>
-                <div class="form-group row">
-                    <label for="clientecadastronacional">Cadastro Nacional</label>
-                    <input class="form-control" type="text" 
-                           name="cadastronacional" value="<c:out value="${cliente.cadastroNacional}" />"
-                           placeholder="CPF/CNPJ..." id="cpf"/>
-                </div>
-                <div class="form-group row">
-                    <label for="clienteendereco">Endereco</label>
-                    <input class="form-control" type="text"
-                           name="endereco" value="<c:out value="${cliente.endereco}" />"
-                           placeholder="Endereco..." id="endereco" />
-                </div>
-                <div class="form-group row">
-                    <label for="clienteemail">Email</label> 
-                    <input class="form-control" type="text"
-                           name="email" value="<c:out value="${cliente.email}" />"
-                           placeholder="Email..." id="email" />
-                </div>
-                <div class="form-group row">
-                    <label for="clientetelefone">Telefone</label> 
-                    <input class="form-control" type="text"
-                           name="telefone" value="<c:out value="${cliente.telefone}" />"
-                           placeholder="Telefone" id="telefone"/>
-                </div>                                       
-                <div class="form-group row">
-                    <input class="form-control" type="submit" id="submit" value="Salvar" />
-                </div>
-                <div class="form-group row">
-                    <a class="btn btn-danger form-control" role="button" href="clientes">Cancelar</a>
-                </div>
-            </fieldset>
-        </form>
+        <div class="panel panel-default">
+            <c:import url="./cabecalho.jsp"/>
+            <form id="form" action="clientes" method="post">
+                <fieldset class="form-group">
+                    <div class="form-group row">
+                        <label for="clienteid">Cliente ID</label> 
+                        <input class="form-control" type="text"
+                               name="id" value="<c:out value="${cliente.id}" />"
+                               readonly="readonly" placeholder="Cliente ID" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="clientenome">Nome</label> 
+                        <input class="form-control" type="text"
+                               name="nome" value="<c:out value="${cliente.nome}" />"
+                               placeholder="Nome..." id="nome" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="clientetipo">Tipo</label> 
+                        <select name="tipo" class="form-control">
+                            <option value="Pessoa Física">Pessoa Física</option>
+                            <option value="Pessoa Jurídica">Pessoa Jurídica</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label for="clientecadastronacional">Cadastro Nacional</label>
+                        <input class="form-control" type="text" 
+                               name="cadastronacional" value="<c:out value="${cliente.cadastroNacional}" />"
+                               placeholder="CPF/CNPJ..." id="cpf"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="clienteendereco">Endereco</label>
+                        <input class="form-control" type="text"
+                               name="endereco" value="<c:out value="${cliente.endereco}" />"
+                               placeholder="Endereco..." id="endereco" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="clienteemail">Email</label> 
+                        <input class="form-control" type="text"
+                               name="email" value="<c:out value="${cliente.email}" />"
+                               placeholder="Email..." id="email" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="clientetelefone">Telefone</label> 
+                        <input class="form-control" type="text"
+                               name="telefone" value="<c:out value="${cliente.telefone}" />"
+                               placeholder="Telefone" id="telefone"/>
+                    </div>                                       
+                    <div class="form-group row">
+                        <input class="form-control" type="submit" id="submit" value="Salvar" />
+                    </div>
+                    <div class="form-group row">
+                        <a class="btn btn-danger form-control" role="button" href="clientes">Cancelar</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
         <c:import url="./rodape.jsp"/>
     </body>
 </html>

@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathe
  */
-@WebServlet("/servicos")
+@WebServlet(name = "ServicoServlet", urlPatterns = {"/servicos"})
 public class ServicoServlet extends HttpServlet {
 
     private ServicoDAO dao;

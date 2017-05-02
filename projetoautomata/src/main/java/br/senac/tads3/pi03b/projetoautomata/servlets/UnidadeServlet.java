@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathe
  */
-@WebServlet("/unidades")
+@WebServlet(name = "UnidadeServlet", urlPatterns = {"/unidades"})
 public class UnidadeServlet extends HttpServlet {
 
     private UnidadeDAO dao;

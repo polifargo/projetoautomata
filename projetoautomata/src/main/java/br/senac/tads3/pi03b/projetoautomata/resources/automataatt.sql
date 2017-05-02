@@ -130,3 +130,5 @@ codigoProduto char(15) not null,
 FOREIGN KEY (CodigoUnidade) REFERENCES Unidade (CodigoUnidade),
 FOREIGN KEY (codigoProduto) REFERENCES Produto (codigoProduto)
 );
+
+insert into Usuario values (1, 'Administrador', 'admin', 'admin', '', 'admin@automata.com');

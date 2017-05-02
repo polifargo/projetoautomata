@@ -19,46 +19,48 @@
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
-        <form action="unidades" method="post">
-            <fieldset class="form-group">
-                <div class="form-group row">
-                    <label for="unidadeid">Unidade ID</label> 
-                    <input class="form-control" type="text"
-                           name="id" value="<c:out value="${unidade.id}" />"
-                           readonly="readonly" placeholder="Unidade ID" />
-                </div>
-                <div class="form-group row">
-                    <label for="unidadeendereco">Endereco</label> 
-                    <input class="form-control" type="text"
-                           name="endereco" value="<c:out value="${unidade.endereco}" />"
-                           placeholder="Endereco" />
-                </div>
-                <div class="form-group row">
-                    <label for="unidadenome">Nome</label>
-                    <input class="form-control" type="text"
-                           name="nome" value="<c:out value="${unidade.nome}" />"
-                           placeholder="Nome" />
-                </div>
-                <div class="form-group row">
-                    <label for="unidaderazao">Razao</label> 
-                    <input class="form-control" type="text"
-                           name="razao" value="<c:out value="${unidade.razao}" />"
-                           placeholder="Razao" />
-                </div>
-                <div class="form-group row">
-                    <label for="unidadecadastroNacional">CPF/CNPJ</label> 
-                    <input class="form-control" type="text"
-                           name="cadastroNacional" value="<c:out value="${unidade.cadastroNacional}" />"
-                           placeholder="CPF/CNPJ" />
-                </div>
-                <div class="form-group row">
-                    <input type="submit" value="Salvar" />
-                </div>
-                <div class="form-group row">
-                    <a class="btn btn-danger form-control" role="button" href="unidades">Cancelar</a>
-                </div>
-            </fieldset>
-        </form>
+        <div class="panel panel-default">
+            <form action="unidades" method="post">
+                <fieldset class="form-group">
+                    <div class="form-group row">
+                        <label for="unidadeid">Unidade ID</label> 
+                        <input class="form-control" type="text"
+                               name="id" value="<c:out value="${unidade.id}" />"
+                               readonly="readonly" placeholder="Unidade ID" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="unidadeendereco">Endereco</label> 
+                        <input class="form-control" type="text"
+                               name="endereco" value="<c:out value="${unidade.endereco}" />"
+                               placeholder="Endereco" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="unidadenome">Nome</label>
+                        <input class="form-control" type="text"
+                               name="nome" value="<c:out value="${unidade.nome}" />"
+                               placeholder="Nome" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="unidaderazao">Razao</label> 
+                        <input class="form-control" type="text"
+                               name="razao" value="<c:out value="${unidade.razao}" />"
+                               placeholder="Razao" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="unidadecadastroNacional">CPF/CNPJ</label> 
+                        <input class="form-control" type="text"
+                               name="cadastroNacional" value="<c:out value="${unidade.cadastroNacional}" />"
+                               placeholder="CPF/CNPJ" />
+                    </div>
+                    <div class="form-group row">
+                        <input class="form-control" type="submit" value="Salvar" />
+                    </div>
+                    <div class="form-group row">
+                        <a class="btn btn-danger form-control" role="button" href="unidades">Cancelar</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </body>
     <c:import url="./rodape.jsp"/>
 </html>

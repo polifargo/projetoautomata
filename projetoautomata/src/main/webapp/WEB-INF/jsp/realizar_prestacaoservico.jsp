@@ -19,37 +19,39 @@
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
-        <form action="prestacaoservico" method="post">
-            <fieldset class="form-group">
-                <div class="form-group row">
-                    <label for="prestacaoservicoid">Prestacao Servico ID</label>
-                    <input class="form-control" type="text"
-                           name="id" value="<c:out value="${prestacaoservico.id}" />"
-                           readonly="readonly" placeholder="Prestacao Servico ID" />
-                </div>
-                <div class="form-group row">
-                    <label for="prestacaoservicodescricao">Descrição</label> 
-                    <input class="form-control" type="text"
-                           name="descricao" value="<c:out value="${prestacaoservico.descricao}" />"
-                           placeholder="Descrição" />
-                </div>
-                <div class="form-group row">
-                    <label for="prestacaoservicohorario">Horario</label> 
-                    <input class="form-control" type="text"
-                           name="horario" value="<c:out value="${prestacaoservico.horario}" />"
-                           placeholder="Horario" />
-                </div>
-                <div class="form-group row">
-                    <label for="prestacaoservicovalor">Valor</label> 
-                    <input class="form-control" type="text"
-                           name="valor" value="<c:out value="${prestacaoservico.valor}" />"
-                           readonly="readonly" placeholder="Valor" />
-                </div>
-                <div class="form-group row">
-                    <input class="form-control" type="submit" value="Salvar" />
-                </div>
-            </fieldset>
-        </form>
+        <div class="panel panel-default">
+            <form action="prestacaoservico" method="post">
+                <fieldset class="form-group">
+                    <div class="form-group row">
+                        <label for="prestacaoservicoid">Prestacao Servico ID</label>
+                        <input class="form-control" type="text"
+                               name="id" value="<c:out value="${prestacaoservico.id}" />"
+                               readonly="readonly" placeholder="Prestacao Servico ID" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="prestacaoservicodescricao">Descrição</label> 
+                        <input class="form-control" type="text"
+                               name="descricao" value="<c:out value="${prestacaoservico.descricao}" />"
+                               placeholder="Descrição" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="prestacaoservicohorario">Horario</label> 
+                        <input class="form-control" type="text"
+                               name="horario" value="<c:out value="${prestacaoservico.horario}" />"
+                               placeholder="Horario" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="prestacaoservicovalor">Valor</label> 
+                        <input class="form-control" type="text"
+                               name="valor" value="<c:out value="${prestacaoservico.valor}" />"
+                               readonly="readonly" placeholder="Valor" />
+                    </div>
+                    <div class="form-group row">
+                        <input class="form-control" type="submit" value="Salvar" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </body>
     <c:import url="./rodape.jsp"/>
 </html>

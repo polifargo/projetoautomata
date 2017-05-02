@@ -20,60 +20,62 @@
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
-        <form action="servicos" method="post">
-            <fieldset class="form-group">
-                <div class="form-group row">
-                    <label for="servicoid">Servico ID</label> 
-                    <input class="form-control" type="text"
-                           name="id" value="<c:out value="${servico.id}" />"
-                           readonly="readonly" placeholder="Servico ID" />
-                </div>
-                <div class="form-group row">
-                    <label for="servicodescricao">Descrição</label> 
-                    <input class="form-control" type="text"
-                           name="descricao" value="<c:out value="${servico.descricao}" />"
-                           placeholder="Descrição" />
-                </div>
-                <div class="form-group row">
-                    <label for="servicotipo">Tipo</label>
-                    <select name="tipo" class="form-control">
-                        <option value="Montagem">Montagem</option>
-                        <option value="Conserto">Conserto</option>
-                        <option value="Formatação">Formatação</option>
-                    </select>
-                </div>
-                <div class="form-group row">
-                    <label for="servicotecnico">Tecnico</label> 
-                    <input class="form-control" type="text"
-                           name="tecnico" value="<c:out value="${servico.tecnico}" />"
-                           placeholder="Tecnico" />
-                </div>
-                <div class="form-group row">
-                    <label for="servicomediaconclusao">Media Conclusao</label> 
-                    <input class="form-control" type="date"
-                           name="mediaConclusao" value="<c:out value="${servico.mediaConclusao}" />"
-                           placeholder="Media Conclusao" />
-                </div>
-                <div class="form-group row">
-                    <label for="servicomediahoras">Media Horas</label>
-                    <input class="form-control" type="number"
-                           name="mediaHoras" value="<c:out value="${servico.mediaHoras}" />"
-                           placeholder="Media Horas" />
-                </div>
-                <div class="form-group row">
-                    <label for="servicovalor">Valor</label> 
-                    <input class="form-control" type="number"
-                           name="valor" value="<c:out value="${servico.valor}" />"
-                           placeholder="Valor" />
-                </div>
-                <div class="form-group row">
-                    <input class="form-control" type="submit" value="Salvar" />
-                </div>
-                <div class="form-group row">
-                    <a class="btn btn-danger form-control" role="button" href="servicos">Cancelar</a>
-                </div>
-            </fieldset>
-        </form>
+        <div class="panel panel-default">
+            <form action="servicos" method="post">
+                <fieldset class="form-group">
+                    <div class="form-group row">
+                        <label for="servicoid">Servico ID</label> 
+                        <input class="form-control" type="text"
+                               name="id" value="<c:out value="${servico.id}" />"
+                               readonly="readonly" placeholder="Servico ID" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="servicodescricao">Descrição</label> 
+                        <input class="form-control" type="text"
+                               name="descricao" value="<c:out value="${servico.descricao}" />"
+                               placeholder="Descrição" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="servicotipo">Tipo</label>
+                        <select name="tipo" class="form-control">
+                            <option value="Montagem">Montagem</option>
+                            <option value="Conserto">Conserto</option>
+                            <option value="Formatação">Formatação</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label for="servicotecnico">Tecnico</label> 
+                        <input class="form-control" type="text"
+                               name="tecnico" value="<c:out value="${servico.tecnico}" />"
+                               placeholder="Tecnico" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="servicomediaconclusao">Media Conclusao</label> 
+                        <input class="form-control" type="date"
+                               name="mediaConclusao" value="<c:out value="${servico.mediaConclusao}" />"
+                               placeholder="Media Conclusao" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="servicomediahoras">Media Horas</label>
+                        <input class="form-control" type="number"
+                               name="mediaHoras" value="<c:out value="${servico.mediaHoras}" />"
+                               placeholder="Media Horas" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="servicovalor">Valor</label> 
+                        <input class="form-control" type="number"
+                               name="valor" value="<c:out value="${servico.valor}" />"
+                               placeholder="Valor" />
+                    </div>
+                    <div class="form-group row">
+                        <input class="form-control" type="submit" value="Salvar" />
+                    </div>
+                    <div class="form-group row">
+                        <a class="btn btn-danger form-control" role="button" href="servicos">Cancelar</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </body>
     <c:import url="./rodape.jsp"/>
 </html>

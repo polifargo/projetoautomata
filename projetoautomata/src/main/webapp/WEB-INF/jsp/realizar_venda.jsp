@@ -19,42 +19,45 @@
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
-        <form action="venda" method="post">
-            <fieldset class="form-group">
-                <div class="form-group row">
-                    <label for="vendaid">Venda ID</label>
-                    <input class="form-control" type="text"
-                           name="id" value="<c:out value="${venda.id}" />"
-                           readonly="readonly" placeholder="Venda ID" />
-                </div>
-                    <label for="vendacliente">Cliente</label>
-                    <input class="form-control" type="text"
-                           name="cliente" value="<c:out value="${venda.cliente}" />"
-                           placeholder="Cliente" />
-                </div>
-                <div class="form-group row">
-                    <label for="vendatecnico">Tecnico</label> 
-                    <input class="form-control" type="text"
-                           name="tecnico" value="<c:out value="${venda.tecnico}" />"
-                           placeholder="Tecnico" />
-                </div>
-                <div class="form-group row">
-                    <label for="vendaunidade">Unidade</label>
-                    <input class="form-control" type="text"
-                           name="unidade" value="<c:out value="${venda.unidade}" />"
-                           placeholder="Unidade" />
-                </div>
-                <div class="form-group row">
-                    <label for="vendavalor">Valor</label> 
-                    <input class="form-control" type="text"
-                           name="valor" value="<c:out value="${venda.valor}" />"
-                           readonly="readonly" placeholder="Valor" />
-                </div>
-                <div class="form-group row">
-                    <input class="form-control" type="submit" value="Salvar" />
-                </div>
-            </fieldset>
-        </form>
+        <div class="panel panel-default">
+            <form action="venda" method="post">
+                <fieldset class="form-group">
+                    <div class="form-group row">
+                        <label for="vendaid">Venda ID</label>
+                        <input class="form-control" type="text"
+                               name="id" value="<c:out value="${venda.id}" />"
+                               readonly="readonly" placeholder="Venda ID" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="vendacliente">Cliente</label>
+                        <input class="form-control" type="text"
+                               name="cliente" value="<c:out value="${venda.cliente}" />"
+                               placeholder="Cliente" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="vendatecnico">Tecnico</label> 
+                        <input class="form-control" type="text"
+                               name="tecnico" value="<c:out value="${venda.tecnico}" />"
+                               placeholder="Tecnico" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="vendaunidade">Unidade</label>
+                        <input class="form-control" type="text"
+                               name="unidade" value="<c:out value="${venda.unidade}" />"
+                               placeholder="Unidade" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="vendavalor">Valor</label> 
+                        <input class="form-control" type="text"
+                               name="valor" value="<c:out value="${venda.valor}" />"
+                               readonly="readonly" placeholder="Valor" />
+                    </div>
+                    <div class="form-group row">
+                        <input class="form-control" type="submit" value="Salvar" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </body>
     <c:import url="./rodape.jsp"/>
 </html>

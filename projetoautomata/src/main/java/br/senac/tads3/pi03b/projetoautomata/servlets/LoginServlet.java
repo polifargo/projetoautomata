@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         // Verifica se usuário já se logou, se positivo redireciona para tela principal
         HttpSession sessao = request.getSession(false);
         if (sessao != null && sessao.getAttribute("usuario") != null) {
-            response.sendRedirect(request.getContextPath() + "/agenda");
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
             return;
         }
 

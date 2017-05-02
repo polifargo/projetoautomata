@@ -71,7 +71,7 @@ public class AutorizacaoFilter implements Filter {
         if (pagina.endsWith("produtos") || pagina.endsWith("unidades") || pagina.endsWith("servicos") || pagina.endsWith("clientes")
                 && usuario.temPapel("ADMIN")) {
             return true;
-        } else if (pagina.endsWith("clientes") || pagina.endsWith("realizarvenda")
+        } else if (pagina.endsWith("clientes") || pagina.endsWith("venda")
                 && usuario.temPapel("BASICO")) {
             return true;
         }
