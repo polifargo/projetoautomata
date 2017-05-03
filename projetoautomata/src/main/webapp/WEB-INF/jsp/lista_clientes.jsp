@@ -29,7 +29,6 @@
                             <th>Nome</th>
                             <th>Tipo</th>
                             <th>Cadastro Nacional</th>
-                            <th>Endereco</th>
                             <th>Email</th>
                             <th>Telefone</th>
                             <th colspan="2">Ação</th>
@@ -38,11 +37,20 @@
                             <tr>
                                 <td><c:out value="${cliente.id}" /></td>
                                 <td><c:out value="${cliente.nome}" /></td>
+                                <td><c:out value="${cliente.apelido}" /></td>
+                                <td><c:out value="${cliente.sexo}" /></td>
                                 <td><c:out value="${cliente.tipo}" /></td>
-                                <td><c:out value="${cliente.cadastroNacional}" /></td>
-                                <td><c:out value="${cliente.endereco}" /></td>
+                                <td><c:out value="${cliente.uf}" /></td>
+                                <td><c:out value="${cliente.cep}" /></td>
+                                <td><c:out value="${cliente.cidade}" /></td>
+                                <td><c:out value="${cliente.logradouro}" /></td>
+                                <td><c:out value="${cliente.bairro}" /></td>
+                                <td><c:out value="${cliente.bairro}" /></td>
                                 <td><c:out value="${cliente.email}" /></td>
                                 <td><c:out value="${cliente.telefone}" /></td>
+                                <td><c:out value="${cliente.notasInternas}" /></td>
+                                <td><c:out value="${cliente.inativo}" /></td>
+                                <td><c:out value="${cliente.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                         href="clientes?action=edit&id=<c:out value="${cliente.id}"/>">Atualizar</a></td>
                                 <td><a role="button" class="btn btn-danger"
@@ -50,7 +58,7 @@
                             </tr>
                         </c:forEach>
                     </table>
-                    <a class="btn btn-primary" role="button"href="clientes?action=insert">Adicionar Cliente</a>
+                    <a class="btn btn-primary" role="button" href="clientes?action=insert">Adicionar Cliente</a>
                     <a class="btn btn-danger" role="button" href="index.jsp">Voltar</a>
                 </div>
             </div>

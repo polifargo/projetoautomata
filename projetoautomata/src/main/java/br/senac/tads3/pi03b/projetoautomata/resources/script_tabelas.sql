@@ -101,13 +101,13 @@ FOREIGN KEY (TecnicoServico) REFERENCES Cliente (TecnicoServico)
 );
 
 create table Usuarios(
-codigoUsuario int not null generated always as identity (start with 1, increment by 1),
+id int not null AUTO_INCREMENT,
 nome varchar(30) not null,
 login varchar(30) not null,
 senha varchar(15) not null,
 papel varchar(10) not null,
 email varchar(30),
-primary key (codigoUsuario)
+primary key (id)
 );
 
 create table Unidades(
@@ -136,4 +136,4 @@ FOREIGN KEY (codigoProduto) REFERENCES Produto (codigoProduto)
 );
 
 
-insert into Usuarios values (1, 'Administrador', 'admin', 'admin', 'ADMIN', 'admin@automata.com');
+insert into Usuarios values (2, 'Retaguarda', 'retaguarda', 'retaguarda', 'BASICO', 'retaguarda@automata.com');

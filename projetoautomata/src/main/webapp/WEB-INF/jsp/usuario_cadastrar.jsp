@@ -22,21 +22,28 @@
                     <div class="form-group row">
                         <label for="usuarionome">Nome</label>
                         <input class="form-control" type="text"
-                               name="nome" value="<c:out value="${usuario.nome}" />"
+                               name="nome" value="<c:out value="${usuario.nomeCompleto}" />"
                                placeholder="Nome" />
                     </div>
                     <div class="form-group row">
                         <label for="usuariologin">Login</label>
                         <input class="form-control" type="text"
-                               name="login" value="<c:out value="${usuario.login}" />"
+                               name="login" value="<c:out value="${usuario.usuario}" />"
                                placeholder="Login" />
                     </div>
                     <div class="form-group row">
                         <label for="usuariosenha">Senha</label> 
                         <input class="form-control" type="text"
-                               name="senha" value="<c:out value="${usuario.senha}" />"
+                               name="senha" value="<c:out value="${usuario.hashSenha}" />"
                                placeholder="Senha" />
                     </div>
+                    <div class="form-group row">
+                        <label for="produtotipo">Papel</label> 
+                        <select name="papel" class="form-control">
+                            <option value="ADMIN">Administrador</option>
+                            <option value="BASICO">Basico</option>
+                        </select>
+                    </div >
                     <div class="form-group row">
                         <label for="usuarioemail">Email</label>
                         <input class="form-control" type="text"

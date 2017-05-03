@@ -27,18 +27,26 @@ public class ClienteDAO {
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "INSERT INTO clientes (nome, tipo, cadastronacional, endereco, email, telefone)"
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO clientes (nome, apelido, sexo, tipo, uf, cep, cidade, logradouro, bairro, email, telefone, notasInternas, inativo, cadastronacional)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             //Configura os parâmetros do "PreparedStatement"
             preparedStatement.setString(1, cliente.getNome());
-            preparedStatement.setString(2, cliente.getTipo());
-            preparedStatement.setString(3, cliente.getCadastroNacional());
-            preparedStatement.setString(4, cliente.getEndereco());
-            preparedStatement.setString(5, cliente.getEmail());
-            preparedStatement.setString(6, cliente.getTelefone());
+            preparedStatement.setString(2, cliente.getApelido());
+            preparedStatement.setString(3, cliente.getSexo());
+            preparedStatement.setString(4, cliente.getTipo());
+            preparedStatement.setString(5, cliente.getUf());
+            preparedStatement.setString(6, cliente.getCep());
+            preparedStatement.setString(7, cliente.getCidade());
+            preparedStatement.setString(8, cliente.getLogradouro());
+            preparedStatement.setString(9, cliente.getBairro());
+            preparedStatement.setString(10, cliente.getEmail());
+            preparedStatement.setString(11, cliente.getTelefone());
+            preparedStatement.setString(12, cliente.getNotasInternas());
+            preparedStatement.setInt(13, cliente.getInativo());
+            preparedStatement.setString(14, cliente.getCadastroNacional());
 
             //Executa o comando no banco de dados
             preparedStatement.executeUpdate();
@@ -58,19 +66,29 @@ public class ClienteDAO {
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "UPDATE clientes SET nome=?, tipo=?, cadastronacional=?, endereco=?, email=?, telefone=?"
+        String sql = "UPDATE clientes SET nome=?, apelido=?, sexo=?,"
+                + "tipo=?, uf=?, cep=?, logradouro=?, bairro=?, "
+                + "email=?, telefone=?, notasInternas=?, inativo=?,  cadastronacional=?"
                 + "WHERE id=?";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             //Configura os parâmetros do "PreparedStatement"
             preparedStatement.setString(1, cliente.getNome());
-            preparedStatement.setString(2, cliente.getTipo());
-            preparedStatement.setString(3, cliente.getCadastroNacional());
-            preparedStatement.setString(4, cliente.getEndereco());
-            preparedStatement.setString(5, cliente.getEmail());
-            preparedStatement.setString(6, cliente.getTelefone());
-            preparedStatement.setInt(7, cliente.getId());
+            preparedStatement.setString(2, cliente.getApelido());
+            preparedStatement.setString(3, cliente.getSexo());
+            preparedStatement.setString(4, cliente.getTipo());
+            preparedStatement.setString(5, cliente.getUf());
+            preparedStatement.setString(6, cliente.getCep());
+            preparedStatement.setString(7, cliente.getCidade());
+            preparedStatement.setString(8, cliente.getLogradouro());
+            preparedStatement.setString(9, cliente.getBairro());
+            preparedStatement.setString(10, cliente.getEmail());
+            preparedStatement.setString(11, cliente.getTelefone());
+            preparedStatement.setString(12, cliente.getNotasInternas());
+            preparedStatement.setInt(13, cliente.getInativo());
+            preparedStatement.setString(14, cliente.getCadastroNacional());
+            preparedStatement.setInt(15, cliente.getId());
             //Executa o comando no banco de dados
             preparedStatement.executeUpdate();
         } finally {
@@ -121,11 +139,19 @@ public class ClienteDAO {
                 Cliente cliente = new Cliente();
                 cliente.setId(resultSet.getInt("id"));
                 cliente.setNome(resultSet.getString("nome"));
+                cliente.setApelido(resultSet.getString("apelido"));
+                cliente.setSexo(resultSet.getString("sexo"));
                 cliente.setTipo(resultSet.getString("tipo"));
-                cliente.setCadastroNacional(resultSet.getString("cadastronacional"));
-                cliente.setEndereco(resultSet.getString("endereco"));
+                cliente.setUf(resultSet.getString("uf"));
+                cliente.setCep(resultSet.getString("cep"));
+                cliente.setCidade(resultSet.getString("cidade"));
+                cliente.setLogradouro(resultSet.getString("logradouro"));
+                cliente.setBairro(resultSet.getString("bairro"));
                 cliente.setEmail(resultSet.getString("email"));
                 cliente.setTelefone(resultSet.getString("telefone"));
+                cliente.setNotasInternas(resultSet.getString("notasInternas"));
+                cliente.setInativo(Integer.parseInt(resultSet.getString("inativo")));
+                cliente.setCadastroNacional(resultSet.getString("cadastronacional"));
                 listaClientes.add(cliente);
             }
         } catch (Exception e) {
@@ -146,11 +172,19 @@ public class ClienteDAO {
             while (resultSet.next()) {
                 cliente.setId(resultSet.getInt("id"));
                 cliente.setNome(resultSet.getString("nome"));
+                cliente.setApelido(resultSet.getString("apelido"));
+                cliente.setSexo(resultSet.getString("sexo"));
                 cliente.setTipo(resultSet.getString("tipo"));
-                cliente.setCadastroNacional(resultSet.getString("cadastronacional"));
-                cliente.setEndereco(resultSet.getString("endereco"));
+                cliente.setUf(resultSet.getString("uf"));
+                cliente.setCep(resultSet.getString("cep"));
+                cliente.setCidade(resultSet.getString("cidade"));
+                cliente.setLogradouro(resultSet.getString("logradouro"));
+                cliente.setBairro(resultSet.getString("bairro"));
                 cliente.setEmail(resultSet.getString("email"));
                 cliente.setTelefone(resultSet.getString("telefone"));
+                cliente.setNotasInternas(resultSet.getString("notasInternas"));
+                cliente.setInativo(Integer.parseInt(resultSet.getString("inativo")));
+                cliente.setCadastroNacional(resultSet.getString("cadastronacional"));
             }
             resultSet.close();
             preparedStatement.close();

@@ -22,13 +22,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2>Usuarios cadastrados</h2>
+                    <h2>Usuarios Cadastrados</h2>
                     <table class="table">
                         <tr>
                             <th>Usuario ID</th>
                             <th>Nome</th>
                             <th>Login</th>
                             <th>Senha</th>
+                            <th>Papel</th>
                             <th>Email</th>
                             <th colspan="2">Ação</th>
                         </tr>
@@ -38,6 +39,7 @@
                                 <td><c:out value="${usuario.nome}" /></td>
                                 <td><c:out value="${usuario.login}" /></td>
                                 <td><c:out value="${usuario.senha}" /></td>
+                                <td><c:out value="${usuario.papel}" /></td>
                                 <td><c:out value="${usuario.email}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                         href="usuarios?action=edit&id=<c:out value="${usuario.id}"/>">Atualizar</a></td>

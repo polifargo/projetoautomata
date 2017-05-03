@@ -81,11 +81,19 @@ public class ClienteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Cliente cliente = new Cliente();
         cliente.setNome(request.getParameter("nome"));
+        cliente.setApelido(request.getParameter("apelido"));
+        cliente.setSexo(request.getParameter("sexo"));
         cliente.setTipo(request.getParameter("tipo"));
-        cliente.setCadastroNacional(request.getParameter("cadastroNacional"));
-        cliente.setEndereco(request.getParameter("endereco"));
+        cliente.setUf(request.getParameter("uf"));
+        cliente.setCep(request.getParameter("cep"));
+        cliente.setCidade(request.getParameter("cidade"));
+        cliente.setLogradouro(request.getParameter("logradouro"));
+        cliente.setBairro(request.getParameter("bairro"));
         cliente.setEmail(request.getParameter("email"));
         cliente.setTelefone(request.getParameter("telefone"));
+        cliente.setNotasInternas(request.getParameter("notasInternas"));
+        cliente.setInativo(Integer.parseInt(request.getParameter("inativo")));
+        cliente.setCadastroNacional(request.getParameter("cadastroNacional"));
         String id = request.getParameter("id");
         dao = new ClienteDAO();
         if (id == null || id.isEmpty()) {

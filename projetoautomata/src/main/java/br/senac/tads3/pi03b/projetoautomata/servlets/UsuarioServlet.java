@@ -86,11 +86,11 @@ public class UsuarioServlet extends HttpServlet {
         usuario.setPapel(request.getParameter("papel"));
         usuario.setEmail(request.getParameter("email"));
         String id = request.getParameter("id");
-        usuario.cadastrarUsuario(request.getParameter("senha"));
         dao = new UsuarioDAO();
         if (id == null || id.isEmpty()) {
             try {
                 dao.inserir(usuario);
+                usuario.cadastrarUsuario(request.getParameter("senha"));
             } catch (Exception ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
