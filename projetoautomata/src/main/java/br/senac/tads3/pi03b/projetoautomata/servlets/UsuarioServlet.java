@@ -6,7 +6,7 @@
 package br.senac.tads3.pi03b.projetoautomata.servlets;
 
 import br.senac.tads3.pi03b.projetoautomata.dao.UsuarioDAO;
-import br.senac.tads3.pi03b.projetoautomata.models.Usuario;
+import br.senac.tads3.pi03b.projetoautomata.models.UsuarioSistema;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -24,11 +24,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "UsuarioServlet", urlPatterns = {"/usuarios"})
 public class UsuarioServlet extends HttpServlet {
-
+    
     private UsuarioDAO dao;
     public static final String LIST = "WEB-INF/jsp/lista_usuarios.jsp";
     public static final String INSERT_OR_EDIT = "WEB-INF/jsp/usuario_cadastrar.jsp";
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
@@ -52,7 +52,7 @@ public class UsuarioServlet extends HttpServlet {
         } else if ("edit".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
-            Usuario usuario = null;
+            UsuarioSistema usuario = null;
             try {
                 usuario = dao.getUsuarioById(id);
             } catch (SQLException ex) {
@@ -76,15 +76,17 @@ public class UsuarioServlet extends HttpServlet {
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Usuario usuario = new Usuario();
-        usuario.setNome(request.getParameter("nome"));
-        usuario.setLogin(request.getParameter("login"));
+        UsuarioSistema usuario = new UsuarioSistema();
+        usuario.setNomeCompleto(request.getParameter("nome"));
+        usuario.setUsuario(request.getParameter("login"));
         usuario.setSenha(request.getParameter("senha"));
+        usuario.setPapel(request.getParameter("papel"));
         usuario.setEmail(request.getParameter("email"));
         String id = request.getParameter("id");
+        usuario.cadastrarUsuario(request.getParameter("senha"));
         dao = new UsuarioDAO();
         if (id == null || id.isEmpty()) {
             try {

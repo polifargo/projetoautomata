@@ -1,4 +1,4 @@
-create Table Cliente (
+create Table Clientes (
 CodigoCliente int not null primary key generated always as identity (start with 1, increment by 1),
 NomeCliente varchar(120),
 Apelido varchar(60),
@@ -16,7 +16,7 @@ Inativo integer,
 CadastroNacional char(18)
 );
 
-create table Produto(
+create table Produtos(
 CodigoProduto char(15) not null,
 Modelo varchar(60),
 Unidade varchar(30),
@@ -55,24 +55,24 @@ create table TipoServico(
 CodigoTipoServ integer not null,
 Descricao varchar(60),
 NotasInternas varchar(1000),
-Primary Key (CodigoTipoServ),
+Primary Key (CodigoTipoServ)
 );
 
-create table Servico(
+create table Servicos(
 CodigoServico char(15) not null,
 Descricao varchar(60),
 TipoServico varchar(30),
 ValorPrestado numeric(14,2),
 NotasInternas varchar(1000),
 Inativo integer,
-Primary Key (CodigoServico),
+Primary Key (CodigoServico)
 );
 
 create table Tecnico(
 Codigo varchar(8) not null,
 NomeTecnico varchar(30),
 TipoServPreferencial int,
-FOREIGN KEY (TipoServPreferencial) REFERENCES TipoServico (CodigoTipoServ),
+FOREIGN KEY (TipoServPreferencial) REFERENCES TipoServico (CodigoTipoServ)
 );
 
 create table ServicoPrestado(
@@ -96,20 +96,21 @@ CodigoVenda int not null,
 ValorTotal numeric(14,2),
 ValorUnitario numeric(14,2),
 primary key (CodigoMovimento),
-FOREIGN KEY (CodigoServico) REFERENCES Servico (CodigoServico)
+FOREIGN KEY (CodigoServico) REFERENCES Servico (CodigoServico),
 FOREIGN KEY (TecnicoServico) REFERENCES Cliente (TecnicoServico)
 );
 
-create table Usuario(
+create table Usuarios(
 codigoUsuario int not null generated always as identity (start with 1, increment by 1),
+nome varchar(30) not null,
 login varchar(30) not null,
 senha varchar(15) not null,
-tipoAcesso varchar(3) not null,
+papel varchar(10) not null,
 email varchar(30),
 primary key (codigoUsuario)
 );
 
-create table Unidade(
+create table Unidades(
 codigoUnidade varchar(3) not null,
 fantasia varchar(40),
 razaoSocial varchar(80),
@@ -122,7 +123,8 @@ Email varchar(80),
 Telefone numeric(14),
 NotasInternas varchar(1000),
 Inativo integer,
-CadastroNacional char(18)
+CadastroNacional char(18),
+primary key (codigoUnidade)
 );
 
 create table Saldo(
@@ -134,4 +136,4 @@ FOREIGN KEY (codigoProduto) REFERENCES Produto (codigoProduto)
 );
 
 
-insert into Usuario values (1, 'Administrador', 'admin', 'admin', '', 'admin@automata.com');
+insert into Usuarios values (1, 'Administrador', 'admin', 'admin', 'ADMIN', 'admin@automata.com');

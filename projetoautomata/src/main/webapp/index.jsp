@@ -15,27 +15,67 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+
+        <!-- STYLE TEMPORARIO -->
+        <style>
+            .guia:checked ~label{
+                background-color: #999999;
+            }
+        </style>
     </head>
     <body>
-        <c:if test="${not empty sessionScope.usuario}">
+    <c:if test="${not empty sessionScope.usuario}">
         <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand"><img src="resources/logo.png"></a>
+            <header>
+                <div class="logos">
+                    <img id="logo" src="resources/logo.png">
+                    <img id="logotipo" src="resources/logotipo.png">
                 </div>
-                <a class="navbar-brand" href="clientes">Clientes </a>
+            </header>
+
+            <div class="login">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    <li><a><span class="glyphicon glyphicon-user"></span><c:out value="${sessionScope.usuario.nomeCompleto}" /></a></li>
+                    <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Sair</a></li>
+                </ul>
+            </div>
+
+            <nav class="guias">
+                <ul>
+                    <li>
+                        <input type="radio" name="guia" class="guia" id="cadastro">
+                        <label for="cadastro">Cadastro</label>
+                        <div class="content"></div>
+                    </li>
+
+                    <li>
+                        <input type="radio" name="guia" class="guia" id="venda">
+                        <label for="venda">Venda</label>
+                        <div class="content"></div>
+                    </li>
+
+                    <li>
+                        <input type="radio" name="guia" class="guia" id="servico">
+                        <label for="servico">Servico</label>
+                        <div class="content"></div>
+                    </li>
+
+                    <li>
+                        <input type="radio" name="guia" class="guia" id="estoque">
+                        <label for="estoque">Estoque</label>
+                        <div class="content"></div>
+                    </li>
+            </nav>
+
+            <div class="container-fluid">
+                <a class="navbar-brand" href="clientes">Clientes</a>
                 <a class="navbar-brand" href="produtos">Produtos</a>
                 <a class="navbar-brand" href="servicos">Servicos</a>
                 <a class="navbar-brand" href="unidades">Unidades</a>
-                <a class="navbar-brand" href="venda">Realizar Venda</a>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.jsp"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                    <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Sair</a></li>
-                    <li><a><span class="glyphicon glyphicon-user"></span><c:out value="${sessionScope.usuario.nomeCompleto}" /></a></li>
-                </ul>
             </div>
         </nav>
-        <c:import url="WEB-INF/jsp/rodape.jsp"/>
+        <c:import url="./rodape.jsp"/>
     </c:if>
 </body>
 </html>

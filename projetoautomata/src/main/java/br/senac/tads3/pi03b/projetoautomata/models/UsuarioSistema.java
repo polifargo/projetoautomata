@@ -17,33 +17,31 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class UsuarioSistema {
 
-    private static final Map<String, UsuarioSistema> USUARIOS_CADASTRADOS;
+    private static Map<String, UsuarioSistema> USUARIOS_CADASTRADOS;
 
-    static {
-        USUARIOS_CADASTRADOS = new LinkedHashMap<>();
-        USUARIOS_CADASTRADOS.put("admin", new UsuarioSistema("admin",
-                "Administrador", "admin", new String[]{"ADMIN"}));
-        USUARIOS_CADASTRADOS.put("retaguarda", new UsuarioSistema("retaguarda",
-                "Retaguarda", "retaguarda", new String[]{"BASICO"}));
-    }
-
+    private int id;
     private String usuario;
-
     private String nomeCompleto;
-
     private String hashSenha;
-
-    private String[] papeis; // ROLES
+    private String papel; // ROLES
+    private String email;
 
     public UsuarioSistema() {
-
     }
 
-    public UsuarioSistema(String usuario, String nomeCompleto, String senha, String[] papeis) {
+    public UsuarioSistema(String usuario, String nomeCompleto, String senha, String papel) {
         this.usuario = usuario;
         this.nomeCompleto = nomeCompleto;
         setSenha(senha);
-        this.papeis = papeis;
+        this.papel = papel;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsuario() {
@@ -70,16 +68,30 @@ public class UsuarioSistema {
         this.hashSenha = BCrypt.hashpw(senha, BCrypt.gensalt());
     }
 
-    public String[] getPapeis() {
-        return papeis;
+    public String getPapel() {
+        return papel;
     }
 
-    public void setPapeis(String[] papeis) {
-        this.papeis = papeis;
+    public void setPapel(String papel) {
+        this.papel = papel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void cadastrarUsuario(String senha) {
+        USUARIOS_CADASTRADOS = new LinkedHashMap<>();
+        USUARIOS_CADASTRADOS.put(this.getUsuario(), new UsuarioSistema(this.getUsuario(),
+                this.getNomeCompleto(), senha, this.getPapel()));
     }
 
     public boolean temPapel(String papel) {
-        List<String> papeisUsuario = Arrays.asList(papeis);
+        List<String> papeisUsuario = Arrays.asList(papel);
         return papeisUsuario.contains(papel);
     }
 
