@@ -80,9 +80,17 @@ public class UnidadeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Unidade unidade = new Unidade();
-        unidade.setEndereco(request.getParameter("endereco"));
-        unidade.setNome(request.getParameter("nome"));
+        unidade.setFantasia(request.getParameter("fantasia"));
         unidade.setRazao(request.getParameter("razao"));
+        unidade.setUf(request.getParameter("uf"));
+        unidade.setCep(request.getParameter("cep"));
+        unidade.setCidade(request.getParameter("cidade"));
+        unidade.setLogradouro(request.getParameter("logradouro"));
+        unidade.setBairro(request.getParameter("bairro"));
+        unidade.setEmail(request.getParameter("email"));
+        unidade.setTelefone(request.getParameter("telefone"));
+        unidade.setNotasInternas(request.getParameter("notasInternas"));
+        unidade.setInativo(Integer.parseInt(request.getParameter("inativo")));
         unidade.setCadastroNacional(request.getParameter("cadastroNacional"));
         String id = request.getParameter("id");
         dao = new UnidadeDAO();

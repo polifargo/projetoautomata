@@ -28,10 +28,9 @@
                             <th>Servico ID</th>
                             <th>Descricao</th>
                             <th>Tipo</th>
-                            <th>Tecnico</th>
-                            <th>Media Conclusao</th>
-                            <th>Media Horas</th>
                             <th>Valor</th>
+                            <th>Notas Internas</th>
+                            <th>Inativo</th>
                             <th colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${servicos}" var="servico">
@@ -39,10 +38,9 @@
                                 <td><c:out value="${servico.id}" /></td>
                                 <td><c:out value="${servico.descricao}" /></td>
                                 <td><c:out value="${servico.tipo}" /></td>
-                                <td><c:out value="${servico.tecnico}" /></td>
-                                <td><c:out value="${servico.mediaConclusao}" /></td>
-                                <td><c:out value="${servico.mediaHoras}" /></td>
                                 <td><c:out value="${servico.valor}" /></td>
+                                <td><c:out value="${servico.notasInternas}" /></td>
+                                <td><c:out value="${servico.inativo}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                         href="servicos?action=edit&id=<c:out value="${servico.id}"/>">Atualizar</a></td>
                                 <td><a role="button" class="btn btn-danger"

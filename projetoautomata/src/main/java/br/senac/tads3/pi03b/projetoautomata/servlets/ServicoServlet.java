@@ -86,10 +86,9 @@ public class ServicoServlet extends HttpServlet {
         Servico servico = new Servico();
         servico.setDescricao(request.getParameter("descricao"));
         servico.setTipo(request.getParameter("tipo"));
-        servico.setTecnico(request.getParameter("tecnico"));
-        servico.setMediaConclusao(request.getParameter("mediaConclusao"));
-        servico.setMediaHoras(Integer.parseInt(request.getParameter("mediaHoras")));
         servico.setValor(Float.parseFloat(request.getParameter("valor")));
+        servico.setNotasInternas(request.getParameter("notasInternas"));
+        servico.setInativo(Integer.parseInt(request.getParameter("inativo")));
         String id = request.getParameter("id");
         dao = new ServicoDAO();
         if (id == null || id.isEmpty()) {

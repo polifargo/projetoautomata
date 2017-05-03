@@ -44,28 +44,22 @@
                         </select>
                     </div>
                     <div class="form-group row">
-                        <label for="servicotecnico">Tecnico</label> 
-                        <input class="form-control" type="text"
-                               name="tecnico" value="<c:out value="${servico.tecnico}" />"
-                               placeholder="Tecnico" />
-                    </div>
-                    <div class="form-group row">
-                        <label for="servicomediaconclusao">Media Conclusao</label> 
-                        <input class="form-control" type="date"
-                               name="mediaConclusao" value="<c:out value="${servico.mediaConclusao}" />"
-                               placeholder="Media Conclusao" />
-                    </div>
-                    <div class="form-group row">
-                        <label for="servicomediahoras">Media Horas</label>
-                        <input class="form-control" type="number"
-                               name="mediaHoras" value="<c:out value="${servico.mediaHoras}" />"
-                               placeholder="Media Horas" />
-                    </div>
-                    <div class="form-group row">
                         <label for="servicovalor">Valor</label> 
                         <input class="form-control" type="number"
                                name="valor" value="<c:out value="${servico.valor}" />"
                                placeholder="Valor" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="serviconotasinternas">Notas Internas</label> 
+                        <input class="form-control" type="textarea"
+                               name="notasInternas" value="<c:out value="${servico.notasInternas}" />"
+                               placeholder="Notas Internas" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="servicoinativo">Inativo</label> 
+                        <input class="form-control" type="number"
+                               name="inativo" value="<c:out value="${servico.inativo}" />"
+                               placeholder="Inativo" />
                     </div>
                     <div class="form-group row">
                         <input class="form-control" type="submit" value="Salvar" />

@@ -27,17 +27,24 @@ public class UnidadeDAO {
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "INSERT INTO unidades (endereco, nome, razao, cadastronacional)"
-                + "VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO unidades (fantasia, razao, uf, cep, cidade, logradouro, bairro, email, telefone, notasInternas, inativo, cadastronacional)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setString(1, unidade.getEndereco());
-            preparedStatement.setString(2, unidade.getNome());
-            preparedStatement.setString(3, unidade.getRazao());
-            preparedStatement.setString(4, unidade.getCadastroNacional());
-
+            preparedStatement.setString(1, unidade.getFantasia());
+            preparedStatement.setString(2, unidade.getRazao());
+            preparedStatement.setString(3, unidade.getUf());
+            preparedStatement.setString(4, unidade.getCep());
+            preparedStatement.setString(5, unidade.getCidade());
+            preparedStatement.setString(6, unidade.getLogradouro());
+            preparedStatement.setString(7, unidade.getBairro());
+            preparedStatement.setString(8, unidade.getEmail());
+            preparedStatement.setString(9, unidade.getTelefone());
+            preparedStatement.setString(10, unidade.getNotasInternas());
+            preparedStatement.setInt(11, unidade.getInativo());
+            preparedStatement.setString(12, unidade.getCadastroNacional());
             //Executa o comando no banco de dados
             preparedStatement.executeUpdate();
         } finally {
@@ -62,11 +69,19 @@ public class UnidadeDAO {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setString(1, unidade.getEndereco());
-            preparedStatement.setString(2, unidade.getNome());
-            preparedStatement.setString(3, unidade.getRazao());
-            preparedStatement.setString(4, unidade.getCadastroNacional());
-            preparedStatement.setInt(5, unidade.getId());
+            preparedStatement.setString(1, unidade.getFantasia());
+            preparedStatement.setString(2, unidade.getRazao());
+            preparedStatement.setString(3, unidade.getUf());
+            preparedStatement.setString(4, unidade.getCep());
+            preparedStatement.setString(5, unidade.getCidade());
+            preparedStatement.setString(6, unidade.getLogradouro());
+            preparedStatement.setString(7, unidade.getBairro());
+            preparedStatement.setString(8, unidade.getEmail());
+            preparedStatement.setString(9, unidade.getTelefone());
+            preparedStatement.setString(10, unidade.getNotasInternas());
+            preparedStatement.setInt(11, unidade.getInativo());
+            preparedStatement.setString(12, unidade.getCadastroNacional());
+            preparedStatement.setInt(13, unidade.getId());
             //Executa o comando no banco de dados
             preparedStatement.executeUpdate();
         } finally {
@@ -116,9 +131,17 @@ public class UnidadeDAO {
             while (resultSet.next()) {
                 Unidade unidade = new Unidade();
                 unidade.setId(resultSet.getInt("id"));
-                unidade.setEndereco(resultSet.getString("endereco"));
-                unidade.setNome(resultSet.getString("nome"));
+                unidade.setFantasia(resultSet.getString("fantasia"));
                 unidade.setRazao(resultSet.getString("razao"));
+                unidade.setUf(resultSet.getString("uf"));
+                unidade.setCep(resultSet.getString("cep"));
+                unidade.setCidade(resultSet.getString("cidade"));
+                unidade.setLogradouro(resultSet.getString("logradouro"));
+                unidade.setBairro(resultSet.getString("bairro"));
+                unidade.setEmail(resultSet.getString("email"));
+                unidade.setTelefone(resultSet.getString("telefone"));
+                unidade.setNotasInternas(resultSet.getString("notasInternas"));
+                unidade.setInativo(Integer.parseInt(resultSet.getString("inativo")));
                 unidade.setCadastroNacional(resultSet.getString("cadastronacional"));
                 listaUnidades.add(unidade);
             }
@@ -139,9 +162,17 @@ public class UnidadeDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 unidade.setId(resultSet.getInt("id"));
-                unidade.setEndereco(resultSet.getString("endereco"));
-                unidade.setNome(resultSet.getString("nome"));
+                unidade.setFantasia(resultSet.getString("fantasia"));
                 unidade.setRazao(resultSet.getString("razao"));
+                unidade.setUf(resultSet.getString("uf"));
+                unidade.setCep(resultSet.getString("cep"));
+                unidade.setCidade(resultSet.getString("cidade"));
+                unidade.setLogradouro(resultSet.getString("logradouro"));
+                unidade.setBairro(resultSet.getString("bairro"));
+                unidade.setEmail(resultSet.getString("email"));
+                unidade.setTelefone(resultSet.getString("telefone"));
+                unidade.setNotasInternas(resultSet.getString("notasInternas"));
+                unidade.setInativo(Integer.parseInt(resultSet.getString("inativo")));
                 unidade.setCadastroNacional(resultSet.getString("cadastronacional"));
             }
             resultSet.close();

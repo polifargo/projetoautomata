@@ -22,22 +22,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2>Unidades cadastradas</h2>
+                    <h2>Unidades Cadastradas</h2>
                     <table class="table">
                         <tr>
                             <th>Unidade ID</th>
-                            <th>Endereco</th>
-                            <th>Nome</th>
+                            <th>Fantasia</th>
                             <th>Razao</th>
+                            <th>UF</th>
+                            <th>CEP</th>
+                            <th>Cidade</th>
+                            <th>Logradouro</th>
+                            <th>Bairro</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Notas Internas</th>
+                            <th>Inativo</th>
                             <th>Cadastro Nacional</th>
                             <th colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${unidades}" var="unidade">
                             <tr>
                                 <td><c:out value="${unidade.id}" /></td>
-                                <td><c:out value="${unidade.endereco}" /></td>
-                                <td><c:out value="${unidade.nome}" /></td>
+                                <td><c:out value="${unidade.fantasia}" /></td>
                                 <td><c:out value="${unidade.razao}" /></td>
+                                <td><c:out value="${unidade.uf}" /></td>
+                                <td><c:out value="${unidade.cep}" /></td>
+                                <td><c:out value="${unidade.cidade}" /></td>
+                                <td><c:out value="${unidade.logradouro}" /></td>
+                                <td><c:out value="${unidade.bairro}" /></td>
+                                <td><c:out value="${unidade.bairro}" /></td>
+                                <td><c:out value="${unidade.email}" /></td>
+                                <td><c:out value="${unidade.telefone}" /></td>
+                                <td><c:out value="${unidade.notasInternas}" /></td>
+                                <td><c:out value="${unidade.inativo}" /></td>
                                 <td><c:out value="${unidade.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                         href="unidades?action=edit&id=<c:out value="${unidade.id}"/>">Atualizar</a></td>

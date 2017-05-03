@@ -26,16 +26,15 @@ public class ServicoDAO {
     public void inserir(Servico servico)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
-        String sql = "INSERT INTO servicos(descricao, tipo, tecnico, mediaConclusao, mediaHoras, valor)"
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO servicos(descricao, tipo, valor, notasInternas, inativo)"
+                + "VALUES (?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             preparedStatement.setString(1, servico.getDescricao());
             preparedStatement.setString(2, servico.getTipo());
-            preparedStatement.setString(3, servico.getTecnico());
-            preparedStatement.setString(4, servico.getMediaConclusao());
-            preparedStatement.setInt(5, servico.getMediaHoras());
-            preparedStatement.setFloat(6, servico.getValor());
+            preparedStatement.setFloat(3, servico.getValor());
+            preparedStatement.setString(4, servico.getNotasInternas());
+            preparedStatement.setInt(5, servico.getInativo());
 
             preparedStatement.executeUpdate();
         } finally {
@@ -51,16 +50,15 @@ public class ServicoDAO {
     public void alterar(Servico servico)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
-        String sql = "UPDATE servicos SET descricao=?, tipo=?, tecnico=?, mediaConclusao=?, mediaHoras=?, valor=?"
+        String sql = "UPDATE servicos SET descricao=?, tipo=?, valor=?, notasInternas=?, inativo=?"
                 + "WHERE id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             preparedStatement.setString(1, servico.getDescricao());
             preparedStatement.setString(2, servico.getTipo());
-            preparedStatement.setString(3, servico.getTecnico());
-            preparedStatement.setString(4, servico.getMediaConclusao());
-            preparedStatement.setInt(5, servico.getMediaHoras());
-            preparedStatement.setFloat(6, servico.getValor());
+            preparedStatement.setFloat(3, servico.getValor());
+            preparedStatement.setString(4, servico.getNotasInternas());
+            preparedStatement.setInt(5, servico.getInativo());
             preparedStatement.executeUpdate();
         } finally {
             if (preparedStatement != null && !preparedStatement.isClosed()) {
@@ -104,10 +102,9 @@ public class ServicoDAO {
                 servico.setId(resultSet.getInt("id"));
                 servico.setDescricao(resultSet.getString("descricao"));
                 servico.setTipo(resultSet.getString("tipo"));
-                servico.setTecnico(resultSet.getString("tecnico"));
-                servico.setMediaConclusao(resultSet.getString("mediaConclusao"));
-                servico.setMediaHoras(resultSet.getInt("mediaHoras"));
-                servico.setValor(resultSet.getFloat("valor"));
+                servico.setValor(Float.parseFloat(resultSet.getString("valor")));
+                servico.setNotasInternas(resultSet.getString("notasInternas"));
+                servico.setInativo(resultSet.getInt("inativo"));
                 listaServicos.add(servico);
             }
         } catch (Exception e) {
@@ -129,10 +126,9 @@ public class ServicoDAO {
                 servico.setId(resultSet.getInt("id"));
                 servico.setDescricao(resultSet.getString("descricao"));
                 servico.setTipo(resultSet.getString("tipo"));
-                servico.setTecnico(resultSet.getString("tecnico"));
-                servico.setMediaConclusao(resultSet.getString("mediaConclusao"));
-                servico.setMediaHoras(resultSet.getInt("mediaHoras"));
-                servico.setValor(resultSet.getFloat("valor"));
+                servico.setValor(Float.parseFloat(resultSet.getString("valor")));
+                servico.setNotasInternas(resultSet.getString("notasInternas"));
+                servico.setInativo(resultSet.getInt("inativo"));
             }
             resultSet.close();
             preparedStatement.close();

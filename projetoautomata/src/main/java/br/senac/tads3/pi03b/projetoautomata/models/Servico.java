@@ -1,7 +1,5 @@
 package br.senac.tads3.pi03b.projetoautomata.models;
 
-import java.util.Date;
-
 /**
  *
  * @author matheus_santo
@@ -11,10 +9,9 @@ public class Servico {
     private int id;
     private String descricao;
     private String tipo;
-    private String tecnico;
-    private String mediaConclusao;
-    private int mediaHoras;
     private float valor;
+    private String notasInternas;
+    private int inativo;
 
     public int getId() {
         return id;
@@ -36,32 +33,8 @@ public class Servico {
         return tipo;
     }
 
-    public String getTecnico() {
-        return tecnico;
-    }
-
-    public void setTecnico(String tecnico) {
-        this.tecnico = tecnico;
-    }
-
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getMediaConclusao() {
-        return mediaConclusao;
-    }
-
-    public void setMediaConclusao(String mediaConclusao) {
-        this.mediaConclusao = mediaConclusao;
-    }
-
-    public int getMediaHoras() {
-        return mediaHoras;
-    }
-
-    public void setMediaHoras(int mediaHoras) {
-        this.mediaHoras = mediaHoras;
     }
 
     public float getValor() {
@@ -70,6 +43,22 @@ public class Servico {
 
     public void setValor(float valor) {
         this.valor = valor;
+    }
+
+    public String getNotasInternas() {
+        return notasInternas;
+    }
+
+    public void setNotasInternas(String notasInternas) {
+        this.notasInternas = notasInternas;
+    }
+
+    public int getInativo() {
+        return inativo;
+    }
+
+    public void setInativo(int inativo) {
+        this.inativo = inativo;
     }
 
 }
