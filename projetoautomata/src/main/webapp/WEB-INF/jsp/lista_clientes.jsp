@@ -27,10 +27,18 @@
                         <tr>
                             <th>Cliente ID</th>
                             <th>Nome</th>
-                            <th>Tipo</th>
-                            <th>Cadastro Nacional</th>
+                            <th>Apelido</th>
+                            <th>Sexo</th>
+                            <th>UF</th>
+                            <th>CEP</th>
+                            <th>Cidade</th>
+                            <th>Logradouro</th>
+                            <th>Bairro</th>
                             <th>Email</th>
                             <th>Telefone</th>
+                            <th>Notas Internas</th>
+                            <th>Inativo</th>
+                            <th>Cadastro Nacional</th>
                             <th colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${clientes}" var="cliente">
