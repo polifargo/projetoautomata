@@ -5,7 +5,7 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.servlets;
 
-import br.senac.tads3.pi03b.projetoautomata.models.UsuarioSistema;
+import br.senac.tads3.pi03b.projetoautomata.models.Usuario;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -42,8 +42,8 @@ public class AutorizacaoFilter implements Filter {
 
         // 2) Tenta obter a sessao do usuario
         HttpSession sessao = httpRequest.getSession();
-        UsuarioSistema usuario
-                = (UsuarioSistema) sessao.getAttribute("usuario");
+        Usuario usuario
+                = (Usuario) sessao.getAttribute("usuario");
 
         // Usuario nulo significa que não está logado
         // Redireciona para tela de login
@@ -63,7 +63,7 @@ public class AutorizacaoFilter implements Filter {
         }
     }
 
-    private static boolean verificarAcesso(UsuarioSistema usuario,
+    private static boolean verificarAcesso(Usuario usuario,
             HttpServletRequest request, HttpServletResponse response) {
         String paginaAcessada = request.getRequestURI();
         String pagina = paginaAcessada.replace(request.getContextPath(), "");

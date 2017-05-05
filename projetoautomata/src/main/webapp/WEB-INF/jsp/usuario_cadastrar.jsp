@@ -4,9 +4,17 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <link rel="stylesheet" type="text/css" href="css/listaform.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="description" content="">
         <title>Adicionar Usuario</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="css/estilos.css" rel="stylesheet" />
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
@@ -22,23 +30,23 @@
                     <div class="form-group row">
                         <label for="usuarionome">Nome</label>
                         <input class="form-control" type="text"
-                               name="nome" value="<c:out value="${usuario.nomeCompleto}" />"
+                               name="nome" value="<c:out value="${usuario.nome}" />"
                                placeholder="Nome" />
                     </div>
                     <div class="form-group row">
                         <label for="usuariologin">Login</label>
                         <input class="form-control" type="text"
-                               name="login" value="<c:out value="${usuario.usuario}" />"
+                               name="login" value="<c:out value="${usuario.login}" />"
                                placeholder="Login" />
                     </div>
                     <div class="form-group row">
                         <label for="usuariosenha">Senha</label> 
                         <input class="form-control" type="text"
-                               name="senha" value="<c:out value="${usuario.hashSenha}" />"
+                               name="senha" value="<c:out value="${usuario.senha}" />"
                                placeholder="Senha" />
                     </div>
                     <div class="form-group row">
-                        <label for="produtotipo">Papel</label> 
+                        <label for="usuariopapel">Papel</label> 
                         <select name="papel" class="form-control">
                             <option value="ADMIN">Administrador</option>
                             <option value="BASICO">Basico</option>

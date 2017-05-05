@@ -5,7 +5,7 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.servlets;
 
-import br.senac.tads3.pi03b.projetoautomata.models.UsuarioSistema;
+import br.senac.tads3.pi03b.projetoautomata.models.Usuario;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,8 +45,8 @@ public class LoginServlet extends HttpServlet {
         String senhaDigitada = request.getParameter("senha");
 
         // Compara com o usuário/senha previamente cadastrado
-        UsuarioSistema usuarioSistema
-                = UsuarioSistema.obterUsuario(usuario, senhaDigitada);
+        Usuario usuarioSistema
+                = Usuario.obterUsuario(usuario, senhaDigitada);
         if (usuarioSistema != null) {
             // Usuario existe e a senha está correta
             // Caso exista, invalida a sessão anterior (www.owasp.org)

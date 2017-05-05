@@ -6,7 +6,7 @@
 package br.senac.tads3.pi03b.projetoautomata.servlets;
 
 import br.senac.tads3.pi03b.projetoautomata.dao.UsuarioDAO;
-import br.senac.tads3.pi03b.projetoautomata.models.UsuarioSistema;
+import br.senac.tads3.pi03b.projetoautomata.models.Usuario;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -40,25 +40,25 @@ public class UsuarioServlet extends HttpServlet {
             try {
                 dao.excluir(id);
             } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
                 request.setAttribute("usuarios", dao.getListaUsuarios());
             } catch (SQLException ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if ("edit".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
-            UsuarioSistema usuario = null;
+            Usuario usuario = null;
             try {
                 usuario = dao.getUsuarioById(id);
             } catch (SQLException ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             request.setAttribute("usuario", usuario);
         } else if ("insert".equalsIgnoreCase(action)) {
@@ -68,9 +68,9 @@ public class UsuarioServlet extends HttpServlet {
             try {
                 request.setAttribute("usuarios", dao.getListaUsuarios());
             } catch (SQLException ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         RequestDispatcher view = request.getRequestDispatcher(forward);
@@ -79,36 +79,37 @@ public class UsuarioServlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UsuarioSistema usuario = new UsuarioSistema();
-        usuario.setNomeCompleto(request.getParameter("nome"));
-        usuario.setUsuario(request.getParameter("login"));
+        Usuario usuario = new Usuario();
+        usuario.setNome(request.getParameter("nome"));
+        usuario.setLogin(request.getParameter("login"));
         usuario.setSenha(request.getParameter("senha"));
+        usuario.setHashSenha(request.getParameter("senha"));
         usuario.setPapel(request.getParameter("papel"));
         usuario.setEmail(request.getParameter("email"));
         String id = request.getParameter("id");
+        usuario.cadastrarUsuario();
         dao = new UsuarioDAO();
         if (id == null || id.isEmpty()) {
             try {
                 dao.inserir(usuario);
-                usuario.cadastrarUsuario(request.getParameter("senha"));
             } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             usuario.setId(Integer.parseInt(id));
             try {
                 dao.alterar(usuario);
             } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
             request.setAttribute("usuarios", dao.getListaUsuarios());
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         view.forward(request, response);
     }

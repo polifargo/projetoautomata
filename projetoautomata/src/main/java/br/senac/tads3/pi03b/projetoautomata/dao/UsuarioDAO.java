@@ -5,7 +5,7 @@
  */
 package br.senac.tads3.pi03b.projetoautomata.dao;
 
-import br.senac.tads3.pi03b.projetoautomata.models.UsuarioSistema;
+import br.senac.tads3.pi03b.projetoautomata.models.Usuario;
 import br.senac.tads3.pi03b.projetoautomata.utils.DbUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +23,7 @@ public class UsuarioDAO {
 
     private Connection connection;
 
-    public void inserir(UsuarioSistema usuario)
+    public void inserir(Usuario usuario)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
@@ -33,9 +33,9 @@ public class UsuarioDAO {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setString(1, usuario.getNomeCompleto());
-            preparedStatement.setString(2, usuario.getUsuario());
-            preparedStatement.setString(3, usuario.getHashSenha());
+            preparedStatement.setString(1, usuario.getNome());
+            preparedStatement.setString(2, usuario.getLogin());
+            preparedStatement.setString(3, usuario.getSenha());
             preparedStatement.setString(4, usuario.getPapel());
             preparedStatement.setString(5, usuario.getEmail());
 
@@ -53,7 +53,7 @@ public class UsuarioDAO {
         }
     }
 
-    public void alterar(UsuarioSistema usuario)
+    public void alterar(Usuario usuario)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
@@ -63,9 +63,9 @@ public class UsuarioDAO {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setString(1, usuario.getNomeCompleto());
-            preparedStatement.setString(2, usuario.getUsuario());
-            preparedStatement.setString(3, usuario.getHashSenha());
+            preparedStatement.setString(1, usuario.getNome());
+            preparedStatement.setString(2, usuario.getLogin());
+            preparedStatement.setString(3, usuario.getSenha());
             preparedStatement.setString(4, usuario.getPapel());
             preparedStatement.setString(5, usuario.getEmail());
             preparedStatement.setInt(6, usuario.getId());
@@ -107,18 +107,18 @@ public class UsuarioDAO {
         }
     }
 
-    public List<UsuarioSistema> getListaUsuarios() throws SQLException, ClassNotFoundException {
-        List<UsuarioSistema> listaUsuarios = new ArrayList<>();
+    public List<Usuario> getListaUsuarios() throws SQLException, ClassNotFoundException {
+        List<Usuario> listaUsuarios = new ArrayList<>();
         connection = DbUtil.getConnection();
         String query = "SELECT * FROM usuarios ORDER BY nome";
         try {
             Statement st = connection.createStatement();
             ResultSet resultSet = st.executeQuery(query);
             while (resultSet.next()) {
-                UsuarioSistema usuario = new UsuarioSistema();
+                Usuario usuario = new Usuario();
                 usuario.setId(resultSet.getInt("id"));
-                usuario.setNomeCompleto(resultSet.getString("nome"));
-                usuario.setUsuario(resultSet.getString("login"));
+                usuario.setNome(resultSet.getString("nome"));
+                usuario.setLogin(resultSet.getString("login"));
                 usuario.setSenha(resultSet.getString("senha"));
                 usuario.setPapel(resultSet.getString("papel"));
                 usuario.setEmail(resultSet.getString("email"));
@@ -131,8 +131,8 @@ public class UsuarioDAO {
         return listaUsuarios;
     }
 
-    public UsuarioSistema getUsuarioById(int id) throws SQLException, ClassNotFoundException {
-        UsuarioSistema usuario = new UsuarioSistema();
+    public Usuario getUsuarioById(int id) throws SQLException, ClassNotFoundException {
+        Usuario usuario = new Usuario();
         connection = DbUtil.getConnection();
         try {
             String query = "SELECT * FROM usuarios WHERE id=?";
@@ -141,8 +141,8 @@ public class UsuarioDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 usuario.setId(resultSet.getInt("id"));
-                usuario.setNomeCompleto(resultSet.getString("nome"));
-                usuario.setUsuario(resultSet.getString("login"));
+                usuario.setNome(resultSet.getString("nome"));
+                usuario.setLogin(resultSet.getString("login"));
                 usuario.setSenha(resultSet.getString("senha"));
                 usuario.setPapel(resultSet.getString("papel"));
                 usuario.setEmail(resultSet.getString("email"));
