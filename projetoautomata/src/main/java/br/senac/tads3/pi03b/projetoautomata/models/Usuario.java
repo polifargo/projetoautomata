@@ -20,6 +20,10 @@ public class Usuario {
     static {
         USUARIOS_CADASTRADOS.put("admin", new Usuario("admin",
                 "Administrador", "admin", "ADMIN"));
+        USUARIOS_CADASTRADOS.put("retaguarda", new Usuario("retaguarda",
+                "Retaguarda", "retaguarda", "MEDIO"));
+        USUARIOS_CADASTRADOS.put("loja", new Usuario("loja",
+                "Vendedor", "loja", "BASICO"));
     }
 
     private int id;

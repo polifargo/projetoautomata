@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
  * @author matheus_santo1
  */
 @WebFilter(filterName = "AutorizacaoFilter",
-        servletNames = {"ClienteServlet", "ProdutoServlet", "UnidadeServlet", "ServicoServlet", "VendaServlet"},
+        servletNames = {"ClienteServlet", "ProdutoServlet", "UnidadeServlet", "ServicoServlet", "VendaServlet", "UsuarioServlet"},
         urlPatterns = {"/protegido/*"}
 )
 public class AutorizacaoFilter implements Filter {
@@ -68,11 +68,17 @@ public class AutorizacaoFilter implements Filter {
         String paginaAcessada = request.getRequestURI();
         String pagina = paginaAcessada.replace(request.getContextPath(), "");
 
-        if (pagina.endsWith("produtos") || pagina.endsWith("unidades") || pagina.endsWith("servicos") || pagina.endsWith("clientes")
-                && usuario.temPapel("ADMIN")) {
+        if (pagina.contains("produtos") && usuario.temPapel("MEDIO") || usuario.temPapel("ADMIN")) {
             return true;
-        } else if (pagina.endsWith("clientes") || pagina.endsWith("venda")
-                && usuario.temPapel("BASICO")) {
+        } else if (pagina.contains("clientes") && usuario.temPapel("MEDIO") || usuario.temPapel("ADMIN") || usuario.temPapel("BASICO")) {
+            return true;
+        } else if (pagina.contains("unidades") && usuario.temPapel("ADMIN")) {
+            return true;
+        } else if (pagina.contains("usuarios") && usuario.temPapel("ADMIN")) {
+            return true;
+        } else if (pagina.contains("venda") && usuario.temPapel("ADMIN") || usuario.temPapel("BASICO")) {
+            return true;
+        } else if (pagina.contains("servicos") && usuario.temPapel("MEDIO") || usuario.temPapel("ADMIN")) {
             return true;
         }
         return false;
