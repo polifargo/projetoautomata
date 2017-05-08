@@ -1,9 +1,9 @@
 create Table Clientes (
-CodigoCliente int not null primary key generated always as identity (start with 1, increment by 1),
-NomeCliente varchar(120),
-Apelido varchar(60),
-Sexo char(20),
-TipoPessoa char(1),
+id int not null primary key AUTO_INCREMENT,
+nome varchar(120),
+apelido varchar(60),
+sexo char(20),
+tipo char(1),
 uf char(2),
 Cep numeric(8),
 Cidade varchar(60),
@@ -18,13 +18,13 @@ CadastroNacional char(18)
 
 create table Produtos(
 CodigoProduto char(15) not null,
-Modelo varchar(60),
-Unidade varchar(30),
+modelo varchar(60),
+unidade varchar(30),
 ValorVenda numeric(14,2),
 ValorCusto numeric(14,2),
 NotasInternas varchar(1000),
 Inativo integer,
-Primary Key (CodigoProduto)
+Primary Key (id)
 );
 
 create table Venda(

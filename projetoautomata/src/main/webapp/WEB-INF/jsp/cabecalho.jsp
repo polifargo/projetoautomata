@@ -28,7 +28,6 @@
                 <a class="navbar-brand" href="produtos">Produtos</a>
                 <a class="navbar-brand" href="servicos">Servicos</a>
                 <a class="navbar-brand" href="unidades">Unidades</a>
-                <a class="navbar-brand" href="usuarios">Usuarios</a>
                 <a class="navbar-brand" href="venda">Realizar Venda</a>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
