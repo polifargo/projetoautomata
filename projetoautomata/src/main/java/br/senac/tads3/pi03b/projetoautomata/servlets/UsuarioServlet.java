@@ -87,11 +87,11 @@ public class UsuarioServlet extends HttpServlet {
         usuario.setPapel(request.getParameter("papel"));
         usuario.setEmail(request.getParameter("email"));
         String id = request.getParameter("id");
-        usuario.cadastrarUsuario();
         dao = new UsuarioDAO();
         if (id == null || id.isEmpty()) {
             try {
                 dao.inserir(usuario);
+                usuario.cadastrarUsuario();
             } catch (Exception ex) {
                 Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -99,6 +99,7 @@ public class UsuarioServlet extends HttpServlet {
             usuario.setId(Integer.parseInt(id));
             try {
                 dao.alterar(usuario);
+                usuario.cadastrarUsuario();
             } catch (Exception ex) {
                 Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
