@@ -32,25 +32,25 @@
                         <label for="produtomodelo">Modelo</label>
                         <input class="form-control" type="text"
                                name="modelo" value="<c:out value="${produto.modelo}" />"
-                               placeholder="Modelo" />
+                               placeholder="Modelo" required/>
                     </div>
                     <div  class="form-group row">
                         <label for="produtoqtminima">Qt. Mínima</label> 
                         <input class="form-control" type="number"
                                name="qtminima" value="<c:out value="${produto.qtminima}" />"
-                               placeholder="Qt. Mínima" />
+                               placeholder="Qt. Mínima" required/>
                     </div>
                     <div class="form-group row">
                         <label for="produtoqtmaxima">Qt. Máxima</label> 
                         <input class="form-control" type="number"
                                name="qtmaxima" value="<c:out value="${produto.qtmaxima}" />"
-                               placeholder="Qt. Máxima" />
+                               placeholder="Qt. Máxima" required/>
                     </div>
                     <div class="form-group row">
                         <label for="produtounidade">Unidade</label> 
                         <input class="form-control" type="text"
                                name="unidade" value="<c:out value="${produto.unidade}" />"
-                               placeholder="Unidade" />
+                               placeholder="Unidade" required/>
                     </div>
                     <div class="form-group row">
                         <label for="produtotipo">Tipo</label> 
@@ -66,7 +66,7 @@
                         <label for="produtovalor">Valor</label> 
                         <input class="form-control" type="number"
                                name="valor" value="<c:out value="${produto.valor}" />"
-                               placeholder="Valor" />
+                               placeholder="Valor" required/>
                     </div>
                     <div class="form-group row">
                         <input class="form-control" type="submit" value="Salvar" />

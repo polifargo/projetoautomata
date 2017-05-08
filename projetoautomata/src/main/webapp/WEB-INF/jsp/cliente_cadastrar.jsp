@@ -34,13 +34,13 @@
                             <label for="clientenome">Nome</label> 
                             <input class="form-control" type="text"
                                    name="nome" value="<c:out value="${cliente.nome}" />"
-                                   placeholder="Nome..." id="nome" />
+                                   placeholder="Nome..." id="nome" required/>
                         </div>
                         <div class="form-group row">
                             <label for="clienteapelido">Apelido</label> 
                             <input class="form-control" type="text"
                                    name="apelido" value="<c:out value="${cliente.apelido}" />"
-                                   placeholder="Apelido" id="apelido" />
+                                   placeholder="Apelido" id="apelido" required/>
                         </div>
                         <div class="form-group row">
                             <label for="clientesexo">Sexo</label> 
@@ -92,39 +92,39 @@
                         </div>
                         <div class="form-group row">
                             <label for="clientecep">CEP</label>
-                            <input class="form-control" type="text" 
+                            <input class="form-control" type="number" 
                                    name="cep" value="<c:out value="${cliente.cep}" />"
-                                   placeholder="CEP" id="cep"/>
+                                   placeholder="CEP" id="cep" required/>
                         </div>
                         <div class="form-group row">
                             <label for="clientecidade">Cidade</label>
                             <input class="form-control" type="text" 
                                    name="cidade" value="<c:out value="${cliente.cidade}" />"
-                                   placeholder="Cidade" id="cidade"/>
+                                   placeholder="Cidade" id="cidade" required/>
                         </div>
                         <div class="form-group row">
                             <label for="clientelogradouro">Logradouro</label>
                             <input class="form-control" type="text" 
                                    name="logradouro" value="<c:out value="${cliente.logradouro}" />"
-                                   placeholder="Logradouro" id="logradouro"/>
+                                   placeholder="Logradouro" id="logradouro" required/>
                         </div>
                         <div class="form-group row">
                             <label for="clientebairro">Bairro</label>
                             <input class="form-control" type="text" 
                                    name="bairro" value="<c:out value="${cliente.bairro}" />"
-                                   placeholder="Bairro" id="bairro"/>
+                                   placeholder="Bairro" id="bairro" required/>
                         </div>
                         <div class="form-group row">
                             <label for="clienteemail">Email</label> 
-                            <input class="form-control" type="text"
+                            <input class="form-control" type="email"
                                    name="email" value="<c:out value="${cliente.email}" />"
-                                   placeholder="Email..." id="email" />
+                                   placeholder="Email..." id="email" required />
                         </div>
                         <div class="form-group row">
                             <label for="clientetelefone">Telefone</label> 
-                            <input class="form-control" type="text"
+                            <input class="form-control" type="tel"
                                    name="telefone" value="<c:out value="${cliente.telefone}" />"
-                                   placeholder="Telefone" id="telefone"/>
+                                   placeholder="Telefone" id="telefone" required/>
                         </div>   
                         <div class="form-group row">
                             <label for="clientenotasinternas">Notas Internas</label> 
@@ -136,13 +136,13 @@
                             <label for="clienteinativo">Inativo</label> 
                             <input class="form-control" type="number"
                                    name="inativo" value="<c:out value="${cliente.inativo}" />"
-                                   id="inativo"/>
+                                   id="inativo" required/>
                         </div> 
                         <div class="form-group row">
                             <label for="clientecadastronacional">Cadastro Nacional</label>
-                            <input class="form-control" type="text" 
+                            <input class="form-control" type="number" 
                                    name="cadastronacional" value="<c:out value="${cliente.cadastroNacional}" />"
-                                   placeholder="CPF/CNPJ" />
+                                   placeholder="CPF/CNPJ" required/>
                         </div>
                         <div class="form-group row">
                             <input class="form-control" type="submit" id="submit" value="Salvar" />

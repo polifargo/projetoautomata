@@ -32,13 +32,13 @@
                         <label for="unidadefantasia">Fantasia</label> 
                         <input class="form-control" type="text"
                                name="fantasia" value="<c:out value="${unidade.fantasia}" />"
-                               placeholder="Fantasia" />
+                               placeholder="Fantasia" required/>
                     </div>
                     <div class="form-group row">
                         <label for="unidaderazao">Razao</label> 
                         <input class="form-control" type="text"
                                name="razao" value="<c:out value="${unidade.razao}" />"
-                               placeholder="Razao" />
+                               placeholder="Razao" required/>
                     </div>
                      <div class="form-group row">
                             <label for="unidadeuf">UF</label> 
@@ -74,39 +74,39 @@
                         </div>
                         <div class="form-group row">
                             <label for="unidadecep">CEP</label>
-                            <input class="form-control" type="text" 
+                            <input class="form-control" type="number" 
                                    name="cep" value="<c:out value="${unidade.cep}" />"
-                                   placeholder="CEP" id="cep"/>
+                                   placeholder="CEP" id="cep" required/>
                         </div>
                         <div class="form-group row">
                             <label for="unidadecidade">Cidade</label>
                             <input class="form-control" type="text" 
                                    name="cidade" value="<c:out value="${unidade.cidade}" />"
-                                   placeholder="Cidade" id="cidade"/>
+                                   placeholder="Cidade" id="cidade" required/>
                         </div>
                         <div class="form-group row">
                             <label for="unidadelogradouro">Logradouro</label>
                             <input class="form-control" type="text" 
                                    name="logradouro" value="<c:out value="${unidade.logradouro}" />"
-                                   placeholder="Logradouro" id="logradouro"/>
+                                   placeholder="Logradouro" id="logradouro" required/>
                         </div>
                         <div class="form-group row">
                             <label for="unidadebairro">Bairro</label>
                             <input class="form-control" type="text" 
                                    name="bairro" value="<c:out value="${unidade.bairro}" />"
-                                   placeholder="Bairro" id="bairro"/>
+                                   placeholder="Bairro" id="bairro" required/>
                         </div>
                         <div class="form-group row">
                             <label for="unidadeemail">Email</label> 
-                            <input class="form-control" type="text"
+                            <input class="form-control" type="email"
                                    name="email" value="<c:out value="${unidade.email}" />"
-                                   placeholder="Email..." id="email" />
+                                   placeholder="Email..." id="email" required />
                         </div>
                         <div class="form-group row">
                             <label for="unidadetelefone">Telefone</label> 
-                            <input class="form-control" type="text"
+                            <input class="form-control" type="tel"
                                    name="telefone" value="<c:out value="${unidade.telefone}" />"
-                                   placeholder="Telefone" id="telefone"/>
+                                   placeholder="Telefone" id="telefone" required/>
                         </div>   
                         <div class="form-group row">
                             <label for="unidadenotasinternas">Notas Internas</label> 
@@ -118,13 +118,13 @@
                             <label for="unidadeinativo">Inativo</label> 
                             <input class="form-control" type="number"
                                    name="inativo" value="<c:out value="${unidade.inativo}" />"
-                                   id="inativo"/>
+                                   id="inativo" required/>
                         </div> 
                         <div class="form-group row">
                             <label for="unidadecadastronacional">Cadastro Nacional</label>
-                            <input class="form-control" type="text" 
+                            <input class="form-control" type="number" 
                                    name="cadastronacional" value="<c:out value="${unidade.cadastroNacional}" />"
-                                   placeholder="CNPJ" />
+                                   placeholder="CNPJ" required/>
                         </div>
                     <div class="form-group row">
                         <input class="form-control" type="submit" value="Salvar" />
