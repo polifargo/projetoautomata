@@ -31,19 +31,19 @@
                         <label for="usuarionome">Nome</label>
                         <input class="form-control" type="text"
                                name="nome" value="<c:out value="${usuario.nome}" />"
-                               placeholder="Nome" required/>
+                               placeholder="Nome" maxlength="30" required/>
                     </div>
                     <div class="form-group row">
                         <label for="usuariologin">Login</label>
                         <input class="form-control" type="text"
                                name="login" value="<c:out value="${usuario.login}" />"
-                               placeholder="Login" required/>
+                               placeholder="Login" maxlength="30" required/>
                     </div>
                     <div class="form-group row">
                         <label for="usuariosenha">Senha</label> 
                         <input class="form-control" type="text"
                                name="senha" value="<c:out value="${usuario.senha}" />"
-                               placeholder="Senha" required/>
+                               placeholder="Senha" maxlength="15" required/>
                     </div>
                     <div class="form-group row">
                         <label for="usuariopapel">Papel</label> 
@@ -56,7 +56,7 @@
                         <label for="usuarioemail">Email</label>
                         <input class="form-control" type="email"
                                name="email" value="<c:out value="${usuario.email}" />"
-                               placeholder="Email" required />
+                               placeholder="Email" maxlength="30" required />
                     </div>
                     <div class="form-group row">
                         <input class="form-control" type="submit" value="Salvar" />

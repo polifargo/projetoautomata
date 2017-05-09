@@ -27,13 +27,13 @@
                         <label for="servicoid">Servico ID</label> 
                         <input class="form-control" type="text"
                                name="id" value="<c:out value="${servico.id}" />"
-                               readonly="readonly" placeholder="Servico ID" />
+                               readonly="readonly" maxlength="15" placeholder="Servico ID" />
                     </div>
                     <div class="form-group row">
                         <label for="servicodescricao">Descrição</label> 
                         <input class="form-control" type="text"
                                name="descricao" value="<c:out value="${servico.descricao}" />"
-                               placeholder="Descrição" required />
+                               placeholder="Descrição..." maxlength="60" required />
                     </div>
                     <div class="form-group row">
                         <label for="servicotipo">Tipo</label>
@@ -47,19 +47,19 @@
                         <label for="servicovalor">Valor</label> 
                         <input class="form-control" type="number"
                                name="valor" value="<c:out value="${servico.valor}" />"
-                               placeholder="Valor" required/>
+                               placeholder="Valor..." required/>
                     </div>
                     <div class="form-group row">
                         <label for="serviconotasinternas">Notas Internas</label> 
                         <input class="form-control" type="textarea"
                                name="notasInternas" value="<c:out value="${servico.notasInternas}" />"
-                               placeholder="Notas Internas" />
+                               placeholder="Notas Internas..." maxlength="1000" />
                     </div>
                     <div class="form-group row">
                         <label for="servicoinativo">Inativo</label> 
                         <input class="form-control" type="number"
                                name="inativo" value="<c:out value="${servico.inativo}" />"
-                               placeholder="Inativo" required />
+                               placeholder="Inativo..." maxlength="1" required />
                     </div>
                     <div class="form-group row">
                         <input class="form-control" type="submit" value="Salvar" />

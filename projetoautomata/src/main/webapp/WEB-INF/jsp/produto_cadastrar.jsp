@@ -26,31 +26,31 @@
                         <label for="produtoid">Produto ID</label> 
                         <input  class="form-control" type="text"
                                 name="id" value="<c:out value="${produto.id}" />"
-                                readonly="readonly" placeholder="Produto ID" />
+                                readonly="readonly" maxlength="15" placeholder="Produto ID" />
                     </div>
                     <div class="form-group row" >
                         <label for="produtomodelo">Modelo</label>
                         <input class="form-control" type="text"
                                name="modelo" value="<c:out value="${produto.modelo}" />"
-                               placeholder="Modelo" required/>
+                               placeholder="Modelo..." maxlength="60" required/>
                     </div>
                     <div  class="form-group row">
                         <label for="produtoqtminima">Qt. Mínima</label> 
                         <input class="form-control" type="number"
                                name="qtminima" value="<c:out value="${produto.qtminima}" />"
-                               placeholder="Qt. Mínima" required/>
+                               placeholder="Qt. Mínima..." maxlength="1" required/>
                     </div>
                     <div class="form-group row">
                         <label for="produtoqtmaxima">Qt. Máxima</label> 
                         <input class="form-control" type="number"
                                name="qtmaxima" value="<c:out value="${produto.qtmaxima}" />"
-                               placeholder="Qt. Máxima" required/>
+                               placeholder="Qt. Máxima..." required/>
                     </div>
                     <div class="form-group row">
                         <label for="produtounidade">Unidade</label> 
                         <input class="form-control" type="text"
                                name="unidade" value="<c:out value="${produto.unidade}" />"
-                               placeholder="Unidade" required/>
+                               placeholder="Unidade..." maxlength="30" required/>
                     </div>
                     <div class="form-group row">
                         <label for="produtotipo">Tipo</label> 
