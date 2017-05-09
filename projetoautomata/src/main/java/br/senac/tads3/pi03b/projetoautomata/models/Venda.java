@@ -5,18 +5,18 @@ package br.senac.tads3.pi03b.projetoautomata.models;
  * @author matheus_santo
  */
 public class Venda {
-    private String cliente;
+    private String idCliente;
     private float valor;
     private String tecnico;
     private Object[] produtos;
     private String unidade;
-    
+     
     public String getCliente() {
-        return cliente;
+        return idCliente;
     }
 
     public void setCliente(String cliente) {
-        this.cliente = cliente;
+        this.idCliente = cliente;
     }
 
     public float getValor() {
