@@ -48,9 +48,6 @@
                                 <td><c:out value="${unidade.uf}" /></td>
                                 <td><c:out value="${unidade.cep}" /></td>
                                 <td><c:out value="${unidade.cidade}" /></td>
-                                <td><c:out value="${unidade.logradouro}" /></td>
-                                <td><c:out value="${unidade.bairro}" /></td>
-                                <td><c:out value="${unidade.bairro}" /></td>
                                 <td><c:out value="${unidade.email}" /></td>
                                 <td><c:out value="${unidade.telefone}" /></td>
                                 <td><c:out value="${unidade.notasInternas}" /></td>

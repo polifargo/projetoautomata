@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author mathe
+ * @author matheus_santo
  */
 public class DbUtil {
 
@@ -19,11 +19,11 @@ public class DbUtil {
         Connection conn = null;
 
         // Passo 1: Registrar o driver JDBC
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
         // Passo 2: Abrir a conexão
         conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/automata?zeroDateTimeBehavior=convertToNull",
+                "jdbc:derby://localhost:1527/automata",
                 "root", // usuário BD
                 "root"); // senha BD
         return conn;

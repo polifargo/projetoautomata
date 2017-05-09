@@ -28,12 +28,9 @@
                             <th>Cliente ID</th>
                             <th>Nome</th>
                             <th>Apelido</th>
-                            <th>Sexo</th>
                             <th>UF</th>
                             <th>CEP</th>
                             <th>Cidade</th>
-                            <th>Logradouro</th>
-                            <th>Bairro</th>
                             <th>Email</th>
                             <th>Telefone</th>
                             <th>Notas Internas</th>
@@ -46,14 +43,11 @@
                                 <td><c:out value="${cliente.id}" /></td>
                                 <td><c:out value="${cliente.nome}" /></td>
                                 <td><c:out value="${cliente.apelido}" /></td>
-                                <td><c:out value="${cliente.sexo}" /></td>
                                 <td><c:out value="${cliente.tipo}" /></td>
                                 <td><c:out value="${cliente.uf}" /></td>
                                 <td><c:out value="${cliente.cep}" /></td>
                                 <td><c:out value="${cliente.cidade}" /></td>
-                                <td><c:out value="${cliente.logradouro}" /></td>
-                                <td><c:out value="${cliente.bairro}" /></td>
-                                <td><c:out value="${cliente.bairro}" /></td>
+                                <td><c:out value="${cliente.telefone}" /></td>
                                 <td><c:out value="${cliente.email}" /></td>
                                 <td><c:out value="${cliente.telefone}" /></td>
                                 <td><c:out value="${cliente.notasInternas}" /></td>

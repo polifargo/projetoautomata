@@ -73,9 +73,9 @@
                 <a class="navbar-brand" href="produtos">Produtos</a>
                 <a class="navbar-brand" href="servicos">Servicos</a>
                 <a class="navbar-brand" href="unidades">Unidades</a>
+                <a class="navbar-brand" href="venda">Realizar Venda</a>
             </div>
         </nav>
-        <c:import url="WEB-INF/jsp/rodape.jsp"/>
     </c:if>
 </body>
 </html>

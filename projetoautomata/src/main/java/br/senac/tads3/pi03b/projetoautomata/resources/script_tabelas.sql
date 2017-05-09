@@ -1,5 +1,5 @@
 create Table Clientes (
-id int not null primary key AUTO_INCREMENT,
+id int not null generated always as identity (start with 1, increment by 1),
 nome varchar(120),
 apelido varchar(60),
 sexo char(20),
@@ -24,7 +24,7 @@ ValorVenda numeric(14,2),
 ValorCusto numeric(14,2),
 NotasInternas varchar(1000),
 Inativo integer,
-Primary Key (id)
+Primary Key (CodigoProduto)
 );
 
 create table Venda(
@@ -36,7 +36,7 @@ ValorVenda numeric(14,2),
 ValorDesconto numeric (14,2),
 NotasInternas varchar(1000),
 primary key (CodigoVenda),
-FOREIGN KEY (CodigoCliente) REFERENCES Cliente (CodigoCliente)
+FOREIGN KEY (CodigoCliente) REFERENCES Clientes (CodigoCliente)
 );
 
 create table ItensVenda(
@@ -101,7 +101,7 @@ FOREIGN KEY (TecnicoServico) REFERENCES Cliente (TecnicoServico)
 );
 
 create table Usuarios(
-id int not null AUTO_INCREMENT,
+id int not null generated always as identity (start with 1, increment by 1),
 nome varchar(30) not null,
 login varchar(30) not null,
 senha varchar(15) not null,
@@ -134,6 +134,3 @@ quantidade integer not null,
 FOREIGN KEY (CodigoUnidade) REFERENCES Unidade (CodigoUnidade),
 FOREIGN KEY (codigoProduto) REFERENCES Produto (codigoProduto)
 );
-
-
-insert into Usuarios values (2, 'Retaguarda', 'retaguarda', 'retaguarda', 'BASICO', 'retaguarda@automata.com');
