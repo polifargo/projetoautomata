@@ -13,7 +13,8 @@ Email varchar(80),
 Telefone numeric(14),
 NotasInternas varchar(1000),
 Inativo integer,
-CadastroNacional char(18)
+CadastroNacional char(18),
+PRIMARY KEY (id)
 );
 
 create table Produtos(
@@ -46,32 +47,33 @@ QtVendida int,
 ValorTotal numeric(14,2),
 ValorUnitario numeric(14,2),
 primary key (id),
-FOREIGN KEY (idProduto) REFERENCES Produto (idProduto),
+FOREIGN KEY (idProduto) REFERENCES Produtos (id),
 FOREIGN KEY (idVenda) REFERENCES Venda(id)
 );
 
 create table TipoServico(
-idTipoServ integer not null,
+id integer not null,
 Descricao varchar(60),
 NotasInternas varchar(1000),
-Primary Key (idTipoServ)
+Primary Key (id)
 );
 
 create table Servicos(
 id char(15) not null,
-Descricao varchar(60),
-TipoServico varchar(30),
-ValorPrestado numeric(14,2),
+descricao varchar(60),
+tipo varchar(30),
+valor numeric(14,2),
 NotasInternas varchar(1000),
 Inativo integer,
 Primary Key (id)
 );
 
 create table Tecnico(
-id varchar(8) not null,
+id integer not null,
 NomeTecnico varchar(30),
 TipoServPreferencial int,
-FOREIGN KEY (TipoServPreferencial) REFERENCES TipoServico (idTipoServ)
+PRIMARY KEY (id),
+FOREIGN KEY (TipoServPreferencial) REFERENCES TipoServico (id)
 );
 
 create table ServicoPrestado(
@@ -83,7 +85,7 @@ ValorTotal numeric(14,2),
 ValorDesconto numeric (14,2),
 NotasInternas varchar(1000),
 primary key (id),
-FOREIGN KEY (idCliente) REFERENCES Cliente (id)
+FOREIGN KEY (idCliente) REFERENCES Clientes (id)
 );
 
 create table ItensServico(
@@ -94,8 +96,8 @@ DataServico date,
 idVenda int not null,
 ValorTotal numeric(14,2),
 ValorUnitario numeric(14,2),
-primary key (idMovimento),
-FOREIGN KEY (idServico) REFERENCES Servico (idServico),
+primary key (id),
+FOREIGN KEY (idServico) REFERENCES Servicos (id),
 FOREIGN KEY (idTecnico) REFERENCES Tecnico (id)
 );
 
@@ -134,6 +136,6 @@ quantidade integer not null,
 qtMinina integer,
 qtMaxima integer,
 primary key (id),
-FOREIGN KEY (idUnidade) REFERENCES Unidade (id),
-FOREIGN KEY (idProduto) REFERENCES Produto (id)
+FOREIGN KEY (idUnidade) REFERENCES Unidades (id),
+FOREIGN KEY (idProduto) REFERENCES Produtos (id)
 );
