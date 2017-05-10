@@ -17,87 +17,86 @@ CadastroNacional char(18)
 );
 
 create table Produtos(
-CodigoProduto char(15) not null,
+id char(15) not null,
 modelo varchar(60),
 unidade varchar(30),
 ValorVenda numeric(14,2),
 ValorCusto numeric(14,2),
 NotasInternas varchar(1000),
 Inativo integer,
-Primary Key (CodigoProduto)
+Primary Key (id)
 );
 
 create table Venda(
-CodigoVenda int not null generated always as identity (start with 1, increment by 1),
-CodigoCliente int not null,
+id int not null generated always as identity (start with 1, increment by 1),
+idCliente int not null,
 FormaPagamento varchar(30),
-DataVenda date,
-ValorVenda numeric(14,2),
-ValorDesconto numeric (14,2),
+Data date,
+Valor numeric(14,2),
 NotasInternas varchar(1000),
-primary key (CodigoVenda),
-FOREIGN KEY (CodigoCliente) REFERENCES Clientes (CodigoCliente)
+primary key (id),
+FOREIGN KEY (idCliente) REFERENCES Clientes (id)
 );
 
 create table ItensVenda(
-CodigoMovimento int not null generated always as identity (start with 1, increment by 1),
-CodigoProduto char(15) not null,
-CodigoVenda int not null,
+id int not null generated always as identity (start with 1, increment by 1),
+idProduto char(15) not null,
+idVenda int not null,
 QtVendida int,
 ValorTotal numeric(14,2),
 ValorUnitario numeric(14,2),
-primary key (CodigoMovimento),
-FOREIGN KEY (CodigoProduto) REFERENCES Produto (CodigoProduto),
-FOREIGN KEY (CodigoVenda) REFERENCES Venda (CodigoVenda)
+primary key (id),
+FOREIGN KEY (idProduto) REFERENCES Produto (idProduto),
+FOREIGN KEY (idVenda) REFERENCES Venda(id)
 );
 
 create table TipoServico(
-CodigoTipoServ integer not null,
+idTipoServ integer not null,
 Descricao varchar(60),
 NotasInternas varchar(1000),
-Primary Key (CodigoTipoServ)
+Primary Key (idTipoServ)
 );
 
 create table Servicos(
-CodigoServico char(15) not null,
+id char(15) not null,
 Descricao varchar(60),
 TipoServico varchar(30),
 ValorPrestado numeric(14,2),
 NotasInternas varchar(1000),
 Inativo integer,
-Primary Key (CodigoServico)
+Primary Key (id)
 );
 
 create table Tecnico(
-Codigo varchar(8) not null,
+id varchar(8) not null,
 NomeTecnico varchar(30),
 TipoServPreferencial int,
-FOREIGN KEY (TipoServPreferencial) REFERENCES TipoServico (CodigoTipoServ)
+FOREIGN KEY (TipoServPreferencial) REFERENCES TipoServico (idTipoServ)
 );
 
 create table ServicoPrestado(
-Codigo int not null generated always as identity (start with 1, increment by 1),
-CodigoCliente int not null,
+id int not null generated always as identity (start with 1, increment by 1),
+idCliente int not null,
 FormaPagamento varchar(30),
 DataSolicitado date,
 ValorTotal numeric(14,2),
 ValorDesconto numeric (14,2),
 NotasInternas varchar(1000),
-primary key (Codigo),
-FOREIGN KEY (CodigoCliente) REFERENCES Cliente (CodigoCliente)
+primary key (id),
+FOREIGN KEY (idCliente) REFERENCES Cliente (id)
 );
 
 create table ItensServico(
-CodigoMovimento int not null generated always as identity (start with 1, increment by 1),
-TecnicoServico integer,
-CodigoServico char(15) not null,
+id int not null generated always as identity (start with 1, increment by 1),
+idTecnico integer,
+idServico char(15) not null,
 DataServico date,
-CodigoVenda int not null,
+idVenda int not null,
 ValorTotal numeric(14,2),
 ValorUnitario numeric(14,2),
-primary key (CodigoMovimento),
-FOREIGN KEY (CodigoServico) REFERENCES Servico (CodigoServico),
-FOREIGN KEY (TecnicoServico) REFERENCES Cliente (TecnicoServico)
+primary key (idMovimento),
+FOREIGN KEY (idServico) REFERENCES Servico (idServico),
+FOREIGN KEY (idTecnico) REFERENCES Tecnico (id)
 );
 
 create table Usuarios(
@@ -111,7 +110,7 @@ primary key (id)
 );
 
 create table Unidades(
-codigoUnidade varchar(3) not null,
+id varchar(3) not null,
 fantasia varchar(40),
 razaoSocial varchar(80),
 uf char(2),
@@ -124,13 +123,17 @@ Telefone numeric(14),
 NotasInternas varchar(1000),
 Inativo integer,
 CadastroNacional char(18),
-primary key (codigoUnidade)
+primary key (id)
 );
 
 create table Saldo(
-codigoUnidade varchar(3) not null,
-codigoProduto char(15) not null,
+id integer not null,
+idUnidade varchar(3) not null,
+idProduto char(15) not null,
 quantidade integer not null,
-FOREIGN KEY (CodigoUnidade) REFERENCES Unidade (CodigoUnidade),
-FOREIGN KEY (codigoProduto) REFERENCES Produto (codigoProduto)
+qtMinina integer,
+qtMaxima integer,
+primary key (id),
+FOREIGN KEY (idUnidade) REFERENCES Unidade (id),
+FOREIGN KEY (idProduto) REFERENCES Produto (id)
 );
