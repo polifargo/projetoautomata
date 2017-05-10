@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.senac.tads3.pi03b.projetoautomata.models;
 
 /**
@@ -10,12 +5,19 @@ package br.senac.tads3.pi03b.projetoautomata.models;
  * @author thais.smatos
  */
 public class Saldo {
-    
         private String id;
         private String idProduto;
         private int quantidade;
         private int qtMinina;
         private int qtMaxima;
+
+    public Saldo(String id, String idProduto, int quantidade, int qtMinina, int qtMaxima) {
+        this.id = id;
+        this.idProduto = idProduto;
+        this.quantidade = quantidade;
+        this.qtMinina = qtMinina;
+        this.qtMaxima = qtMaxima;
+    }
 
     public String getId() {
         return id;
