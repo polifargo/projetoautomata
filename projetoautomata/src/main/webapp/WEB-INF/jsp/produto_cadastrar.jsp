@@ -34,18 +34,6 @@
                                name="modelo" value="<c:out value="${produto.modelo}" />"
                                placeholder="Modelo..." maxlength="60" required/>
                     </div>
-                    <div  class="form-group row">
-                        <label for="produtoqtminima">Qt. Mínima</label> 
-                        <input class="form-control" type="number"
-                               name="qtminima" value="<c:out value="${produto.qtminima}" />"
-                               placeholder="Qt. Mínima..." maxlength="1" required/>
-                    </div>
-                    <div class="form-group row">
-                        <label for="produtoqtmaxima">Qt. Máxima</label> 
-                        <input class="form-control" type="number"
-                               name="qtmaxima" value="<c:out value="${produto.qtmaxima}" />"
-                               placeholder="Qt. Máxima..." required/>
-                    </div>
                     <div class="form-group row">
                         <label for="produtounidade">Unidade</label> 
                         <input class="form-control" type="text"
@@ -53,21 +41,29 @@
                                placeholder="Unidade..." maxlength="30" required/>
                     </div>
                     <div class="form-group row">
-                        <label for="produtotipo">Tipo</label> 
-                        <select name="tipo" class="form-control">
-                            <option value="Placa Mãe">Placa Mãe</option>
-                            <option value="Memória RAM">Memória RAM</option>
-                            <option value="Placa de Vídeo">Placa de Vídeo</option>
-                            <option value="SSD">SSD</option>
-                            <option value="Fonte">Fonte</option>
-                        </select>
-                    </div >
-                    <div class="form-group row">
-                        <label for="produtovalor">Valor</label> 
+                        <label for="produtovalor">Valor Venda</label> 
                         <input class="form-control" type="number"
-                               name="valor" value="<c:out value="${produto.valor}" />"
-                               placeholder="Valor" required/>
+                               name="valorVenda" value="<c:out value="${produto.valorCusto}" />"
+                               placeholder="Valor Venda..." required/>
                     </div>
+                    <div class="form-group row">
+                        <label for="produtovalor">Valor Venda</label> 
+                        <input class="form-control" type="number"
+                               name="valorCusto" value="<c:out value="${produto.valorVenda}" />"
+                               placeholder="Valor Custo..." required/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="clientenotasinternas">Notas Internas</label> 
+                        <input class="form-control" type="textarea"
+                               name="notasInternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${produto.notasInternas}" />"
+                               />
+                    </div> 
+                    <div class="form-group row">
+                        <label for="clienteinativo">Inativo</label> 
+                        <input class="form-control" type="number"
+                               name="inativo" maxlength="1" placeholder="Inativo..." value="<c:out value="${produto.inativo}" />"
+                               id="inativo" required/>
+                    </div> 
                     <div class="form-group row">
                         <input class="form-control" type="submit" value="Salvar" />
                     </div>

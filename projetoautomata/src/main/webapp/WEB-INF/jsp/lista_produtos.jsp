@@ -27,22 +27,22 @@
                         <tr>
                             <th>Produto ID</th>
                             <th>Modelo</th>
-                            <th>Quantidade Maxima</th>
-                            <th>Quantidade Minima</th>
                             <th>Unidade</th>
-                            <th>Tipo</th>
-                            <th>Valor</th>
+                            <th>Valor Custo</th>
+                            <th>Valor Venda</th>
+                            <th>Notas Internas</th>
+                            <th>Inativo</th>
                             <th colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${produtos}" var="produto">
                             <tr>
                                 <td><c:out value="${produto.id}" /></td>
                                 <td><c:out value="${produto.modelo}" /></td>
-                                <td><c:out value="${produto.qtminima}" /></td>
-                                <td><c:out value="${produto.qtmaxima}" /></td>
                                 <td><c:out value="${produto.unidade}" /></td>
-                                <td><c:out value="${produto.tipo}" /></td>
-                                <td><c:out value="${produto.valor}" /></td>
+                                <td><c:out value="${produto.valorCusto}" /></td>
+                                <td><c:out value="${produto.valorVenda}" /></td>
+                                <td><c:out value="${produto.notasInternas}" /></td>
+                                <td><c:out value="${produto.inativo}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                         href="produtos?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
                                 <td><a role="button" class="btn btn-danger"

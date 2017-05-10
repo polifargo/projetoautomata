@@ -8,11 +8,11 @@ public class Produto {
 
     private int id;
     private String modelo;
-    private int qtminima;
-    private int qtmaxima;
     private String unidade;
-    private String tipo;
-    private float valor;
+    private float valorVenda;
+    private float valorCusto;
+    private String notasInternas;
+    private int inativo;
 
     public int getId() {
         return id;
@@ -30,22 +30,6 @@ public class Produto {
         this.modelo = modelo;
     }
 
-    public int getQtminima() {
-        return qtminima;
-    }
-
-    public void setQtminima(int qtminima) {
-        this.qtminima = qtminima;
-    }
-
-    public int getQtmaxima() {
-        return qtmaxima;
-    }
-
-    public void setQtmaxima(int qtmaxima) {
-        this.qtmaxima = qtmaxima;
-    }
-
     public String getUnidade() {
         return unidade;
     }
@@ -54,20 +38,36 @@ public class Produto {
         this.unidade = unidade;
     }
 
-    public String getTipo() {
-        return tipo;
+    public float getValorVenda() {
+        return valorVenda;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setValorVenda(float valorVenda) {
+        this.valorVenda = valorVenda;
     }
 
-    public float getValor() {
-        return valor;
+    public float getValorCusto() {
+        return valorCusto;
     }
 
-    public void setValor(float valor) {
-        this.valor = valor;
+    public void setValorCusto(float valorCusto) {
+        this.valorCusto = valorCusto;
+    }
+
+    public String getNotasInternas() {
+        return notasInternas;
+    }
+
+    public void setNotasInternas(String notasInternas) {
+        this.notasInternas = notasInternas;
+    }
+
+    public int getInativo() {
+        return inativo;
+    }
+
+    public void setInativo(int inativo) {
+        this.inativo = inativo;
     }
 
 }

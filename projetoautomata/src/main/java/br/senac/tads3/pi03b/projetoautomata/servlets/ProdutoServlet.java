@@ -81,11 +81,11 @@ public class ProdutoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Produto produto = new Produto();
         produto.setModelo(request.getParameter("modelo"));
-        produto.setQtminima(Integer.parseInt(request.getParameter("qtminima")));
-        produto.setQtmaxima(Integer.parseInt(request.getParameter("qtmaxima")));
         produto.setUnidade(request.getParameter("unidade"));
-        produto.setTipo(request.getParameter("tipo"));
-        produto.setValor(Float.parseFloat(request.getParameter("valor")));
+        produto.setValorCusto(Float.parseFloat(request.getParameter("valorCusto")));
+        produto.setValorVenda(Float.parseFloat(request.getParameter("valorVenda")));
+        produto.setNotasInternas(request.getParameter("notasInternas"));
+        produto.setInativo(Integer.parseInt(request.getParameter("inativo")));
         String id = request.getParameter("id");
         dao = new ProdutoDAO();
         if (id == null || id.isEmpty()) {

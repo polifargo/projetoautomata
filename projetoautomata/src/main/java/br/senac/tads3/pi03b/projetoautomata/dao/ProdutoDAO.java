@@ -27,17 +27,17 @@ public class ProdutoDAO {
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
 
-        String sql = "INSERT INTO produtos (modelo, qtminima, qtmaxima, unidade, tipo, valor)"
+        String sql = "INSERT INTO produtos (modelo, unidade, valorCusto, valorVenda, notasInternas, inativo)"
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             preparedStatement.setString(1, produto.getModelo());
-            preparedStatement.setInt(2, produto.getQtminima());
-            preparedStatement.setInt(3, produto.getQtmaxima());
-            preparedStatement.setString(4, produto.getUnidade());
-            preparedStatement.setString(5, produto.getTipo());
-            preparedStatement.setFloat(6, produto.getValor());
+            preparedStatement.setString(2, produto.getUnidade());
+            preparedStatement.setFloat(4, produto.getValorCusto());
+            preparedStatement.setFloat(5, produto.getValorVenda());
+            preparedStatement.setString(6, produto.getNotasInternas());
+            preparedStatement.setInt(7, produto.getInativo());
 
             preparedStatement.executeUpdate();
         } finally {
@@ -54,18 +54,17 @@ public class ProdutoDAO {
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
 
-        String sql = "UPDATE produtos SET modelo=?, qtminima=?, qtmaxima=?, unidade=?, tipo=?, valor=?"
+        String sql = "UPDATE produtos SET modelo=?, unidade=?, tipo=?, valorCusto=?, valorVenda=?, notasInternas=?, inativo=?"
                 + "WHERE id=?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             preparedStatement.setString(1, produto.getModelo());
-            preparedStatement.setInt(2, produto.getQtminima());
-            preparedStatement.setInt(3, produto.getQtmaxima());
-            preparedStatement.setString(4, produto.getUnidade());
-            preparedStatement.setString(5, produto.getTipo());
-            preparedStatement.setFloat(6, produto.getValor());
-            preparedStatement.setInt(7, produto.getId());
+            preparedStatement.setString(2, produto.getUnidade());
+            preparedStatement.setFloat(3, produto.getValorCusto());
+            preparedStatement.setFloat(4, produto.getValorVenda());
+            preparedStatement.setString(5, produto.getNotasInternas());
+            preparedStatement.setInt(6, produto.getInativo());
 
             preparedStatement.executeUpdate();
         } finally {
@@ -109,11 +108,11 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.setId(resultSet.getInt("id"));
                 produto.setModelo(resultSet.getString("modelo"));
-                produto.setQtminima(resultSet.getInt("qtminima"));
-                produto.setQtmaxima(resultSet.getInt("qtmaxima"));
                 produto.setUnidade(resultSet.getString("unidade"));
-                produto.setTipo(resultSet.getString("tipo"));
-                produto.setValor(resultSet.getFloat("valor"));
+                produto.setValorCusto(resultSet.getFloat("valorCusto"));
+                produto.setValorVenda(resultSet.getFloat("valorVenda"));
+                produto.setNotasInternas(resultSet.getString("notasInternas"));
+                produto.setInativo(resultSet.getInt("inativo"));
                 listaProdutos.add(produto);
             }
         } catch (Exception e) {
@@ -134,11 +133,11 @@ public class ProdutoDAO {
             while (resultSet.next()) {
                 produto.setId(resultSet.getInt("id"));
                 produto.setModelo(resultSet.getString("modelo"));
-                produto.setQtminima(resultSet.getInt("qtminima"));
-                produto.setQtmaxima(resultSet.getInt("qtmaxima"));
                 produto.setUnidade(resultSet.getString("unidade"));
-                produto.setTipo(resultSet.getString("tipo"));
-                produto.setValor(resultSet.getFloat("valor"));
+                produto.setValorCusto(resultSet.getFloat("valorCusto"));
+                produto.setValorVenda(resultSet.getFloat("valorVenda"));
+                produto.setNotasInternas(resultSet.getString("notasInternas"));
+                produto.setInativo(resultSet.getInt("inativo"));
             }
             resultSet.close();
             preparedStatement.close();
