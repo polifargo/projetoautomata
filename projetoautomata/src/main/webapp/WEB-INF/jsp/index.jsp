@@ -35,7 +35,7 @@
 
             <div class="login">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    <li><a href="inicio"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                     <li><a><span class="glyphicon glyphicon-user"></span><c:out value="${sessionScope.usuario.nome}" /></a></li>
                     <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Sair</a></li>
                 </ul>
@@ -76,7 +76,7 @@
                 <a class="navbar-brand" href="venda">Realizar Venda</a>
             </div>
         </nav>
-        <c:import url="WEB-INF/jsp/rodape.jsp"/>
+        <c:import url="./rodape.jsp"/>
     </c:if>
 </body>
 </html>

@@ -27,13 +27,13 @@ public class LoginServlet extends HttpServlet {
         // Verifica se usuário já se logou, se positivo redireciona para tela principal
         HttpSession sessao = request.getSession(false);
         if (sessao != null && sessao.getAttribute("usuario") != null) {
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            response.sendRedirect(request.getContextPath() + "/inicio");
             return;
         }
 
         // Apresenta tela de login para o usuário
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+                = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -58,10 +58,10 @@ public class LoginServlet extends HttpServlet {
             sessao = request.getSession(true);
             sessao.setAttribute("usuario", usuarioSistema);
 
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            response.sendRedirect(request.getContextPath() + "/inicio");
         } else {
             response.sendRedirect(
-                    request.getContextPath() + "/erroLogin.jsp");
+                    request.getContextPath() + "/errologin");
         }
     }
 }
