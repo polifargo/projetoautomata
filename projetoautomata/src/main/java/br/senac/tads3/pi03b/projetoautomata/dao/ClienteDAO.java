@@ -67,8 +67,8 @@ public class ClienteDAO {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
         String sql = "UPDATE clientes SET nome=?, apelido=?, sexo=?,"
-                + "tipo=?, uf=?, cep=?, logradouro=?, bairro=?, "
-                + "email=?, telefone=?, notasInternas=?, inativo=?,  cadastronacional=?"
+                + "tipo=?, uf=?, cep=?, cidade=?, logradouro=?, "
+                + "bairro=?, email=?, telefone=?, notasInternas=?, inativo=?, cadastronacional=?"
                 + "WHERE id=?";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);

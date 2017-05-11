@@ -18,7 +18,6 @@
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
-        <div class="panel panel-default">
             <form action="usuarios" method="post">
                 <fieldset class="form-group">
                     <div class="form-group row">
@@ -66,7 +65,6 @@
                     </div>
                 </fieldset>
             </form>
-        </div>
     </body>
     <c:import url="./rodape.jsp"/>
 </html>

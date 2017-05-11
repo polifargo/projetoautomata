@@ -19,11 +19,9 @@
         <script src="js/validacoes.js"></script>
     </head>
     <body>
-        <div class="panel panel-default">
-            <c:import url="./cabecalho.jsp"/>
-            <div class="container">
+        <c:import url="./cabecalho.jsp"/>
                 <form id="form" action="clientes" method="post">
-                    <fieldset class="form-group">
+                    <fieldset class="form-group container-fluid">
                         <div class="form-group row">
                             <label for="clienteid">Cliente ID</label> 
                             <input class="form-control" type="text"
@@ -54,8 +52,8 @@
                         <div class="form-group row">
                             <label for="clientetipo">Tipo</label> 
                             <select name="tipo" class="form-control">
-                                <option value="Pessoa Física">Pessoa Física</option>
-                                <option value="Pessoa Jurídica">Pessoa Jurídica</option>
+                                <option value="F">Pessoa Física</option>
+                                <option value="J">Pessoa Jurídica</option>
                             </select>
                         </div>
                         <div class="form-group row">
@@ -92,7 +90,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="clientecep">CEP</label>
-                            <input class="form-control" type="number" 
+                            <input class="form-control" type="text" 
                                    name="cep" value="<c:out value="${cliente.cep}" />"
                                    placeholder="CEP..." maxlength="8" id="cep" required/>
                         </div>
@@ -122,7 +120,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="clientetelefone">Telefone</label> 
-                            <input class="form-control" type="tel"
+                            <input class="form-control" type="text"
                                    name="telefone" value="<c:out value="${cliente.telefone}" />"
                                    placeholder="Telefone..." maxlength="14" id="telefone" required/>
                         </div>   
@@ -135,13 +133,13 @@
                         <div class="form-group row">
                             <label for="clienteinativo">Inativo</label> 
                             <input class="form-control" type="number"
-                                   name="inativo" maxlength="1" placeholder="Inativo..." value="<c:out value="${cliente.inativo}" />"
+                                   name="inativo" max='1' min='0' placeholder="Inativo..." value="<c:out value="${cliente.inativo}" />"
                                    id="inativo" required/>
                         </div> 
                         <div class="form-group row">
                             <label for="clientecadastronacional">Cadastro Nacional</label>
-                            <input class="form-control" type="number" 
-                                   name="cadastronacional" value="<c:out value="${cliente.cadastroNacional}" />"
+                            <input class="form-control" type="text" 
+                                   name="cadastroNacional" value="<c:out value="${cliente.cadastroNacional}" />"
                                    placeholder="CPF/CNPJ..." maxlength="18" required/>
                         </div>
                         <div class="form-group row">
@@ -151,8 +149,6 @@
                             <a class="btn btn-danger form-control" role="button" href="clientes">Cancelar</a>
                     </fieldset>
                 </form>
-            </div>
-        </div>
         <c:import url="./rodape.jsp"/>
     </body>
 </html>

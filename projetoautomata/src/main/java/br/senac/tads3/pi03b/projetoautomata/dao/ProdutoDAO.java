@@ -34,10 +34,10 @@ public class ProdutoDAO {
         try {
             preparedStatement.setString(1, produto.getModelo());
             preparedStatement.setString(2, produto.getUnidade());
-            preparedStatement.setFloat(4, produto.getValorCusto());
-            preparedStatement.setFloat(5, produto.getValorVenda());
-            preparedStatement.setString(6, produto.getNotasInternas());
-            preparedStatement.setInt(7, produto.getInativo());
+            preparedStatement.setFloat(3, produto.getValorCusto());
+            preparedStatement.setFloat(4, produto.getValorVenda());
+            preparedStatement.setString(5, produto.getNotasInternas());
+            preparedStatement.setInt(6, produto.getInativo());
 
             preparedStatement.executeUpdate();
         } finally {
@@ -54,7 +54,7 @@ public class ProdutoDAO {
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
 
-        String sql = "UPDATE produtos SET modelo=?, unidade=?, tipo=?, valorCusto=?, valorVenda=?, notasInternas=?, inativo=?"
+        String sql = "UPDATE produtos SET modelo=?, unidade=?, valorCusto=?, valorVenda=?, notasInternas=?, inativo=?"
                 + "WHERE id=?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -65,6 +65,7 @@ public class ProdutoDAO {
             preparedStatement.setFloat(4, produto.getValorVenda());
             preparedStatement.setString(5, produto.getNotasInternas());
             preparedStatement.setInt(6, produto.getInativo());
+             preparedStatement.setInt(7, produto.getId());
 
             preparedStatement.executeUpdate();
         } finally {

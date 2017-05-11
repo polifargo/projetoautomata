@@ -112,9 +112,9 @@ primary key (id)
 );
 
 create table Unidades(
-id varchar(3) not null,
+id char(3) not null,
 fantasia varchar(40),
-razaoSocial varchar(80),
+razao varchar(80),
 uf char(2),
 Cep numeric(8),
 Cidade varchar(60),

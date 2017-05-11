@@ -28,12 +28,12 @@
                             <th>Cliente ID</th>
                             <th>Nome</th>
                             <th>Apelido</th>
+                            <th>Tipo</th>
                             <th>UF</th>
                             <th>CEP</th>
                             <th>Cidade</th>
                             <th>Email</th>
                             <th>Telefone</th>
-                            <th>Notas Internas</th>
                             <th>Inativo</th>
                             <th>Cadastro Nacional</th>
                             <th colspan="2">Ação</th>
@@ -47,10 +47,8 @@
                                 <td><c:out value="${cliente.uf}" /></td>
                                 <td><c:out value="${cliente.cep}" /></td>
                                 <td><c:out value="${cliente.cidade}" /></td>
-                                <td><c:out value="${cliente.telefone}" /></td>
                                 <td><c:out value="${cliente.email}" /></td>
                                 <td><c:out value="${cliente.telefone}" /></td>
-                                <td><c:out value="${cliente.notasInternas}" /></td>
                                 <td><c:out value="${cliente.inativo}" /></td>
                                 <td><c:out value="${cliente.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"
@@ -61,7 +59,7 @@
                         </c:forEach>
                     </table>
                     <a class="btn btn-primary" role="button" href="clientes?action=insert">Adicionar Cliente</a>
-                    <a class="btn btn-danger" role="button" href="index.jsp">Voltar</a>
+                    <a class="btn btn-danger" role="button" href="inicio">Voltar</a>
                 </div>
             </div>
         </div>

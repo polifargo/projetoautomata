@@ -13,33 +13,34 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="https://use.typekit.net/ayg4pcz.js"></script>
+        <script>try {
+                Typekit.load({async: true});
+            } catch (e) {
+            }</script>
     </head>
     <body>
-        <c:import url="./cabecalho.jsp"/>
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="panel panel-default" align="center">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Por favor se logue</h3>
+            <h1 class="welcome text-center">Bem Vindo </h1>
+            <div class="card card-container">
+                <h2 class='login_title text-center'>Login</h2>
+                <hr>
+
+                    <form class="form-signin" action="login" method="post">
+                        <span id="reauth-email" class="reauth-email"></span>
+                        <p class="input_title">Login</p>
+                        <input type="text" name="login" id="inputEmail" class="login_box" required autofocus/>
+                        <p class="input_title">Senha</p>
+                        <input type="password" name="senha" id="inputPassword" class="login_box" required/>
+                        <div id="remember" class="checkbox">
+                            <label>
+
+                            </label>
                         </div>
-                        <div class="panel-body" >
-                            <form class="" accept-charset="UTF-8" role="form" method="post" action="login">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Usuário" maxlength="30" name="login"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" type="password" placeholder="Senha" name="senha"/>
-                                    </div>
-                                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Login"/>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <button class="btn btn-lg btn-primary" type="submit">Login</button>
+                    </form><!-- /form -->
+            </div><!-- /card-container -->
+        </div><!-- /container -->
         <c:import url="./rodape.jsp"/>
     </body>
 </html>

@@ -63,7 +63,8 @@ public class UnidadeDAO {
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "UPDATE unidades SET endereco=?, nome=?, razao=?, cadastronacional=?"
+        String sql = "UPDATE unidades SET fantasia=?, razao=?, uf=?, cep=?, cidade=?, logradouro=?, bairro=?, "
+                + "email=?, telefone=?, notasinternas=?, inativo=?, cadastroNacional=?"
                 + "WHERE id=?";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -123,7 +124,7 @@ public class UnidadeDAO {
     public List<Unidade> getListaUnidades() throws SQLException, ClassNotFoundException {
         List<Unidade> listaUnidades = new ArrayList<>();
         connection = DbUtil.getConnection();
-        String query = "SELECT * FROM unidades ORDER BY nome";
+        String query = "SELECT * FROM unidades ORDER BY fantasia";
 
         try {
             Statement st = connection.createStatement();

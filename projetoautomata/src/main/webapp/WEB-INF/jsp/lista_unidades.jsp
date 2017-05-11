@@ -31,8 +31,6 @@
                             <th>UF</th>
                             <th>CEP</th>
                             <th>Cidade</th>
-                            <th>Logradouro</th>
-                            <th>Bairro</th>
                             <th>Email</th>
                             <th>Telefone</th>
                             <th>Notas Internas</th>

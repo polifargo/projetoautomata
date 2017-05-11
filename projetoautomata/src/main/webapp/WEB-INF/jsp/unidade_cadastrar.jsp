@@ -19,20 +19,19 @@
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
-        <div class="panel panel-default">
             <form action="unidades" method="post">
-                <fieldset class="form-group">
+                <fieldset class="form-group container-fluid">
                     <div class="form-group row">
                         <label for="unidadeid">Unidade ID</label> 
-                        <input class="form-control" type="text"
+                        <input class="form-control" type="text" maxlength="3"
                                name="id" value="<c:out value="${unidade.id}" />"
-                               readonly="readonly" placeholder="Unidade ID" />
+                               placeholder="Unidade ID" />
                     </div>
                     <div class="form-group row">
                         <label for="unidadefantasia">Fantasia</label> 
                         <input class="form-control" type="text"
                                name="fantasia" value="<c:out value="${unidade.fantasia}" />"
-                               placeholder="Fantasia..." maxlength="1" required/>
+                               placeholder="Fantasia..." maxlength="30" required/>
                     </div>
                     <div class="form-group row">
                         <label for="unidaderazao">Razao</label> 
@@ -74,7 +73,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="unidadecep">CEP</label>
-                            <input class="form-control" type="number" 
+                            <input class="form-control" type="text" 
                                    name="cep" value="<c:out value="${unidade.cep}" />"
                                    placeholder="CEP..." maxlength="8" id="cep" required/>
                         </div>
@@ -104,7 +103,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="unidadetelefone">Telefone</label> 
-                            <input class="form-control" type="tel"
+                            <input class="form-control" type="text"
                                    name="telefone" value="<c:out value="${unidade.telefone}" />"
                                    placeholder="Telefone..." maxlength="14" id="telefone" required/>
                         </div>   
@@ -117,13 +116,13 @@
                         <div class="form-group row">
                             <label for="unidadeinativo">Inativo</label> 
                             <input class="form-control" type="number"
-                                   name="inativo" maxlength="1" placeholder="Inativo..." value="<c:out value="${unidade.inativo}" />"
+                                   name="inativo" max='1' min='0' placeholder="Inativo..." value="<c:out value="${unidade.inativo}" />"
                                    id="inativo" required/>
                         </div> 
                         <div class="form-group row">
                             <label for="unidadecadastronacional">Cadastro Nacional</label>
-                            <input class="form-control" type="number" 
-                                   name="cadastronacional" value="<c:out value="${unidade.cadastroNacional}" />"
+                            <input class="form-control" type="text" 
+                                   name="cadastroNacional" value="<c:out value="${unidade.cadastroNacional}" />"
                                    placeholder="CNPJ..." maxlength="18" required/>
                         </div>
                     <div class="form-group row">
@@ -134,7 +133,6 @@
                     </div>
                 </fieldset>
             </form>
-        </div>
     </body>
     <c:import url="./rodape.jsp"/>
 </html>

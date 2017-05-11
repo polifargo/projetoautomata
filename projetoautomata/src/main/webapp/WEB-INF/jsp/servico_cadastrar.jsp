@@ -20,14 +20,13 @@
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
-        <div class="panel panel-default">
             <form action="servicos" method="post">
-                <fieldset class="form-group">
+                <fieldset class="form-group container-fluid">
                     <div class="form-group row">
                         <label for="servicoid">Servico ID</label> 
                         <input class="form-control" type="text"
                                name="id" value="<c:out value="${servico.id}" />"
-                               readonly="readonly" maxlength="15" placeholder="Servico ID" />
+                               maxlength="15" placeholder="Servico ID" />
                     </div>
                     <div class="form-group row">
                         <label for="servicodescricao">Descrição</label> 
@@ -69,7 +68,6 @@
                     </div>
                 </fieldset>
             </form>
-        </div>
     </body>
     <c:import url="./rodape.jsp"/>
 </html>

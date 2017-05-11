@@ -59,6 +59,7 @@ public class ServicoDAO {
             preparedStatement.setFloat(3, servico.getValor());
             preparedStatement.setString(4, servico.getNotasInternas());
             preparedStatement.setInt(5, servico.getInativo());
+            preparedStatement.setInt(6, servico.getId());
             preparedStatement.executeUpdate();
         } finally {
             if (preparedStatement != null && !preparedStatement.isClosed()) {
