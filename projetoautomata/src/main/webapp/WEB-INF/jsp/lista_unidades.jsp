@@ -59,7 +59,7 @@
                         </c:forEach>
                     </table>
                     <a class="btn btn-primary" role="button" href="unidades?action=insert">Adicionar Unidade</a>
-                    <a class="btn btn-danger" role="button" href="index.jsp">Voltar</a>
+                    <a class="btn btn-danger" role="button" href="inicio">Voltar</a>
                 </div>
             </div>
         </div>
