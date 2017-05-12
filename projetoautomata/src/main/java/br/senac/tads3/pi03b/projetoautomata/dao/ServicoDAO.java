@@ -59,7 +59,7 @@ public class ServicoDAO {
             preparedStatement.setFloat(3, servico.getValor());
             preparedStatement.setString(4, servico.getNotasInternas());
             preparedStatement.setInt(5, servico.getInativo());
-            preparedStatement.setInt(6, servico.getId());
+            preparedStatement.setString(6, servico.getId());
             preparedStatement.executeUpdate();
         } finally {
             if (preparedStatement != null && !preparedStatement.isClosed()) {
@@ -100,7 +100,7 @@ public class ServicoDAO {
             ResultSet resultSet = st.executeQuery(query);
             while (resultSet.next()) {
                 Servico servico = new Servico();
-                servico.setId(resultSet.getInt("id"));
+                servico.setId(resultSet.getString("id"));
                 servico.setDescricao(resultSet.getString("descricao"));
                 servico.setTipo(resultSet.getString("tipo"));
                 servico.setValor(Float.parseFloat(resultSet.getString("valor")));
@@ -115,16 +115,16 @@ public class ServicoDAO {
         return listaServicos;
     }
 
-    public Servico getServicoById(int id) throws SQLException, ClassNotFoundException {
+    public Servico getServicoById(String id) throws SQLException, ClassNotFoundException {
         Servico servico = new Servico();
         connection = DbUtil.getConnection();
         try {
             String query = "SELECT * FROM servicos WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                servico.setId(resultSet.getInt("id"));
+                servico.setId(resultSet.getString("id"));
                 servico.setDescricao(resultSet.getString("descricao"));
                 servico.setTipo(resultSet.getString("tipo"));
                 servico.setValor(Float.parseFloat(resultSet.getString("valor")));

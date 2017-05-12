@@ -19,7 +19,7 @@
     </head>
     <body>
         <c:if test="${not empty sessionScope.usuario}">
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default">
             <a class="navbar-brand" href="clientes">Clientes</a>
             <a class="navbar-brand" href="produtos">Produtos</a>
             <a class="navbar-brand" href="servicos">Servicos</a>

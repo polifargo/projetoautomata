@@ -130,7 +130,7 @@ primary key (id)
 
 create table Saldo(
 id integer not null,
-idUnidade varchar(3) not null,
+idUnidade char(3) not null,
 idProduto char(15) not null,
 quantidade integer not null,
 qtMinina integer,

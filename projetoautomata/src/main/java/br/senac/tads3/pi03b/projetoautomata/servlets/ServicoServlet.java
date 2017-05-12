@@ -53,14 +53,14 @@ public class ServicoServlet extends HttpServlet {
             }
         } else if ("edit".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
-            int id = Integer.parseInt(request.getParameter("id"));
+            String id = request.getParameter("id");
             Servico servico = null;
             try {
                 servico = dao.getServicoById(id);
             } catch (SQLException ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServicoServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServicoServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             request.setAttribute("servico", servico);
         } else if ("insert".equalsIgnoreCase(action)) {
@@ -98,7 +98,7 @@ public class ServicoServlet extends HttpServlet {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            servico.setId(Integer.parseInt(id));
+            servico.setId((id));
             try {
                 dao.alterar(servico);
             } catch (Exception ex) {
