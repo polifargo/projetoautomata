@@ -15,9 +15,10 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class Usuario {
 
-    private final static Map<String, Usuario> USUARIOS_CADASTRADOS = new LinkedHashMap<>();
+    private final static Map<String, Usuario> USUARIOS_CADASTRADOS;
 
     static {
+        USUARIOS_CADASTRADOS = new LinkedHashMap<>();
         USUARIOS_CADASTRADOS.put("admin", new Usuario("admin",
                 "Administrador", "admin", "ADMIN"));
         USUARIOS_CADASTRADOS.put("retaguarda", new Usuario("retaguarda",

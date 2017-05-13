@@ -68,20 +68,27 @@ public class AutorizacaoFilter implements Filter {
         String paginaAcessada = request.getRequestURI();
         String pagina = paginaAcessada.replace(request.getContextPath(), "");
 
-        if (pagina.contains("produtos") && usuario.temPapel("MEDIO") || usuario.temPapel("ADMIN")) {
+        if (pagina.contains("produtos") && usuario.temPapel("MEDIO")) {
             return true;
-        } else if (pagina.contains("clientes") && usuario.temPapel("MEDIO") || usuario.temPapel("ADMIN") || usuario.temPapel("BASICO")) {
+        } else if (pagina.contains("produtos") && usuario.temPapel("ADMIN")) {
+            return true;
+        } else if (pagina.contains("clientes") && usuario.temPapel("MEDIO")) {
+            return true;
+        } else if (pagina.contains("clientes") && usuario.temPapel("BASICO")) {
+            return true;
+        } else if (pagina.contains("clientes") && usuario.temPapel("ADMIN")) {
             return true;
         } else if (pagina.contains("unidades") && usuario.temPapel("ADMIN")) {
             return true;
         } else if (pagina.contains("usuarios") && usuario.temPapel("ADMIN")) {
             return true;
-        } else if (pagina.contains("venda") && usuario.temPapel("ADMIN") || usuario.temPapel("BASICO")) {
+        } else if (pagina.contains("venda") && usuario.temPapel("ADMIN")) {
             return true;
-        } else if (pagina.contains("servicos") && usuario.temPapel("MEDIO") || usuario.temPapel("ADMIN")) {
+        } else if (pagina.contains("venda") && usuario.temPapel("BASICO")) {
             return true;
-        }
-        return false;
+        } else if (pagina.contains("servicos") && usuario.temPapel("MEDIO")) {
+            return true;
+        } else return pagina.contains("servicos") && usuario.temPapel("ADMIN");
     }
 
     @Override
