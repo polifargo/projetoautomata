@@ -92,13 +92,15 @@ create table ItensServico(
 id int not null generated always as identity (start with 1, increment by 1),
 idTecnico integer,
 idServico char(15) not null,
+idServicoPrestado integer,
 DataServico date,
 idVenda int not null,
 ValorTotal numeric(14,2),
 ValorUnitario numeric(14,2),
 primary key (id),
 FOREIGN KEY (idServico) REFERENCES Servicos (id),
-FOREIGN KEY (idTecnico) REFERENCES Tecnico (id)
+FOREIGN KEY (idTecnico) REFERENCES Tecnico (id),
+FOREIGN KEY (idServicoPrestado) REFERENCES ServicoPrestado (id)
 );
 
 create table Usuarios(
