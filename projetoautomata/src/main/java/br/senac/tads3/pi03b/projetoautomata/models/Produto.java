@@ -6,7 +6,7 @@ package br.senac.tads3.pi03b.projetoautomata.models;
  */
 public class Produto {
 
-    private int id;
+    private String id;
     private String modelo;
     private String unidade;
     private float valorVenda;
@@ -14,11 +14,11 @@ public class Produto {
     private String notasInternas;
     private int inativo;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

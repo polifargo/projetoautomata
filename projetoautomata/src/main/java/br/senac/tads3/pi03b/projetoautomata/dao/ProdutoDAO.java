@@ -22,22 +22,33 @@ import java.util.List;
 public class ProdutoDAO {
 
     private Connection connection;
-
+    
+    public void acao(Produto produto) throws Exception{
+        Produto prod = getProdutoById(produto.getId());
+        
+        if (prod.getId() == null) {
+            inserir(produto);
+        }else{
+            alterar(produto);
+        }
+    }
+    
     public void inserir(Produto produto)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
 
-        String sql = "INSERT INTO produtos (modelo, unidade, valorCusto, valorVenda, notasInternas, inativo)"
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO produtos (modelo, unidade, valorCusto, valorVenda, notasInternas, inativo, id)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             preparedStatement.setString(1, produto.getModelo());
             preparedStatement.setString(2, produto.getUnidade());
-            preparedStatement.setFloat(3, produto.getValorCusto());
-            preparedStatement.setFloat(4, produto.getValorVenda());
+            preparedStatement.setFloat( 3, produto.getValorCusto());
+            preparedStatement.setFloat( 4, produto.getValorVenda());
             preparedStatement.setString(5, produto.getNotasInternas());
-            preparedStatement.setInt(6, produto.getInativo());
+            preparedStatement.setInt(   6, produto.getInativo());
+            preparedStatement.setString(7, produto.getId());
 
             preparedStatement.executeUpdate();
         } finally {
@@ -65,7 +76,7 @@ public class ProdutoDAO {
             preparedStatement.setFloat(4, produto.getValorVenda());
             preparedStatement.setString(5, produto.getNotasInternas());
             preparedStatement.setInt(6, produto.getInativo());
-             preparedStatement.setInt(7, produto.getId());
+             preparedStatement.setString(7, produto.getId());
 
             preparedStatement.executeUpdate();
         } finally {
@@ -107,7 +118,7 @@ public class ProdutoDAO {
             ResultSet resultSet = st.executeQuery(query);
             while (resultSet.next()) {
                 Produto produto = new Produto();
-                produto.setId(resultSet.getInt("id"));
+                produto.setId(resultSet.getString("id"));
                 produto.setModelo(resultSet.getString("modelo"));
                 produto.setUnidade(resultSet.getString("unidade"));
                 produto.setValorCusto(resultSet.getFloat("valorCusto"));
@@ -123,16 +134,16 @@ public class ProdutoDAO {
         return listaProdutos;
     }
 
-    public Produto getProdutoById(int id) throws SQLException, ClassNotFoundException {
+    public Produto getProdutoById(String id) throws SQLException, ClassNotFoundException {
         Produto produto = new Produto();
         connection = DbUtil.getConnection();
         try {
             String query = "SELECT * FROM produtos WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                produto.setId(resultSet.getInt("id"));
+                produto.setId(resultSet.getString("id"));
                 produto.setModelo(resultSet.getString("modelo"));
                 produto.setUnidade(resultSet.getString("unidade"));
                 produto.setValorCusto(resultSet.getFloat("valorCusto"));

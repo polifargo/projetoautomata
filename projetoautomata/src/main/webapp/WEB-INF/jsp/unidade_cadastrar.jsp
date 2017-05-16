@@ -110,8 +110,8 @@
                         <div class="form-group row">
                             <label for="unidadenotasinternas">Notas Internas</label> 
                             <input class="form-control" type="textarea"
-                                   name="notasinternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${unidade.notasInternas}" />"
-                                   id="telefone"/>
+                                   name="notasInternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${unidade.notasInternas}" />"
+                                   id="notasInternas"/>
                         </div> 
                         <div class="form-group row">
                             <label for="unidadeinativo">Inativo</label> 

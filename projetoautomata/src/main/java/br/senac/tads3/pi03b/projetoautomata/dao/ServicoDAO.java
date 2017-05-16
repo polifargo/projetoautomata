@@ -22,19 +22,30 @@ import java.util.List;
 public class ServicoDAO {
 
     private Connection connection;
+    
+    public void acao(Servico servico) throws Exception{
+        Servico serv = this.getServicoById(servico.getId());
+        
+        if (serv.getId() == null) {
+            inserir(servico);
+        }else{
+            alterar(servico);
+        }
+    }
 
     public void inserir(Servico servico)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
-        String sql = "INSERT INTO servicos(descricao, tipo, valor, notasInternas, inativo)"
-                + "VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO servicos(id, descricao, tipo, valor, notasInternas, inativo)"
+                + "VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
-            preparedStatement.setString(1, servico.getDescricao());
-            preparedStatement.setString(2, servico.getTipo());
-            preparedStatement.setFloat(3, servico.getValor());
-            preparedStatement.setString(4, servico.getNotasInternas());
-            preparedStatement.setInt(5, servico.getInativo());
+            preparedStatement.setString(1, servico.getId());
+            preparedStatement.setString(2, servico.getDescricao());
+            preparedStatement.setString(3, servico.getTipo());
+            preparedStatement.setFloat( 4, servico.getValor());
+            preparedStatement.setString(5, servico.getNotasInternas());
+            preparedStatement.setInt(   6, servico.getInativo());
 
             preparedStatement.executeUpdate();
         } finally {

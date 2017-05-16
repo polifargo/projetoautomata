@@ -22,13 +22,23 @@ import java.util.List;
 public class UnidadeDAO {
 
     private Connection connection;
+    
+    public void acao(Unidade unidade) throws Exception{
+        Unidade uni = getUnidadeById(unidade.getId());
+        
+        if (uni.getId() == null) {
+            inserir(unidade);
+        }else{
+            alterar(unidade);
+        }
+    }
 
     public void inserir(Unidade unidade)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "INSERT INTO unidades (fantasia, razao, uf, cep, cidade, logradouro, bairro, email, telefone, notasInternas, inativo, cadastronacional)"
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO unidades (fantasia, razao, uf, cep, cidade, logradouro, bairro, email, telefone, notasInternas, inativo, cadastronacional, id)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
@@ -45,6 +55,7 @@ public class UnidadeDAO {
             preparedStatement.setString(10, unidade.getNotasInternas());
             preparedStatement.setInt(11, unidade.getInativo());
             preparedStatement.setString(12, unidade.getCadastroNacional());
+            preparedStatement.setString(13, unidade.getId());
             //Executa o comando no banco de dados
             preparedStatement.executeUpdate();
         } finally {
@@ -82,7 +93,7 @@ public class UnidadeDAO {
             preparedStatement.setString(10, unidade.getNotasInternas());
             preparedStatement.setInt(11, unidade.getInativo());
             preparedStatement.setString(12, unidade.getCadastroNacional());
-            preparedStatement.setInt(13, unidade.getId());
+            preparedStatement.setString(13, unidade.getId());
             //Executa o comando no banco de dados
             preparedStatement.executeUpdate();
         } finally {
@@ -131,7 +142,7 @@ public class UnidadeDAO {
             ResultSet resultSet = st.executeQuery(query);
             while (resultSet.next()) {
                 Unidade unidade = new Unidade();
-                unidade.setId(resultSet.getInt("id"));
+                unidade.setId(resultSet.getString("id"));
                 unidade.setFantasia(resultSet.getString("fantasia"));
                 unidade.setRazao(resultSet.getString("razao"));
                 unidade.setUf(resultSet.getString("uf"));
@@ -153,16 +164,16 @@ public class UnidadeDAO {
         return listaUnidades;
     }
 
-    public Unidade getUnidadeById(int id) throws SQLException, ClassNotFoundException {
+    public Unidade getUnidadeById(String id) throws SQLException, ClassNotFoundException {
         Unidade unidade = new Unidade();
         connection = DbUtil.getConnection();
         try {
             String query = "SELECT * FROM unidades WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                unidade.setId(resultSet.getInt("id"));
+                unidade.setId(resultSet.getString("id"));
                 unidade.setFantasia(resultSet.getString("fantasia"));
                 unidade.setRazao(resultSet.getString("razao"));
                 unidade.setUf(resultSet.getString("uf"));

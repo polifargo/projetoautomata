@@ -51,7 +51,7 @@ public class UnidadeServlet extends HttpServlet {
             }
         } else if ("edit".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
-            int id = Integer.parseInt(request.getParameter("id"));
+            String id = request.getParameter("id");
             Unidade unidade = null;
             try {
                 unidade = dao.getUnidadeById(id);
@@ -80,6 +80,7 @@ public class UnidadeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Unidade unidade = new Unidade();
+        unidade.setId(request.getParameter("id"));
         unidade.setFantasia(request.getParameter("fantasia"));
         unidade.setRazao(request.getParameter("razao"));
         unidade.setUf(request.getParameter("uf"));
@@ -92,22 +93,15 @@ public class UnidadeServlet extends HttpServlet {
         unidade.setNotasInternas(request.getParameter("notasInternas"));
         unidade.setInativo(Integer.parseInt(request.getParameter("inativo")));
         unidade.setCadastroNacional(request.getParameter("cadastroNacional"));
-        String id = request.getParameter("id");
+        
         dao = new UnidadeDAO();
-        if (id == null || id.isEmpty()) {
-            try {
-                dao.inserir(unidade);
-            } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            unidade.setId(Integer.parseInt(id));
-            try {
-                dao.alterar(unidade);
-            } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        
+        try {
+            dao.acao(unidade);
+        } catch (Exception ex) {
+            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
             request.setAttribute("unidades", dao.getListaUnidades());

@@ -83,28 +83,24 @@ public class ServicoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DateFormat mediaConclusao = new SimpleDateFormat("dd/MM/yyyy");
         DateFormat mediaHoras = new SimpleDateFormat("HH:mm");
+        
         Servico servico = new Servico();
+        
+        servico.setId(request.getParameter("id"));
         servico.setDescricao(request.getParameter("descricao"));
         servico.setTipo(request.getParameter("tipo"));
         servico.setValor(Float.parseFloat(request.getParameter("valor")));
         servico.setNotasInternas(request.getParameter("notasInternas"));
         servico.setInativo(Integer.parseInt(request.getParameter("inativo")));
-        String id = request.getParameter("id");
+        
         dao = new ServicoDAO();
-        if (id == null || id.isEmpty()) {
-            try {
-                dao.inserir(servico);
-            } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            servico.setId((id));
-            try {
-                dao.alterar(servico);
-            } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        
+        try{
+            dao.acao(servico);
+        }catch(Exception ex){
+            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
             request.setAttribute("servicos", dao.getListaServicos());
@@ -115,5 +111,4 @@ public class ServicoServlet extends HttpServlet {
         }
         view.forward(request, response);
     }
-
 }

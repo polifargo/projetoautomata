@@ -51,7 +51,7 @@ public class ProdutoServlet extends HttpServlet {
             }
         } else if ("edit".equalsIgnoreCase(action)) {
             forward = INSERT_OR_EDIT;
-            int id = Integer.parseInt(request.getParameter("id"));
+            String id = request.getParameter("id");
             Produto produto = null;
             try {
                 produto = dao.getProdutoById(id);
@@ -80,28 +80,22 @@ public class ProdutoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Produto produto = new Produto();
+        produto.setId(request.getParameter("id"));
         produto.setModelo(request.getParameter("modelo"));
         produto.setUnidade(request.getParameter("unidade"));
         produto.setValorCusto(Float.parseFloat(request.getParameter("valorCusto")));
         produto.setValorVenda(Float.parseFloat(request.getParameter("valorVenda")));
         produto.setNotasInternas(request.getParameter("notasInternas"));
         produto.setInativo(Integer.parseInt(request.getParameter("inativo")));
-        String id = request.getParameter("id");
+        
         dao = new ProdutoDAO();
-        if (id == null || id.isEmpty()) {
-            try {
-                dao.inserir(produto);
-            } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            produto.setId(Integer.parseInt(id));
-            try {
-                dao.alterar(produto);
-            } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        
+        try {
+            dao.acao(produto);
+        } catch (Exception ex) {
+            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
             request.setAttribute("produtos", dao.getListaProdutos());

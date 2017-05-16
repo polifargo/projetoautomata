@@ -6,7 +6,7 @@ package br.senac.tads3.pi03b.projetoautomata.models;
  */
 public class Unidade {
 
-    private int id;
+    private String id;
     private String fantasia;
     private String razao;
     private String uf;
@@ -20,11 +20,11 @@ public class Unidade {
     private int inativo;
     private String cadastroNacional;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
