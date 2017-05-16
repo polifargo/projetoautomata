@@ -15,62 +15,70 @@
     </head>
     <body>
         <c:if test="${not empty sessionScope.usuario}">        
-        <div id="loginbar">
-            <div class="itemLogin">
-                <img id="imgHome" src="resources/home.png">
-                <a href="inicio"><span class="glyphicon glyphicon-home"></span>Home</a>
+            <div id="loginbar">
+                <div class="itemLogin">
+                    <img id="imgHome" src="resources/home.png">
+                    <a href="inicio">Home</a>
+                </div>
+
+                <div class="itemLogin">
+                    <img id="imgProfile" src="resources/profile.png">
+                    ${sessionScope.usuario.nome}
+                </div>
+
+                <div class="itemLogin">
+                    <img id="imgExit" src="resources/exit.png">
+                    <a href="logout">Sair</a>
+                </div>
             </div>
-            
-            <div class="itemLogin">
-                <img id="imgProfile" src="resources/profile.png">
-                ${sessionScope.usuario.nome}
+
+            <div id="espacadora">
             </div>
-            
-            <div class="itemLogin">
-                <img id="imgExit" src="resources/exit.png">
-                <a href="logout"><span class="glyphicon glyphicon-log-out"></span>Sair</a>
-            </div>
-        </div>
-        
-        <div id="espacadora">
-        </div>
-            
+
         <header>
             <div class="logos">
                 <img id="logo" src="resources/logo.png">
                 <img id="logotipo" src="resources/logotipo.png">
             </div>
         </header>
-        
+
         <div id="abas">
-            <div class="abasItem cadastro">Cadastro</div>
+            <div class="abasItem cadastro">Consulta</div>
             <div class="abasItem venda">Venda</div>
             <div class="abasItem servico">Servico</div>
             <div class="abasItem estoque">Estoque</div>
         </div>
-        
+
         <div class="telas">
-            <div class="telasItem cadastro" style="display:block;">
+            <div class="telasItem cadastro" style="display:none;">
                 <a href="clientes">Clientes</a>
             </div>
-            
-            <div class="telasItem cadastro" style="display:block;">
+
+            <div class="telasItem cadastro" style="display:none;">
                 <a href="produtos">Produtos</a>
             </div>
-            
+
             <div class="telasItem servico" style="display:none;">
                 <a href="servicos">Servicos</a>
             </div>
-            
+
+            <div class="telasItem servico" style="display:none;">
+                <a href="prestacaoservico">Prestação Serviço</a>
+            </div>
+
             <div class="telasItem cadastro" style="display:none;">
                 <a href="unidades">Unidades</a>
             </div>
-            
+
+            <div class="telasItem estoque" style="display:none;">
+                <a href="estoque">Estoque</a>
+            </div>
+
             <div class="telasItem venda" style="display:none;">
                 <a href="venda">Realizar Venda</a>
             </div>
         </div>
-        <c:import url="./rodape.jsp"/>
     </c:if>
 </body>
+<c:import url="./rodape.jsp"/>
 </html>

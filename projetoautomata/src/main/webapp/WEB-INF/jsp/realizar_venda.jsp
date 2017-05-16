@@ -29,15 +29,16 @@
                 </div>
                 <div class="form-group row">
                     <label for="vendacliente">Cliente</label> 
-                    <select required class="form-control">
+                    <select name="cliente" required class="form-control">
                         <c:forEach var="cliente" items="${clientes}">
-                            <option>${cliente.id}</option>
+                            <option value="${cliente.id}">${cliente.id}</option>
                         </c:forEach>
                     </select>
                 </div>
                 <div class="form-group row">
                     <label for="vendatecnico">Tecnico</label> 
                     <select name="tecnico" class="form-control">
+                        <option value="none">Sem Tecnico</option>
                         <option value="Carlos">Carlos</option>
                         <option value="Marcos">Marcos</option>
                         <option value="Paulo">Paulo</option>
@@ -46,11 +47,31 @@
                 </div>
                 <div class="form-group row">
                     <label for="produtounidade">Unidade</label> 
-                    <select required class="form-control">
+                    <select name="unidade" required class="form-control">
                         <c:forEach var="unidade" items="${unidades}">
-                            <option>${unidade.fantasia}</option>
+                            <option value="${unidade.fantasia}">${unidade.fantasia}</option>
                         </c:forEach>
                     </select>
+                </div>
+                <div class="form-group row">
+                    <table class="table">
+                        <tr>
+                            <th>Produto ID</th>
+                            <th>Modelo</th>
+                            <th>Unidade</th>
+                            <th>Valor Venda</th>
+                            <th>Estoque</th>
+                        </tr>
+                        <c:forEach items="${produtos}" var="produto">
+                            <tr>
+                                <td><c:out value="${produto.id}" /></td>
+                                <td><c:out value="${produto.modelo}" /></td>
+                                <td><c:out value="${produto.unidade}" /></td>
+                                <td><c:out value="${produto.valorVenda}" /></td>
+                                <td><c:out value="${produto.quantidade}" /></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
                 </div>
                 <div class="form-group row">
                     <label for="vendavalor">Valor</label> 

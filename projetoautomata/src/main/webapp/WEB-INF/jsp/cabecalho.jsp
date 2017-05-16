@@ -10,27 +10,75 @@
         <meta name="description" content="">
         <title>Welcome</title>
         <link rel="stylesheet" type="text/css" href="css/listaform.css" />
-        <link href="css/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
         <link href="css/estilos.css" rel="stylesheet" />
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
+        <script src="js/comportamentos.js"></script>
     </head>
     <body>
-        <c:if test="${not empty sessionScope.usuario}">
-        <nav class="navbar navbar-default">
-            <a class="navbar-brand" href="clientes">Clientes</a>
-            <a class="navbar-brand" href="produtos">Produtos</a>
-            <a class="navbar-brand" href="servicos">Servicos</a>
-            <a class="navbar-brand" href="unidades">Unidades</a>
-            <a class="navbar-brand" href="venda">Realizar Venda</a>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="inicio"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-                <li><a><span class="glyphicon glyphicon-user"></span><c:out value="${sessionScope.usuario.nome}" /></a></li>
-                <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Sair</a></li>
-            </ul>
-        </nav>
+        <c:if test="${not empty sessionScope.usuario}">        
+            <div id="loginbar">
+                <div class="itemLogin">
+                    <img id="imgHome" src="resources/home.png">
+                    <a href="inicio">Home</a>
+                </div>
+
+                <div class="itemLogin">
+                    <img id="imgProfile" src="resources/profile.png">
+                    ${sessionScope.usuario.nome}
+                </div>
+
+                <div class="itemLogin">
+                    <img id="imgExit" src="resources/exit.png">
+                    <a href="logout">Sair</a>
+                </div>
+            </div>
+
+            <div id="espacadora">
+            </div>
+
+        <header>
+            <div class="logos">
+                <img id="logo" src="resources/logo.png">
+                <img id="logotipo" src="resources/logotipo.png">
+            </div>
+        </header>
+
+        <div id="abas">
+            <div class="abasItem cadastro">Consulta</div>
+            <div class="abasItem venda">Venda</div>
+            <div class="abasItem servico">Servico</div>
+            <div class="abasItem estoque">Estoque</div>
+        </div>
+
+        <div class="telas">
+            <div class="telasItem cadastro" style="display:none;">
+                <a href="clientes">Clientes</a>
+            </div>
+
+            <div class="telasItem cadastro" style="display:none;">
+                <a href="produtos">Produtos</a>
+            </div>
+
+            <div class="telasItem servico" style="display:none;">
+                <a href="servicos">Servicos</a>
+            </div>
+
+            <div class="telasItem servico" style="display:none;">
+                <a href="prestacaoservico">Prestação Serviço</a>
+            </div>
+
+            <div class="telasItem cadastro" style="display:none;">
+                <a href="unidades">Unidades</a>
+            </div>
+
+            <div class="telasItem estoque" style="display:none;">
+                <a href="estoque">Estoque</a>
+            </div>
+
+            <div class="telasItem venda" style="display:none;">
+                <a href="venda">Realizar Venda</a>
+            </div>
+        </div>
     </c:if>
 </body>
+<c:import url="./rodape.jsp"/>
 </html>

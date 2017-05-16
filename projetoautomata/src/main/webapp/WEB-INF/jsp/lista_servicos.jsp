@@ -42,17 +42,17 @@
                                 <td><c:out value="${servico.notasInternas}" /></td>
                                 <td><c:out value="${servico.inativo}" /></td>
                                 <td><a role="button" class="btn btn-primary"
-                                        href="servicos?action=edit&id=<c:out value="${servico.id}"/>">Atualizar</a></td>
+                                       href="servicos?action=edit&id=<c:out value="${servico.id}"/>">Atualizar</a></td>
                                 <td><a role="button" class="btn btn-danger"
-                                        href="servicos?action=delete&id=<c:out value="${servico.id}"/>">Excluir</a></td>
+                                       href="servicos?action=delete&id=<c:out value="${servico.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </table>
                     <a class="btn btn-primary" role="button" href="servicos?action=insert">Adicionar Servico</a>
-                        <a class="btn btn-danger" role="button" href="inicio">Voltar</a>
+                    <a class="btn btn-danger" role="button" href="inicio">Voltar</a>
                 </div>
             </div>
         </div>
-        <c:import url="./rodape.jsp"/>
     </body>
+    <c:import url="./rodape.jsp"/>
 </html>

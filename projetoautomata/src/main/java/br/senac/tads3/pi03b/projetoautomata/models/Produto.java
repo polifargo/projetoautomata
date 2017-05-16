@@ -12,6 +12,7 @@ public class Produto {
     private float valorCusto;
     private String notasInternas;
     private int inativo;
+    private int quantidade;
 
     public String getId() {
         return id;
@@ -69,4 +70,13 @@ public class Produto {
         this.inativo = inativo;
     }
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    
+    
 }

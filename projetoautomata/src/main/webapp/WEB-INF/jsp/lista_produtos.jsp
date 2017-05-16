@@ -44,17 +44,17 @@
                                 <td><c:out value="${produto.notasInternas}" /></td>
                                 <td><c:out value="${produto.inativo}" /></td>
                                 <td><a role="button" class="btn btn-primary"
-                                        href="produtos?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
+                                       href="produtos?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
                                 <td><a role="button" class="btn btn-danger"
-                                        href="produtos?action=delete&id=<c:out value="${produto.id}"/>">Excluir</a></td>
+                                       href="produtos?action=delete&id=<c:out value="${produto.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </table>
                     <a <a class="btn btn-primary" role="button" href="produtos?action=insert">Adicionar Produto</a>
-                    <a class="btn btn-danger" role="button" href="inicio">Voltar</a>
+                        <a class="btn btn-danger" role="button" href="inicio">Voltar</a>
                 </div>
             </div>
         </div>
-        <c:import url="./rodape.jsp"/>
     </body>
+    <c:import url="./rodape.jsp"/>
 </html>

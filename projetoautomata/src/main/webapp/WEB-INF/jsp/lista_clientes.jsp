@@ -52,9 +52,9 @@
                                 <td><c:out value="${cliente.inativo}" /></td>
                                 <td><c:out value="${cliente.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"
-                                        href="clientes?action=edit&id=<c:out value="${cliente.id}"/>">Atualizar</a></td>
+                                       href="clientes?action=edit&id=<c:out value="${cliente.id}"/>">Atualizar</a></td>
                                 <td><a role="button" class="btn btn-danger"
-                                        href="clientes?action=delete&id=<c:out value="${cliente.id}"/>">Excluir</a></td>
+                                       href="clientes?action=delete&id=<c:out value="${cliente.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -63,6 +63,6 @@
                 </div>
             </div>
         </div>
-        <c:import url="./rodape.jsp"/>
     </body>
+    <c:import url="./rodape.jsp"/>
 </html>

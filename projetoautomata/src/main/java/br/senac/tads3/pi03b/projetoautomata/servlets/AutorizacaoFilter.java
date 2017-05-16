@@ -88,7 +88,13 @@ public class AutorizacaoFilter implements Filter {
             return true;
         } else if (pagina.contains("servicos") && usuario.temPapel("MEDIO")) {
             return true;
-        } else return pagina.contains("servicos") && usuario.temPapel("ADMIN");
+        } else if (pagina.contains("prestacaoservico") && usuario.temPapel("BASICO")) {
+            return true;
+        } else if (pagina.contains("prestacaoservico") && usuario.temPapel("ADMIN")) {
+            return true;
+        } else {
+            return pagina.contains("servicos") && usuario.temPapel("ADMIN");
+        }
     }
 
     @Override

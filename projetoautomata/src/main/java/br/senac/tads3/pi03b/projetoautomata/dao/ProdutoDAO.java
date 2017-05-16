@@ -22,17 +22,17 @@ import java.util.List;
 public class ProdutoDAO {
 
     private Connection connection;
-    
-    public void acao(Produto produto) throws Exception{
+
+    public void acao(Produto produto) throws Exception {
         Produto prod = getProdutoById(produto.getId());
-        
+
         if (prod.getId() == null) {
             inserir(produto);
-        }else{
+        } else {
             alterar(produto);
         }
     }
-    
+
     public void inserir(Produto produto)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
@@ -44,10 +44,10 @@ public class ProdutoDAO {
         try {
             preparedStatement.setString(1, produto.getModelo());
             preparedStatement.setString(2, produto.getUnidade());
-            preparedStatement.setFloat( 3, produto.getValorCusto());
-            preparedStatement.setFloat( 4, produto.getValorVenda());
+            preparedStatement.setFloat(3, produto.getValorCusto());
+            preparedStatement.setFloat(4, produto.getValorVenda());
             preparedStatement.setString(5, produto.getNotasInternas());
-            preparedStatement.setInt(   6, produto.getInativo());
+            preparedStatement.setInt(6, produto.getInativo());
             preparedStatement.setString(7, produto.getId());
 
             preparedStatement.executeUpdate();
@@ -76,7 +76,31 @@ public class ProdutoDAO {
             preparedStatement.setFloat(4, produto.getValorVenda());
             preparedStatement.setString(5, produto.getNotasInternas());
             preparedStatement.setInt(6, produto.getInativo());
-             preparedStatement.setString(7, produto.getId());
+            preparedStatement.setString(7, produto.getId());
+
+            preparedStatement.executeUpdate();
+        } finally {
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+    }
+
+    public void alterarQuantidade(Produto produto)
+            throws SQLException, Exception {
+        connection = DbUtil.getConnection();
+        Produto prod = getProdutoById(produto.getId());
+
+        String sql = "UPDATE produtos SET Quantidade=?"
+                + "WHERE id=?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        try {
+            preparedStatement.setInt(1, prod.getQuantidade());
+            preparedStatement.setString(2, prod.getId());
 
             preparedStatement.executeUpdate();
         } finally {

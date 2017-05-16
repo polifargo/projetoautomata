@@ -35,22 +35,22 @@
                 </div>
                 <div class="form-group row">
                     <label for="produtounidade">Unidade</label> 
-                    <select required class="form-control">
+                    <select name="unidade" required class="form-control">
                         <c:forEach var="unidade" items="${listaUnidades}">
-                            <option>${unidade.fantasia}</option>
+                            <option value="${unidade.fantasia}">${unidade.fantasia}</option>
                         </c:forEach>
                     </select>
                 </div>
                 <div class="form-group row">
                     <label for="produtovalor">Valor Custo</label> 
                     <input class="form-control" type="number"
-                           name="valorCusto" value="<c:out value="${produto.valorCusto}" />"
+                           name="valorCusto" value="<c:out value="${produto.valorCusto}"/>"
                            placeholder="Valor Venda..." required/>
                 </div>
                 <div class="form-group row">
                     <label for="produtovalor">Valor Venda</label> 
                     <input class="form-control" type="number"
-                           name="valorVenda" value="<c:out value="${produto.valorVenda}" />"
+                           name="valorVenda" value="<c:out value="${produto.valorVenda}"/>"
                            placeholder="Valor Custo..." required/>
                 </div>
                 <div class="form-group row">

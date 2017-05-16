@@ -25,6 +25,7 @@ ValorVenda numeric(14,2),
 ValorCusto numeric(14,2),
 NotasInternas varchar(1000),
 Inativo integer,
+Quantidade int,
 Primary Key (id)
 );
 
