@@ -83,13 +83,13 @@ public class ServicoDAO {
         }
     }
 
-    public void excluir(int id)
+    public void excluir(String id)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         String sql = "DELETE FROM servicos WHERE id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             preparedStatement.executeUpdate();
         } finally {
             if (preparedStatement != null && !preparedStatement.isClosed()) {

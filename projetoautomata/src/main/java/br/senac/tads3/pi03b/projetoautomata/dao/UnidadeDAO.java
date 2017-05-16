@@ -108,7 +108,7 @@ public class UnidadeDAO {
         }
     }
 
-    public void excluir(int id)
+    public void excluir(String id)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
@@ -117,7 +117,7 @@ public class UnidadeDAO {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             //Executa o comando no banco de dados
             preparedStatement.executeUpdate();
         } finally {
