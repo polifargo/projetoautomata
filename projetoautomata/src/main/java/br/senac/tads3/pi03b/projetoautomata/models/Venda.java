@@ -19,14 +19,6 @@ public class Venda {
     private String data;
     private String notasInternas;
 
-    public int getCliente() {
-        return getIdCliente();
-    }
-
-    public void setCliente(int cliente) {
-        this.setIdCliente(cliente);
-    }
-
     public String getTecnico() {
         return tecnico;
     }

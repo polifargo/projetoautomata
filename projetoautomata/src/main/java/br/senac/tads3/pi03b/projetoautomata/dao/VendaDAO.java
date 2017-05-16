@@ -24,6 +24,45 @@ public class VendaDAO {
 
     private Connection connection;
 
+    public void inserirVenda(Venda venda)
+            throws SQLException, Exception {
+        connection = DbUtil.getConnection();
+        ArrayList<ItemVenda> itens = new ArrayList<ItemVenda>();
+        //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
+        String sql1 = "INSERT INTO Venda (idCliente, FormaPagamento, Data, Valor, NotasInternas)"
+                + " VALUES (?, ?, ?, ?, ?)";
+
+        String sql2 = "";
+        //Cria um statement para execução de instruções SQL
+        PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
+        PreparedStatement preparedStatement2 = null;
+        try {
+            //Configura os parâmetros do "PreparedStatement"
+            preparedStatement1.setInt(1, venda.getIdCliente());
+            preparedStatement1.setString(2, venda.getFormaPagamento());
+            preparedStatement1.setString(3, venda.getData());
+            preparedStatement1.setFloat(4, venda.getValor());
+            preparedStatement1.setString(5, venda.getNotasInternas());
+
+            //Executa o comando no banco de dados
+            preparedStatement1.executeUpdate();
+
+        } finally {
+            //Se o statement ainda estiver aberto, realiza seu fechamento
+            if (preparedStatement1 != null && !preparedStatement1.isClosed()) {
+                preparedStatement1.close();
+            }
+
+            if (preparedStatement2 != null && !preparedStatement2.isClosed()) {
+                preparedStatement2.close();
+            }
+            //Se a conexão ainda estiver aberta, realiza seu fechamento
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+    }
+
     public void inserir(Venda venda)
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
@@ -38,7 +77,7 @@ public class VendaDAO {
         PreparedStatement preparedStatement2 = null;
         try {
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement1.setInt(1, venda.getCliente());
+            preparedStatement1.setInt(1, venda.getIdCliente());
             preparedStatement1.setString(2, venda.getFormaPagamento());
             preparedStatement1.setFloat(3, venda.getValor());
             preparedStatement1.setString(4, venda.getNotasInternas());
@@ -94,7 +133,7 @@ public class VendaDAO {
         PreparedStatement preparedStatement2 = null;
         try {
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement1.setInt(1, venda.getCliente());
+            preparedStatement1.setInt(1, venda.getIdCliente());
             preparedStatement1.setString(2, venda.getFormaPagamento());
             preparedStatement1.setString(3, String.valueOf(venda.getValor()));
             preparedStatement1.setString(4, venda.getNotasInternas());
@@ -175,7 +214,7 @@ public class VendaDAO {
             while (resultSet.next()) {
                 Venda venda = new Venda();
                 venda.setId(resultSet.getInt("id"));
-                venda.setCliente(resultSet.getInt("idCliente"));
+                venda.setIdCliente(resultSet.getInt("idCliente"));
                 venda.setFormaPagamento(resultSet.getString("FormaPagamento"));
                 venda.setNotasInternas(resultSet.getString("NotasInternas"));
 
@@ -217,7 +256,7 @@ public class VendaDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 venda.setId(resultSet.getInt("id"));
-                venda.setCliente(resultSet.getInt("idCliente"));
+                venda.setIdCliente(resultSet.getInt("idCliente"));
                 venda.setFormaPagamento(resultSet.getString("FormaPagamento"));
                 venda.setNotasInternas(resultSet.getString("NotasInternas"));
 

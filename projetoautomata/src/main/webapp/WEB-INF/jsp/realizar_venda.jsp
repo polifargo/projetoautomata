@@ -40,8 +40,7 @@
                     <select name="tecnico" class="form-control">
                         <option value="none">Sem Tecnico</option>
                         <option value="Carlos">Carlos</option>
-                        <option value="Marcos">Marcos</option>
-                        <option value="Paulo">Paulo</option>
+                        <option value="Vitor">Vitor</option>
                         <option value="Renato">Renato</option>
                     </select>
                 </div>
@@ -79,6 +78,33 @@
                             </tr>
                         </c:forEach>
                     </table>
+                </div>
+                <div class="form-group row">
+                    <label for="vendadata">Data</label> 
+                    <input class="form-control" type="date"
+                           name="data" placeholder="Data..." />
+                </div>
+                <div class="form-group row">
+                    <label for="vendacliente">Produtos</label> 
+                    <select name="produto" required class="form-control">
+                        <c:forEach var="produto" items="${produtos}">
+                            <option value="${produto.id}">${produto.id} - ${produto.modelo}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="vendaformapagamento">Forma de Pagamento</label> 
+                    <select name="formapagamento" class="form-control">
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Cartao de Credito">Cartao de Credito</option>
+                        <option value="Cartao de Debito">Cartao de Debito</option>
+                        <option value="Cheque">Cheque</option>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="vendanotasinternas">Notas Internas</label> 
+                    <input class="form-control" type="textarea"
+                           name="notasInternas" placeholder="Notas Internas..." maxlength="1000" />
                 </div>
                 <div class="form-group row">
                     <label for="vendavalor">Valor</label> 

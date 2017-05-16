@@ -13,6 +13,7 @@ import br.senac.tads3.pi03b.projetoautomata.models.ItemVenda;
 import br.senac.tads3.pi03b.projetoautomata.models.Venda;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -60,5 +61,23 @@ public class VendaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Venda venda = new Venda();
+        ItemVenda item = new ItemVenda();
+        venda.setIdCliente(Integer.parseInt(request.getParameter("cliente")));
+        venda.setTecnico(request.getParameter("tecnico"));
+        venda.setUnidade(request.getParameter("unidade"));
+        venda.setFormaPagamento(request.getParameter("formapagamento"));
+        venda.setData(request.getParameter("data"));
+        venda.setNotasInternas(request.getParameter("notasInternas"));
+
+        daoVenda = new VendaDAO();
+        String id = request.getParameter("id");
+        try {
+            daoVenda.inserirVenda(venda);
+        } catch (Exception ex) {
+            Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        RequestDispatcher view = request.getRequestDispatcher(LIST);
+        view.forward(request, response);
     }
 }
