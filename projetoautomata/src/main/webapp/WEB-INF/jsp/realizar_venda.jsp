@@ -55,14 +55,11 @@
                 </div>
                 <div class="form-group row">
                     <label for="vendacliente">Produtos</label> 
-                    <select name="cliente" required class="form-control">
+                    <select name="produto" required class="form-control">
                         <c:forEach var="produto" items="${produtos}">
                             <option value="${produto.id}">${produto.id} - ${produto.modelo}</option>
-                            <input type="hidden" name="valorVenda" 
-                                   value="${produto.valorVenda}"/>
                         </c:forEach>
                     </select>
-                    <input class="col-xs-2 text-center " type="number" min='0' name="quantidade" value="1"/>
                 </div>
                 <div class="form-group row">
                     <label for="vendacarrinho">Carrinho</label> 

@@ -52,18 +52,6 @@ public class VendaServlet extends HttpServlet {
             Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if ("adicionar".equalsIgnoreCase(action)) {
-            ItemVenda item = new ItemVenda();
-            item.setIdProduto(request.getParameter("idProduto"));
-            item.setIdVenda(Integer.parseInt(request.getParameter("id")));
-            item.setQtVendida(Integer.parseInt(request.getParameter("quantidade")));
-            item.setValorUnitario(Float.parseFloat(request.getParameter("valorVenda")));
-            item.setValorTotal(item.getValorUnitario() * item.getQtVendida());
-            Venda venda = new Venda();
-            venda.setItem(item);
-            request.setAttribute("itemsVenda", venda.getItensVenda());
-        }
-
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher(LIST);
         dispatcher.forward(request, response);
@@ -72,15 +60,5 @@ public class VendaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        RequestDispatcher view = request.getRequestDispatcher(LIST);
-        try {
-            request.setAttribute("venda", daoVenda.getListaVenda());
-        } catch (SQLException ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        view.forward(request, response);
     }
 }
