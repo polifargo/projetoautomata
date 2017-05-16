@@ -131,7 +131,7 @@ primary key (id)
 );
 
 create table Saldo(
-id integer not null,
+id integer not null generated always as identity (start with 1, increment by 1),
 idUnidade char(3) not null,
 idProduto char(15) not null,
 quantidade integer not null,
