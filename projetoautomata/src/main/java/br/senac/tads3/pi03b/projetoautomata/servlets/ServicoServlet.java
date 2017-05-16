@@ -38,7 +38,7 @@ public class ServicoServlet extends HttpServlet {
         dao = new ServicoDAO();
         if ("delete".equalsIgnoreCase(action)) {
             forward = LIST;
-            String id = request.getParameter("id");
+            String id = String.valueOf(request.getParameter("id"));
             try {
                 dao.excluir(id);
             } catch (Exception ex) {

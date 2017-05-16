@@ -5,7 +5,6 @@ package br.senac.tads3.pi03b.projetoautomata.models;
  * @author matheus_santo
  */
 public class Produto {
-
     private String id;
     private String modelo;
     private String unidade;

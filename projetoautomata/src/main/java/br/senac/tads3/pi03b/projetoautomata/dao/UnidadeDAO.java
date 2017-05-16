@@ -70,8 +70,7 @@ public class UnidadeDAO {
         }
     }
 
-    public void alterar(Unidade unidade)
-            throws SQLException, Exception {
+    public void alterar(Unidade unidade) throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
         String sql = "UPDATE unidades SET fantasia=?, razao=?, uf=?, cep=?, cidade=?, logradouro=?, bairro=?, "
@@ -108,8 +107,7 @@ public class UnidadeDAO {
         }
     }
 
-    public void excluir(String id)
-            throws SQLException, Exception {
+    public void excluir(String id) throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
         String sql = "DELETE FROM unidades WHERE id=?";

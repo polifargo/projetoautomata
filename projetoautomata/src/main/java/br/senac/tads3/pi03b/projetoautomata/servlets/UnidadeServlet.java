@@ -36,7 +36,7 @@ public class UnidadeServlet extends HttpServlet {
         dao = new UnidadeDAO();
         if ("delete".equalsIgnoreCase(action)) {
             forward = LIST;
-            String id = request.getParameter("id");
+            String id = String.valueOf(request.getParameter("id"));
             try {
                 dao.excluir(id);
             } catch (Exception ex) {

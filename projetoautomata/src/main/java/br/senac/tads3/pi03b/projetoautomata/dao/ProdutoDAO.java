@@ -89,8 +89,7 @@ public class ProdutoDAO {
         }
     }
 
-    public void excluir(String id)
-            throws SQLException, Exception {
+    public void excluir(String id) throws SQLException, Exception {
         connection = DbUtil.getConnection();
         String sql = "DELETE FROM produtos WHERE id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
