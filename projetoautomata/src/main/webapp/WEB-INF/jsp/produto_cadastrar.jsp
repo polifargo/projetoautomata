@@ -35,9 +35,11 @@
                 </div>
                 <div class="form-group row">
                     <label for="produtounidade">Unidade</label> 
-                    <input class="form-control" type="text"
-                           name="unidade" value="<c:out value="${produto.unidade}" />"
-                           placeholder="Unidade..." maxlength="30" required/>
+                    <select required class="form-control">
+                        <c:forEach var="unidade" items="${listaUnidades}">
+                            <option>${unidade.fantasia}</option>
+                        </c:forEach>
+                    </select>
                 </div>
                 <div class="form-group row">
                     <label for="produtovalor">Valor Venda</label> 
