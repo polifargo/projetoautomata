@@ -42,7 +42,7 @@
                     </select>
                 </div>
                 <div class="form-group row">
-                    <label for="produtovalor">Valor Venda</label> 
+                    <label for="produtovalor">Valor Custo</label> 
                     <input class="form-control" type="number"
                            name="valorCusto" value="<c:out value="${produto.valorCusto}" />"
                            placeholder="Valor Venda..." required/>

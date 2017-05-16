@@ -36,7 +36,7 @@ public class VendaDAO {
         PreparedStatement preparedStatement2 = null;
         try {
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement1.setString(1, venda.getCliente());
+            preparedStatement1.setInt(1, venda.getCliente());
             preparedStatement1.setString(2, venda.getFormaPagamento());
             preparedStatement1.setFloat( 3, venda.getValor());
             preparedStatement1.setString(4, venda.getNotasInternas());
@@ -92,7 +92,7 @@ public class VendaDAO {
         PreparedStatement preparedStatement2 = null;
         try {
            //Configura os parâmetros do "PreparedStatement"
-            preparedStatement1.setString(1, venda.getCliente());
+            preparedStatement1.setInt(1, venda.getCliente());
             preparedStatement1.setString(2, venda.getFormaPagamento());
             preparedStatement1.setString(3, String.valueOf(venda.getValor()));
             preparedStatement1.setString(4, venda.getNotasInternas());
@@ -173,7 +173,7 @@ public class VendaDAO {
             while (resultSet.next()) {
                 Venda venda = new Venda();
                 venda.setId(resultSet.getInt("id"));
-                venda.setCliente(resultSet.getString("idCliente"));
+                venda.setCliente(resultSet.getInt("idCliente"));
                 venda.setFormaPagamento(resultSet.getString("FormaPagamento"));
                 venda.setNotasInternas(resultSet.getString("NotasInternas"));
                 
@@ -215,7 +215,7 @@ public class VendaDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 venda.setId(resultSet.getInt("id"));
-                venda.setCliente(resultSet.getString("idCliente"));
+                venda.setCliente(resultSet.getInt("idCliente"));
                 venda.setFormaPagamento(resultSet.getString("FormaPagamento"));
                 venda.setNotasInternas(resultSet.getString("NotasInternas"));
                 
