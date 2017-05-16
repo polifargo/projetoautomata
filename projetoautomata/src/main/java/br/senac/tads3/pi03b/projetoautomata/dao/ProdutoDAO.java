@@ -89,30 +89,6 @@ public class ProdutoDAO {
         }
     }
 
-    public void alterarQuantidade(Produto produto)
-            throws SQLException, Exception {
-        connection = DbUtil.getConnection();
-        Produto prod = getProdutoById(produto.getId());
-
-        String sql = "UPDATE produtos SET Quantidade=?"
-                + "WHERE id=?";
-
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        try {
-            preparedStatement.setInt(1, prod.getQuantidade());
-            preparedStatement.setString(2, prod.getId());
-
-            preparedStatement.executeUpdate();
-        } finally {
-            if (preparedStatement != null && !preparedStatement.isClosed()) {
-                preparedStatement.close();
-            }
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
-        }
-    }
-
     public void excluir(String id) throws SQLException, Exception {
         connection = DbUtil.getConnection();
         String sql = "DELETE FROM produtos WHERE id=?";

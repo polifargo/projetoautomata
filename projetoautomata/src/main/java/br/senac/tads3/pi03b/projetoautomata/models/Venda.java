@@ -55,6 +55,10 @@ public class Venda {
         return getItensVenda();
     }
 
+    public void setItem(ItemVenda item) {
+            this.getItensVenda().add(item);
+    }
+
     public void setItens(ArrayList<ItemVenda> itens) {
         for (ItemVenda item : itens) {
             this.getItensVenda().add(item);

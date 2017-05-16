@@ -8,6 +8,9 @@ package br.senac.tads3.pi03b.projetoautomata.servlets;
 import br.senac.tads3.pi03b.projetoautomata.dao.ClienteDAO;
 import br.senac.tads3.pi03b.projetoautomata.dao.ProdutoDAO;
 import br.senac.tads3.pi03b.projetoautomata.dao.UnidadeDAO;
+import br.senac.tads3.pi03b.projetoautomata.dao.VendaDAO;
+import br.senac.tads3.pi03b.projetoautomata.models.ItemVenda;
+import br.senac.tads3.pi03b.projetoautomata.models.Venda;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -29,30 +32,19 @@ public class VendaServlet extends HttpServlet {
     private ProdutoDAO daoProdutos;
     private ClienteDAO daoClientes;
     private UnidadeDAO daoUnidades;
+    private VendaDAO daoVenda;
+    public static final String LIST = "WEB-INF/jsp/realizar_venda.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String action = request.getParameter("action");
         daoProdutos = new ProdutoDAO();
-        try {
-            request.setAttribute("produtos", daoProdutos.getListaProdutos());
-        } catch (SQLException ex) {
-            Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
         daoClientes = new ClienteDAO();
-        try {
-            request.setAttribute("clientes", daoClientes.getListaClientes());
-        } catch (SQLException ex) {
-            Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
         daoUnidades = new UnidadeDAO();
         try {
+            request.setAttribute("clientes", daoClientes.getListaClientes());
+            request.setAttribute("produtos", daoProdutos.getListaProdutos());
             request.setAttribute("unidades", daoUnidades.getListaUnidades());
         } catch (SQLException ex) {
             Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -60,13 +52,35 @@ public class VendaServlet extends HttpServlet {
             Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        if ("adicionar".equalsIgnoreCase(action)) {
+            ItemVenda item = new ItemVenda();
+            item.setIdProduto(request.getParameter("idProduto"));
+            item.setIdVenda(Integer.parseInt(request.getParameter("id")));
+            item.setQtVendida(Integer.parseInt(request.getParameter("quantidade")));
+            item.setValorUnitario(Float.parseFloat(request.getParameter("valorVenda")));
+            item.setValorTotal(item.getValorUnitario() * item.getQtVendida());
+            Venda venda = new Venda();
+            venda.setItem(item);
+            request.setAttribute("itemsVenda", venda.getItensVenda());
+        }
+
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/jsp/realizar_venda.jsp");
+                = request.getRequestDispatcher(LIST);
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        RequestDispatcher view = request.getRequestDispatcher(LIST);
+        try {
+            request.setAttribute("venda", daoVenda.getListaVenda());
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        view.forward(request, response);
     }
 }

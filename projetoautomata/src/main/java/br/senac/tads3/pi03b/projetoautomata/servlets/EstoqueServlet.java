@@ -58,25 +58,5 @@ public class EstoqueServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Produto produto = new Produto();
-        produto.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-        produto.setId(request.getParameter("id"));
-        dao = new ProdutoDAO();
-
-        try {
-            dao.alterarQuantidade(produto);
-        } catch (Exception ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        RequestDispatcher view = request.getRequestDispatcher(LIST);
-        try {
-            request.setAttribute("produtos", dao.getListaProdutos());
-        } catch (SQLException ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        view.forward(request, response);
     }
 }

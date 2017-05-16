@@ -24,14 +24,14 @@
                 <div class="form-group row">
                     <label for="vendaid">Venda ID</label>
                     <input class="form-control" type="text"
-                           name="id" value="<c:out value="${venda.id}" />"
+                           name="id" value="<c:out value="${venda.Id}" />"
                            readonly="readonly" placeholder="Venda ID" />
                 </div>
                 <div class="form-group row">
                     <label for="vendacliente">Cliente</label> 
                     <select name="cliente" required class="form-control">
                         <c:forEach var="cliente" items="${clientes}">
-                            <option value="${cliente.id}">${cliente.id}</option>
+                            <option value="${cliente.id}">${cliente.id} - ${cliente.apelido}</option>
                         </c:forEach>
                     </select>
                 </div>
@@ -54,21 +54,31 @@
                     </select>
                 </div>
                 <div class="form-group row">
+                    <label for="vendacliente">Produtos</label> 
+                    <select name="cliente" required class="form-control">
+                        <c:forEach var="produto" items="${produtos}">
+                            <option value="${produto.id}">${produto.id} - ${produto.modelo}</option>
+                            <input type="hidden" name="valorVenda" 
+                                   value="${produto.valorVenda}"/>
+                        </c:forEach>
+                    </select>
+                    <input class="col-xs-2 text-center " type="number" min='0' name="quantidade" value="1"/>
+                </div>
+                <div class="form-group row">
+                    <label for="vendacarrinho">Carrinho</label> 
                     <table class="table">
                         <tr>
                             <th>Produto ID</th>
-                            <th>Modelo</th>
-                            <th>Unidade</th>
-                            <th>Valor Venda</th>
-                            <th>Estoque</th>
+                            <th>Quantidade</th>
+                            <th>Valor Unitario</th>
+                            <th>Valor Total</th>
                         </tr>
-                        <c:forEach items="${produtos}" var="produto">
+                        <c:forEach items="${itemsVenda}" var="itemVenda">
                             <tr>
-                                <td><c:out value="${produto.id}" /></td>
-                                <td><c:out value="${produto.modelo}" /></td>
-                                <td><c:out value="${produto.unidade}" /></td>
-                                <td><c:out value="${produto.valorVenda}" /></td>
-                                <td><c:out value="${produto.quantidade}" /></td>
+                                <td><c:out value="${itemVenda.idProduto}" /></td>
+                                <td><c:out value="${itemVenda.quantidade}" /></td>
+                                <td><c:out value="${itemVenda.valorUnitario}" /></td>
+                                <td><c:out value="${itemVenda.valorTotal}" /></td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -80,7 +90,7 @@
                            readonly="readonly" placeholder="Valor" />
                 </div>
                 <div class="form-group row">
-                    <input class="form-control" type="submit" value="Salvar" />
+                    <input class="form-control" type="submit" value="Completar Venda" />
                 </div>
             </fieldset>
         </form>
