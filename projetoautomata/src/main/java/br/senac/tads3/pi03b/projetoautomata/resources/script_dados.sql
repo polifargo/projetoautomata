@@ -22,3 +22,7 @@ insert into TipoServico (id, Descricao) values (3, 'Upgrade software');
 insert into Tecnico(id, NomeTecnico, TipoServPreferencial) values (1, 'Renato', 3);
 insert into Tecnico(id, NomeTecnico, TipoServPreferencial) values (2, 'Carlos', 1);
 insert into Tecnico(id, NomeTecnico, TipoServPreferencial) values (3, 'Vitor', 2);
+
+insert into Servicos (id, descricao, tipo, valor) values (1, 'Conserto de tela', 1, 350.00 );
+insert into Servicos (id, descricao, tipo, valor) values (2, 'Aumento de memória RAM', 2, 450.00 );
+insert into Servicos (id, descricao, tipo, valor) values (3, 'Atualização versão Windows', 3, 60.00 );
