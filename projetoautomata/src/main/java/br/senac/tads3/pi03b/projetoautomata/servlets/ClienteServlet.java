@@ -7,6 +7,7 @@ package br.senac.tads3.pi03b.projetoautomata.servlets;
 
 import br.senac.tads3.pi03b.projetoautomata.dao.ClienteDAO;
 import br.senac.tads3.pi03b.projetoautomata.models.Cliente;
+import br.senac.tads3.pi03b.projetoautomata.services.ClienteService;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ClienteServlet", urlPatterns = {"/clientes"})
 public class ClienteServlet extends HttpServlet {
 
+    private ClienteService service;
     private ClienteDAO dao;
     public static final String LIST = "WEB-INF/jsp/lista_clientes.jsp";
     public static final String INSERT_OR_EDIT = "WEB-INF/jsp/cliente_cadastrar.jsp";
@@ -95,30 +97,32 @@ public class ClienteServlet extends HttpServlet {
         cliente.setInativo(Integer.parseInt(request.getParameter("inativo")));
         cliente.setCadastroNacional(request.getParameter("cadastroNacional"));
         String id = request.getParameter("id");
-        dao = new ClienteDAO();
-        if (id == null || id.isEmpty()) {
+        service = new ClienteService();
+        if (service.validarCampos(cliente)) {
+            dao = new ClienteDAO();
+            if (id == null || id.isEmpty()) {
+                try {
+                    dao.inserir(cliente);
+                } catch (Exception ex) {
+                    Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                cliente.setId(Integer.parseInt(id));
+                try {
+                    dao.alterar(cliente);
+                } catch (Exception ex) {
+                    Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            RequestDispatcher view = request.getRequestDispatcher(LIST);
             try {
-                dao.inserir(cliente);
-            } catch (Exception ex) {
+                request.setAttribute("clientes", dao.getListaClientes());
+            } catch (SQLException ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            cliente.setId(Integer.parseInt(id));
-            try {
-                dao.alterar(cliente);
-            } catch (Exception ex) {
-                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            view.forward(request, response);
         }
-        RequestDispatcher view = request.getRequestDispatcher(LIST);
-        try {
-            request.setAttribute("clientes", dao.getListaClientes());
-        } catch (SQLException ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        view.forward(request, response);
     }
-
 }

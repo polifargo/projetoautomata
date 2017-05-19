@@ -16,6 +16,9 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.maskedinput.js"></script>
+        <script src="js/jquery.maskMoney.js"></script>
+        <script src="js/validacoes.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
@@ -25,13 +28,13 @@
                     <label for="produtoid">Produto ID</label> 
                     <input  class="form-control" type="text"
                             name="id" value="<c:out value="${produto.id}" />"
-                            maxlength="15" placeholder="Produto ID" required />
+                            maxlength="15" placeholder="Produto ID"/>
                 </div>
                 <div class="form-group row" >
                     <label for="produtomodelo">Modelo</label>
                     <input class="form-control" type="text"
                            name="modelo" value="<c:out value="${produto.modelo}" />"
-                           placeholder="Modelo..." maxlength="60" required/>
+                           placeholder="Modelo..." maxlength="60"/>
                 </div>
                 <div class="form-group row">
                     <label for="produtounidade">Unidade</label> 
@@ -43,15 +46,15 @@
                 </div>
                 <div class="form-group row">
                     <label for="produtovalor">Valor Custo</label> 
-                    <input class="form-control" type="number"
+                    <input class="form-control" type="text" id="valorCusto"
                            name="valorCusto" value="<c:out value="${produto.valorCusto}"/>"
-                           placeholder="Valor Venda..." required/>
+                           placeholder="Valor Custo..."/>
                 </div>
                 <div class="form-group row">
                     <label for="produtovalor">Valor Venda</label> 
-                    <input class="form-control" type="number"
+                    <input class="form-control" type="text" id="valorVenda"
                            name="valorVenda" value="<c:out value="${produto.valorVenda}"/>"
-                           placeholder="Valor Custo..." required/>
+                           placeholder="Valor Venda..."/>
                 </div>
                 <div class="form-group row">
                     <label for="clientenotasinternas">Notas Internas</label> 
@@ -60,11 +63,12 @@
                            />
                 </div> 
                 <div class="form-group row">
-                    <label for="clienteinativo">Inativo</label> 
-                    <input class="form-control" type="number"
-                           name="inativo" min='0' max='1' placeholder="Inativo..." value="<c:out value="${produto.inativo}" />"
-                           id="inativo" required/>
-                </div> 
+                    <label for="produtoinativo">Inativo</label> 
+                    <select name="inativo" class="form-control">
+                        <option selected value="1">Ativo</option>
+                        <option value="0">Inativo</option>
+                    </select>
+                </div>
                 <div class="form-group row">
                     <input class="form-control" type="submit" value="Salvar" />
                 </div>
