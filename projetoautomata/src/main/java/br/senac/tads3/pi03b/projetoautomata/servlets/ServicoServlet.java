@@ -7,6 +7,7 @@ package br.senac.tads3.pi03b.projetoautomata.servlets;
 
 import br.senac.tads3.pi03b.projetoautomata.dao.ServicoDAO;
 import br.senac.tads3.pi03b.projetoautomata.models.Servico;
+import br.senac.tads3.pi03b.projetoautomata.services.ServicoService;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -22,11 +23,12 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author mathe
+ * @author matheus_santo1
  */
 @WebServlet(name = "ServicoServlet", urlPatterns = {"/servicos"})
 public class ServicoServlet extends HttpServlet {
 
+    private ServicoService service;
     private ServicoDAO dao;
     public static final String LIST = "WEB-INF/jsp/lista_servicos.jsp";
     public static final String INSERT_OR_EDIT = "WEB-INF/jsp/servico_cadastrar.jsp";
@@ -83,24 +85,25 @@ public class ServicoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DateFormat mediaConclusao = new SimpleDateFormat("dd/MM/yyyy");
         DateFormat mediaHoras = new SimpleDateFormat("HH:mm");
-        
+
         Servico servico = new Servico();
-        
+
         servico.setId(request.getParameter("id"));
         servico.setDescricao(request.getParameter("descricao"));
         servico.setTipo(request.getParameter("tipo"));
         servico.setValor(Float.parseFloat(request.getParameter("valor")));
         servico.setNotasInternas(request.getParameter("notasInternas"));
         servico.setInativo(Integer.parseInt(request.getParameter("inativo")));
-        
+        service = new ServicoService();
         dao = new ServicoDAO();
-        
-        try{
-            dao.acao(servico);
-        }catch(Exception ex){
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+
+        if (service.validarCampos(servico)) {
+            try {
+                dao.acao(servico);
+            } catch (Exception ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
             request.setAttribute("servicos", dao.getListaServicos());

@@ -17,6 +17,9 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.maskMoney.js"></script>
+        <script src="js/jquery.maskedinput.js"></script>
+        <script src="js/validacoes.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
@@ -26,13 +29,13 @@
                     <label for="servicoid">Servico ID</label> 
                     <input class="form-control" type="text"
                            name="id" value="<c:out value="${servico.id}" />"
-                           maxlength="15" placeholder="Servico ID" />
+                           maxlength="15" placeholder="Servico ID" required/>
                 </div>
                 <div class="form-group row">
                     <label for="servicodescricao">Descrição</label> 
                     <input class="form-control" type="text"
                            name="descricao" value="<c:out value="${servico.descricao}" />"
-                           placeholder="Descrição..." maxlength="60"/>
+                           placeholder="Descrição..." maxlength="60" required/>
                 </div>
                 <div class="form-group row">
                     <label for="servicotipo">Tipo</label>
@@ -44,15 +47,15 @@
                 </div>
                 <div class="form-group row">
                     <label for="servicovalor">Valor</label> 
-                    <input class="form-control" type="number"
+                    <input class="form-control" type="text" id="valor"
                            name="valor" value="<c:out value="${servico.valor}" />"
-                           placeholder="Valor..."/>
+                           placeholder="Valor..." required/>
                 </div>
                 <div class="form-group row">
                     <label for="serviconotasinternas">Notas Internas</label> 
                     <input class="form-control" type="textarea"
                            name="notasInternas" value="<c:out value="${servico.notasInternas}" />"
-                           placeholder="Notas Internas..." maxlength="1000" />
+                           placeholder="Notas Internas..." maxlength="1000" requireds/>
                 </div>
                 <div class="form-group row">
                     <label for="servicoinativo">Inativo</label> 

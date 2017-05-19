@@ -24,7 +24,7 @@
                         <label for="usuarioid">Usuario ID</label>
                         <input class="form-control" type="text"
                                name="id" value="<c:out value="${usuario.id}" />"
-                               readonly="readonly" placeholder="Usuario ID" />
+                               readonly="readonly" placeholder="Usuario ID"/>
                     </div>
                     <div class="form-group row">
                         <label for="usuarionome">Nome</label>

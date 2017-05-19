@@ -5,6 +5,7 @@ $(function () {
             $(this).css({"border": "1px solid #F00", "padding": "2px"});
         }
     });
+
     $("#submit").click(function () {
         var cont = 0;
         $("#form input").each(function () {
@@ -17,8 +18,8 @@ $(function () {
         if (cont === 0)
         {
             $("#form").submit();
-        }
-    });
+        }});
+    
     $("#cadastroNacional").mask('999.999.999-99', {reverse: true});
     $("#cep").mask("99999-999");
     $('#cnpj').mask('99.999.999/9999-99', {reverse: true});
@@ -33,8 +34,10 @@ $(function () {
         } else {
             element.mask("(99)9999-9999?9");
         }
-    }
-    );
+    });
+    
+    $("#valor").maskMoney({symbol: 'R$ ',
+        showSymbol: true, thousands: '.', decimal: ',', symbolStay: true});
     $("#valorVenda").maskMoney({symbol: 'R$ ',
         showSymbol: true, thousands: '.', decimal: ',', symbolStay: true});
     $("#valorCusto").maskMoney({symbol: 'R$ ',

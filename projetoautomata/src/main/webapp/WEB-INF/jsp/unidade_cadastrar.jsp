@@ -27,19 +27,19 @@
                     <label for="unidadeid">Unidade ID</label> 
                     <input class="form-control" type="text" maxlength="3"
                            name="id" value="<c:out value="${unidade.id}" />"
-                           placeholder="Unidade ID" />
+                           placeholder="Unidade ID" required />
                 </div>
                 <div class="form-group row">
                     <label for="unidadefantasia">Fantasia</label> 
                     <input class="form-control" type="text"
                            name="fantasia" value="<c:out value="${unidade.fantasia}" />"
-                           placeholder="Fantasia..." maxlength="30"/>
+                           placeholder="Fantasia..." maxlength="30" required/>
                 </div>
                 <div class="form-group row">
                     <label for="unidaderazao">Razao</label> 
                     <input class="form-control" type="text"
                            name="razao" value="<c:out value="${unidade.razao}" />"
-                           placeholder="Razao..."/>
+                           placeholder="Razao..." required/>
                 </div>
                 <div class="form-group row">
                     <label for="unidadeuf">UF</label> 
@@ -77,43 +77,43 @@
                     <label for="unidadecep">CEP</label>
                     <input class="form-control" type="text" 
                            name="cep" value="<c:out value="${unidade.cep}" />"
-                           placeholder="CEP..." maxlength="8" id="cep"/>
+                           placeholder="CEP..." maxlength="8" id="cep" required/>
                 </div>
                 <div class="form-group row">
                     <label for="unidadecidade">Cidade</label>
                     <input class="form-control" type="text" 
                            name="cidade" value="<c:out value="${unidade.cidade}" />"
-                           placeholder="Cidade..." maxlength="60" id="cidade"/>
+                           placeholder="Cidade..." maxlength="60" id="cidade" required/>
                 </div>
                 <div class="form-group row">
                     <label for="unidadelogradouro">Logradouro</label>
                     <input class="form-control" type="text" 
                            name="logradouro" value="<c:out value="${unidade.logradouro}" />"
-                           placeholder="Logradouro..." maxlength="60" id="logradouro"/>
+                           placeholder="Logradouro..." maxlength="60" id="logradouro" required/>
                 </div>
                 <div class="form-group row">
                     <label for="unidadebairro">Bairro</label>
                     <input class="form-control" type="text" 
                            name="bairro" value="<c:out value="${unidade.bairro}" />"
-                           placeholder="Bairro..." maxlength="60" id="bairro"/>
+                           placeholder="Bairro..." maxlength="60" id="bairro" required/>
                 </div>
                 <div class="form-group row">
                     <label for="unidadeemail">Email</label> 
                     <input class="form-control" type="email"
                            name="email" value="<c:out value="${unidade.email}" />"
-                           placeholder="Email..." maxlength="80" id="email"/>
+                           placeholder="Email..." maxlength="80" id="email" required/>
                 </div>
                 <div class="form-group row">
                     <label for="unidadetelefone">Telefone</label> 
                     <input class="form-control" type="text"
                            name="telefone" value="<c:out value="${unidade.telefone}" />"
-                           placeholder="Telefone..." maxlength="14" id="telefone"/>
+                           placeholder="Telefone..." maxlength="14" id="telefone" required/>
                 </div>   
                 <div class="form-group row">
                     <label for="unidadenotasinternas">Notas Internas</label> 
                     <input class="form-control" type="textarea"
                            name="notasInternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${unidade.notasInternas}" />"
-                           id="notasInternas"/>
+                           id="notasInternas" required/>
                 </div> 
                 <div class="form-group row">
                     <label for="unidadeinativo">Inativo</label> 
@@ -126,7 +126,7 @@
                     <label for="unidadecadastronacional">Cadastro Nacional</label>
                     <input class="form-control" type="text" id="cnpj"
                            name="cadastroNacional" value="<c:out value="${unidade.cadastroNacional}" />"
-                           placeholder="CNPJ..." maxlength="18"/>
+                           placeholder="CNPJ..." maxlength="18" required/>
                 </div>
                 <div class="form-group row">
                     <input class="form-control" type="submit" value="Salvar" />

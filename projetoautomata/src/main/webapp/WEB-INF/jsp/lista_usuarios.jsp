@@ -48,8 +48,8 @@
                             </tr>
                         </c:forEach>
                     </table>
-                    <a <a class="btn btn-primary" role="button" href="usuarios?action=insert">Adicionar Usuario</a>
-                        <a class="btn btn-danger" role="button" href="inicio">Voltar</a>
+                    <a class="btn btn-primary" role="button" href="usuarios?action=insert">Adicionar Usuario</a>
+                    <a class="btn btn-danger" role="button" href="inicio">Voltar</a>
                 </div>
             </div>
         </div>

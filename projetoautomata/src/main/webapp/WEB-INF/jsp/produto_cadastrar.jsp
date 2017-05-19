@@ -28,13 +28,13 @@
                     <label for="produtoid">Produto ID</label> 
                     <input  class="form-control" type="text"
                             name="id" value="<c:out value="${produto.id}" />"
-                            maxlength="15" placeholder="Produto ID"/>
+                            maxlength="15" placeholder="Produto ID" required/>
                 </div>
                 <div class="form-group row" >
                     <label for="produtomodelo">Modelo</label>
                     <input class="form-control" type="text"
                            name="modelo" value="<c:out value="${produto.modelo}" />"
-                           placeholder="Modelo..." maxlength="60"/>
+                           placeholder="Modelo..." maxlength="60" required/>
                 </div>
                 <div class="form-group row">
                     <label for="produtounidade">Unidade</label> 
@@ -48,17 +48,17 @@
                     <label for="produtovalor">Valor Custo</label> 
                     <input class="form-control" type="text" id="valorCusto"
                            name="valorCusto" value="<c:out value="${produto.valorCusto}"/>"
-                           placeholder="Valor Custo..."/>
+                           placeholder="Valor Custo..." required/>
                 </div>
                 <div class="form-group row">
                     <label for="produtovalor">Valor Venda</label> 
                     <input class="form-control" type="text" id="valorVenda"
                            name="valorVenda" value="<c:out value="${produto.valorVenda}"/>"
-                           placeholder="Valor Venda..."/>
+                           placeholder="Valor Venda..." required/>
                 </div>
                 <div class="form-group row">
                     <label for="clientenotasinternas">Notas Internas</label> 
-                    <input class="form-control" type="textarea"
+                    <input class="form-control" type="textarea" required
                            name="notasInternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${produto.notasInternas}" />"
                            />
                 </div> 

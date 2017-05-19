@@ -7,6 +7,7 @@ package br.senac.tads3.pi03b.projetoautomata.servlets;
 
 import br.senac.tads3.pi03b.projetoautomata.dao.UnidadeDAO;
 import br.senac.tads3.pi03b.projetoautomata.models.Unidade;
+import br.senac.tads3.pi03b.projetoautomata.services.UnidadeService;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "UnidadeServlet", urlPatterns = {"/unidades"})
 public class UnidadeServlet extends HttpServlet {
 
+    private UnidadeService service;
     private UnidadeDAO dao;
     public static final String LIST = "WEB-INF/jsp/lista_unidades.jsp";
     public static final String INSERT_OR_EDIT = "WEB-INF/jsp/unidade_cadastrar.jsp";
@@ -93,15 +95,15 @@ public class UnidadeServlet extends HttpServlet {
         unidade.setNotasInternas(request.getParameter("notasInternas"));
         unidade.setInativo(Integer.parseInt(request.getParameter("inativo")));
         unidade.setCadastroNacional(request.getParameter("cadastroNacional"));
-        
+        service = new UnidadeService();
         dao = new UnidadeDAO();
-        
-        try {
-            dao.acao(unidade);
-        } catch (Exception ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        if (service.validarCampos(unidade)) {
+            try {
+                dao.acao(unidade);
+            } catch (Exception ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
             request.setAttribute("unidades", dao.getListaUnidades());

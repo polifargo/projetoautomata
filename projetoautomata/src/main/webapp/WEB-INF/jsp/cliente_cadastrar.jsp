@@ -24,22 +24,21 @@
         <form name="form" id="form" action="clientes" method="post">
             <fieldset class="form-group container-fluid">
                 <div class="form-group row">
-                    <label for="clienteid">Cliente ID</label> 
-                    <input class="form-control" type="text"
+                    <input class="form-control" type="hidden"
                            name="id" value="<c:out value="${cliente.id}" />"
-                           readonly="readonly" placeholder="Cliente ID" />
+                           readonly="readonly" placeholder="Cliente ID"/>
                 </div>
                 <div class="form-group row">
                     <label for="clientenome">Nome</label> 
                     <input class="form-control" type="text"
                            name="nome" value="<c:out value="${cliente.nome}" />"
-                           placeholder="Nome..." maxlength="120" id="nome"/>
+                           placeholder="Nome..." maxlength="120" id="nome" required/>
                 </div>
                 <div class="form-group row">
                     <label for="clienteapelido">Apelido</label> 
                     <input class="form-control" type="text"
                            name="apelido" value="<c:out value="${cliente.apelido}" />"
-                           placeholder="Apelido..." maxlength="60" id="apelido"/>
+                           placeholder="Apelido..." maxlength="60" id="apelido" required/>
                 </div>
                 <div class="form-group row">
                     <label for="clientesexo">Sexo</label> 
@@ -93,43 +92,43 @@
                     <label for="clientecep">CEP</label>
                     <input class="form-control" type="text" 
                            name="cep" value="<c:out value="${cliente.cep}" />"
-                           placeholder="CEP..." maxlength="9" id="cep"/>
+                           placeholder="CEP..." maxlength="9" id="cep" required/>
                 </div>
                 <div class="form-group row">
                     <label for="clientecidade">Cidade</label>
                     <input class="form-control" type="text" 
                            name="cidade" value="<c:out value="${cliente.cidade}" />"
-                           placeholder="Cidade..." maxlength="60" id="cidade"/>
+                           placeholder="Cidade..." maxlength="60" id="cidade" required/>
                 </div>
                 <div class="form-group row">
                     <label for="clientelogradouro">Logradouro</label>
                     <input class="form-control" type="text" 
                            name="logradouro" value="<c:out value="${cliente.logradouro}" />"
-                           placeholder="Logradouro..." maxlength="60" id="logradouro"/>
+                           placeholder="Logradouro..." maxlength="60" id="logradouro" required/>
                 </div>
                 <div class="form-group row">
                     <label for="clientebairro">Bairro</label>
                     <input class="form-control" type="text" 
                            name="bairro" value="<c:out value="${cliente.bairro}" />"
-                           placeholder="Bairro..." maxlength="60" id="bairro"/>
+                           placeholder="Bairro..." maxlength="60" id="bairro" required/>
                 </div>
                 <div class="form-group row">
                     <label for="clienteemail">Email</label> 
                     <input class="form-control" type="email"
                            name="email" value="<c:out value="${cliente.email}" />"
-                           placeholder="Email..." maxlength="80" id="email"/>
+                           placeholder="Email..." maxlength="80" id="email" required/>
                 </div>
                 <div class="form-group row">
                     <label for="clientetelefone">Telefone</label> 
                     <input class="form-control" type="text"
                            name="telefone" value="<c:out value="${cliente.telefone}" />"
-                           placeholder="Telefone..." maxlength="14" id="telefone"/>
+                           placeholder="Telefone..." maxlength="14" id="telefone" required/>
                 </div>   
                 <div class="form-group row">
                     <label for="clientenotasinternas">Notas Internas</label> 
                     <input class="form-control" type="textarea"
                            name="notasinternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${cliente.notasInternas}" />"
-                           id="telefone"/>
+                           id="telefone" required/>
                 </div> 
                 <div class="form-group row">
                     <label for="clienteinativo">Inativo</label> 

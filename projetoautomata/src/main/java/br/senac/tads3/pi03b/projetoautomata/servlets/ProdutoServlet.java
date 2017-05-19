@@ -8,6 +8,7 @@ package br.senac.tads3.pi03b.projetoautomata.servlets;
 import br.senac.tads3.pi03b.projetoautomata.dao.ProdutoDAO;
 import br.senac.tads3.pi03b.projetoautomata.dao.UnidadeDAO;
 import br.senac.tads3.pi03b.projetoautomata.models.Produto;
+import br.senac.tads3.pi03b.projetoautomata.services.ProdutoService;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -26,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ProdutoServlet", urlPatterns = {"/produtos"})
 public class ProdutoServlet extends HttpServlet {
 
+    private ProdutoService service;
     private ProdutoDAO dao;
     private UnidadeDAO daoU;
     public static final String LIST = "WEB-INF/jsp/lista_produtos.jsp";
@@ -97,15 +99,15 @@ public class ProdutoServlet extends HttpServlet {
         produto.setValorVenda(Float.parseFloat(request.getParameter("valorVenda")));
         produto.setNotasInternas(request.getParameter("notasInternas"));
         produto.setInativo(Integer.parseInt(request.getParameter("inativo")));
-
-        dao = new ProdutoDAO();
-
-        try {
-            dao.acao(produto);
-        } catch (Exception ex) {
-            Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        service = new ProdutoService();
+        if (service.validarCampos(produto)) {
+            dao = new ProdutoDAO();
+            try {
+                dao.acao(produto);
+            } catch (Exception ex) {
+                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-
         RequestDispatcher view = request.getRequestDispatcher(LIST);
         try {
             request.setAttribute("produtos", dao.getListaProdutos());
