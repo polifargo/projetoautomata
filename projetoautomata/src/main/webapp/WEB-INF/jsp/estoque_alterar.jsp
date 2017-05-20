@@ -21,34 +21,36 @@
         <form action="estoque" method="post">
             <fieldset class="form-group container-fluid">
                 <div class="form-group row" >
-                    <label for="produtoid">Produto ID</label> 
-                    <input  class="form-control" type="text"
-                            name="id" value="<c:out value="${produto.id}" />"
-                            readonly="readonly" maxlength="15" placeholder="Produto ID" />
-                </div>
-                <div class="form-group row" >
-                    <label for="produtomodelo">Modelo</label>
-                    <input class="form-control" type="text"
-                           name="modelo" value="<c:out value="${produto.modelo}" />"
-                           readonly="readonly" placeholder="Modelo..." maxlength="60"/>
-                </div>
-                <div class="form-group row">
-                    <label for="produtounidade">Unidade</label> 
-                    <input class="form-control" type="text"
-                           name="unidade" value="<c:out value="${produto.unidade}" />"
-                           readonly="readonly" placeholder="Unidade..."/>
-                </div>
-                <div class="form-group row">
-                    <label for="produtoquantidade">Quantidade</label> 
-                    <input class="form-control" type="number"
-                           name="quantidade" min='0' value="<c:out value="${produto.quantidade}"/>"
-                           placeholder="Quantidade..." required/>
-                </div>
-                <div class="form-group row">
-                    <input class="form-control" type="submit" value="Salvar" />
-                </div>
-                <div class="form-group row">
-                    <a class="btn btn-danger form-control" role="button" href="estoque">Cancelar</a>
+                    <div class="col-sm-2">
+                        <label for="produtoid">Produto ID</label> 
+                        <input  class="form-control" type="text"
+                                name="id" value="<c:out value="${produto.id}" />"
+                                readonly="readonly" maxlength="15" placeholder="Produto ID" />
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="produtomodelo">Modelo</label>
+                        <input class="form-control" type="text"
+                               name="modelo" value="<c:out value="${produto.modelo}" />"
+                               readonly="readonly" placeholder="Modelo..." maxlength="60"/>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="produtounidade">Unidade</label> 
+                        <input class="form-control" type="text"
+                               name="unidade" value="<c:out value="${produto.unidade}" />"
+                               readonly="readonly" placeholder="Unidade..."/>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="produtoquantidade">Quantidade</label> 
+                        <input class="form-control" type="number"
+                               name="quantidade" min='0' value="<c:out value="${produto.quantidade}"/>"
+                               placeholder="Quantidade..." required/>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="form-control" type="submit" value="Salvar" />
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-danger form-control" role="button" href="estoque">Cancelar</a>
+                    </div>
                 </div>
             </fieldset>
         </form>
