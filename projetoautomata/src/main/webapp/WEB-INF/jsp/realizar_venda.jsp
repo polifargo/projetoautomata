@@ -16,6 +16,8 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.maskedinput.js"></script>
+        <script src="js/validacoes.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
@@ -45,7 +47,7 @@
                         </select>
                     </div>
                     <div class="col-sm-4">
-                        <label for="produtounidade">Unidade</label> 
+                        <label for="vendaunidade">Unidade</label> 
                         <select name="unidade" required class="form-control">
                             <c:forEach var="unidade" items="${unidades}">
                                 <option value="${unidade.fantasia}">${unidade.fantasia}</option>
@@ -56,7 +58,7 @@
                 <div class="form-group row">
                     <div class="col-sm-3">
                         <label for="vendaproduto">Produtos</label>
-                        <select name="produto" required class="form-control">
+                        <select id="produto" name="produto" required class="form-control">
                             <c:forEach var="produto" items="${produtos}">
                                 <option value="${produto.id}">${produto.id} - ${produto.modelo}</option>
                             </c:forEach>
@@ -64,11 +66,11 @@
                     </div>
                     <div class="col-sm-1">
                         <label for="vendaquantidade">Quantidade</label>
-                        <input class="form-control" type="number" name="quantidade"/>
+                        <input min='1' class="form-control" type="number" id="quantidadeVenda" name="quantidade"/>
                     </div>
                     <div class="col-sm-3">
-                        <label for="vendaquantidade">Insira no carrinho</label>
-                        <button class="btn btn-primary">Adicionar</button>
+                        <label for="vendaadicionar">Insira no carrinho</label>
+                        <button id="adicionar" class="btn btn-primary">Adicionar</button>
                     </div>
                     <div class="col-sm-5">
                         <label for="vendacarrinho">Carrinho</label> 
@@ -80,7 +82,7 @@
                                 <th>Valor Total</th>
                             </tr>
                             <c:forEach items="${itemsVenda}" var="itemVenda">
-                                <tr>
+                                <tr id="carrinho">
                                     <td><c:out value="${itemVenda.idProduto}" /></td>
                                     <td><c:out value="${itemVenda.quantidade}" /></td>
                                     <td><c:out value="${itemVenda.valorUnitario}" /></td>

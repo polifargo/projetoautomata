@@ -50,7 +50,6 @@
                     </div>
                 </div>
                 <div class="form-group row">
-
                     <div class="col-sm-4">
                         <label for="clientetipo">Tipo</label> 
                         <select name="tipo" class="form-control">
