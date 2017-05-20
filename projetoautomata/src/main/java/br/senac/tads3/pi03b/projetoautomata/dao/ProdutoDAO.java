@@ -91,7 +91,7 @@ public class ProdutoDAO {
 
     public void excluir(String id) throws SQLException, Exception {
         connection = DbUtil.getConnection();
-        String sql = "DELETE FROM produtos WHERE id=?";
+        String sql = "UPDATE produtos SET inativo=0 WHERE id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
         try {
@@ -110,7 +110,7 @@ public class ProdutoDAO {
     public List<Produto> getListaProdutos() throws SQLException, ClassNotFoundException {
         List<Produto> listaProdutos = new ArrayList<>();
         connection = DbUtil.getConnection();
-        String query = "SELECT * FROM produtos ORDER BY modelo";
+        String query = "SELECT * FROM produtos WHERE inativo=1 ORDER BY modelo";
 
         try {
             Statement st = connection.createStatement();

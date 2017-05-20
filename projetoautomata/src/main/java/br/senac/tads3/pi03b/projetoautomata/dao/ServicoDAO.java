@@ -85,7 +85,7 @@ public class ServicoDAO {
 
     public void excluir(String id) throws SQLException, Exception {
         connection = DbUtil.getConnection();
-        String sql = "DELETE FROM servicos WHERE id=?";
+        String sql = "UPDATE servicos SET inativo=0 WHERE id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
             preparedStatement.setString(1, id);
@@ -103,7 +103,7 @@ public class ServicoDAO {
     public List<Servico> getListaServicos() throws SQLException, ClassNotFoundException {
         List<Servico> listaServicos = new ArrayList<>();
         connection = DbUtil.getConnection();
-        String query = "SELECT * FROM servicos ORDER BY descricao";
+        String query = "SELECT * FROM servicos WHERE inativo=1 ORDER BY descricao";
 
         try {
             Statement st = connection.createStatement();

@@ -36,7 +36,7 @@
                             <th>Telefone</th>
                             <th>Inativo</th>
                             <th>Cadastro Nacional</th>
-                            <th colspan="2">Ação</th>
+                            <th class="text-center" colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${clientes}" var="cliente">
                             <tr>
@@ -54,7 +54,7 @@
                                 <td><a role="button" class="btn btn-primary"
                                        href="clientes?action=edit&id=<c:out value="${cliente.id}"/>">Atualizar</a></td>
                                 <td><a role="button" class="btn btn-danger"
-                                       href="clientes?action=delete&id=<c:out value="${cliente.id}"/>">Excluir</a></td>
+                                       href="clientes?action=delete&id=<c:out value="${cliente.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>
                     </table>

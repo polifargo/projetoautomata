@@ -107,7 +107,7 @@ public class ClienteDAO {
             throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "DELETE FROM clientes WHERE id=?";
+        String sql = "UPDATE clientes SET inativo=0 WHERE id=?";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
@@ -130,7 +130,7 @@ public class ClienteDAO {
     public List<Cliente> getListaClientes() throws SQLException, ClassNotFoundException {
         List<Cliente> listaClientes = new ArrayList<>();
         connection = DbUtil.getConnection();
-        String query = "SELECT * FROM clientes ORDER BY nome";
+        String query = "SELECT * FROM clientes WHERE inativo=1 ORDER BY nome";
 
         try {
             Statement st = connection.createStatement();

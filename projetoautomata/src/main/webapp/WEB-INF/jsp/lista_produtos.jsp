@@ -32,7 +32,7 @@
                             <th>Valor Venda</th>
                             <th>Notas Internas</th>
                             <th>Inativo</th>
-                            <th colspan="2">Ação</th>
+                            <th class="text-center" colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${produtos}" var="produto">
                             <tr>
@@ -46,7 +46,7 @@
                                 <td><a role="button" class="btn btn-primary"
                                        href="produtos?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
                                 <td><a role="button" class="btn btn-danger"
-                                       href="produtos?action=delete&id=<c:out value="${produto.id}"/>">Excluir</a></td>
+                                       href="produtos?action=delete&id=<c:out value="${produto.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>
                     </table>

@@ -110,7 +110,7 @@ public class UnidadeDAO {
     public void excluir(String id) throws SQLException, Exception {
         connection = DbUtil.getConnection();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql = "DELETE FROM unidades WHERE id=?";
+        String sql = "UPDATE unidade SET inativo=0 WHERE id=?";
         //Cria um statement para execução de instruções SQL
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         try {
@@ -133,7 +133,7 @@ public class UnidadeDAO {
     public List<Unidade> getListaUnidades() throws SQLException, ClassNotFoundException {
         List<Unidade> listaUnidades = new ArrayList<>();
         connection = DbUtil.getConnection();
-        String query = "SELECT * FROM unidades ORDER BY fantasia";
+        String query = "SELECT * FROM unidades WHERE inativo=1 ORDER BY fantasia";
 
         try {
             Statement st = connection.createStatement();
