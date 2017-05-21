@@ -23,7 +23,8 @@ import javax.servlet.http.HttpSession;
  * @author matheus_santo1
  */
 @WebFilter(filterName = "AutorizacaoFilter",
-        servletNames = {"ClienteServlet", "ProdutoServlet", "UnidadeServlet", "ServicoServlet", "VendaServlet", "UsuarioServlet"},
+        servletNames = {"ClienteServlet", "ProdutoServlet", "UnidadeServlet", "ServicoServlet", "VendaServlet", 
+            "UsuarioServlet", "PrestacaoServicoServlet", "EstoqueServlet"},
         urlPatterns = {"/protegido/*"}
 )
 public class AutorizacaoFilter implements Filter {

@@ -1,18 +1,18 @@
-function filtrar(){
+function filtrar() {
     var b = window.event.target;
-    
-    if(b.classList[0] == "abasItem"){
+
+    if (b.classList[0] == "abasItem") {
         var aba = b.classList[1];
-        
+
         var telas = document.querySelector("div.telas");
-        
-        for(var i = 0; i < telas.children.length; i++){
+
+        for (var i = 0; i < telas.children.length; i++) {
             console.log(telas.children[i].classList[1]);
             console.log(aba);
-            
-            if(telas.children[i].classList[1] == aba){
+
+            if (telas.children[i].classList[1] == aba) {
                 telas.children[i].style.display = "block";
-            }else{
+            } else {
                 telas.children[i].style.display = "none";
             }
         }

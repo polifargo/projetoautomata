@@ -20,11 +20,11 @@ public class Usuario {
     static {
         USUARIOS_CADASTRADOS = new LinkedHashMap<>();
         USUARIOS_CADASTRADOS.put("admin", new Usuario("admin",
-                "Administrador", "admin", "ADMIN"));
+                "Administrador", "admin", "ADMIN", 3));
         USUARIOS_CADASTRADOS.put("retaguarda", new Usuario("retaguarda",
-                "Retaguarda", "retaguarda", "MEDIO"));
+                "Retaguarda", "retaguarda", "MEDIO", 2));
         USUARIOS_CADASTRADOS.put("loja", new Usuario("loja",
-                "Vendedor", "loja", "BASICO"));
+                "Vendedor", "loja", "BASICO", 1));
     }
 
     private int id;
@@ -34,16 +34,18 @@ public class Usuario {
     private String hashSenha;
     private String papel;
     private String email;
+    private int permissao;
 
     public Usuario() {
     }
 
-    public Usuario(String usuario, String nome, String senha, String papel) {
+    public Usuario(String usuario, String nome, String senha, String papel, int permissao) {
         this.login = usuario;
         this.nome = nome;
         this.setHashSenha(senha);
         this.setSenha(senha);
         this.papel = papel;
+        this.permissao = permissao;
     }
 
     public int getId() {
@@ -102,9 +104,17 @@ public class Usuario {
         this.email = email;
     }
 
+    public int getPermissao() {
+        return permissao;
+    }
+
+    public void setPermissao(int permissao) {
+        this.permissao = permissao;
+    }
+    
     public void cadastrarUsuario() {
         USUARIOS_CADASTRADOS.put(this.getLogin(), new Usuario(this.getLogin(),
-                this.getNome(), this.getSenha(), this.getPapel()));
+                this.getNome(), this.getSenha(), this.getPapel(), this.getPermissao()));
     }
 
     public boolean temPapel(String papel) {
