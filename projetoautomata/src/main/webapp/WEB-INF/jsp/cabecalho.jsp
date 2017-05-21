@@ -44,42 +44,83 @@
         </header>
 
         <div id="abas">
-            <div class="abasItem cadastro">Consulta</div>
-            <div class="abasItem venda">Venda</div>
-            <div class="abasItem servico">Servico</div>
-            <div class="abasItem estoque">Estoque</div>
+            <c:choose>
+                <c:when test="${sessionScope.usuario.papel == 'BASICO'}">
+                    <div class="abasItem cadastro">Consulta</div>
+                    <div class="abasItem venda">Venda</div>
+                </c:when>
+                <c:when test="${sessionScope.usuario.papel == 'MEDIO'}">
+                    <div class="abasItem cadastro">Consulta</div>
+                    <div class="abasItem servico">Servico</div>
+                    <div class="abasItem estoque">Estoque</div>
+                </c:when>
+                <c:otherwise>
+                    <div class="abasItem venda">Venda</div>
+                    <div class="abasItem cadastro">Consulta</div>
+                    <div class="abasItem servico">Servico</div>
+                    <div class="abasItem estoque">Estoque</div>
+                </c:otherwise>
+            </c:choose>
         </div>
 
         <div class="telas">
-            <div class="telasItem cadastro" style="display:none;">
-                <a href="clientes">Clientes</a>
-            </div>
+            <c:choose>
+                <c:when test="${sessionScope.usuario.papel == 'BASICO'}">
+                    <div class="telasItem cadastro" style="display:none;">
+                        <a href="clientes">Clientes</a>
+                    </div>
+                    <div class="telasItem servico" style="display:none;">
+                        <a href="prestacaoservico">Prestação Serviço</a>
+                    </div>
+                    <div class="telasItem venda" style="display:none;">
+                        <a href="venda">Realizar Venda</a>
+                    </div>
+                </c:when>
 
-            <div class="telasItem cadastro" style="display:none;">
-                <a href="produtos">Produtos</a>
-            </div>
+                <c:when test="${sessionScope.usuario.papel == 'MEDIO'}">
+                    <div class="telasItem cadastro" style="display:none;">
+                        <a href="produtos">Produtos</a>
+                    </div>
+                    <div class="telasItem servico" style="display:none;">
+                        <a href="servicos">Servicos</a>
+                    </div>
+                    <div class="telasItem estoque" style="display:none;">
+                        <a href="estoque">Estoque</a>
+                    </div>
+                </c:when>
 
-            <div class="telasItem servico" style="display:none;">
-                <a href="servicos">Servicos</a>
-            </div>
+                <c:otherwise>
+                    <div class="telasItem cadastro" style="display:none;">
+                        <a href="clientes">Clientes</a>
+                    </div>
+                    <div class="telasItem cadastro" style="display:none;">
+                        <a href="produtos">Produtos</a>
+                    </div>
 
-            <div class="telasItem servico" style="display:none;">
-                <a href="prestacaoservico">Prestação Serviço</a>
-            </div>
+                    <div class="telasItem servico" style="display:none;">
+                        <a href="servicos">Servicos</a>
+                    </div>
 
-            <div class="telasItem cadastro" style="display:none;">
-                <a href="unidades">Unidades</a>
-            </div>
+                    <div class="telasItem servico" style="display:none;">
+                        <a href="prestacaoservico">Prestação Serviço</a>
+                    </div>
 
-            <div class="telasItem estoque" style="display:none;">
-                <a href="estoque">Estoque</a>
-            </div>
+                    <div class="telasItem cadastro" style="display:none;">
+                        <a href="unidades">Unidades</a>
+                    </div>
 
-            <div class="telasItem venda" style="display:none;">
-                <a href="venda">Realizar Venda</a>
-            </div>
-        </div>
-    </c:if>
+                    <div class="telasItem estoque" style="display:none;">
+                        <a href="estoque">Estoque</a>
+                    </div>
+
+                    <div class="telasItem venda" style="display:none;">
+                        <a href="venda">Realizar Venda</a>
+                    </div>
+                </div>
+            </c:otherwise>
+        </c:choose>
+    </div>
+</c:if>
 </body>
 <c:import url="./rodape.jsp"/>
 </html>

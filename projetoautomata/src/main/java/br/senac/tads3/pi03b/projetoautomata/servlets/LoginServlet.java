@@ -57,7 +57,6 @@ public class LoginServlet extends HttpServlet {
             // Criar uma sessão
             sessao = request.getSession(true);
             sessao.setAttribute("usuario", usuarioSistema);
-
             response.sendRedirect(request.getContextPath() + "/inicio");
         } else {
             response.sendRedirect(
