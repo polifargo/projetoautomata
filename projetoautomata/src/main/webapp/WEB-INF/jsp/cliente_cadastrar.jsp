@@ -44,8 +44,8 @@
                     <div class="col-sm-2">
                         <label for="clientesexo">Sexo</label> 
                         <select name="sexo" class="form-control">
-                            <option selected value="masculino">Masculino</option>
-                            <option value="feminino">Feminino</option>
+                            <option value="masculino" ${sexo == 'masculino' ? 'selected' : ''}>Masculino</option>
+                            <option value="feminino" ${sexo == 'feminino' ? 'selected' : ''}>Feminino</option>
                         </select>
                     </div>
                 </div>
@@ -53,8 +53,8 @@
                     <div class="col-sm-4">
                         <label for="clientetipo">Tipo</label> 
                         <select name="tipo" class="form-control">
-                            <option value="F">Pessoa Física</option>
-                            <option value="J">Pessoa Jurídica</option>
+                            <option value="F" ${tipo == 'F' ? 'selected' : ''}>Pessoa Física</option>
+                            <option value="J" ${tipo == 'J' ? 'selected' : ''}>Pessoa Jurídica</option>
                         </select>
                     </div>
                     <div class="col-sm-4">
@@ -66,8 +66,8 @@
                     <div class="col-sm-4">
                         <label for="clienteinativo">Status</label> 
                         <select name="inativo" class="form-control">
-                            <option selected value="1">Ativo</option>
-                            <option value="0">Inativo</option>
+                            <option value="1" ${status == '1' ? 'selected' : ''}>Ativo</option>
+                            <option value="0" ${status == '0' ? 'selected' : ''}>Inativo</option>
                         </select>
                     </div>
                 </div>
