@@ -9,6 +9,7 @@ import br.senac.tads3.pi03b.projetoautomata.dao.ProdutoDAO;
 import br.senac.tads3.pi03b.projetoautomata.dao.UnidadeDAO;
 import br.senac.tads3.pi03b.projetoautomata.models.Produto;
 import br.senac.tads3.pi03b.projetoautomata.services.ProdutoService;
+import br.senac.tads3.pi03b.projetoautomata.utils.Funcoes;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -67,8 +68,6 @@ public class ProdutoServlet extends HttpServlet {
             Produto produto = null;
             try {
                 produto = dao.getProdutoById(id);
-                request.setAttribute("status", produto.getInativo());
-                request.setAttribute("unidade", produto.getUnidade());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -93,12 +92,16 @@ public class ProdutoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Funcoes func = new Funcoes();
+        
+        func.tiraNaoNumero("");
+        
         Produto produto = new Produto();
         produto.setId(request.getParameter("id"));
         produto.setModelo(request.getParameter("modelo"));
         produto.setUnidade(request.getParameter("unidade"));
-        produto.setValorCusto(Float.parseFloat(request.getParameter("valorCusto")));
-        produto.setValorVenda(Float.parseFloat(request.getParameter("valorVenda")));
+        produto.setValorCusto(Float.parseFloat(func.tiraNaoNumero(request.getParameter("valorCusto"))));
+        produto.setValorVenda(Float.parseFloat(func.tiraNaoNumero(request.getParameter("valorVenda"))));
         produto.setNotasInternas(request.getParameter("notasInternas"));
         produto.setInativo(Integer.parseInt(request.getParameter("inativo")));
         service = new ProdutoService();
