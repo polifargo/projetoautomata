@@ -18,53 +18,54 @@
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
-            <form action="usuarios" method="post">
-                <fieldset class="form-group">
-                    <div class="form-group row">
-                        <label for="usuarioid">Usuario ID</label>
-                        <input class="form-control" type="text"
-                               name="id" value="<c:out value="${usuario.id}" />"
-                               readonly="readonly" placeholder="Usuario ID"/>
-                    </div>
-                    <div class="form-group row">
-                        <label for="usuarionome">Nome</label>
-                        <input class="form-control" type="text"
-                               name="nome" value="<c:out value="${usuario.nome}" />"
-                               placeholder="Nome" maxlength="30" required/>
-                    </div>
-                    <div class="form-group row">
-                        <label for="usuariologin">Login</label>
-                        <input class="form-control" type="text"
-                               name="login" value="<c:out value="${usuario.login}" />"
-                               placeholder="Login" maxlength="30" required/>
-                    </div>
-                    <div class="form-group row">
-                        <label for="usuariosenha">Senha</label> 
-                        <input class="form-control" type="text"
-                               name="senha" value="<c:out value="${usuario.senha}" />"
-                               placeholder="Senha" maxlength="15" required/>
-                    </div>
-                    <div class="form-group row">
-                        <label for="usuariopapel">Papel</label> 
-                        <select name="papel" class="form-control">
-                            <option value="ADMIN">Administrador</option>
-                            <option value="BASICO">Basico</option>
-                        </select>
-                    </div >
-                    <div class="form-group row">
-                        <label for="usuarioemail">Email</label>
-                        <input class="form-control" type="email"
-                               name="email" value="<c:out value="${usuario.email}" />"
-                               placeholder="Email" maxlength="30" required />
-                    </div>
-                    <div class="form-group row">
-                        <input class="form-control" type="submit" value="Salvar" />
-                    </div>
-                    <div class="form-group row">
-                        <a class="btn btn-danger form-control" role="button" href="usuarios">Cancelar</a>
-                    </div>
-                </fieldset>
-            </form>
+        <form action="usuarios" method="post">
+            <fieldset class="form-group">
+                <div class="form-group row">
+                    <label for="usuarioid">Usuario ID</label>
+                    <input class="form-control" type="text"
+                           name="id" value="<c:out value="${usuario.id}" />"
+                           readonly="readonly" placeholder="Usuario ID"/>
+                </div>
+                <div class="form-group row">
+                    <label for="usuarionome">Nome</label>
+                    <input class="form-control" type="text"
+                           name="nome" value="<c:out value="${usuario.nome}" />"
+                           placeholder="Nome" maxlength="30" required/>
+                </div>
+                <div class="form-group row">
+                    <label for="usuariologin">Login</label>
+                    <input class="form-control" type="text"
+                           name="login" value="<c:out value="${usuario.login}" />"
+                           placeholder="Login" maxlength="30" required/>
+                </div>
+                <div class="form-group row">
+                    <label for="usuariosenha">Senha</label> 
+                    <input class="form-control" type="text"
+                           name="senha" value="<c:out value="${usuario.senha}" />"
+                           placeholder="Senha" maxlength="15" required/>
+                </div>
+                <div class="form-group row">
+                    <label for="usuariopapel">Papel</label> 
+                    <select name="papel" class="form-control">
+                        <option value="ADMIN" ${papel == 'ADMIN' ? 'selected' : ''}>Administrador</option>
+                        <option value="BASICO" ${papel == 'BASICO' ? 'selected' : ''}>Loja</option>
+                        <option value="MEDIO" ${papel == 'MEDIO' ? 'selected' : ''}>Retaguarda</option>
+                    </select>
+                </div >
+                <div class="form-group row">
+                    <label for="usuarioemail">Email</label>
+                    <input class="form-control" type="email"
+                           name="email" value="<c:out value="${usuario.email}" />"
+                           placeholder="Email" maxlength="30" required />
+                </div>
+                <div class="form-group row">
+                    <input class="form-control" type="submit" value="Salvar" />
+                </div>
+                <div class="form-group row">
+                    <a class="btn btn-danger form-control" role="button" href="usuarios">Cancelar</a>
+                </div>
+            </fieldset>
+        </form>
     </body>
     <c:import url="./rodape.jsp"/>
 </html>

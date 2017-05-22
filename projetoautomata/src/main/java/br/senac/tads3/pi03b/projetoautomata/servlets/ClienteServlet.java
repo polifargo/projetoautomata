@@ -57,6 +57,10 @@ public class ClienteServlet extends HttpServlet {
             Cliente cliente = null;
             try {
                 cliente = dao.getClienteById(id);
+                request.setAttribute("tipo", cliente.getTipo());
+                request.setAttribute("status", cliente.getInativo());
+                request.setAttribute("sexo", cliente.getSexo());
+                request.setAttribute("uf", cliente.getUf());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {

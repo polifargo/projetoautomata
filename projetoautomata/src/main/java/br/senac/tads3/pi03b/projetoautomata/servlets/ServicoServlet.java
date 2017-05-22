@@ -59,6 +59,8 @@ public class ServicoServlet extends HttpServlet {
             Servico servico = null;
             try {
                 servico = dao.getServicoById(id);
+                request.setAttribute("tipo", servico.getTipo());
+                request.setAttribute("status", servico.getInativo());
             } catch (SQLException ex) {
                 Logger.getLogger(ServicoServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {

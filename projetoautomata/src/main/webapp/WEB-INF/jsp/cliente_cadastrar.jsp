@@ -75,33 +75,33 @@
                     <div class="col-sm-2">
                         <label for="clienteuf">UF</label> 
                         <select name="uf" class="form-control">
-                            <option value="AC">AC</option>
-                            <option value="AL">AL</option>
-                            <option value="AM">AM</option>
-                            <option value="AP">AP</option>
-                            <option value="BA">BA</option>
-                            <option value="CE">CE</option>
-                            <option value="DF">DF</option>
-                            <option value="ES">ES</option>
-                            <option value="GO">GO</option>
-                            <option value="MA">MA</option>
-                            <option value="MG">MG</option>
-                            <option value="MS">MS</option>
-                            <option value="MT">MT</option>
-                            <option value="PA">PA</option>
-                            <option value="PB">PB</option>
-                            <option value="PE">PE</option>
-                            <option value="PI">PI</option>
-                            <option value="PR">PR</option>
-                            <option value="RJ">RJ</option>
-                            <option value="RN">RN</option>
-                            <option value="RS">RS</option>
-                            <option value="RO">RO</option>
-                            <option value="RR">RR</option>
-                            <option value="SC">SC</option>
-                            <option value="SE">SE</option>
-                            <option value="SP">SP</option>
-                            <option value="TO">TO</option>
+                            <option value="AC" ${uf == 'AC' ? 'selected' : ''}>AC</option>
+                            <option value="AL" ${uf == 'AL' ? 'selected' : ''}>AL</option>
+                            <option value="AM" ${uf == 'AM' ? 'selected' : ''}>AM</option>
+                            <option value="AP" ${uf == 'AP' ? 'selected' : ''}>AP</option>
+                            <option value="BA" ${uf == 'BA' ? 'selected' : ''}>BA</option>
+                            <option value="CE" ${uf == 'CE' ? 'selected' : ''}>CE</option>
+                            <option value="DF" ${uf == 'DF' ? 'selected' : ''}>DF</option>
+                            <option value="ES" ${uf == 'ES' ? 'selected' : ''}>ES</option>
+                            <option value="GO" ${uf == 'GO' ? 'selected' : ''}>GO</option>
+                            <option value="MA" ${uf == 'MA' ? 'selected' : ''}>MA</option>
+                            <option value="MG" ${uf == 'MG' ? 'selected' : ''}>MG</option>
+                            <option value="MS" ${uf == 'MS' ? 'selected' : ''}>MS</option>
+                            <option value="MT" ${uf == 'MT' ? 'selected' : ''}>MT</option>
+                            <option value="PA" ${uf == 'PA' ? 'selected' : ''}>PA</option>
+                            <option value="PB" ${uf == 'PB' ? 'selected' : ''}>PB</option>
+                            <option value="PE" ${uf == 'PE' ? 'selected' : ''}>PE</option>
+                            <option value="PI" ${uf == 'PI' ? 'selected' : ''}>PI</option>
+                            <option value="PR" ${uf == 'PR' ? 'selected' : ''}>PR</option>
+                            <option value="RJ" ${uf == 'RJ' ? 'selected' : ''}>RJ</option>
+                            <option value="RN" ${uf == 'RN' ? 'selected' : ''}>RN</option>
+                            <option value="RS" ${uf == 'RS' ? 'selected' : ''}>RS</option>
+                            <option value="RO" ${uf == 'RO' ? 'selected' : ''}>RO</option>
+                            <option value="RR" ${uf == 'RR' ? 'selected' : ''}>RR</option>
+                            <option value="SC" ${uf == 'SC' ? 'selected' : ''}>SC</option>
+                            <option value="SE" ${uf == 'SE' ? 'selected' : ''}>SE</option>
+                            <option value="SP" ${uf == 'SP' ? 'selected' : ''}>SP</option>
+                            <option value="TO" ${uf == 'TO' ? 'selected' : ''}>TO</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
@@ -147,7 +147,7 @@
                     <div class="col-sm-8">
                         <label for="clientenotasinternas">Notas Internas</label> 
                         <input class="form-control" type="textarea"
-                               name="notasinternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${cliente.notasInternas}" />"
+                               name="notasInternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${cliente.notasInternas}" />"
                                id="telefone" id="notasinternas" required/>
                     </div>
                     <div class="col-lg-2">

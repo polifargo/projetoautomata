@@ -43,9 +43,9 @@
                     <div class="col-sm-4">
                         <label for="servicotipo">Tipo</label>
                         <select name="tipo" class="form-control">
-                            <option value="Montagem">Montagem</option>
-                            <option value="Conserto">Conserto</option>
-                            <option value="Formatação">Formatação</option>
+                            <option value="Montagem" ${tipo == 'Montagem' ? 'selected' : ''}>Montagem</option>
+                            <option value="Conserto" ${tipo == 'Conserto' ? 'selected' : ''}>Conserto</option>
+                            <option value="Formatação" ${tipo == 'Formatação' ? 'selected' : ''}>Formatação</option>
                         </select>
                     </div>
                     <div class="col-sm-4">
@@ -57,8 +57,8 @@
                     <div class="col-sm-4">
                         <label for="servicoinativo">Status</label> 
                         <select name="inativo" class="form-control">
-                            <option selected value="1">Ativo</option>
-                            <option value="0">Inativo</option>
+                            <option value="1" ${status == '1' ? 'selected' : ''}>Ativo</option>
+                            <option value="0" ${status == '0' ? 'selected' : ''}>Inativo</option>
                         </select>
                     </div>
                 </div>

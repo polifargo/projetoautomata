@@ -57,6 +57,8 @@ public class UnidadeServlet extends HttpServlet {
             Unidade unidade = null;
             try {
                 unidade = dao.getUnidadeById(id);
+                request.setAttribute("uf", unidade.getUf());
+                request.setAttribute("status", unidade.getInativo());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {

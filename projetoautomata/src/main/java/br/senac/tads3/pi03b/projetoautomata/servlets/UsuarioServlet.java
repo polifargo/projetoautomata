@@ -55,6 +55,7 @@ public class UsuarioServlet extends HttpServlet {
             Usuario usuario = null;
             try {
                 usuario = dao.getUsuarioById(id);
+                request.setAttribute("papel", usuario.getPapel());
             } catch (SQLException ex) {
                 Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {

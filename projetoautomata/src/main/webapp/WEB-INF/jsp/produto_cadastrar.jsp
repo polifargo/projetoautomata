@@ -41,7 +41,7 @@
                         <label for="produtounidade">Unidade</label> 
                         <select name="unidade" required class="form-control">
                             <c:forEach var="unidade" items="${listaUnidades}">
-                                <option value="${unidade.fantasia}">${unidade.fantasia}</option>
+                                <option value="${unidade.fantasia}" ${unidade == unidade.fantasia ? 'selected' : ''}>${unidade.fantasia}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -62,8 +62,8 @@
                     <div class="col-sm-4">
                         <label for="produtoinativo">Status</label> 
                         <select name="inativo" class="form-control">
-                            <option selected value="1">Ativo</option>
-                            <option value="0">Inativo</option>
+                            <option value="1" ${status == '1' ? 'selected' : ''}>Ativo</option>
+                            <option value="0" ${status == '0' ? 'selected' : ''}>Inativo</option>
                         </select>
                     </div>
                 </div>
