@@ -41,7 +41,7 @@
                         <label for="produtounidade">Unidade</label> 
                         <select name="unidade" required class="form-control">
                             <c:forEach var="unidade" items="${listaUnidades}">
-                                <option value="${unidade.fantasia}" ${unidade == unidade.fantasia ? 'selected' : ''}>${unidade.fantasia}</option>
+                                <option value="${unidade.fantasia}" ${uni == unidade.fantasia ? 'selected' : ''}>${unidade.fantasia}</option>
                             </c:forEach>
                         </select>
                     </div>

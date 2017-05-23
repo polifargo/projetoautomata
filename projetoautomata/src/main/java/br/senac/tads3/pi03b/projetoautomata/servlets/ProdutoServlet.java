@@ -68,6 +68,8 @@ public class ProdutoServlet extends HttpServlet {
             Produto produto = null;
             try {
                 produto = dao.getProdutoById(id);
+                request.setAttribute("uni", produto.getUnidade());
+                request.setAttribute("status", produto.getInativo());
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
