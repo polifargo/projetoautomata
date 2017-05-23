@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
  * @author matheus_santo1
  */
 @WebFilter(filterName = "AutorizacaoFilter",
-        servletNames = {"ClienteServlet", "ProdutoServlet", "UnidadeServlet", "ServicoServlet", "VendaServlet", 
+        servletNames = {"ClienteServlet", "ProdutoServlet", "UnidadeServlet", "ServicoServlet", "VendaServlet",
             "UsuarioServlet", "PrestacaoServicoServlet", "EstoqueServlet"},
         urlPatterns = {"/protegido/*"}
 )
@@ -92,6 +92,10 @@ public class AutorizacaoFilter implements Filter {
         } else if (pagina.contains("prestacaoservico") && usuario.temPapel("BASICO")) {
             return true;
         } else if (pagina.contains("prestacaoservico") && usuario.temPapel("ADMIN")) {
+            return true;
+        } else if (pagina.contains("estoque") && usuario.temPapel("ADMIN")) {
+            return true;
+        } else if (pagina.contains("estoque") && usuario.temPapel("MEDIO")) {
             return true;
         } else {
             return pagina.contains("servicos") && usuario.temPapel("ADMIN");

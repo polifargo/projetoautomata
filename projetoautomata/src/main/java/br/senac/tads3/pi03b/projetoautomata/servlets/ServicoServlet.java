@@ -8,6 +8,7 @@ package br.senac.tads3.pi03b.projetoautomata.servlets;
 import br.senac.tads3.pi03b.projetoautomata.dao.ServicoDAO;
 import br.senac.tads3.pi03b.projetoautomata.models.Servico;
 import br.senac.tads3.pi03b.projetoautomata.services.ServicoService;
+import br.senac.tads3.pi03b.projetoautomata.utils.Funcoes;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -85,15 +86,14 @@ public class ServicoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DateFormat mediaConclusao = new SimpleDateFormat("dd/MM/yyyy");
-        DateFormat mediaHoras = new SimpleDateFormat("HH:mm");
-
+        Funcoes func = new Funcoes();
+        
         Servico servico = new Servico();
-
+        
         servico.setId(request.getParameter("id"));
         servico.setDescricao(request.getParameter("descricao"));
         servico.setTipo(request.getParameter("tipo"));
-        servico.setValor(Float.parseFloat(request.getParameter("valor")));
+        servico.setValor(Double.parseDouble(func.tiraNaoNumero(request.getParameter("valor"))));
         servico.setNotasInternas(request.getParameter("notasInternas"));
         servico.setInativo(Integer.parseInt(request.getParameter("inativo")));
         service = new ServicoService();

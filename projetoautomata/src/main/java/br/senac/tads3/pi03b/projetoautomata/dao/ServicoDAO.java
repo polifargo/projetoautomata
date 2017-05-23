@@ -43,7 +43,7 @@ public class ServicoDAO {
             preparedStatement.setString(1, servico.getId());
             preparedStatement.setString(2, servico.getDescricao());
             preparedStatement.setString(3, servico.getTipo());
-            preparedStatement.setFloat( 4, servico.getValor());
+            preparedStatement.setDouble( 4, servico.getValor());
             preparedStatement.setString(5, servico.getNotasInternas());
             preparedStatement.setInt(   6, servico.getInativo());
 
@@ -67,7 +67,7 @@ public class ServicoDAO {
         try {
             preparedStatement.setString(1, servico.getDescricao());
             preparedStatement.setString(2, servico.getTipo());
-            preparedStatement.setFloat(3, servico.getValor());
+            preparedStatement.setDouble(3, servico.getValor());
             preparedStatement.setString(4, servico.getNotasInternas());
             preparedStatement.setInt(5, servico.getInativo());
             preparedStatement.setString(6, servico.getId());
@@ -113,7 +113,7 @@ public class ServicoDAO {
                 servico.setId(resultSet.getString("id"));
                 servico.setDescricao(resultSet.getString("descricao"));
                 servico.setTipo(resultSet.getString("tipo"));
-                servico.setValor(Float.parseFloat(resultSet.getString("valor")));
+                servico.setValor(Double.parseDouble(resultSet.getString("valor")));
                 servico.setNotasInternas(resultSet.getString("notasInternas"));
                 servico.setInativo(resultSet.getInt("inativo"));
                 listaServicos.add(servico);
@@ -137,7 +137,7 @@ public class ServicoDAO {
                 servico.setId(resultSet.getString("id"));
                 servico.setDescricao(resultSet.getString("descricao"));
                 servico.setTipo(resultSet.getString("tipo"));
-                servico.setValor(Float.parseFloat(resultSet.getString("valor")));
+                servico.setValor(Double.parseDouble(resultSet.getString("valor")));
                 servico.setNotasInternas(resultSet.getString("notasInternas"));
                 servico.setInativo(resultSet.getInt("inativo"));
             }

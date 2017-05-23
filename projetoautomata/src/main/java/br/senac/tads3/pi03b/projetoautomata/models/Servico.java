@@ -9,7 +9,7 @@ public class Servico {
     private String id;
     private String descricao;
     private String tipo;
-    private float valor;
+    private double valor;
     private String notasInternas;
     private int inativo;
 
@@ -37,11 +37,11 @@ public class Servico {
         this.tipo = tipo;
     }
 
-    public float getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
