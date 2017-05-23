@@ -22,6 +22,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                    <div class="col-sm-4">
+                            <input class="form-inline" type="text" name="filtroNome" placeholder="Pesquisar por nome...">
+                            <a href="clientes?action=filtroNome" type="button" class="btn btn-default glyphicon glyphicon-search"></a>
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-inline" type="text" name="filtroID" placeholder="Pesquisar por ID...">
+                        <a href="clientes?action=filtroID" type="button" class="btn btn-default glyphicon glyphicon-search"></a>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-inline" name="filtroInativo" class="form-control">
+                            <option value="ativos">Ativos</option>
+                            <option value="inativos">Inativos</option>
+                        </select>
+                        <a href="clientes?action=filtroInativo" type="button" class="btn btn-default glyphicon glyphicon-search"></a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
                     <h2>Clientes cadastrados</h2>
                     <table class="table">
                         <tr>

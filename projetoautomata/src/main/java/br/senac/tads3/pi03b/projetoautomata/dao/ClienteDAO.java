@@ -161,6 +161,37 @@ public class ClienteDAO {
         return listaClientes;
     }
 
+    public List<Cliente> getFiltroNome(String nome) throws SQLException, ClassNotFoundException {
+        List<Cliente> listaClientes = new ArrayList<>();
+        connection = DbUtil.getConnection();
+        String query = "SELECT * FROM clientes WHERE nome=? ORDER BY nome";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, nome);
+        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setId(resultSet.getInt("id"));
+                cliente.setNome(resultSet.getString("nome"));
+                cliente.setApelido(resultSet.getString("apelido"));
+                cliente.setSexo(resultSet.getString("sexo"));
+                cliente.setTipo(resultSet.getString("tipo"));
+                cliente.setUf(resultSet.getString("uf"));
+                cliente.setCep(resultSet.getString("cep"));
+                cliente.setCidade(resultSet.getString("cidade"));
+                cliente.setLogradouro(resultSet.getString("logradouro"));
+                cliente.setBairro(resultSet.getString("bairro"));
+                cliente.setEmail(resultSet.getString("email"));
+                cliente.setTelefone(resultSet.getString("telefone"));
+                cliente.setNotasInternas(resultSet.getString("notasInternas"));
+                cliente.setInativo(Integer.parseInt(resultSet.getString("inativo")));
+                cliente.setCadastroNacional(resultSet.getString("cadastronacional"));
+                listaClientes.add(cliente);
+            }
+        }
+        connection.close();
+        return listaClientes;
+    }
+
     public Cliente getClienteById(int id) throws SQLException, ClassNotFoundException {
         Cliente cliente = new Cliente();
         connection = DbUtil.getConnection();
