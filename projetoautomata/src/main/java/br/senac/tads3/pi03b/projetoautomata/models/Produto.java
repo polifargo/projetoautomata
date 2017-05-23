@@ -8,8 +8,8 @@ public class Produto {
     private String id;
     private String modelo;
     private String unidade;
-    private float valorVenda;
-    private float valorCusto;
+    private double valorVenda;
+    private double valorCusto;
     private String notasInternas;
     private int inativo;
     private int quantidade;
@@ -38,19 +38,19 @@ public class Produto {
         this.unidade = unidade;
     }
 
-    public float getValorVenda() {
+    public double getValorVenda() {
         return valorVenda;
     }
 
-    public void setValorVenda(float valorVenda) {
+    public void setValorVenda(double valorVenda) {
         this.valorVenda = valorVenda;
     }
 
-    public float getValorCusto() {
+    public double getValorCusto() {
         return valorCusto;
     }
 
-    public void setValorCusto(float valorCusto) {
+    public void setValorCusto(double valorCusto) {
         this.valorCusto = valorCusto;
     }
 

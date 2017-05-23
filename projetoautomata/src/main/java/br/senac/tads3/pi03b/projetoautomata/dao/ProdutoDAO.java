@@ -44,8 +44,8 @@ public class ProdutoDAO {
         try {
             preparedStatement.setString(1, produto.getModelo());
             preparedStatement.setString(2, produto.getUnidade());
-            preparedStatement.setFloat(3, produto.getValorCusto());
-            preparedStatement.setFloat(4, produto.getValorVenda());
+            preparedStatement.setDouble(3, produto.getValorCusto());
+            preparedStatement.setDouble(4, produto.getValorVenda());
             preparedStatement.setString(5, produto.getNotasInternas());
             preparedStatement.setInt(6, produto.getInativo());
             preparedStatement.setString(7, produto.getId());
@@ -72,8 +72,8 @@ public class ProdutoDAO {
         try {
             preparedStatement.setString(1, produto.getModelo());
             preparedStatement.setString(2, produto.getUnidade());
-            preparedStatement.setFloat(3, produto.getValorCusto());
-            preparedStatement.setFloat(4, produto.getValorVenda());
+            preparedStatement.setDouble(3, produto.getValorCusto());
+            preparedStatement.setDouble(4, produto.getValorVenda());
             preparedStatement.setString(5, produto.getNotasInternas());
             preparedStatement.setInt(6, produto.getInativo());
             preparedStatement.setString(7, produto.getId());
@@ -120,8 +120,8 @@ public class ProdutoDAO {
                 produto.setId(resultSet.getString("id"));
                 produto.setModelo(resultSet.getString("modelo"));
                 produto.setUnidade(resultSet.getString("unidade"));
-                produto.setValorCusto(resultSet.getFloat("valorCusto"));
-                produto.setValorVenda(resultSet.getFloat("valorVenda"));
+                produto.setValorCusto(resultSet.getDouble("valorCusto"));
+                produto.setValorVenda(resultSet.getDouble("valorVenda"));
                 produto.setNotasInternas(resultSet.getString("notasInternas"));
                 produto.setInativo(resultSet.getInt("inativo"));
                 listaProdutos.add(produto);
@@ -145,8 +145,8 @@ public class ProdutoDAO {
                 produto.setId(resultSet.getString("id"));
                 produto.setModelo(resultSet.getString("modelo"));
                 produto.setUnidade(resultSet.getString("unidade"));
-                produto.setValorCusto(resultSet.getFloat("valorCusto"));
-                produto.setValorVenda(resultSet.getFloat("valorVenda"));
+                produto.setValorCusto(resultSet.getDouble("valorCusto"));
+                produto.setValorVenda(resultSet.getDouble("valorVenda"));
                 produto.setNotasInternas(resultSet.getString("notasInternas"));
                 produto.setInativo(resultSet.getInt("inativo"));
             }

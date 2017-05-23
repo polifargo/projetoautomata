@@ -95,15 +95,13 @@ public class ProdutoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Funcoes func = new Funcoes();
-        
-        func.tiraNaoNumero("");
-        
+                
         Produto produto = new Produto();
         produto.setId(request.getParameter("id"));
         produto.setModelo(request.getParameter("modelo"));
         produto.setUnidade(request.getParameter("unidade"));
-        produto.setValorCusto(Float.parseFloat(func.tiraNaoNumero(request.getParameter("valorCusto"))));
-        produto.setValorVenda(Float.parseFloat(func.tiraNaoNumero(request.getParameter("valorVenda"))));
+        produto.setValorCusto(Double.parseDouble(func.tiraNaoNumero(request.getParameter("valorCusto"))));
+        produto.setValorVenda(Double.parseDouble(func.tiraNaoNumero(request.getParameter("valorVenda"))));
         produto.setNotasInternas(request.getParameter("notasInternas"));
         produto.setInativo(Integer.parseInt(request.getParameter("inativo")));
         service = new ProdutoService();
