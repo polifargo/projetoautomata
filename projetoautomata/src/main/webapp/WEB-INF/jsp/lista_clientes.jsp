@@ -16,32 +16,18 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/filtrodepesquisa.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="col-sm-4">
-                            <input class="form-inline" type="text" name="filtroNome" placeholder="Pesquisar por nome...">
-                            <a href="clientes?action=filtroNome" type="button" class="btn btn-default glyphicon glyphicon-search"></a>
-                    </div>
-                    <div class="col-sm-4">
-                        <input class="form-inline" type="text" name="filtroID" placeholder="Pesquisar por ID...">
-                        <a href="clientes?action=filtroID" type="button" class="btn btn-default glyphicon glyphicon-search"></a>
-                    </div>
-                    <div class="col-sm-2">
-                        <select class="form-inline" name="filtroInativo" class="form-control">
-                            <option value="ativos">Ativos</option>
-                            <option value="inativos">Inativos</option>
-                        </select>
-                        <a href="clientes?action=filtroInativo" type="button" class="btn btn-default glyphicon glyphicon-search"></a>
-                    </div>
                     <br>
                     <br>
                     <br>
                     <h2>Clientes cadastrados</h2>
-                    <table class="table">
+                    <table id="table" class="table">
                         <tr>
                             <th>Cliente ID</th>
                             <th>Nome</th>
@@ -75,6 +61,14 @@
                                        href="clientes?action=delete&id=<c:out value="${cliente.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroNome()" type="text" id="filtroNome" placeholder="Pesquisar por nome...">
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
+                        </div>
                     </table>
                     <a class="btn btn-primary" role="button" href="clientes?action=insert">Adicionar Cliente</a>
                     <a class="btn btn-danger" role="button" href="inicio">Voltar</a>

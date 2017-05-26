@@ -16,6 +16,7 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/filtrodepesquisa.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
@@ -23,7 +24,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h2>Unidades Cadastradas</h2>
-                    <table class="table">
+                    <table id="table" class="table">
                         <tr>
                             <th>Unidade ID</th>
                             <th>Fantasia</th>
@@ -57,6 +58,14 @@
                                        href="unidades?action=delete&id=<c:out value="${unidade.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroFantasia()" type="text" id="filtroFantasia" placeholder="Pesquisar por fantasia...">
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
+                        </div>
                     </table>
                     <a class="btn btn-primary" role="button" href="unidades?action=insert">Adicionar Unidade</a>
                     <a class="btn btn-danger" role="button" href="inicio">Voltar</a>
