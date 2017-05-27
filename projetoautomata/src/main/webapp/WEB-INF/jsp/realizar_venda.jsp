@@ -58,19 +58,23 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <label for="vendaproduto">Produtos</label>
-                        <select id="produto" name="produto" required class="form-control">
+                        <select onchange="getValorUnitario()" id="produto" name="produto" required class="form-control">
                             <c:forEach var="produto" items="${produtos}">
-                                <option value="${produto.id}">${produto.id} - ${produto.modelo}</option>
+                                <option value="${produto.id} + ${produto.valorVenda}">${produto.modelo}</option>
                             </c:forEach>
                         </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="vendavalorunitario">Valor Unitario</label>
+                        <input type="text" readonly class="form-control" id="valorUnitario">
                     </div>
                     <div class="col-sm-1">
                         <label for="vendaquantidade">Quantidade</label>
                         <input min='1' class="form-control" type="number" id="quantidadeVenda" name="quantidade"/>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <label for="vendaadicionar">Insira no carrinho</label>
                         <a onclick="addCart()" role="button" id="adicionar" class="btn btn-primary">Adicionar</a>
                     </div>
@@ -81,9 +85,8 @@
                                 <th>Produto ID</th>
                                 <th>Quantidade</th>
                                 <th>Valor Unitario</th>
-                                <th>Valor Total</th>
+                                <th class="valorTotal">Valor Total</th>
                             </tr>
-                            
                         </table>
                     </div>
                 </div>
