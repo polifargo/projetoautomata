@@ -19,6 +19,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.maskedinput.js"></script>
         <script src="js/validacoes.js"></script>
+        <script src="js/venda.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
@@ -71,25 +72,18 @@
                     </div>
                     <div class="col-sm-3">
                         <label for="vendaadicionar">Insira no carrinho</label>
-                        <button id="adicionar" class="btn btn-primary">Adicionar</button>
+                        <a onclick="addCart()" role="button" id="adicionar" class="btn btn-primary">Adicionar</a>
                     </div>
                     <div class="col-sm-5">
                         <label for="vendacarrinho">Carrinho</label> 
-                        <table class="table">
+                        <table id="table" class="table">
                             <tr>
                                 <th>Produto ID</th>
                                 <th>Quantidade</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
                             </tr>
-                            <c:forEach items="${itemsVenda}" var="itemVenda">
-                                <tr id="carrinho">
-                                    <td><c:out value="${itemVenda.idProduto}" /></td>
-                                    <td><c:out value="${itemVenda.quantidade}" /></td>
-                                    <td><c:out value="${itemVenda.valorUnitario}" /></td>
-                                    <td><c:out value="${itemVenda.valorTotal}" /></td>
-                                </tr>
-                            </c:forEach>
+                            
                         </table>
                     </div>
                 </div>
@@ -110,7 +104,7 @@
                     </div>
                     <div class="col-sm-4">
                         <label for="vendavalor">Valor</label> 
-                        <input class="form-control" type="text"
+                        <input class="form-control" type="text" id="valorFinal"
                                name="valor" value="<c:out value="${venda.valor}" />"
                                readonly="readonly" placeholder="Valor" />
                     </div>

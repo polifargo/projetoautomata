@@ -32,7 +32,7 @@
                             <th>Valor</th>
                             <th>Notas Internas</th>
                             <th>Inativo</th>
-                            <th  class="text-center" colspan="2">Ação</th>
+                            <th class="text-center" colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${servicos}" var="servico">
                             <tr>
