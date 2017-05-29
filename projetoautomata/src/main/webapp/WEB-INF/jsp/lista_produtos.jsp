@@ -16,6 +16,7 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/filtrodepesquisa.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
@@ -23,7 +24,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h2>Produtos cadastrados</h2>
-                    <table class="table">
+                    <table id="table" class="table">
                         <tr>
                             <th>Produto ID</th>
                             <th>Modelo</th>
@@ -49,6 +50,14 @@
                                        href="produtos?action=delete&id=<c:out value="${produto.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroModelo()" type="text" id="filtroModelo" placeholder="Pesquisar por modelo...">
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
+                        </div>
                     </table>
                     <a class="btn btn-primary" role="button" href="produtos?action=insert">Adicionar Produto</a>
                     <a class="btn btn-danger" role="button" href="inicio">Voltar</a>

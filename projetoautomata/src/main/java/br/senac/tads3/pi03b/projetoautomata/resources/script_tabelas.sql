@@ -31,12 +31,14 @@ Primary Key (id)
 create table Venda(
 id int not null generated always as identity (start with 1, increment by 1),
 idCliente int not null,
+idUnidade char(3),
 FormaPagamento varchar(30),
 Data date,
 Valor numeric(14,2),
 NotasInternas varchar(1000),
 primary key (id),
-FOREIGN KEY (idCliente) REFERENCES Clientes (id)
+FOREIGN KEY (idCliente) REFERENCES Clientes (id),
+FOREIGN KEY (idUnidade) REFERENCES Unidades (id)
 );
 
 create table ItensVenda(
@@ -137,6 +139,17 @@ idProduto char(15) not null,
 quantidade integer not null,
 qtMinina integer,
 qtMaxima integer,
+primary key (id),
+FOREIGN KEY (idUnidade) REFERENCES Unidades (id),
+FOREIGN KEY (idProduto) REFERENCES Produtos (id)
+);
+
+create table Entrada(
+id integer not null generated always as identity (start with 1, increment by 1),
+idProduto char(15) not null,
+idUnidade char(3) not null,
+dataEntrada date,
+quantidade integer not null,
 primary key (id),
 FOREIGN KEY (idUnidade) REFERENCES Unidades (id),
 FOREIGN KEY (idProduto) REFERENCES Produtos (id)

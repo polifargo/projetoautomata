@@ -16,14 +16,18 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/filtrodepesquisa.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                    <br>
+                    <br>
+                    <br>
                     <h2>Clientes cadastrados</h2>
-                    <table class="table">
+                    <table id="table" class="table">
                         <tr>
                             <th>Cliente ID</th>
                             <th>Nome</th>
@@ -57,6 +61,14 @@
                                        href="clientes?action=delete&id=<c:out value="${cliente.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroNome()" type="text" id="filtroNome" placeholder="Pesquisar por nome...">
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
+                        </div>
                     </table>
                     <a class="btn btn-primary" role="button" href="clientes?action=insert">Adicionar Cliente</a>
                     <a class="btn btn-danger" role="button" href="inicio">Voltar</a>

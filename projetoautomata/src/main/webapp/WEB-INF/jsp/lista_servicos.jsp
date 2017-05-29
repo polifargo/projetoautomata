@@ -16,6 +16,7 @@
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/filtrodepesquisa.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
@@ -23,7 +24,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h2>Servicos cadastrados</h2>
-                    <table class="table">
+                    <table id="table" class="table">
                         <tr>
                             <th>Servico ID</th>
                             <th>Descricao</th>
@@ -31,7 +32,7 @@
                             <th>Valor</th>
                             <th>Notas Internas</th>
                             <th>Inativo</th>
-                            <th  class="text-center" colspan="2">Ação</th>
+                            <th class="text-center" colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${servicos}" var="servico">
                             <tr>
@@ -47,6 +48,14 @@
                                        href="servicos?action=delete&id=<c:out value="${servico.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroDescricao()" type="text" id="filtroDescricao" placeholder="Pesquisar por descricao...">
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-inline" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
+                        </div>
                     </table>
                     <a class="btn btn-primary" role="button" href="servicos?action=insert">Adicionar Servico</a>
                     <a class="btn btn-danger" role="button" href="inicio">Voltar</a>

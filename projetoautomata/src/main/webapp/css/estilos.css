@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css?family=Dosis|Quicksand');
 
 .panel-body {
     float: none;
@@ -10,10 +10,7 @@
 body, html {
     height: 100%;
     background-repeat: no-repeat;
-    background: rgb(185,210,224); /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover,  rgba(185,210,224,1) 0%, rgba(187,214,228,1) 0%, rgba(186,211,225,1) 15%, rgba(186,211,225,1) 38%, rgba(169,199,215,1) 68%, rgba(169,199,215,1) 68%, rgba(169,199,215,1) 82%, rgba(158,191,208,1) 100%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover,  rgba(185,210,224,1) 0%,rgba(187,214,228,1) 0%,rgba(186,211,225,1) 15%,rgba(186,211,225,1) 38%,rgba(169,199,215,1) 68%,rgba(169,199,215,1) 68%,rgba(169,199,215,1) 82%,rgba(158,191,208,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center,  rgba(185,210,224,1) 0%,rgba(187,214,228,1) 0%,rgba(186,211,225,1) 15%,rgba(186,211,225,1) 38%,rgba(169,199,215,1) 68%,rgba(169,199,215,1) 68%,rgba(169,199,215,1) 82%,rgba(158,191,208,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background:#F5F5F5; /* Old browsers */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9d2e0', endColorstr='#9ebfd0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
@@ -35,20 +32,20 @@ hr{
 }
 
 .welcome{
-    font-family: "myriad-pro",sans-serif;
+    font-family: 'Quicksand';
     font-style: normal;
     font-weight: 100;
-    color:#FFFFFF;
+    color:#505050;
     margin-bottom:25px;
     margin-top:50px;
 
 }
 
 .login_title{
-    font-family: "myriad-pro",sans-serif;
+    font-family: 'Quicksand';
     font-style: normal;
     font-weight: 100;
-    color:rgba(164, 164, 164, 0.44);
+    color:#505050;
 }
 
 .card-container.card {
@@ -174,7 +171,7 @@ hr{
 
 a{ 
     text-decoration:none; 
-    color:#000000; 
+    color: white;
 }
 
 header{
@@ -193,7 +190,7 @@ header{
 }
 
 #loginbar{
-    background: rgb(0, 142, 189);
+    background: #4682B4;
     width: 100%;
     height: 25px;
     display: flex;
@@ -201,6 +198,7 @@ header{
     flex-wrap: nowrap;
     align-items: strech;
     justify-content: flex-end;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .itemLogin{
@@ -230,17 +228,23 @@ header{
 
 .abasItem{
     width: 100%;
-    background: rgb(0, 142, 189);
+    background: #4682B4;
+    font-family: 'Quicksand';
+    color: white;
     margin: 1px;
     font-size: 30px;
     text-align:center;
     line-height:50px;
 }
 
+.abasItem:hover{
+    color: #000000;
+}
+
 #telas{
     background: white;
     width: 100%;
-    height: 25px;
+    height: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -249,16 +253,28 @@ header{
 }
 
 .telasItem{
-    color: white;
     width: 150px;
-    background: rgb(0, 142, 189);
+    background: #4682B4;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;;
+    color: white;
     margin: 1px;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
     padding: 0px;
     float: left;
 }
+.telasItem:hover{
+    color: #000000;
+}
 
+.h2 {
+    font-family: 'Quicksand';
+    font-size: 40px;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
 /*
 .itemLogin{
     color: white;
