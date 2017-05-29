@@ -16,7 +16,7 @@ $(function () {
             }
         });
         if (cont === 0)
-        {
+        {   
             $("#form").submit();
         }});
     

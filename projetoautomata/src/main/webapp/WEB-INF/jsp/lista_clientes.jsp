@@ -53,7 +53,7 @@
                                 <td><c:out value="${cliente.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="clientes?action=edit&id=<c:out value="${cliente.id}"/>">Atualizar</a></td>
-                                <td><a role="button" class="btn btn-danger"
+                                <td><a onclick="return confirm('Tem certeza?');" role="button" class="btn btn-danger"
                                        href="clientes?action=delete&id=<c:out value="${cliente.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>

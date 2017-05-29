@@ -43,7 +43,7 @@
                                 <td><c:out value="${servico.inativo}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="servicos?action=edit&id=<c:out value="${servico.id}"/>">Atualizar</a></td>
-                                <td><a role="button" class="btn btn-danger"
+                                <td><a onclick="return confirm('Tem certeza?');" role="button" class="btn btn-danger"
                                        href="servicos?action=delete&id=<c:out value="${servico.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>

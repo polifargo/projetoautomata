@@ -45,7 +45,7 @@
                                 <td><c:out value="${produto.inativo}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="produtos?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
-                                <td><a role="button" class="btn btn-danger"
+                                <td><a onclick="return confirm('Tem certeza?');" role="button" class="btn btn-danger"
                                        href="produtos?action=delete&id=<c:out value="${produto.id}"/>">Inativar</a></td>
                             </tr>
                         </c:forEach>
