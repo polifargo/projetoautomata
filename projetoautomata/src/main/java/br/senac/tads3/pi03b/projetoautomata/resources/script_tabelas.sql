@@ -1,3 +1,20 @@
+create table Unidades(
+id char(3) not null,
+fantasia varchar(40),
+razao varchar(80),
+uf char(2),
+Cep varchar(9),
+Cidade varchar(60),
+Logradouro varchar(60),
+Bairro varchar(60),
+Email varchar(80),
+Telefone varchar(14),
+NotasInternas varchar(1000),
+Inativo integer,
+CadastroNacional varchar(18),
+primary key (id)
+);
+
 create Table Clientes (
 id int not null generated always as identity (start with 1, increment by 1),
 nome varchar(120),
@@ -113,35 +130,6 @@ senha varchar(15) not null,
 papel varchar(10) not null,
 email varchar(30),
 primary key (id)
-);
-
-create table Unidades(
-id char(3) not null,
-fantasia varchar(40),
-razao varchar(80),
-uf char(2),
-Cep varchar(9),
-Cidade varchar(60),
-Logradouro varchar(60),
-Bairro varchar(60),
-Email varchar(80),
-Telefone varchar(14),
-NotasInternas varchar(1000),
-Inativo integer,
-CadastroNacional varchar(18),
-primary key (id)
-);
-
-create table Saldo(
-id integer not null generated always as identity (start with 1, increment by 1),
-idUnidade char(3) not null,
-idProduto char(15) not null,
-quantidade integer not null,
-qtMinina integer,
-qtMaxima integer,
-primary key (id),
-FOREIGN KEY (idUnidade) REFERENCES Unidades (id),
-FOREIGN KEY (idProduto) REFERENCES Produtos (id)
 );
 
 create table Entrada(
