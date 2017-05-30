@@ -32,7 +32,7 @@ hr{
 }
 
 .welcome{
-    font-family: 'Quicksand';
+    font-family: "Segoe UI light",'Quicksand';
     font-style: normal;
     font-weight: 100;
     color:#505050;
@@ -42,7 +42,7 @@ hr{
 }
 
 .login_title{
-    font-family: 'Quicksand';
+    font-family: "Segoe UI light",'Quicksand';
     font-style: normal;
     font-weight: 100;
     color:#505050;
@@ -235,7 +235,7 @@ header{
 .abasItem{
     width: 100%;
     background: #4682B4;
-    font-family: 'Quicksand';
+    font-family: "Segoe UI light";
     color: white;
     margin: 1px;
     font-size: 30px;
@@ -261,20 +261,21 @@ header{
 .telasItem{
     width: 150px;
     background: #4682B4;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Segoe UI light",Helvetica,Arial,sans-serif;
     color: white;
     margin: 1px;
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
     padding: 0px;
     float: left;
 }
+
 .telasItem:hover{
-    color: #000000;
+    color: red;
 }
 
 h2 {
-    font-family: 'Quicksand';
+    font-family: "Segoe UI light";
     font-style: normal;
     font-weight: 100;
     color:#505050;

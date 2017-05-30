@@ -1,6 +1,9 @@
 th {
     background-color: #4682B4;
     color: white;
+    font-family: "Segoe UI light",Helvetica,Arial,sans-serif;
+    color: white;
+    font-size: 14px;
 }
 
 tr {
