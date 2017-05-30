@@ -175,18 +175,24 @@ a{
 }
 
 header{
-    weidth: 100%;
+    width: 100%;
     height: 100px;
+    background: #4682B4; /* For browsers that do not support gradients */
+    background: -webkit-radial-gradient(circle, #94c5ef, #5e98c9, #4682B4); /* Safari */
+    background: -o-radial-gradient(circle, #94c5ef, #5e98c9, #4682B4); /* Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(circle, #94c5ef, #5e98c9, #4682B4); /* Firefox 3.6 to 15 */
+    background: radial-gradient(circle, #94c5ef, #5e98c9, #4682B4); /* Standard syntax */
+
 }
 
 .logos #logotipo{
-    position: absolute;
-    right: 10px;
+    position: relative;
+    float: right;  
 }
 
 #loginbar img{
     width: 15px;
-    heigth: 15px;
+    height: 15px;
 }
 
 #loginbar{
@@ -213,7 +219,7 @@ header{
 }
 
 #espacadora{
-    height: 20px;
+    height: 1px;
 }
 
 #abas{
@@ -255,7 +261,7 @@ header{
 .telasItem{
     width: 150px;
     background: #4682B4;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: white;
     margin: 1px;
     font-size: 16px;
@@ -267,19 +273,9 @@ header{
     color: #000000;
 }
 
-.h2 {
+h2 {
     font-family: 'Quicksand';
-    font-size: 40px;
-    -webkit-margin-before: 0.83em;
-    -webkit-margin-after: 0.83em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+    font-style: normal;
+    font-weight: 100;
+    color:#505050;
 }
-/*
-.itemLogin{
-    color: white;
-    width: 130px;
-    line-height: 25px;
-    text-align: center;
-}
-*/

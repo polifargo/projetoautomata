@@ -23,9 +23,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <br>
-                    <br>
-                    <br>
                     <h2>Clientes cadastrados</h2>
                     <table id="table" class="table">
                         <tr>

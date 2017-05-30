@@ -38,7 +38,6 @@
 
         <header>
             <div class="logos">
-                <img id="logo" src="resources/logo.png">
                 <img id="logotipo" src="resources/logotipo.png">
             </div>
         </header>
