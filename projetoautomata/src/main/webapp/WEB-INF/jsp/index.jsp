@@ -47,6 +47,7 @@
                 <c:when test="${sessionScope.usuario.papel == 'BASICO'}">
                     <div class="abasItem cadastro">Consulta</div>
                     <div class="abasItem venda">Venda</div>
+                    <div class="abasItem servico">Serviço</div>
                 </c:when>
                 <c:when test="${sessionScope.usuario.papel == 'MEDIO'}">
                     <div class="abasItem cadastro">Consulta</div>
