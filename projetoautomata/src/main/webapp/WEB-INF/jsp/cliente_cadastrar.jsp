@@ -18,6 +18,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.maskedinput.js"></script>
         <script src="js/validacoes.js"></script>
+        <script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
     </head>
     <body>
         <c:import url="./cabecalho.jsp"/>
@@ -52,7 +53,7 @@
                 <div class="form-group row">
                     <div class="col-sm-4">
                         <label for="clientetipo">Tipo</label> 
-                        <select name="tipo" class="form-control">
+                        <select onchange="cnpjCPF()" id="tipoCliente" name="tipo" class="form-control">
                             <option value="F" ${tipo == 'F' ? 'selected' : ''}>Pessoa Física</option>
                             <option value="J" ${tipo == 'J' ? 'selected' : ''}>Pessoa Jurídica</option>
                         </select>

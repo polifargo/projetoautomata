@@ -16,11 +16,21 @@ $(function () {
             }
         });
         if (cont === 0)
-        {   
+        {
             $("#form").submit();
-        }});
-    
-    $("#cadastroNacional").mask('999.999.999-99', {reverse: true});
+        }
+    });
+
+    $("#cadastroNacional").mask("999.999.999-99");
+    $('#tipoCliente').change(function () {
+        var $selected = $(this).find('option:selected');
+        if ($selected.val() === 'F') {
+            $("#cadastroNacional").mask("999.999.999-99");
+        } else {
+            $("#cadastroNacional").mask("99.999.999/9999-99");
+        }
+    });
+
     $("#cep").mask("99999-999");
     $('#cnpj').mask('99.999.999/9999-99', {reverse: true});
     $('#telefone').mask("(99)9999-9999?9").ready(function (event) {
@@ -35,7 +45,7 @@ $(function () {
             element.mask("(99)9999-9999?9");
         }
     });
-    
+
     $("#valor").maskMoney({symbol: 'R$ ',
         showSymbol: true, thousands: '.', decimal: ',', symbolStay: true});
     $("#valorVenda").maskMoney({symbol: 'R$ ',
