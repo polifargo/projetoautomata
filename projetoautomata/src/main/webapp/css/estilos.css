@@ -176,7 +176,7 @@ a{
 
 header{
     width: 100%;
-    height: 100px;
+    height: 75px;
     background: #4682B4; /* For browsers that do not support gradients */
     background: -webkit-radial-gradient(circle, #94c5ef, #5e98c9, #4682B4); /* Safari */
     background: -o-radial-gradient(circle, #94c5ef, #5e98c9, #4682B4); /* Opera 11.6 to 12.0 */
@@ -187,6 +187,7 @@ header{
 
 .logos #logotipo{
     position: relative;
+    height: 75px;
     float: right;  
 }
 
