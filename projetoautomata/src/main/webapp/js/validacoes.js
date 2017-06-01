@@ -3,6 +3,9 @@ $(function () {
         if ($(this).val() === "")
         {
             $(this).css({"border": "1px solid #F00", "padding": "2px"});
+        } else if ($.trim($(this).val()) === "") {
+            $(this).css({"border": "1px solid #F00", "padding": "2px"});
+            $(this).val($.trim($(this).val()));
         }
     });
 
@@ -12,6 +15,10 @@ $(function () {
             if ($(this).val() === "")
             {
                 $(this).css({"border": "1px solid #F00", "padding": "2px"});
+                cont++;
+            } else if ($.trim($(this).val()) === "") {
+                $(this).css({"border": "1px solid #F00", "padding": "2px"});
+                $(this).val($.trim($(this).val()));
                 cont++;
             }
         });

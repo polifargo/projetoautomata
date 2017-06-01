@@ -31,7 +31,6 @@
                             <th>Tipo</th>
                             <th>Valor</th>
                             <th>Notas Internas</th>
-                            <th>Inativo</th>
                             <th class="text-center" colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${servicos}" var="servico">
@@ -41,7 +40,6 @@
                                 <td><c:out value="${servico.tipo}" /></td>
                                 <td><c:out value="${servico.valor}" /></td>
                                 <td><c:out value="${servico.notasInternas}" /></td>
-                                <td><c:out value="${servico.inativo}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="servicos?action=edit&id=<c:out value="${servico.id}"/>">Atualizar</a></td>
                                 <td><a onclick="return confirm('Tem certeza?');" role="button" class="btn btn-danger"
@@ -50,11 +48,11 @@
                         </c:forEach>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-inline" onkeyup="filtroDescricao()" type="text" id="filtroDescricao" placeholder="Pesquisar por descricao...">
+                            <input class="form-inline pesquisaField" onkeyup="filtroDescricao()" type="text" id="filtroDescricao" placeholder="Pesquisar por descricao...">
                         </div>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-inline" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
+                            <input class="form-inline pesquisaField" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
                         </div>
                     </table>
                     <a class="btn btn-primary" role="button" href="servicos?action=insert">Adicionar Servico</a>

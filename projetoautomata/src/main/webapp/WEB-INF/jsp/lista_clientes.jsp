@@ -35,7 +35,6 @@
                             <th>Cidade</th>
                             <th>Email</th>
                             <th>Telefone</th>
-                            <th>Inativo</th>
                             <th>Cadastro Nacional</th>
                             <th class="text-center" colspan="2">Ação</th>
                         </tr>
@@ -50,7 +49,6 @@
                                 <td><c:out value="${cliente.cidade}" /></td>
                                 <td><c:out value="${cliente.email}" /></td>
                                 <td><c:out value="${cliente.telefone}" /></td>
-                                <td><c:out value="${cliente.inativo}" /></td>
                                 <td><c:out value="${cliente.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="clientes?action=edit&id=<c:out value="${cliente.id}"/>">Atualizar</a></td>
@@ -60,11 +58,11 @@
                         </c:forEach>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-inline" onkeyup="filtroNome()" type="text" id="filtroNome" placeholder="Pesquisar por nome...">
+                            <input class="form-inline pesquisaField" onkeyup="filtroNome()" type="text" id="filtroNome" placeholder="Pesquisar por nome...">
                         </div>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-inline" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
+                            <input class="form-inline pesquisaField" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
                         </div>
                     </table>
                     <a class="btn btn-primary" role="button" href="clientes?action=insert">Adicionar Cliente</a>

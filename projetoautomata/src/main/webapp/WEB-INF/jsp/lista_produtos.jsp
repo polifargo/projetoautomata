@@ -32,7 +32,6 @@
                             <th>Valor Custo</th>
                             <th>Valor Venda</th>
                             <th>Notas Internas</th>
-                            <th>Inativo</th>
                             <th class="text-center" colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${produtos}" var="produto">
@@ -43,7 +42,6 @@
                                 <td><c:out value="${produto.valorCusto}" /></td>
                                 <td><c:out value="${produto.valorVenda}" /></td>
                                 <td><c:out value="${produto.notasInternas}" /></td>
-                                <td><c:out value="${produto.inativo}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="produtos?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
                                 <td><a onclick="return confirm('Tem certeza?');" role="button" class="btn btn-danger"
@@ -52,11 +50,11 @@
                         </c:forEach>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-inline" onkeyup="filtroModelo()" type="text" id="filtroModelo" placeholder="Pesquisar por modelo...">
+                            <input class="form-inline pesquisaField" onkeyup="filtroModelo()" type="text" id="filtroModelo" placeholder="Pesquisar por modelo...">
                         </div>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-inline" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
+                            <input class="form-inline pesquisaField" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
                         </div>
                     </table>
                     <a class="btn btn-primary" role="button" href="produtos?action=insert">Adicionar Produto</a>

@@ -35,7 +35,6 @@
                             <th>Email</th>
                             <th>Telefone</th>
                             <th>Notas Internas</th>
-                            <th>Inativo</th>
                             <th>Cadastro Nacional</th>
                             <th class="text-center" colspan="2">Ação</th>
                         </tr>
@@ -50,7 +49,6 @@
                                 <td><c:out value="${unidade.email}" /></td>
                                 <td><c:out value="${unidade.telefone}" /></td>
                                 <td><c:out value="${unidade.notasInternas}" /></td>
-                                <td><c:out value="${unidade.inativo}" /></td>
                                 <td><c:out value="${unidade.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="unidades?action=edit&id=<c:out value="${unidade.id}"/>">Atualizar</a></td>
@@ -60,11 +58,11 @@
                         </c:forEach>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-inline" onkeyup="filtroFantasia()" type="text" id="filtroFantasia" placeholder="Pesquisar por fantasia...">
+                            <input class="form-inline pesquisaField" onkeyup="filtroFantasia()" type="text" id="filtroFantasia" placeholder="Pesquisar por fantasia...">
                         </div>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-inline" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
+                            <input class="form-inline pesquisaField" onkeyup="filtroID()" type="text" id="filtroID" placeholder="Pesquisar por ID...">
                         </div>
                     </table>
                     <a class="btn btn-primary" role="button" href="unidades?action=insert">Adicionar Unidade</a>
