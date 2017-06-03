@@ -15,7 +15,7 @@ public class UnidadeService {
 
     public boolean validarCampos(Unidade unidade) {
         return !(!unidade.getEmail().contains("@") || !unidade.getEmail().contains(".")
-                || unidade.getFantasia().equals("") || unidade.getRazao().equals("") || unidade.getBairro().equals("")
-                || unidade.getCidade().equals("") || unidade.getLogradouro().equals("") || unidade.getTelefone().equals(""));
+                || unidade.getFantasia().equals("") || unidade.getRazao().equals("")
+                || unidade.getCidade().equals("") ||  unidade.getTelefone().equals(""));
     }
 }

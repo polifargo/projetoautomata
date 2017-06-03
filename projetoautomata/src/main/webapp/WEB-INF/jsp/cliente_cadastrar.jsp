@@ -32,13 +32,13 @@
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="clientenome">Nome</label> 
-                        <input class="form-control" type="text"
+                        <input class="form-control obrigatorio" type="text"
                                name="nome" value="<c:out value="${cliente.nome}" />"
                                placeholder="Nome..." maxlength="120" id="nome" required/>
                     </div>
                     <div class="col-sm-4">
                         <label for="clienteapelido">Apelido</label> 
-                        <input class="form-control" type="text"
+                        <input class="form-control obrigatorio" type="text"
                                name="apelido" value="<c:out value="${cliente.apelido}" />"
                                placeholder="Apelido..." maxlength="60" id="apelido" required/>
                     </div>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-sm-4">
                         <label for="clientecadastronacional">Cadastro Nacional</label>
-                        <input class="form-control" type="text" id="cadastroNacional" 
+                        <input class="form-control obrigatorio" type="text" id="cadastroNacional" 
                                name="cadastroNacional" value="<c:out value="${cliente.cadastroNacional}" />"
                                placeholder="CPF/CNPJ..." maxlength="18" required/>
                     </div>
@@ -107,13 +107,13 @@
                     </div>
                     <div class="col-sm-2">
                         <label for="clientecep">CEP</label>
-                        <input class="form-control" type="text" 
+                        <input class="form-control obrigatorio" type="text" 
                                name="cep" value="<c:out value="${cliente.cep}" />"
                                placeholder="CEP..." maxlength="9" id="cep" required/>
                     </div>
                     <div class="col-sm-3">
                         <label for="clientecidade">Cidade</label>
-                        <input class="form-control" type="text" 
+                        <input class="form-control obrigatorio" type="text" 
                                name="cidade" value="<c:out value="${cliente.cidade}" />"
                                placeholder="Cidade..." maxlength="60" id="cidade" required/>
                     </div>
@@ -121,7 +121,7 @@
                         <label for="clientelogradouro">Logradouro</label>
                         <input class="form-control" type="text" 
                                name="logradouro" value="<c:out value="${cliente.logradouro}" />"
-                               placeholder="Logradouro..." maxlength="60" id="logradouro" required/>
+                               placeholder="Logradouro..." maxlength="60" id="logradouro"/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -129,17 +129,17 @@
                         <label for="clientebairro">Bairro</label>
                         <input class="form-control" type="text" 
                                name="bairro" value="<c:out value="${cliente.bairro}" />"
-                               placeholder="Bairro..." maxlength="60" id="bairro" required/>
+                               placeholder="Bairro..." maxlength="60" id="bairro"/>
                     </div>
                     <div class="col-sm-4">
                         <label for="clienteemail">Email</label> 
-                        <input class="form-control" type="email"
+                        <input class="form-control obrigatorio" type="email"
                                name="email" value="<c:out value="${cliente.email}" />"
-                               placeholder="Email..." maxlength="80" id="email" required/>
+                               placeholder="Email..." maxlength="80" id="email"/>
                     </div>
                     <div class="col-sm-4">
                         <label for="clientetelefone">Telefone</label> 
-                        <input class="form-control" type="text"
+                        <input class="form-control obrigatorio" type="text"
                                name="telefone" value="<c:out value="${cliente.telefone}" />"
                                placeholder="Telefone..." maxlength="14" id="telefone" required/>
                     </div>
@@ -149,7 +149,7 @@
                         <label for="clientenotasinternas">Notas Internas</label> 
                         <input class="form-control" type="textarea"
                                name="notasInternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${cliente.notasInternas}" />"
-                               id="telefone" id="notasinternas" required/>
+                               id="telefone" id="notasinternas"/>
                     </div>
                     <div class="col-lg-2">
                         <input class="form-control" type="submit" id="submit" value="Salvar" />

@@ -30,7 +30,6 @@
                             <th>Descricao</th>
                             <th>Tipo</th>
                             <th>Valor</th>
-                            <th>Notas Internas</th>
                             <th class="text-center" colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${servicos}" var="servico">
@@ -39,7 +38,6 @@
                                 <td><c:out value="${servico.descricao}" /></td>
                                 <td><c:out value="${servico.tipo}" /></td>
                                 <td><c:out value="${servico.valor}" /></td>
-                                <td><c:out value="${servico.notasInternas}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="servicos?action=edit&id=<c:out value="${servico.id}"/>">Atualizar</a></td>
                                 <td><a onclick="return confirm('Tem certeza?');" role="button" class="btn btn-danger"
@@ -48,7 +46,8 @@
                         </c:forEach>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-inline pesquisaField" onkeyup="filtroDescricao()" type="text" id="filtroDescricao" placeholder="Pesquisar por descricao...">
+                            <input class="form-inline pesquisaField" onkeyup="filtroDescricao()" 
+                                   type="text" id="filtroDescricao" placeholder="Pesquisar por descricao...">
                         </div>
                         <div class="col-sm-4">
                             <span class="glyphicon glyphicon-search"></span>

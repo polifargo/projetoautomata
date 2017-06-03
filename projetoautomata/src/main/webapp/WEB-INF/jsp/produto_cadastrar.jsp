@@ -27,13 +27,13 @@
                 <div class="form-group row" >
                     <div class="col-sm-2">
                         <label for="produtoid">Produto ID</label> 
-                        <input  class="form-control" type="text"
+                        <input  class="form-control obrigatorio" type="text"
                                 name="id" value="<c:out value="${produto.id}" />"
                                 maxlength="15" placeholder="Produto ID" required/>
                     </div>
                     <div class="col-sm-5">
                         <label for="produtomodelo">Modelo</label>
-                        <input class="form-control" type="text"
+                        <input class="form-control obrigatorio" type="text"
                                name="modelo" value="<c:out value="${produto.modelo}" />"
                                placeholder="Modelo..." maxlength="60" required/>
                     </div>
@@ -49,13 +49,13 @@
                 <div class="form-group row">
                     <div class="col-sm-4">
                         <label for="produtovalor">Valor Custo</label> 
-                        <input class="form-control" type="text" id="valorCusto"
+                        <input class="form-control obrigatorio" type="text" id="valorCusto"
                                name="valorCusto" value="<c:out value="${produto.valorCusto}"/>"
                                placeholder="Valor Custo..." required/>
                     </div>
                     <div class="col-sm-4">
                         <label for="produtovalor">Valor Venda</label> 
-                        <input class="form-control" type="text" id="valorVenda"
+                        <input class="form-control obrigatorio" type="text" id="valorVenda"
                                name="valorVenda" value="<c:out value="${produto.valorVenda}"/>"
                                placeholder="Valor Venda..." required/>
                     </div>
@@ -70,7 +70,7 @@
                 <div class="form-group row">
                     <div class="col-sm-8">
                         <label for="clientenotasinternas">Notas Internas</label> 
-                        <input class="form-control" type="textarea" required
+                        <input class="form-control" type="textarea"
                                name="notasInternas" maxlength="1000" placeholder="Notas Internas..." value="<c:out value="${produto.notasInternas}" />"/>
                     </div>
                     <div class="col-sm-2">

@@ -1,5 +1,5 @@
 $(function () {
-    $("input").blur(function () {
+    $(".obrigatorio").blur(function () {
         if ($(this).val() === "")
         {
             $(this).css({"border": "1px solid #F00", "padding": "2px"});
@@ -11,7 +11,7 @@ $(function () {
 
     $("#submit").click(function () {
         var cont = 0;
-        $("#form input").each(function () {
+        $("#form .obrigatorio").each(function () {
             if ($(this).val() === "")
             {
                 $(this).css({"border": "1px solid #F00", "padding": "2px"});

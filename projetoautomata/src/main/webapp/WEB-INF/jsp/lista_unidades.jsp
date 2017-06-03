@@ -34,7 +34,6 @@
                             <th>Cidade</th>
                             <th>Email</th>
                             <th>Telefone</th>
-                            <th>Notas Internas</th>
                             <th>Cadastro Nacional</th>
                             <th class="text-center" colspan="2">Ação</th>
                         </tr>
@@ -48,7 +47,6 @@
                                 <td><c:out value="${unidade.cidade}" /></td>
                                 <td><c:out value="${unidade.email}" /></td>
                                 <td><c:out value="${unidade.telefone}" /></td>
-                                <td><c:out value="${unidade.notasInternas}" /></td>
                                 <td><c:out value="${unidade.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="unidades?action=edit&id=<c:out value="${unidade.id}"/>">Atualizar</a></td>

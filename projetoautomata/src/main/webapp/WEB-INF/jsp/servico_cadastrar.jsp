@@ -28,13 +28,13 @@
                 <div class="form-group row">
                     <div class="col-sm-4">
                         <label for="servicoid">Servico ID</label> 
-                        <input class="form-control" type="text"
+                        <input class="form-control obrigatorio" type="text"
                                name="id" value="<c:out value="${servico.id}" />"
                                maxlength="15" placeholder="Servico ID" required/>
                     </div>
                     <div class="col-sm-8">
                         <label for="servicodescricao">Descrição</label> 
-                        <input class="form-control" type="text"
+                        <input class="form-control obrigatorio" type="text"
                                name="descricao" value="<c:out value="${servico.descricao}" />"
                                placeholder="Descrição..." maxlength="60" required/>
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-sm-4">
                         <label for="servicovalor">Valor</label> 
-                        <input class="form-control" type="text" id="valor"
+                        <input class="form-control obrigatorio" type="text" id="valor"
                                name="valor" value="<c:out value="${servico.valor}" />"
                                placeholder="Valor..." required/>
                     </div>
@@ -67,7 +67,7 @@
                         <label for="serviconotasinternas">Notas Internas</label> 
                         <input class="form-control" type="textarea"
                                name="notasInternas" value="<c:out value="${servico.notasInternas}" />"
-                               placeholder="Notas Internas..." maxlength="1000" requireds/>
+                               placeholder="Notas Internas..." maxlength="1000"/>
                     </div>
                     <div class="col-sm-2">
                         <input class="form-control" type="submit" value="Salvar" />

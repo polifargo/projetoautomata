@@ -31,7 +31,6 @@
                             <th>Unidade</th>
                             <th>Valor Custo</th>
                             <th>Valor Venda</th>
-                            <th>Notas Internas</th>
                             <th class="text-center" colspan="2">Ação</th>
                         </tr>
                         <c:forEach items="${produtos}" var="produto">
@@ -41,7 +40,6 @@
                                 <td><c:out value="${produto.unidade}" /></td>
                                 <td><c:out value="${produto.valorCusto}" /></td>
                                 <td><c:out value="${produto.valorVenda}" /></td>
-                                <td><c:out value="${produto.notasInternas}" /></td>
                                 <td><a role="button" class="btn btn-primary"
                                        href="produtos?action=edit&id=<c:out value="${produto.id}"/>">Atualizar</a></td>
                                 <td><a onclick="return confirm('Tem certeza?');" role="button" class="btn btn-danger"
