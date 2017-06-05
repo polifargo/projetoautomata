@@ -30,9 +30,7 @@
                             <th>Fantasia</th>
                             <th>Razao</th>
                             <th>UF</th>
-                            <th>CEP</th>
                             <th>Cidade</th>
-                            <th>Email</th>
                             <th>Telefone</th>
                             <th>Cadastro Nacional</th>
                             <th class="text-center" colspan="2">Ação</th>
@@ -43,9 +41,7 @@
                                 <td><c:out value="${unidade.fantasia}" /></td>
                                 <td><c:out value="${unidade.razao}" /></td>
                                 <td><c:out value="${unidade.uf}" /></td>
-                                <td><c:out value="${unidade.cep}" /></td>
                                 <td><c:out value="${unidade.cidade}" /></td>
-                                <td><c:out value="${unidade.email}" /></td>
                                 <td><c:out value="${unidade.telefone}" /></td>
                                 <td><c:out value="${unidade.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"

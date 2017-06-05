@@ -38,6 +38,7 @@
 
         <header>
             <div class="logos">
+                <img id="logo" src="resources/logo.png" height="80">
                 <img id="logotipo" src="resources/logotipo.png">
             </div>
         </header>
@@ -56,9 +57,10 @@
                 </c:when>
                 <c:otherwise>
                     <div class="abasItem venda">Venda</div>
-                    <div class="abasItem cadastro">Consulta</div>
                     <div class="abasItem servico">Serviço</div>
+                    <div class="abasItem cadastro">Consulta</div>
                     <div class="abasItem estoque">Estoque</div>
+                    <div class="abasItem gerencia">Gerência</div>
                 </c:otherwise>
             </c:choose>
         </div>
@@ -108,9 +110,20 @@
                     <div class="telasItem cadastro" style="display:none;">
                         <a href="unidades">Unidades</a>
                     </div>
+                    
+                    <div class="telasItem gerencia" style="display:none;">
+                        <a href="unidades?action=insert">Unidades</a>
+                    </div>
+                    
+                    <div class="telasItem gerencia" style="display:none;">
+                        <a href="servicos?action=insert">Serviços</a>
+                    </div>
+                    <div class="telasItem gerencia" style="display:none;">
+                        <a href="produtos?action=insert">Produtos</a>
+                    </div>
 
                     <div class="telasItem estoque" style="display:none;">
-                        <a href="estoque">Estoque</a>
+                        <a href="estoque">Saldos</a>
                     </div>
 
                     <div class="telasItem venda" style="display:none;">

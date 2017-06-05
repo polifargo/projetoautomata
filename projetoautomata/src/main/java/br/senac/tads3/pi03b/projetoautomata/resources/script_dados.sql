@@ -11,9 +11,9 @@ insert into clientes (inativo, nome, apelido, tipo, uf, cep, cidade, logradouro,
 insert into clientes (inativo, nome, apelido, tipo, uf, cep, cidade, logradouro, bairro, email, telefone) values (1, 'renato garcia gil', 'renato garcia gil', 'f', 'rs', '06070-130', 'porto alegre', 'rua joaquim jacinto, 120 -', 'bela vista', 'rggil@uol.com.br', '1198982858');
 insert into clientes (inativo, nome, apelido, tipo, uf, cep, cidade, logradouro, bairro, email, telefone) values (1, 'antonio denisson martins barbosa', 'antonio denisson mar', 'j', 'rs', '14784-200', 'porto alegre', 'via conselheiro antonio prado, 1400 - dep. financeiro', 'pedro cavalini', 'denisson_445@hotmail.com', '1778123731');
 
-insert into Unidades (inativo, id, fantasia, razao, uf, cidade, logradouro, bairro, CadastroNacional) values (1, 'ESP', 'Unidade SP', 'UNIDADE DE SÃO PAULO LTDA', 'SP', 'SÃO PAULO', 'AV PAULISTA, 2002', 'CERQUEIRA CESAR', '56259656000188');
-insert into Unidades (inativo, id, fantasia, razao, uf, cidade, logradouro, bairro, CadastroNacional) values (1, 'EPE', 'Unidade PE', 'UNIDADE DE PERNAMBUCO LTDA', 'PE', 'PERNAMBUCO', 'AV PERNAMBUCANA, 564', 'PANELAS', '56259656000269');
-insert into Unidades (inativo, id, fantasia, razao, uf, cidade, logradouro, bairro, CadastroNacional) values (1, 'ERS', 'Unidade RS', 'UNIDADE DO RIO GRANDE DO S LTDA', 'RS', 'RIO GRANDE DO S', 'AV RIO GRANDE, 22', 'FLORIPA', '56259656000340');
+insert into Unidades (inativo, id, fantasia, razao, uf, cidade, logradouro, bairro, CadastroNacional) values (1, 'ESP', 'Unidade SP', 'UNIDADE DE SÃO PAULO LTDA', 'SP', 'SÃO PAULO', 'AV PAULISTA, 2002', 'CERQUEIRA CESAR', '56.259.656/0001-88');
+insert into Unidades (inativo, id, fantasia, razao, uf, cidade, logradouro, bairro, CadastroNacional) values (1, 'EPE', 'Unidade PE', 'UNIDADE DE PERNAMBUCO LTDA', 'PE', 'PERNAMBUCO', 'AV PERNAMBUCANA, 564', 'PANELAS', '56.259.656/0002-69');
+insert into Unidades (inativo, id, fantasia, razao, uf, cidade, logradouro, bairro, CadastroNacional) values (1, 'ERS', 'Unidade RS', 'UNIDADE DO RIO GRANDE DO S LTDA', 'RS', 'RIO GRANDE DO S', 'AV RIO GRANDE, 22', 'FLORIPA', '56.259.656/0003-40');
 
 insert into TipoServico (id, Descricao) values (1, 'Conserto de notebooks');
 insert into TipoServico (id, Descricao) values (2, 'Upgrade equipamento');

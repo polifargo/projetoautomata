@@ -11,11 +11,25 @@ tr {
 }
 
 form {
-    margin:10px auto;
+    background-color: #FFFFFF;
+    /* just in case there no content*/
+    margin: 20px auto;
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     max-width: 1000px;
     padding: 20px 12px 10px 20px;
     font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
+
 form li {
     padding: 0;
     display: block;

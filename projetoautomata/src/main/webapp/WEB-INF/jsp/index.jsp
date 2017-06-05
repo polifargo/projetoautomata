@@ -38,6 +38,7 @@
 
         <header>
             <div class="logos">
+                <img id="logo" src="resources/logo.png" height="75">
                 <img id="logotipo" src="resources/logotipo.png">
             </div>
         </header>
@@ -51,14 +52,15 @@
                 </c:when>
                 <c:when test="${sessionScope.usuario.papel == 'MEDIO'}">
                     <div class="abasItem cadastro">Consulta</div>
-                    <div class="abasItem servico">Servico</div>
+                    <div class="abasItem servico">Serviço</div>
                     <div class="abasItem estoque">Estoque</div>
                 </c:when>
                 <c:otherwise>
                     <div class="abasItem venda">Venda</div>
+                    <div class="abasItem servico">Serviço</div>
                     <div class="abasItem cadastro">Consulta</div>
-                    <div class="abasItem servico">Servico</div>
                     <div class="abasItem estoque">Estoque</div>
+                    <div class="abasItem gerencia">Gerência</div>
                 </c:otherwise>
             </c:choose>
         </div>
@@ -82,7 +84,7 @@
                         <a href="produtos">Produtos</a>
                     </div>
                     <div class="telasItem servico" style="display:none;">
-                        <a href="servicos">Servicos</a>
+                        <a href="servicos">Serviços</a>
                     </div>
                     <div class="telasItem estoque" style="display:none;">
                         <a href="estoque">Estoque</a>
@@ -98,19 +100,19 @@
                     </div>
 
                     <div class="telasItem servico" style="display:none;">
-                        <a href="servicos">Servicos</a>
+                        <a href="servicos">Serviços</a>
                     </div>
 
                     <div class="telasItem servico" style="display:none;">
                         <a href="prestacaoservico">Prestação Serviço</a>
                     </div>
 
-                    <div class="telasItem cadastro" style="display:none;">
+                    <div class="telasItem gerencia" style="display:none;">
                         <a href="unidades">Unidades</a>
                     </div>
 
                     <div class="telasItem estoque" style="display:none;">
-                        <a href="estoque">Estoque</a>
+                        <a href="estoque">Saldos</a>
                     </div>
 
                     <div class="telasItem venda" style="display:none;">

@@ -27,13 +27,9 @@
                     <table id="table" class="table">
                         <tr>
                             <th>Cliente ID</th>
-                            <th>Nome</th>
                             <th>Apelido</th>
-                            <th>Tipo</th>
-                            <th>UF</th>
-                            <th>CEP</th>
+                            <th>Nome</th>
                             <th>Cidade</th>
-                            <th>Email</th>
                             <th>Telefone</th>
                             <th>Cadastro Nacional</th>
                             <th class="text-center" colspan="2">Ação</th>
@@ -41,13 +37,9 @@
                         <c:forEach items="${clientes}" var="cliente">
                             <tr>
                                 <td><c:out value="${cliente.id}" /></td>
-                                <td><c:out value="${cliente.nome}" /></td>
                                 <td><c:out value="${cliente.apelido}" /></td>
-                                <td><c:out value="${cliente.tipo}" /></td>
-                                <td><c:out value="${cliente.uf}" /></td>
-                                <td><c:out value="${cliente.cep}" /></td>
-                                <td><c:out value="${cliente.cidade}" /></td>
-                                <td><c:out value="${cliente.email}" /></td>
+                                <td><c:out value="${cliente.nome}" /></td>
+                                <td><c:out value="${cliente.cidade}" /></td>                              
                                 <td><c:out value="${cliente.telefone}" /></td>
                                 <td><c:out value="${cliente.cadastroNacional}" /></td>
                                 <td><a role="button" class="btn btn-primary"
