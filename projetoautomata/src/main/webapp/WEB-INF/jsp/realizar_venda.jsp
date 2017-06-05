@@ -61,7 +61,7 @@
                     <div class="col-sm-2">
                         <label for="vendaproduto">Produtos</label>
                         <select id="produto" name="produto" required class="form-control">
-                            <option value="" selected="selected">Selecione um produto...</option>
+                            <option value="" disabled selected="selected">Selecione um produto...</option>
                             <c:forEach var="produto" items="${produtos}">
                                 <option value="${produto.id} + ${produto.valorVenda}">${produto.modelo}</option>
                             </c:forEach>
