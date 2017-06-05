@@ -60,7 +60,8 @@
                 <div class="form-group row">
                     <div class="col-sm-2">
                         <label for="vendaproduto">Produtos</label>
-                        <select onchange="getValorUnitario()" id="produto" name="produto" required class="form-control">
+                        <select id="produto" name="produto" required class="form-control">
+                            <option value="" selected="selected">Selecione um produto...</option>
                             <c:forEach var="produto" items="${produtos}">
                                 <option value="${produto.id} + ${produto.valorVenda}">${produto.modelo}</option>
                             </c:forEach>
@@ -76,7 +77,7 @@
                     </div>
                     <div class="col-sm-2">
                         <label for="vendaadicionar">Insira no carrinho</label>
-                        <a onclick="addCart()" role="button" id="adicionar" class="btn btn-primary">Adicionar</a>
+                        <a role="button" id="adicionar" class="btn btn-primary">Adicionar</a>
                     </div>
                     <div class="col-sm-5">
                         <label for="vendacarrinho">Carrinho</label> 
