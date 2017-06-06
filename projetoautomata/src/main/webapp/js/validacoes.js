@@ -24,6 +24,7 @@ $(function () {
         });
         if (cont === 0)
         {
+            alert("Cadastro realizado com sucesso! Redirecionando...");
             $("#form").submit();
         }
     });

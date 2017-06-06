@@ -60,7 +60,7 @@
                 <div class="form-group row">
                     <div class="col-sm-2">
                         <label for="vendaproduto">Produtos</label>
-                        <select id="produto" name="produto" required class="form-control">
+                        <select id="produto" name="produto" class="form-control">
                             <option value="" disabled selected="selected">Selecione um produto...</option>
                             <c:forEach var="produto" items="${produtos}">
                                 <option value="${produto.id} + ${produto.valorVenda}">${produto.modelo}</option>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-sm-1">
                         <label for="vendaquantidade">Quantidade</label>
-                        <input min='1' class="form-control" type="number" id="quantidadeVenda" name="quantidade"/>
+                        <input min='1' value='1' class="form-control" type="number" id="quantidadeVenda" name="quantidade"/>
                     </div>
                     <div class="col-sm-2">
                         <label for="vendaadicionar">Insira no carrinho</label>
