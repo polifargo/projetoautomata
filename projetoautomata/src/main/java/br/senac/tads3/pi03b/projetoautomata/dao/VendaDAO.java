@@ -8,6 +8,7 @@ package br.senac.tads3.pi03b.projetoautomata.dao;
 import br.senac.tads3.pi03b.projetoautomata.models.ItemVenda;
 import br.senac.tads3.pi03b.projetoautomata.models.Venda;
 import br.senac.tads3.pi03b.projetoautomata.utils.DbUtil;
+import br.senac.tads3.pi03b.projetoautomata.dao.ClienteDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -205,9 +206,10 @@ public class VendaDAO {
 
     public List<Venda> getListaVenda() throws SQLException, ClassNotFoundException {
         List<Venda> listaVenda = new ArrayList<>();
-
+        ClienteDAO cli = new ClienteDAO();
+        
         connection = DbUtil.getConnection();
-        String query1 = "SELECT * FROM Venda ORDER BY id";
+        String query1 = "SELECT * FROM Venda ORDER BY DATA";
         try {
             Statement st = connection.createStatement();
             ResultSet resultSet = st.executeQuery(query1);
@@ -217,6 +219,7 @@ public class VendaDAO {
                 venda.setIdCliente(resultSet.getInt("idCliente"));
                 venda.setFormaPagamento(resultSet.getString("FormaPagamento"));
                 venda.setNotasInternas(resultSet.getString("NotasInternas"));
+                venda.setCliente(cli.getClienteById(resultSet.getInt("idCliente")));
 
                 String query2 = "SELECT * FROM ItensVenda WHERE idVenda = " + venda.getId();
                 ResultSet resultSetItens = st.executeQuery(query2);
@@ -248,6 +251,7 @@ public class VendaDAO {
 
     public Venda getVendaById(int id) throws SQLException, ClassNotFoundException {
         Venda venda = new Venda();
+        ClienteDAO cli = new ClienteDAO();
         connection = DbUtil.getConnection();
         try {
             String query1 = "SELECT * FROM Venda WHERE id=?";
@@ -259,7 +263,8 @@ public class VendaDAO {
                 venda.setIdCliente(resultSet.getInt("idCliente"));
                 venda.setFormaPagamento(resultSet.getString("FormaPagamento"));
                 venda.setNotasInternas(resultSet.getString("NotasInternas"));
-
+                venda.setCliente(cli.getClienteById(resultSet.getInt("idCliente")));
+                
                 String query2 = "SELECT * FROM ItensVenda WHERE idVenda = " + venda.getId();
                 ResultSet resultSetItens = preparedStatement.executeQuery(query2);
 

@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="">
         <meta name="description" content="">
-        <title>Welcome</title>
+        <title>Automata</title>
         <link rel="stylesheet" type="text/css" href="css/listaform.css" />
         <link href="css/estilos.css" rel="stylesheet" />
         <script src="js/comportamentos.js"></script>
@@ -38,7 +38,6 @@
 
         <header>
             <div class="logos">
-                <img id="logo" src="resources/logo.png" height="75">
                 <img id="logotipo" src="resources/logotipo.png">
             </div>
         </header>
@@ -52,15 +51,14 @@
                 </c:when>
                 <c:when test="${sessionScope.usuario.papel == 'MEDIO'}">
                     <div class="abasItem cadastro">Consulta</div>
-                    <div class="abasItem servico">Serviço</div>
+                    <div class="abasItem servico">Servico</div>
                     <div class="abasItem estoque">Estoque</div>
                 </c:when>
                 <c:otherwise>
                     <div class="abasItem venda">Venda</div>
-                    <div class="abasItem servico">Serviço</div>
                     <div class="abasItem cadastro">Consulta</div>
+                    <div class="abasItem servico">Servico</div>
                     <div class="abasItem estoque">Estoque</div>
-                    <div class="abasItem gerencia">Gerência</div>
                 </c:otherwise>
             </c:choose>
         </div>
@@ -84,7 +82,7 @@
                         <a href="produtos">Produtos</a>
                     </div>
                     <div class="telasItem servico" style="display:none;">
-                        <a href="servicos">Serviços</a>
+                        <a href="servicos">Servicos</a>
                     </div>
                     <div class="telasItem estoque" style="display:none;">
                         <a href="estoque">Estoque</a>
@@ -100,29 +98,31 @@
                     </div>
 
                     <div class="telasItem servico" style="display:none;">
-                        <a href="servicos">Serviços</a>
+                        <a href="servicos">Servicos</a>
                     </div>
 
                     <div class="telasItem servico" style="display:none;">
                         <a href="prestacaoservico">Prestação Serviço</a>
                     </div>
 
-                    <div class="telasItem gerencia" style="display:none;">
+                    <div class="telasItem cadastro" style="display:none;">
                         <a href="unidades">Unidades</a>
                     </div>
 
                     <div class="telasItem estoque" style="display:none;">
-                        <a href="estoque">Saldos</a>
+                        <a href="estoque">Estoque</a>
                     </div>
 
                     <div class="telasItem venda" style="display:none;">
                         <a href="venda">Realizar Venda</a>
                     </div>
+                    
+                    <div class="telasItem venda" style="display:none;">
+                        <a href="listavenda">Relatório</a>
+                    </div>
                 </div>
             </c:otherwise>
         </c:choose>
-
-
     </div>
 </c:if>
 </body>

@@ -1,6 +1,7 @@
 package br.senac.tads3.pi03b.projetoautomata.models;
 
 import java.util.ArrayList;
+import br.senac.tads3.pi03b.projetoautomata.models.Cliente;
 
 /**
  *
@@ -11,6 +12,7 @@ public class Venda {
     private ArrayList<ItemVenda> itensVenda = new ArrayList<ItemVenda>();
 
     private int Id;
+    private Cliente cliente;
     private int idCliente;
     private float valor;
     private String tecnico;
@@ -119,5 +121,13 @@ public class Venda {
 
     public void setNotasInternas(String notasInternas) {
         this.notasInternas = notasInternas;
+    }
+    
+    public Cliente getCliente() {
+        return cliente;
+    }
+    
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }
