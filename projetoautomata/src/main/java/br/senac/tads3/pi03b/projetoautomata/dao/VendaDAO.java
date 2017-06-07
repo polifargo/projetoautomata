@@ -47,49 +47,15 @@ public class VendaDAO {
 
             //Executa o comando no banco de dados
             preparedStatement1.executeUpdate();
-
-        } finally {
-            //Se o statement ainda estiver aberto, realiza seu fechamento
-            if (preparedStatement1 != null && !preparedStatement1.isClosed()) {
-                preparedStatement1.close();
-            }
-
-            if (preparedStatement2 != null && !preparedStatement2.isClosed()) {
-                preparedStatement2.close();
-            }
-            //Se a conexão ainda estiver aberta, realiza seu fechamento
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
-        }
-    }
-
-    public void inserir(Venda venda)
-            throws SQLException, Exception {
-        connection = DbUtil.getConnection();
-        ArrayList<ItemVenda> itens = new ArrayList<ItemVenda>();
-        //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql1 = "INSERT INTO Venda (idCliente, FormaPagamento, Valor, NotasInternas)"
-                + " VALUES (?, ?, ?, ?)";
-
-        String sql2 = "";
-        //Cria um statement para execução de instruções SQL
-        PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
-        PreparedStatement preparedStatement2 = null;
-        try {
-            //Configura os parâmetros do "PreparedStatement"
-            preparedStatement1.setInt(1, venda.getIdCliente());
-            preparedStatement1.setString(2, venda.getFormaPagamento());
-            preparedStatement1.setFloat(3, venda.getValor());
-            preparedStatement1.setString(4, venda.getNotasInternas());
-
-            //Executa o comando no banco de dados
-            preparedStatement1.executeUpdate();
-
-            String query1 = "SELECT max(id) id FROM Venda";
+            
+            String query1 = "SELECT max(id) as CODIGO FROM Venda";
             Statement st = connection.createStatement();
             ResultSet resultSet = st.executeQuery(query1);
-
+            
+            resultSet.next();
+            
+            int id = resultSet.getInt("CODIGO");
+            
             for (ItemVenda item : venda.getItensVenda()) {
                 sql2 = "INSERT INTO itensVenda (idProduto, idVenda, QtVendida, ValorTotal, ValorUnitario)"
                         + " VALUES (?, ?, ?, ?, ?)";
@@ -97,7 +63,7 @@ public class VendaDAO {
                 preparedStatement2 = connection.prepareStatement(sql2);
 
                 preparedStatement2.setString(1, item.getIdProduto());
-                preparedStatement2.setInt(2, resultSet.getInt("id"));
+                preparedStatement2.setInt(2, id);
                 preparedStatement2.setInt(3, item.getQtVendida());
                 preparedStatement2.setDouble(4, item.getValorTotal());
                 preparedStatement2.setDouble(5, item.getValorUnitario());
@@ -105,6 +71,7 @@ public class VendaDAO {
                 //Executa o comando no banco de dados
                 preparedStatement2.executeUpdate();
             }
+
         } finally {
             //Se o statement ainda estiver aberto, realiza seu fechamento
             if (preparedStatement1 != null && !preparedStatement1.isClosed()) {
@@ -120,6 +87,63 @@ public class VendaDAO {
             }
         }
     }
+
+//    public void inserir(Venda venda)
+//            throws SQLException, Exception {
+//        connection = DbUtil.getConnection();
+//        ArrayList<ItemVenda> itens = new ArrayList<ItemVenda>();
+//        //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
+//        String sql1 = "INSERT INTO Venda (idCliente, FormaPagamento, Valor, NotasInternas)"
+//                + " VALUES (?, ?, ?, ?)";
+//
+//        String sql2 = "";
+//        //Cria um statement para execução de instruções SQL
+//        PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
+//        PreparedStatement preparedStatement2 = null;
+//        try {
+//            //Configura os parâmetros do "PreparedStatement"
+//            preparedStatement1.setInt(1, venda.getIdCliente());
+//            preparedStatement1.setString(2, venda.getFormaPagamento());
+//            preparedStatement1.setFloat(3, venda.getValor());
+//            preparedStatement1.setString(4, venda.getNotasInternas());
+//
+//            //Executa o comando no banco de dados
+//            preparedStatement1.executeUpdate();
+//
+//            String query1 = "SELECT max(id) id FROM Venda";
+//            Statement st = connection.createStatement();
+//            ResultSet resultSet = st.executeQuery(query1);
+//
+//            for (ItemVenda item : venda.getItensVenda()) {
+//                sql2 = "INSERT INTO itensVenda (idProduto, idVenda, QtVendida, ValorTotal, ValorUnitario)"
+//                        + " VALUES (?, ?, ?, ?, ?)";
+//
+//                preparedStatement2 = connection.prepareStatement(sql2);
+//
+//                preparedStatement2.setString(1, item.getIdProduto());
+//                preparedStatement2.setInt(2, resultSet.getInt("id"));
+//                preparedStatement2.setInt(3, item.getQtVendida());
+//                preparedStatement2.setDouble(4, item.getValorTotal());
+//                preparedStatement2.setDouble(5, item.getValorUnitario());
+//
+//                //Executa o comando no banco de dados
+//                preparedStatement2.executeUpdate();
+//            }
+//        } finally {
+//            //Se o statement ainda estiver aberto, realiza seu fechamento
+//            if (preparedStatement1 != null && !preparedStatement1.isClosed()) {
+//                preparedStatement1.close();
+//            }
+//
+//            if (preparedStatement2 != null && !preparedStatement2.isClosed()) {
+//                preparedStatement2.close();
+//            }
+//            //Se a conexão ainda estiver aberta, realiza seu fechamento
+//            if (connection != null && !connection.isClosed()) {
+//                connection.close();
+//            }
+//        }
+//    }
 
     public void alterar(Venda venda)
             throws SQLException, Exception {
@@ -220,6 +244,7 @@ public class VendaDAO {
                 venda.setFormaPagamento(resultSet.getString("FormaPagamento"));
                 venda.setNotasInternas(resultSet.getString("NotasInternas"));
                 venda.setCliente(cli.getClienteById(resultSet.getInt("idCliente")));
+                venda.setData(resultSet.getString("data"));
 
                 String query2 = "SELECT * FROM ItensVenda WHERE idVenda = " + venda.getId();
                 ResultSet resultSetItens = st.executeQuery(query2);
@@ -264,6 +289,7 @@ public class VendaDAO {
                 venda.setFormaPagamento(resultSet.getString("FormaPagamento"));
                 venda.setNotasInternas(resultSet.getString("NotasInternas"));
                 venda.setCliente(cli.getClienteById(resultSet.getInt("idCliente")));
+                venda.setData(resultSet.getString("data"));
                 
                 String query2 = "SELECT * FROM ItensVenda WHERE idVenda = " + venda.getId();
                 ResultSet resultSetItens = preparedStatement.executeQuery(query2);

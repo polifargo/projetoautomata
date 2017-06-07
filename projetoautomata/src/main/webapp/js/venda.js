@@ -14,8 +14,12 @@ $(function () {
         let quantidade = $("#quantidadeVenda").val();
         let valorVenda = $("#valorUnitario").val();
         let valorTotal = valorVenda * quantidade;
-        $('#table').append('<tr><td>' + produto + '</td><td>' + quantidade + '</td><td>' + valorVenda + '</td>\n\
-<td class="valorTotalUni">' + valorTotal + '</td></tr>');
+        $('#table').append('<tr>\n\
+                                <td><input type="hidden" name="idProduto" class="form-control" type="text" value="' + produto + '"/>' + produto + '</td>\n\
+                                <td><input type="hidden" name="prodqt" type="text" value="' + quantidade + '"/>' + quantidade + '</td>\n\
+                                <td><input type="hidden" name="valorVenda" class="form-control" type="text" value="' + valorVenda + '"/>' + valorVenda + '</td>\n\
+                                <td class="valorTotalUni"><input type="hidden" name="valorTotal" class="form-control" type="text" value="' + valorTotal + '"/>' + valorTotal + '</td>\n\
+                            </tr>');
         
         var sum = 0;
         
