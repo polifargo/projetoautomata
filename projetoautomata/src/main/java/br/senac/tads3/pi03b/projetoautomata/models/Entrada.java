@@ -1,15 +1,19 @@
 package br.senac.tads3.pi03b.projetoautomata.models;
 
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author alef.rmendes
  */
 public class Entrada {
+
     private String id;
     private String idProduto;
     private String idUnidade;
-    private String dataEntrada;
-    private int quantidade;
+    private double quantidade;
 
     public String getId() {
         return id;
@@ -35,21 +39,12 @@ public class Entrada {
         this.idUnidade = idUnidade;
     }
 
-    public String getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(String dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
-
-    public int getQuantidade() {
+    public double getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(double quantidade) {
         this.quantidade = quantidade;
     }
-    
-    
+
 }
