@@ -35,6 +35,7 @@ public class VendaServlet extends HttpServlet {
     private UnidadeDAO daoUnidades;
     private VendaDAO daoVenda;
     public static final String LIST = "WEB-INF/jsp/realizar_venda.jsp";
+    public static final String HOME = "inicio";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,10 +44,14 @@ public class VendaServlet extends HttpServlet {
         daoProdutos = new ProdutoDAO();
         daoClientes = new ClienteDAO();
         daoUnidades = new UnidadeDAO();
+        
+        Venda venda = new Venda();
+        
         try {
             request.setAttribute("clientes", daoClientes.getListaClientes());
             request.setAttribute("produtos", daoProdutos.getListaProdutos());
             request.setAttribute("unidades", daoUnidades.getListaUnidades());
+            request.setAttribute("venda", venda);
         } catch (SQLException ex) {
             Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -63,13 +68,30 @@ public class VendaServlet extends HttpServlet {
             throws ServletException, IOException {
         Venda venda = new Venda();
         ItemVenda item = new ItemVenda();
+        
         venda.setIdCliente(Integer.parseInt(request.getParameter("cliente")));
         venda.setTecnico(request.getParameter("tecnico"));
         venda.setUnidade(request.getParameter("unidade"));
         venda.setFormaPagamento(request.getParameter("formapagamento"));
         venda.setData(request.getParameter("data"));
         venda.setNotasInternas(request.getParameter("notasInternas"));
-
+        
+        String[] idProduto = request.getParameterValues("idProduto");
+        String[] prodqt = request.getParameterValues("prodqt");
+        String[] valorVenda = request.getParameterValues("valorVenda");
+        String[] valorTotal = request.getParameterValues("valorTotal");
+        
+        for (int i = 0; i < idProduto.length; i++) {
+            item = new ItemVenda();
+            
+            item.setIdProduto(idProduto[i]);
+            item.setQtVendida(Integer.parseInt(prodqt[i]));
+            item.setValorUnitario(Double.parseDouble(valorVenda[i]));
+            item.setValorTotal(Double.parseDouble(valorTotal[i]));
+            
+            venda.setItem(item);
+        }
+        
         daoVenda = new VendaDAO();
         String id = request.getParameter("id");
         try {
@@ -77,7 +99,8 @@ public class VendaServlet extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        RequestDispatcher view = request.getRequestDispatcher(LIST);
+        
+        RequestDispatcher view = request.getRequestDispatcher(HOME);
         view.forward(request, response);
     }
 }

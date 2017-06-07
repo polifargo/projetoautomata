@@ -35,12 +35,12 @@
                         </tr>
                         <c:forEach items="${venda}" var="venda">
                             <tr>
-                                <td><c:out value="${venda.cliente.nome}" /></td>
-                                <td><c:out value="${venda.unidade}" /></td>
-                                <td><c:out value="${venda.data}" /></td>
-                                <td><c:out value="${venda.formaPagamento}" /></td>
-                                <td><c:out value="${venda.valor}" /></td>
-                                <td><c:out value="${venda.notasInternas}" /></td>
+                                <td><c:out value="${venda.cliente.nome}"/></td>
+                                <td><c:out value="${venda.unidade}"/></td>
+                                <td><c:out value="${venda.data}"/></td>
+                                <td><c:out value="${venda.formaPagamento}"/></td>
+                                <td><c:out value="${venda.valor}"/></td>
+                                <td><c:out value="${venda.notasInternas}"/></td>
                             </tr>
                         </c:forEach>
                         <div class="col-sm-4">

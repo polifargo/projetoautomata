@@ -27,7 +27,7 @@
             <fieldset class="form-group">
                 <div class="form-group row">
                     <input class="form-control" type="hidden"
-                           name="id" value="<c:out value="${venda.Id}" />"
+                           name="id" value="<c:out value="${venda.id}" />"
                            readonly="readonly"  placeholder="Venda ID" />
                 </div>
                 <div class="form-group row">
@@ -40,15 +40,6 @@
                         </select>
                     </div>
                     <div class="col-sm-4">
-                        <label for="vendatecnico">Tecnico</label> 
-                        <select name="tecnico" class="form-control">
-                            <option value="none">Sem Tecnico</option>
-                            <option value="Carlos">Carlos</option>
-                            <option value="Vitor">Vitor</option>
-                            <option value="Renato">Renato</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
                         <label for="vendaunidade">Unidade</label> 
                         <select name="unidade" required class="form-control">
                             <c:forEach var="unidade" items="${unidades}">
@@ -57,7 +48,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row" style="width:2000px">
                     <div class="col-sm-2">
                         <label for="vendaproduto">Produtos</label>
                         <select id="produto" name="produto" class="form-control">
@@ -73,22 +64,11 @@
                     </div>
                     <div class="col-sm-1">
                         <label for="vendaquantidade">Quantidade</label>
-                        <input min='1' value='1' class="form-control" type="number" id="quantidadeVenda" name="quantidade"/>
+                        <input min='1' value='1' class="form-control" type="number" id="quantidadeVenda" name="quantidade" style="width:75px"/>
                     </div>
                     <div class="col-sm-2">
                         <label for="vendaadicionar">Insira no carrinho</label>
                         <a role="button" id="adicionar" class="btn btn-primary">Adicionar</a>
-                    </div>
-                    <div class="col-sm-5">
-                        <label for="vendacarrinho">Carrinho</label> 
-                        <table id="table" class="table">
-                            <tr>
-                                <th>Produto ID</th>
-                                <th>Quantidade</th>
-                                <th>Valor Unitario</th>
-                                <th class="valorTotal">Valor Total</th>
-                            </tr>
-                        </table>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -119,8 +99,23 @@
                         <input class="form-control" type="textarea"
                                name="notasInternas" placeholder="Notas Internas..." maxlength="1000" />
                     </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <label for="vendacarrinho">Carrinho</label> 
+                        <table id="table" class="table" name="itens">
+                            <tr>
+                                <th>Produto ID</th>
+                                <th>Quantidade</th>
+                                <th>Valor Unitario</th>
+                                <th class="valorTotal">Valor Total</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <div class="col-sm-2">
-                        <input class="form-control text-center" type="submit" value="Completar Venda" />
+                        <input class="form-control" style="width:150px" type="submit" value="Completar Venda" />
                     </div>
                 </div>
             </fieldset>
