@@ -75,7 +75,7 @@
                     <div class="col-sm-4">
                         <label for="vendadata">Data</label> 
                         <input class="form-control" type="date"
-                               name="data" placeholder="Data..." />
+                               name="data" placeholder="Data..." required/>
                     </div>
                     <div class="col-sm-4">
                         <label for="vendaformapagamento">Forma de Pagamento</label> 

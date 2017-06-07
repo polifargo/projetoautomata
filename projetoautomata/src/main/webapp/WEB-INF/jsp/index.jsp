@@ -51,13 +51,13 @@
                 </c:when>
                 <c:when test="${sessionScope.usuario.papel == 'MEDIO'}">
                     <div class="abasItem cadastro">Consulta</div>
-                    <div class="abasItem servico">Servico</div>
+                    <div class="abasItem servico">Serviço</div>
                     <div class="abasItem estoque">Estoque</div>
                 </c:when>
                 <c:otherwise>
                     <div class="abasItem venda">Venda</div>
                     <div class="abasItem cadastro">Consulta</div>
-                    <div class="abasItem servico">Servico</div>
+                    <div class="abasItem servico">Serviço</div>
                     <div class="abasItem estoque">Estoque</div>
                 </c:otherwise>
             </c:choose>
@@ -82,13 +82,13 @@
                         <a href="produtos">Produtos</a>
                     </div>
                     <div class="telasItem servico" style="display:none;">
-                        <a href="servicos">Servicos</a>
+                        <a href="servicos">Serviços</a>
                     </div>
                     <div class="telasItem estoque" style="display:none;">
                         <a href="estoque">Estoque</a>
                     </div>
                 </c:when>
-
+                
                 <c:otherwise>
                     <div class="telasItem cadastro" style="display:none;">
                         <a href="clientes">Clientes</a>
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="telasItem servico" style="display:none;">
-                        <a href="servicos">Servicos</a>
+                        <a href="servicos">Serviços</a>
                     </div>
 
                     <div class="telasItem servico" style="display:none;">

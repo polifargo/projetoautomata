@@ -62,6 +62,7 @@
                 </c:otherwise>
             </c:choose>
         </div>
+
         <div class="telas">
             <c:choose>
                 <c:when test="${sessionScope.usuario.papel == 'BASICO'}">
