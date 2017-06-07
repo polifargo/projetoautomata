@@ -37,7 +37,7 @@
                     <div class="col-sm-2">
                         <label for="produtounidade">Unidade</label> 
                         <input class="form-control" type="text"
-                               name="unidade" value="<c:out value="${produto.unidade}" />"
+                               name="idUnidade" value="<c:out value="${produto.idUnidade}" />"
                                readonly="readonly" placeholder="Unidade..."/>
                     </div>
                     <div class="col-sm-2">

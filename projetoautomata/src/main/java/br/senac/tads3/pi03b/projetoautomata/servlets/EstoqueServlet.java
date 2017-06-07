@@ -82,7 +82,7 @@ public class EstoqueServlet extends HttpServlet {
 
         Entrada entrada = new Entrada();
         entrada.setIdProduto(request.getParameter("id"));
-        entrada.setIdUnidade(request.getParameter("unidade"));
+        entrada.setIdUnidade(request.getParameter("idUnidade"));
         entrada.setQuantidade(Double.parseDouble(func.tiraNaoNumero(request.getParameter("quantidade"))));
 
         daoE = new EntradaDAO();

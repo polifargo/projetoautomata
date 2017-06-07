@@ -14,7 +14,7 @@ public class Venda {
     private int Id;
     private Cliente cliente;
     private int idCliente;
-    private float valor;
+    private double valor;
     private String tecnico;
     private String unidade;
     private String formaPagamento;
@@ -37,11 +37,11 @@ public class Venda {
         this.unidade = unidade;
     }
 
-    public float getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 

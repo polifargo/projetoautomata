@@ -43,7 +43,7 @@
                         <label for="vendaunidade">Unidade</label> 
                         <select name="unidade" required class="form-control">
                             <c:forEach var="unidade" items="${unidades}">
-                                <option value="${unidade.fantasia}">${unidade.fantasia}</option>
+                                <option value="${unidade.id}">${unidade.fantasia}</option>
                             </c:forEach>
                         </select>
                     </div>

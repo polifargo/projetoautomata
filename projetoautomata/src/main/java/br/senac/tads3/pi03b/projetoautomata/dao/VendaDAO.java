@@ -30,8 +30,8 @@ public class VendaDAO {
         connection = DbUtil.getConnection();
         ArrayList<ItemVenda> itens = new ArrayList<ItemVenda>();
         //Monta a string de inserção de um cliente no BD, utilizando os dados do clientes passados como parâmetro
-        String sql1 = "INSERT INTO Venda (idCliente, FormaPagamento, Data, Valor, NotasInternas)"
-                + " VALUES (?, ?, ?, ?, ?)";
+        String sql1 = "INSERT INTO Venda (idCliente, FormaPagamento, Data, Valor, NotasInternas, idUnidade)"
+                + " VALUES (?, ?, ?, ?, ?, ?)";
 
         String sql2 = "";
         //Cria um statement para execução de instruções SQL
@@ -42,9 +42,19 @@ public class VendaDAO {
             preparedStatement1.setInt(1, venda.getIdCliente());
             preparedStatement1.setString(2, venda.getFormaPagamento());
             preparedStatement1.setString(3, venda.getData());
-            preparedStatement1.setFloat(4, venda.getValor());
             preparedStatement1.setString(5, venda.getNotasInternas());
-
+            preparedStatement1.setString(6, venda.getUnidade());
+            
+            double valor = 0;
+            
+            for (ItemVenda item : venda.getItensVenda()) {
+                valor += item.getValorTotal();
+            }
+            
+            venda.setValor(valor);
+            
+            preparedStatement1.setDouble(4, venda.getValor());
+            
             //Executa o comando no banco de dados
             preparedStatement1.executeUpdate();
             
@@ -236,18 +246,25 @@ public class VendaDAO {
         String query1 = "SELECT * FROM Venda ORDER BY DATA";
         try {
             Statement st = connection.createStatement();
-            ResultSet resultSet = st.executeQuery(query1);
-            while (resultSet.next()) {
+            ResultSet resultVenda = st.executeQuery(query1);
+            while (resultVenda.next()) {
                 Venda venda = new Venda();
-                venda.setId(resultSet.getInt("id"));
-                venda.setIdCliente(resultSet.getInt("idCliente"));
-                venda.setFormaPagamento(resultSet.getString("FormaPagamento"));
-                venda.setNotasInternas(resultSet.getString("NotasInternas"));
-                venda.setCliente(cli.getClienteById(resultSet.getInt("idCliente")));
-                venda.setData(resultSet.getString("data"));
-
+                venda.setId(resultVenda.getInt("id"));
+                venda.setIdCliente(resultVenda.getInt("idCliente"));
+                venda.setFormaPagamento(resultVenda.getString("FormaPagamento"));
+                venda.setNotasInternas(resultVenda.getString("NotasInternas"));
+                venda.setCliente(cli.getClienteById(resultVenda.getInt("idCliente")));
+                venda.setData(resultVenda.getString("data"));
+                venda.setValor(resultVenda.getDouble("valor"));
+                venda.setUnidade(resultVenda.getString("idUnidade"));
+                
+                listaVenda.add(venda);
+            }
+            
+            for(Venda venda : listaVenda){
                 String query2 = "SELECT * FROM ItensVenda WHERE idVenda = " + venda.getId();
-                ResultSet resultSetItens = st.executeQuery(query2);
+                Statement st2 = connection.createStatement();
+                ResultSet resultSetItens = st2.executeQuery(query2);
 
                 ArrayList<ItemVenda> itensVenda = new ArrayList<>();
 
@@ -255,17 +272,16 @@ public class VendaDAO {
                     ItemVenda ite = new ItemVenda();
 
                     ite.setId(resultSetItens.getInt("Id"));
-                    ite.setIdProduto(resultSet.getString("idProduto"));
-                    ite.setIdVenda(resultSet.getInt("idVenda"));
-                    ite.setQtVendida(resultSet.getInt("QtVendida"));
-                    ite.setValorTotal(resultSet.getDouble("ValorTotal"));
-                    ite.setValorUnitario(resultSet.getDouble("ValorUnitario"));
+                    ite.setIdProduto(resultSetItens.getString("idProduto"));
+                    ite.setIdVenda(resultSetItens.getInt("idVenda"));
+                    ite.setQtVendida(resultSetItens.getInt("QtVendida"));
+                    ite.setValorTotal(resultSetItens.getDouble("ValorTotal"));
+                    ite.setValorUnitario(resultSetItens.getDouble("ValorUnitario"));
 
                     itensVenda.add(ite);
                 }
-
+                
                 venda.setItens(itensVenda);
-                listaVenda.add(venda);
             }
         } catch (Exception e) {
             e.printStackTrace();
